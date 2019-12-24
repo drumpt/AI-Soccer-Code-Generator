@@ -1,0 +1,57 @@
+html, body, #blocklyDiv {
+    border: 1;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+p {
+  margin: 15px 0px;
+  height: 60px;
+  line-height: 60px; /* This should match with height for aligning w.r.t. vertical line */
+  font-size: x-large;
+  text-align: center;
+  color: white;
+  background-color: black;
+}
+button {
+  margin: 15px 0px;
+  background:#1f4d79;
+  color:#fff;
+  border:none;
+  text-align: center;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform:translate(-50%, 0%);
+  height:60px;
+  font-size:x-large;
+  padding:0 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+button:hover {
+  background:#fff;
+  color:#1f4d79;
+}
+button:before, button:after {
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #1f4d79;
+  transition:400ms ease all;
+}
+button:after {
+  right:inherit;
+  top:100%;
+  left:0;
+  bottom:0;
+}
+button:hover:before, button:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
