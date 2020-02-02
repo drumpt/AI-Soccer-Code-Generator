@@ -1,0 +1,98 @@
+<xml xmlns="https://developers.google.com/blockly/xml"><block type="factory_base" id="`._g65)GVaGzBb)I#b!(" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="LEFT"/>
+    <field name="NAME">rgb2color</field>
+    <field name="INLINE">EXT</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="tMZc-d)0)_.OOp~$z2mW">
+        <field name="INPUTNAME">RED</field>
+        <field name="ALIGN">RIGHT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="TEnN|gzIH{?]y$Q:][ki">
+            <field name="TEXT">red</field>
+            <next>
+              <block type="field_number" id="2q@TS(,?rABAiY/r),fo">
+                <field name="VALUE">0</field>
+                <field name="FIELDNAME">RED</field>
+                <field name="MIN">0</field>
+                <field name="MAX">256</field>
+                <field name="PRECISION">0</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="s^2%/[]O9N8ms^u5nDz3"/>
+          <block type="type_number" id=":j@M=a%x]NYkA}!.:%]v"/>
+        </value>
+        <next>
+          <block type="input_value" id="[i{;f56Vs6lYQH+#rR`y">
+            <field name="INPUTNAME">GREEN</field>
+            <field name="ALIGN">RIGHT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="Rd,n5ox|S{#sDn9=Hip+">
+                <field name="TEXT">green</field>
+                <next>
+                  <block type="field_number" id="A4xm;=I$HEWvweMGp(*5">
+                    <field name="VALUE">0</field>
+                    <field name="FIELDNAME">GREEN</field>
+                    <field name="MIN">0</field>
+                    <field name="MAX">256</field>
+                    <field name="PRECISION">0</field>
+                  </block>
+                </next>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="DFV.6[5B^OogkY_cU;~D"/>
+              <block type="type_number" id="#AXw{kdEB_XGq$eCS[mI"/>
+            </value>
+            <next>
+              <block type="input_value" id="w8FP6y^DWi|4$.drG6Jm">
+                <field name="INPUTNAME">BLUE</field>
+                <field name="ALIGN">RIGHT</field>
+                <statement name="FIELDS">
+                  <block type="field_static" id="lad3efQ*myL|+l~RlNHS">
+                    <field name="TEXT">blue</field>
+                    <next>
+                      <block type="field_number" id="z2-4P?o#WncTV,Ae?jc]">
+                        <field name="VALUE">0</field>
+                        <field name="FIELDNAME">BLUE</field>
+                        <field name="MIN">0</field>
+                        <field name="MAX">256</field>
+                        <field name="PRECISION">0</field>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <value name="TYPE">
+                  <shadow type="type_null" id="eQCc-M^{|HI7/u^cow!@"/>
+                  <block type="type_number" id="KSip`L.ZuuZK]BY834hO"/>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="ftHoodgnoeUF7JhqPrmi" deletable="false" movable="false">
+        <field name="TEXT"/>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="Tl2q3@*yB9BB)1.!W@Jb" deletable="false" movable="false">
+        <field name="TEXT"/>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="B-p^*cm;BB}xK7A(u-R["/>
+      <block type="type_null" id="Jn%3qDuV5y}OXvc5fRW["/>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="!Jwl3EW9Kq($zq#FR;ja">
+        <mutation colour="#a56d5b"/>
+        <field name="HUE">15</field>
+      </block>
+    </value>
+  </block></xml>
