@@ -44,6 +44,39 @@ goog.require('Blockly.FieldVariable');
 Blockly.Constants.Math.HUE = 230;
 
 Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
+  {
+    "type": "distance",
+    "message0": "distance %1 x1 %2 x2 %3 y1 %4 y2 %5",
+    "args0": [
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "input_value",
+        "name": "x1",
+        "check": "Number"
+      },
+      {
+        "type": "input_value",
+        "name": "x2",
+        "check": "Number"
+      },
+      {
+        "type": "input_value",
+        "name": "y1",
+        "check": "Number"
+      },
+      {
+        "type": "input_value",
+        "name": "y2",
+        "check": "Number"
+      }
+    ],
+    "inputsInline": true,
+    "output": "Number",
+    "tooltip": "",
+    "helpUrl": ""
+  },
   // Block for numeric value.
   {
     "type": "math_number",

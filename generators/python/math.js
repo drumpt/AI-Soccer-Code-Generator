@@ -29,6 +29,16 @@ goog.require('Blockly.Python');
 // If any new block imports any library, add that library name here.
 Blockly.Python.addReservedWords('math,random,Number');
 
+Blockly.Python['distance'] = function(block) {
+  var value_x1 = Blockly.Python.valueToCode(block, 'x1', Blockly.Python.ORDER_ATOMIC);
+  var value_x2 = Blockly.Python.valueToCode(block, 'x2', Blockly.Python.ORDER_ATOMIC);
+  var value_y1 = Blockly.Python.valueToCode(block, 'y1', Blockly.Python.ORDER_ATOMIC);
+  var value_y2 = Blockly.Python.valueToCode(block, 'y2', Blockly.Python.ORDER_ATOMIC);
+  // var code = Math.sqrt(Math.pow(value_x1 - value_x2, 2) + Math.pow(value_y1 - value_y2, 2));
+  var code = helper.distance(value_x1, value_x2, value_y1, value_y2);
+  return [code, Blockly.Python.ORDER_NONE];
+};
+
 Blockly.Python['math_number'] = function(block) {
   // Numeric value.
   var code = Number(block.getFieldValue('NUM'));

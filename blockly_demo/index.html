@@ -17,8 +17,8 @@
   <img src="field_region_names.png" style="margin-left: auto; margin-right:auto; display:block; max-width: 30%; height:auto	;">
 
 	<!-- for split screen into block part and code part -->
-	<div class='codeContainer'>
-		<div id="blocklyDiv" style="height: 600px; width: 55%; border: 0.5px solid #DDDDDD;" onchange="showCode();">
+	<div class='codeContainer' id='codeContainer'>
+		<div id="blocklyDiv" style="height: 600px; width: 67%; border: 0.5px solid #DDDDDD;" onchange="showCode();">
 			<xml xmlns="https://developers.google.com/blockly/xml" id="startBlocks" style="display:none;">
 				<block type="controls_if" inline="false" x="20" y="20">
 					<mutation else="1"></mutation>
@@ -69,7 +69,7 @@
 			</xml>
 		</div>
 
-		<div id="blocklyText" style="height: auto; width: 45%; border: 1px solid #DDDDDD; padding: 10px">
+		<div id="blocklyText" style="height: auto; width: 33%; border: 1px solid #DDDDDD; padding: 10px">
 			<h1><span>Generated Python Code</span></h1>
 			<pre translate="no" dir="ltr"></pre>
 		</div>
@@ -100,7 +100,7 @@
 				var code = document.createTextNode(Blockly.Python.workspaceToCode(workspacePlayground));
 				codeHolder.appendChild(code);
 				codeDiv.replaceChild(codeHolder, codeDiv.lastElementChild);
-				prettyPrint();
+				// prettyPrint();
 			}
 			workspacePlayground.addChangeListener(showCode);
 		</script>
