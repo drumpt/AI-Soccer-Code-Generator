@@ -44,6 +44,237 @@ goog.require('Blockly.FieldVariable');
 Blockly.Constants.Math.HUE = 230;
 
 Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
+
+  // Block for environment constants that are just a number
+  {
+    "type": "env_variables",
+    "message0": "%1",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "CONSTANT",
+        "options": [
+          ["robot_id", "ROBOT_ID"],
+          ["idx", "IDX"],
+          ["idx_opp", "IDX_OPP"],
+          ["attack_angle", "ATTACK_ANGLE"],
+          ["defense_angle", "DEFENSE_ANGLE"],
+          ["max_linear_velocity", "MAX_LINEAR_VELOCITY"]
+        ]
+      }
+    ],
+    "output": "Number",
+    "style": "math_blocks",
+    "tooltip": "%{BKY_MATH_CONSTANT_TOOLTIP}",
+    "helpUrl": "%{BKY_MATH_CONSTANT_HELPURL}"
+  },
+
+  // Block for environment variables that are arrays.
+  {
+    "type": "env_variables_1d",
+    "message0": "%1 %2",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "OP",
+        "options": [
+          ["cur_ball", "CUR_BALL"],
+          ["predicted_ball", "PREDICTED_BALL"]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "NUM",
+        "check": "Number"
+      }
+    ],
+    "output": "Number",
+    "style": "math_blocks",
+    "helpUrl": "%{BKY_MATH_TRIG_HELPURL}",
+    "extensions": ["math_op_tooltip"]
+  },
+
+  // Block for environment variables that are 2-d arrays.
+  {
+    "type": "env_variables_2d",
+    "message0": "%1 %2 %3",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "OP",
+        "options": [
+          ["cur_posture", "CUR_POSTURE"],
+          ["cur_posture_opp", "CUR_POSTURE_OPP"]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "NUM1",
+        "check": "Number"
+      },
+      {
+        "type": "input_value",
+        "name": "NUM2",
+        "check": "Number"
+      }
+    ],
+    "output": "Number",
+    "style": "math_blocks",
+    "helpUrl": "%{BKY_MATH_TRIG_HELPURL}",
+    "extensions": ["math_op_tooltip"]
+  },
+
+  // Block for environment constants that are just a number
+  {
+    "type": "env_constant_noindex",
+    "message0": "%1",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "CONSTANT",
+        "options": [
+          ["robot_size", "ROBOT_SIZE"],
+          ["max_linear_velocity", "MAX_LINEAR_VELOCITY"]
+        ]
+      }
+    ],
+    "output": "Number",
+    "style": "math_blocks",
+    "tooltip": "%{BKY_MATH_CONSTANT_TOOLTIP}",
+    "helpUrl": "%{BKY_MATH_CONSTANT_HELPURL}"
+  },
+
+  // Block for environment constants that are arrays.
+  {
+    "type": "env_constant_index",
+    "message0": "%1 %2",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "OP",
+        "options": [
+          ["field", "FIELD"],
+          ["goal", "GOAL"],
+          ["penalty_area", "PENALTY_AREA"],
+          ["goal_area", "GOAL_AREA"]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "NUM",
+        "check": "Number"
+      }
+    ],
+    "output": "Number",
+    "style": "math_blocks",
+    "helpUrl": "%{BKY_MATH_TRIG_HELPURL}",
+    "extensions": ["math_op_tooltip"]
+  },
+
+  // Block for coordinates constants in robot soccer:
+  // MY_TEAM = 0
+  // OP_TEAM = 1
+  // BALL = 2
+  // X = 0
+  // Y = 1
+  // TH = 2
+  // ACTIVE = 3
+  // TOUCH = 4
+  {
+    "type": "env_coordinates_index",
+    "message0": "%1",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "CONSTANT",
+        "options": [
+          ["MY_TEAM", "MY_TEAM"],
+          ["OP_TEAM", "OP_TEAM"],
+          ["BALL", "BALL"],
+          ["X", "X"],
+          ["Y", "YD"],
+          ["TH", "TH"],
+          ["ACTIVE", "ACTIVE"],
+          ["TOUCH", "TOUCH"]
+        ]
+      }
+    ],
+    "output": "Number",
+    "style": "math_blocks",
+    "tooltip": "%{BKY_MATH_CONSTANT_TOOLTIP}",
+    "helpUrl": "%{BKY_MATH_CONSTANT_HELPURL}"
+  },  
+
+  // Block for game_state constants in robot soccer:
+  // STATE_DEFAULT = 0
+  // STATE_BACKPASS = 1
+  // STATE_GOALKICK = 2
+  // STATE_CORNERKICK = 3
+  // STATE_PENALTYKICK = 4
+  {
+    "type": "env_gamestate_index",
+    "message0": "%1",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "CONSTANT",
+        "options": [
+          ["STATE_DEFAULT", "STATE_DEFAULT"],
+          ["STATE_BACKPASS", "STATE_BACKPASS"],
+          ["STATE_GOALKICK", "STATE_GOALKICK"],
+          ["PENALTYKICK", "PENALTYKICK"],
+          ["STATE_CORNERKICK", "STATE_CORNERKICK"]
+        ]
+      }
+    ],
+    "output": "Number",
+    "style": "math_blocks",
+    "tooltip": "%{BKY_MATH_CONSTANT_TOOLTIP}",
+    "helpUrl": "%{BKY_MATH_CONSTANT_HELPURL}"
+  },
+
+  // Block for reset_reason constants in robot soccer:
+  // NONE = 0
+  // GAME_START = 1
+  // SCORE_MYTEAM = 2
+  // SCORE_OPPONENT = 3
+  // GAME_END = 4
+  // DEADLOCK = 5
+  // GOALKICK = 6
+  // CORNERKICK = 7
+  // PENALTYKICK = 8
+  // HALFTIME = 9
+  // EPISODE_END = 10
+  {
+    "type": "env_resetreason_index",
+    "message0": "%1",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "CONSTANT",
+        "options": [
+          ["NONE", "NONE"],
+          ["GAME_START", "GAME_START"],
+          ["SCORE_MYTEAM", "SCORE_MYTEAM"],
+          ["SCORE_OPPONENT", "SCORE_OPPONENT"],
+          ["GAME_END", "GAME_END"],
+          ["DEADLOCK", "DEADLOCK"],
+          ["GOALKICK", "GOALKICK"],
+          ["GAME_START", "GAME_START"],
+          ["CORNERKICK", "CORNERKICK"],
+          ["PENALTYKICK", "PENALTYKICK"],
+          ["HALFTIME", "HALFTIME"],
+          ["EPISODE_END", "EPISODE_END"]
+        ]
+      }
+    ],
+    "output": "Number",
+    "style": "math_blocks",
+    "tooltip": "%{BKY_MATH_CONSTANT_TOOLTIP}",
+    "helpUrl": "%{BKY_MATH_CONSTANT_HELPURL}"
+  },  
+
+  // Block for distance
   {
     "type": "distance",
     "message0": "distance %1 x1 %2 x2 %3 y1 %4 y2 %5",
