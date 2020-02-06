@@ -29,6 +29,144 @@ goog.require('Blockly.Python');
 // If any new block imports any library, add that library name here.
 Blockly.Python.addReservedWords('math,random,Number');
 
+Blockly.Python['env_variables'] = function(block) {
+  // Variables: robot_id, idx, idx_opp, attack_angle, defense_angle.
+  var CONSTANTS = {
+    'robot_id': ['ROBOT_ID', Blockly.Python.ORDER_MEMBER],
+    'idx': ['IDX', Blockly.Python.ORDER_MEMBER],
+    'idx_opp': ['IDX_OPP', Blockly.Python.ORDER_MEMBER],
+    'attack_angle': ['ATTACK_ANGLE', Blockly.Python.ORDER_MEMBER],
+    'defense_angle': ['DEFENSE_ANGLE', Blockly.Python.ORDER_MEMBER]
+  };
+  var constant = block.getFieldValue('CONSTANT');
+  return CONSTANTS[constant];
+};
+
+Blockly.Python['env_variables_1d'] = function(block) {
+  // Math operators with single operand.
+  var operator = block.getFieldValue('OP');
+  var code;
+  var arg;
+  arg = Blockly.Python.valueToCode(block, 'NUM', Blockly.Python.ORDER_NONE);
+  switch (operator) {
+    case 'CUR_BALL':
+      code = 'cur_ball[' + arg + ']';
+      break;
+    case 'PREDICTED_BALL':
+      code = 'predicted_ball[' + arg + ']';
+      break;
+  }
+  if (code) {
+    return [code, Blockly.Python.ORDER_FUNCTION_CALL];
+  }
+};
+
+Blockly.Python['env_variables_2d'] = function(block) {
+  // Math operators with single operand.
+  var operator = block.getFieldValue('OP');
+  var code;
+  var arg1;
+  var arg2;
+  arg1 = Blockly.Python.valueToCode(block, 'NUM1', Blockly.Python.ORDER_NONE);
+  arg2 = Blockly.Python.valueToCode(block, 'NUM2', Blockly.Python.ORDER_NONE);
+  switch (operator) {
+    case 'CUR_POSTURE':
+      code = 'self.cur_posture[' + arg1 + ']' + '[' + arg2 + ']';
+      break;
+    case 'CUR_POSTURE_OPP':
+      code = 'self.cur_posture_opp[' + arg1 + ']' + '[' + arg2 + ']';
+      break;
+  }
+  if (code) {
+    return [code, Blockly.Python.ORDER_FUNCTION_CALL];
+  }
+};
+
+Blockly.Python['env_constant_noindex'] = function(block) {
+  // Constants: STATE_DEFAULT, STATE_BACKPASS, STATE_GOALKICK, STATE_CORNERKICK, STATE_PENALTYKICK.
+  var CONSTANTS = {
+    'self.robot_size': ['ROBOT_SIZE', Blockly.Python.ORDER_MEMBER],
+    'self.max_linear_velocity': ['MAX_LINEAR_VELOCITY', Blockly.Python.ORDER_MEMBER]
+  };
+  var constant = block.getFieldValue('CONSTANT');
+  return CONSTANTS[constant];
+};
+
+Blockly.Python['env_constant_index'] = function(block) {
+  // Math operators with single operand.
+  var operator = block.getFieldValue('OP');
+  var code;
+  var arg;
+  arg = Blockly.Python.valueToCode(block, 'NUM', Blockly.Python.ORDER_NONE);
+  switch (operator) {
+    case 'FIELD':
+      code = 'self.field[' + arg + ']';
+      break;
+    case 'GOAL':
+      code = 'self.goal[' + arg + ']';
+      break;
+    case 'PENALTY_AREA':
+      code = 'self.penalty_area[' + arg + ']';
+      break;
+    case 'GOAL_AREA':
+      code = 'self.goal_area[' + arg + ']';
+      break;
+  }
+  if (code) {
+    return [code, Blockly.Python.ORDER_FUNCTION_CALL];
+  }
+};
+
+Blockly.Python['env_coordinates_index'] = function(block) {
+  // Constants: MY_TEAM, OP_TEAM, BALL, X, Y, TH, ACTIVE, TOUCH.
+  var CONSTANTS = {
+    'MY_TEAM': ['MY_TEAM', Blockly.Python.ORDER_MEMBER],
+    'OP_TEAM': ['OP_TEAM', Blockly.Python.ORDER_MEMBER],
+    'BALL': ['BALL',
+                     Blockly.Python.ORDER_MEMBER],
+    'X': ['X', Blockly.Python.ORDER_MEMBER],
+    'Y': ['Y', Blockly.Python.ORDER_MEMBER],
+    'TH': ['TH', Blockly.Python.ORDER_MEMBER],
+    'ACTIVE': ['ACTIVE', Blockly.Python.ORDER_MEMBER],
+    'TOUCH': ['TOUCH', Blockly.Python.ORDER_MEMBER]
+  };
+  var constant = block.getFieldValue('CONSTANT');
+  return CONSTANTS[constant];
+};
+
+Blockly.Python['env_gamestate_index'] = function(block) {
+  // Constants: STATE_DEFAULT, STATE_BACKPASS, STATE_GOALKICK, STATE_CORNERKICK, STATE_PENALTYKICK.
+  var CONSTANTS = {
+    'STATE_DEFAULT': ['STATE_DEFAULT', Blockly.Python.ORDER_MEMBER],
+    'STATE_BACKPASS': ['STATE_BACKPASS', Blockly.Python.ORDER_MEMBER],
+    'STATE_GOALKICK': ['STATE_GOALKICK', Blockly.Python.ORDER_MEMBER],
+    'STATE_CORNERKICK': ['STATE_CORNERKICK', Blockly.Python.ORDER_MEMBER],
+    'STATE_PENALTYKICK': ['STATE_PENALTYKICK', Blockly.Python.ORDER_MEMBER]
+  };
+  var constant = block.getFieldValue('CONSTANT');
+  return CONSTANTS[constant];
+};
+
+Blockly.Python['env_resetreason_index'] = function(block) {
+  // Constants: NONE, GAME_START, SCORE_MYTEAM, SCORE_OPPONENT, GAME_END, DEADLOCK, GOALKICK, CORNERKICK, PENALTYKICK, HALFTIME, EPISODE_END.
+  var CONSTANTS = {
+    'NONE': ['NONE', Blockly.Python.ORDER_MEMBER],
+    'GAME_START': ['GAME_START', Blockly.Python.ORDER_MEMBER],
+    'SCORE_MYTEAM': ['SCORE_MYTEAM',
+                     Blockly.Python.ORDER_MEMBER],
+    'SCORE_OPPONENT': ['SCORE_OPPONENT', Blockly.Python.ORDER_MEMBER],
+    'GAME_END': ['GAME_END', Blockly.Python.ORDER_MEMBER],
+    'DEADLOCK': ['DEADLOCK', Blockly.Python.ORDER_MEMBER],
+    'GOALKICK': ['GOALKICK', Blockly.Python.ORDER_MEMBER],
+    'CORNERKICK': ['CORNERKICK', Blockly.Python.ORDER_MEMBER],
+    'PENALTYKICK': ['PENALTYKICK', Blockly.Python.ORDER_MEMBER],
+    'HALFTIME': ['HALFTIME', Blockly.Python.ORDER_MEMBER],
+    'EPISODE_END': ['EPISODE_END', Blockly.Python.ORDER_MEMBER]
+  };
+  var constant = block.getFieldValue('CONSTANT');
+  return CONSTANTS[constant];
+};
+
 Blockly.Python['math_number'] = function(block) {
   // Numeric value.
   var code = Number(block.getFieldValue('NUM'));

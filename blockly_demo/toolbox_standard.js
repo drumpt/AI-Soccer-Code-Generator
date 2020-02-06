@@ -6,8 +6,19 @@ BLOCKLY_TOOLBOX_XML['standard'] =
 // From XML string/file, replace ^\s?(\s*)?(<.*>)$ with \+$1'$2'
 // Tweak first and last line.
 '<xml xmlns="https://developers.google.com/blockly/xml">'
-+ '<category name="Environment constants" colour="%{BKY_LOGIC_HUE}">' // BKY_LOOPS_HUE는 어디에 정의되어 있을까?
-+   '<block type="controls_if"></block>'
++ '<category name="Environment indexes" colour="%{BKY_LOGIC_HUE}">' // BKY_LOOPS_HUE는 어디에 정의되어 있을까?
++   '<block type="env_resetreason_index"></block>'
++   '<block type="env_gamestate_index"></block>'
++   '<block type="env_coordinates_index"></block>'
++ '</category>'
++ '<category name="Environment constants" colour="%{BKY_LOOPS_HUE}">'
++   '<block type="env_constant_index"></block>'
++   '<block type="env_constant_noindex"></block>'
++ '</category>'
++ '<category name="Environment variables" colour="%{BKY_LOGIC_HUE}">' // BKY_LOOPS_HUE는 어디에 정의되어 있을까?
++   '<block type="env_variables"></block>'
++   '<block type="env_variables_1d"></block>'
++   '<block type="env_variables_2d"></block>'
 + '</category>'
 + '<category name="Environment functions" colour="20">'
 +   '<block type="distance"></block>'
