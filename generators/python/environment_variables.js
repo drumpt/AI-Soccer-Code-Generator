@@ -30,16 +30,11 @@ Blockly.Python.addReservedWords('math,random,Number');
 Blockly.Python['env_variables'] = function(block) {
   // Variables: robot_id, idx, idx_opp, attack_angle, defense_angle.
   var CONSTANTS = {
-    // 'robot_id': ['ROBOT_ID', Blockly.Python.ORDER_MEMBER],
-    // 'idx': ['IDX', Blockly.Python.ORDER_MEMBER],
-    // 'idx_opp': ['IDX_OPP', Blockly.Python.ORDER_MEMBER],
-    // 'attack_angle': ['ATTACK_ANGLE', Blockly.Python.ORDER_MEMBER],
-    // 'defense_angle': ['DEFENSE_ANGLE', Blockly.Python.ORDER_MEMBER]
-    'ROBOT_ID': ['ROBOT_ID', Blockly.Python.ORDER_MEMBER],
-    'IDX': ['IDX', Blockly.Python.ORDER_MEMBER],
-    'IDX_OPP': ['IDX_OPP', Blockly.Python.ORDER_MEMBER],
-    'ATTACK_ANGLE': ['ATTACK_ANGLE', Blockly.Python.ORDER_MEMBER],
-    'DEFENSE_ANGLE': ['DEFENSE_ANGLE', Blockly.Python.ORDER_MEMBER]
+    'ROBOT_ID': ['robot_id', Blockly.Python.ORDER_MEMBER],
+    'IDX': ['idx', Blockly.Python.ORDER_MEMBER],
+    'IDX_OPP': ['idx_opp', Blockly.Python.ORDER_MEMBER],
+    'ATTACK_ANGLE': ['attack_angle', Blockly.Python.ORDER_MEMBER],
+    'DEFENSE_ANGLE': ['defense_angle', Blockly.Python.ORDER_MEMBER]
   };
   var constant = block.getFieldValue('CONSTANT');
   return CONSTANTS[constant];
@@ -58,6 +53,9 @@ Blockly.Python['env_variables_1d'] = function(block) {
     case 'PREDICTED_BALL':
       code = 'predicted_ball[' + arg + ']';
       break;
+  }
+  if (arg.length === 0) {
+    code = code.replace("[", "").replace("]", "");
   }
   if (code) {
     return [code, Blockly.Python.ORDER_FUNCTION_CALL];
@@ -79,6 +77,11 @@ Blockly.Python['env_variables_2d'] = function(block) {
     case 'CUR_POSTURE_OPP':
       code = 'self.cur_posture_opp[' + arg1 + ']' + '[' + arg2 + ']';
       break;
+  }
+  if (arg1.length === 0 || arg2.length === 0) {
+    // code = code.replace("[", "").replace("]", "");
+    if (code.startsWith("self.cur_posture_opp")) code = "self.cur_posture_opp"
+    else code = "self.cur_posture"
   }
   if (code) {
     return [code, Blockly.Python.ORDER_FUNCTION_CALL];

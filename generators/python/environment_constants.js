@@ -34,8 +34,8 @@ Blockly.Python['env_constant_noindex'] = function(block) {
     // 'self.max_linear_velocity': ['MAX_LINEAR_VELOCITY', Blockly.Python.ORDER_MEMBER]
     // 'robot_size': ['ROBOT_SIZE', Blockly.Python.ORDER_MEMBER],
     // 'max_linear_velocity': ['MAX_LINEAR_VELOCITY', Blockly.Python.ORDER_MEMBER]
-    'ROBOT_SIZE': ['ROBOT_SIZE', Blockly.Python.ORDER_MEMBER],
-    'MAX_LINEAR_VELOCITY': ['MAX_LINEAR_VELOCITY', Blockly.Python.ORDER_MEMBER]
+    'ROBOT_SIZE': ['self.robot_size', Blockly.Python.ORDER_MEMBER],
+    'MAX_LINEAR_VELOCITY': ['self.max_linear_velocity', Blockly.Python.ORDER_MEMBER]
   };
   var constant = block.getFieldValue('CONSTANT');
   console.log(constant);
@@ -48,6 +48,9 @@ Blockly.Python['env_constant_index'] = function(block) {
   var code;
   var arg;
   arg = Blockly.Python.valueToCode(block, 'NUM', Blockly.Python.ORDER_NONE);
+  console.log("Hi!");
+  console.log(arg.length);
+  console.log("Hello!");
   switch (operator) {
     case 'FIELD':
       code = 'self.field[' + arg + ']';
@@ -61,6 +64,9 @@ Blockly.Python['env_constant_index'] = function(block) {
     case 'GOAL_AREA':
       code = 'self.goal_area[' + arg + ']';
       break;
+  }
+  if (arg.length === 0) {
+    code = code.replace("[", "").replace("]", "");
   }
   if (code) {
     return [code, Blockly.Python.ORDER_FUNCTION_CALL];
