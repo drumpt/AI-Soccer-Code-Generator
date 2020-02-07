@@ -31,8 +31,6 @@ goog.provide('Blockly.Constants.Environment_functions');
 
 goog.require('Blockly');
 goog.require('Blockly.Blocks');
-// goog.require('Blockly.FieldColour');
-// goog.require('Blockly.FieldLabel');
 
 Blockly.Constants.Environment_functions.HUE = 20;
 
