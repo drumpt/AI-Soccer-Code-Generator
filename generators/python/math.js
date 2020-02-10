@@ -119,13 +119,13 @@ Blockly.Python['math_single'] = function(block) {
       code = 'math.floor(' + arg + ')';
       break;
     case 'SIN':
-      code = 'math.sin(' + arg + ' / 180.0 * math.pi)';
+      code = 'math.sin(' + arg + ')';
       break;
     case 'COS':
-      code = 'math.cos(' + arg + ' / 180.0 * math.pi)';
+      code = 'math.cos(' + arg + ')';
       break;
     case 'TAN':
-      code = 'math.tan(' + arg + ' / 180.0 * math.pi)';
+      code = 'math.tan(' + arg + ')';
       break;
   }
   if (code) {
@@ -135,13 +135,13 @@ Blockly.Python['math_single'] = function(block) {
   // wrapping the code.
   switch (operator) {
     case 'ASIN':
-      code = 'math.asin(' + arg + ') / math.pi * 180';
+      code = 'math.asin(' + arg + ')';
       break;
     case 'ACOS':
-      code = 'math.acos(' + arg + ') / math.pi * 180';
+      code = 'math.acos(' + arg + ')';
       break;
     case 'ATAN':
-      code = 'math.atan(' + arg + ') / math.pi * 180';
+      code = 'math.atan(' + arg + ')';
       break;
     default:
       throw Error('Unknown math operator: ' + operator);
