@@ -11,6 +11,7 @@
   <script src="code.js"></script>
   <script src="msg/js/en.js"></script>
   <script src="toolbox_standard.js"></script>
+  <script src="constants.js"></script>
 </head>
 <body>
   <p>AI World Cup Code Generator - Rule Based System</p>
@@ -842,23 +843,25 @@
 		
 			Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'), workspacePlayground);
 
+			function preprocessCode(rawcode){
+				var code_with_tabs = rawcode.replace(/\n/g, "\n\t\t");
+				return code_with_tabs
+			}
+			
 			function saveCode() {
-				// Generate python script and show it
-				// var code = Blockly.Python.workspaceToCode(workspacePlayground);
-				// var link = document.createElement("a");
-				// link.href = 'data:attachment/text,' + encodeURI(code);
-				// link.target = '_blank';
-				// link.download = "players.py";
-				// link.click();
-
-				var code = Blockly.Xml.workspaceToDom(workspacePlayground);
-				var code_xml = Blockly.Xml.domToPrettyText(code);
-				console.log(code_xml);
-				// var link = document.createElement("a");
-				// link.href = 'data:attachment/text,' + encodeURI(code_xml);
-				// link.target = '_blank';
-				// link.download = "default_code.xml";
-				// link.click();
+				// Generate python script and download it
+				var code = Blockly.Python.workspaceToCode(workspacePlayground);
+				var code_with_tabs = preprocessCode(code);
+				var players_script = PLAYERS_P1.concat(code_with_tabs, PLAYERS_P2)
+				// console.log(newcode);
+				var link = document.createElement("a");
+				var blob = new Blob([players_script], {type: 'text/plain'});
+				// link.href = 'data:attachment/text,' + encodeURI(TEST);
+				link.href = window.URL.createObjectURL(blob);
+				link.id = 'download_link'
+				//link.target = '_blank';
+				link.download = "players.py";
+				link.click();
 			}
 
 			function showCode(event) {
