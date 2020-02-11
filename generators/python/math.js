@@ -80,7 +80,7 @@ Blockly.Python['math_single'] = function(block) {
         Blockly.Python.ORDER_UNARY_SIGN) || '0';
     return ['-' + code, Blockly.Python.ORDER_UNARY_SIGN];
   }
-  Blockly.Python.definitions_['import_math'] = 'import math';
+  // Blockly.Python.definitions_['import_math'] = 'import math';
   if (operator == 'SIN' || operator == 'COS' || operator == 'TAN') {
     arg = Blockly.Python.valueToCode(block, 'NUM',
         Blockly.Python.ORDER_MULTIPLICATIVE) || '0';
@@ -161,9 +161,9 @@ Blockly.Python['math_constant'] = function(block) {
     'INFINITY': ['float(\'inf\')', Blockly.Python.ORDER_ATOMIC]
   };
   var constant = block.getFieldValue('CONSTANT');
-  if (constant != 'INFINITY') {
-    Blockly.Python.definitions_['import_math'] = 'import math';
-  }
+  // if (constant != 'INFINITY') {
+  //   Blockly.Python.definitions_['import_math'] = 'import math';
+  // }
   return CONSTANTS[constant];
 };
 
@@ -175,7 +175,7 @@ Blockly.Python['math_number_property'] = function(block) {
   var dropdown_property = block.getFieldValue('PROPERTY');
   var code;
   if (dropdown_property == 'PRIME') {
-    Blockly.Python.definitions_['import_math'] = 'import math';
+    // Blockly.Python.definitions_['import_math'] = 'import math';
     Blockly.Python.definitions_['from_numbers_import_Number'] =
         'from numbers import Number';
     var functionName = Blockly.Python.provideFunction_(
@@ -323,7 +323,7 @@ Blockly.Python['math_on_list'] = function(block) {
       code = functionName + '(' + list + ')';
       break;
     case 'STD_DEV':
-      Blockly.Python.definitions_['import_math'] = 'import math';
+      // Blockly.Python.definitions_['import_math'] = 'import math';
       var functionName = Blockly.Python.provideFunction_(
           'math_standard_deviation',
           ['def ' + Blockly.Python.FUNCTION_NAME_PLACEHOLDER_ + '(numbers):',
@@ -335,7 +335,7 @@ Blockly.Python['math_on_list'] = function(block) {
       code = functionName + '(' + list + ')';
       break;
     case 'RANDOM':
-      Blockly.Python.definitions_['import_random'] = 'import random';
+      // Blockly.Python.definitions_['import_random'] = 'import random';
       code = 'random.choice(' + list + ')';
       break;
     default:
@@ -369,7 +369,7 @@ Blockly.Python['math_constrain'] = function(block) {
 
 Blockly.Python['math_random_int'] = function(block) {
   // Random integer between [X] and [Y].
-  Blockly.Python.definitions_['import_random'] = 'import random';
+  // Blockly.Python.definitions_['import_random'] = 'import random';
   var argument0 = Blockly.Python.valueToCode(block, 'FROM',
       Blockly.Python.ORDER_NONE) || '0';
   var argument1 = Blockly.Python.valueToCode(block, 'TO',
@@ -380,13 +380,13 @@ Blockly.Python['math_random_int'] = function(block) {
 
 Blockly.Python['math_random_float'] = function(block) {
   // Random fraction between 0 and 1.
-  Blockly.Python.definitions_['import_random'] = 'import random';
+  // Blockly.Python.definitions_['import_random'] = 'import random';
   return ['random.random()', Blockly.Python.ORDER_FUNCTION_CALL];
 };
 
 Blockly.Python['math_atan2'] = function(block) {
   // Arctangent of point (X, Y) in degrees from -180 to 180.
-  Blockly.Python.definitions_['import_math'] = 'import math';
+  // Blockly.Python.definitions_['import_math'] = 'import math';
   var argument0 = Blockly.Python.valueToCode(block, 'X',
       Blockly.Python.ORDER_NONE) || '0';
   var argument1 = Blockly.Python.valueToCode(block, 'Y',

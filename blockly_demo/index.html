@@ -797,8 +797,40 @@
 		
 			Blockly.Xml.domToWorkspace(document.getElementById('default_blocks'), workspacePlayground);
       
-      var default_blocks_gk = Blockly.Xml.textToDom("./default_blocks/default_blocks_gk.html");
-      Blockly.Xml.domToWorkspace(default_blocks_gk, workspace);
+      // let getXMLFile = function(path, callback) {
+      //   let request = new XMLHttpRequest();
+      //   request.open("GET", path);
+      //   request.setRequestHeader("Content-Type", "text/xml");
+      //   request.onreadystatechange == function () {
+      //     if (request.readyState === 4 && request.status === 200) {
+      //       callback(request.responseXML);
+      //     }
+      //   };
+      //   request.send();
+      // }
+
+      // getXMLFile("./default_blocks/default_blocks_gk.xml", function(xml) {
+      //   console.log(xml);
+      // });
+      // var fs = require("fs");
+      // var text = fs.readFileSync("./default_blocks/default_blocks_gk.xml");
+      // var text = fs.readFileSync("./default_blocks/a.txt");
+      // console.log(text);
+      // var xhr = new XMLHttpRequest();
+      // xhr.open('GET', "./default_blocks/default_blocks_gk.xml", true);
+      // xhr.send(null);
+      // xhr.onload = function () {
+      //   var sXML = this.responseXML;
+      //   console.log(sXML);
+      //   console.log(typeof(sXML));
+      //   var default_blocks_gk = Blockly.Xml.textToDom(sXML);
+      //   Blockly.Xml.domToWorkspace(default_blocks_gk, workspacePlayground);
+      // }
+      // xhr.timeout = function (e) {
+        
+      // }
+      // var oSerializer = new XMLSerializer();
+      // var sXML = oSerializer.serializeToString("./default_blocks/default_blocks_gk.xml");
 
 			function saveCode() {
 				// Generate python script and show it
@@ -824,7 +856,7 @@
 			workspacePlayground.addChangeListener(showCode);
 
       // $(function(){
-      //   $("import_default_blocks_gk").load("./default_blocks/default_blocks_gk.html");
+      //   $("import_default_blocks_gk").load("./default_blocks/default_blocks_gk.xml");
       // });
 		</script>
 	</div>

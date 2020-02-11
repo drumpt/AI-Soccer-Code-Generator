@@ -141,6 +141,8 @@ Blockly.Python.ORDER_OVERRIDES = [
  * @param {!Blockly.Workspace} workspace Workspace to generate code from.
  */
 Blockly.Python.init = function(workspace) {
+  // Modify default indent to 4 spaces.
+  Blockly.Python.INDENT = "    ";
   /**
    * Empty loops or conditionals are not allowed in Python.
    */
