@@ -11,6 +11,8 @@
   <script src="code.js"></script>
   <script src="msg/js/en.js"></script>
   <script src="toolbox_standard.js"></script>
+  <script src="constants.js"></script>
+  <script src="default_codes.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
@@ -2051,124 +2053,80 @@
         }
       });
 
-      // const logFileText = async file => {
-      //     const response = await fetch(file)
-      //     const text = await response.text()
-      //     console.log(text)
-      // }
-
-      // logFileText('a.txt')
- 
-      // function readTextFile(file) {
-      //   var rawFile = new XMLHttpRequest();
-      //   rawFile.open("GET", file, false);
-      //   rawFile.onreadystatechange = function () {
-      //       if(rawFile.readyState === 4)
-      //       {
-      //           if(rawFile.status === 200 || rawFile.status == 0)
-      //           {
-      //               var allText = rawFile.responseText;
-      //               alert(allText);
-      //           }
-      //       }
-      //   };
-      //   rawFile.send(null);
-      // }
-
-      // readTextFile("file:///C:/a.txt");
-
       var blocks_gk = Blockly.Xml.domToPrettyText(document.getElementById('default_blocks_gk'));
       var blocks_d1 = Blockly.Xml.domToPrettyText(document.getElementById('default_blocks_d1'));
       // default block을 만들어서 바꾸어야 함. + 파일 분리
       var blocks_d2 = Blockly.Xml.domToPrettyText(document.getElementById('default_blocks_d1'));
       var blocks_f1 = Blockly.Xml.domToPrettyText(document.getElementById('default_blocks_d1'));
       var blocks_f2 = Blockly.Xml.domToPrettyText(document.getElementById('default_blocks_d1'));
-      
+
+	    var code_gk = DEFAULT_GK
+      var code_d1 = DEFAULT_D1
+      var code_d2 = DEFAULT_D2
+      var code_f1 = DEFAULT_F1
+      var code_f2 = DEFAULT_F2
+
       var tablinks = document.getElementsByClassName("tablinks");
       tablinks[0].className += " active";
       var currentRobot = 'GK';
       Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(blocks_gk), workspacePlayground);
       workspacePlayground.addChangeListener(showCode);
 
-      // let getXMLFile = function(path, callback) {
-      //   let request = new XMLHttpRequest();
-      //   request.open("GET", path, false);
-      //   request.setRequestHeader("Content-Type", "text/xml");
-      //   request.onreadystatechange == function () {
-      //     if (request.readyState === 4) {
-      //       if (request.status === 200 || request.status === 0) {
-      //         callback(request.responseXML);
-      //       }
-      //     }
-      //   };
-      //   request.send();
-      // }
+      function preprocessCode(rawcode) {
+        var first_indent = "        ";
+        var code_with_indent = rawcode.replace(/\n/g, "\n        ");
+        var code = first_indent.concat(code_with_indent);
+        return code;
+      }
 
-      // getXMLFile("file:///C:/default_blocks_gk.xml", function(xml) {
-      //   console.log(xml);
-      // });
+      function saveCode() {
+        var strategy_gk = preprocessCode(code_gk);
+        var strategy_d1 = preprocessCode(code_d1);
+        var strategy_d2 = preprocessCode(code_d2);
+        var strategy_f1 = preprocessCode(code_f1);
+        var strategy_f2 = preprocessCode(code_f2);
+        var players_script = PLAYERS_P1.concat(strategy_gk, PLAYERS_P2,
+                          strategy_d1, PLAYERS_P3,
+                          strategy_d2, PLAYERS_P4,
+                          strategy_f1, PLAYERS_P5,
+                          strategy_f2, PLAYERS_P6);
+        // console.log(newcode);
+        var link = document.createElement("a");
+        var blob = new Blob([players_script], {type: 'text/plain'});
+        // link.href = 'data:attachment/text,' + encodeURI(TEST);
+        link.href = window.URL.createObjectURL(blob);
+        link.id = 'download_link'
+        link.download = "players.py";
+        link.click();
+      }
 
-      // function readSingleFile(e) {
-      //   var file = e.target.files[0];
-      //   if (!file) return;
-      //   var reader = new FileReader();
-      //   reader.onload = function(e) {
-      //     var contents = e.target.result;
-      //     console.log(contents);
-      //   };
-      //   reader.readAsText(file);
-      // }
-
-      // readSingleFile("./default_blocks/default_blocks_gk.xml");
-
-      // fetch("./default_blocks/default_blocks_gk.xml")
-      // .then(response => response.Xml())
-      // .then(XMLDocument => console.log(XMLDocument));
-
-      // getXMLFile("./default_blocks/default_blocks_gk.xml", function(xml) {
-      //   console.log(xml);
-      // });
-      // var fs = require("fs");
-      // var text = fs.readFileSync("./default_blocks/default_blocks_gk.xml");
-      // var text = fs.readFileSync("./default_blocks/a.txt");
-      // console.log(text);
-      // var xhr = new XMLHttpRequest();
-      // xhr.open('GET', "./default_blocks/default_blocks_gk.xml", true);
-      // xhr.send(null);
-      // xhr.onload = function () {
-      //   var sXML = this.responseXML;
-      //   console.log(sXML);
-      //   console.log(typeof(sXML));
-      //   var default_blocks_gk = Blockly.Xml.textToDom(sXML);
-      //   Blockly.Xml.domToWorkspace(default_blocks_gk, workspacePlayground);
-      // }
-      // xhr.timeout = function (e) {
-        
-      // }
-      // var oSerializer = new XMLSerializer();
-      // var sXML = oSerializer.serializeToString("./default_blocks/default_blocks_gk.xml");
-
-      
-			function saveCode() {
-				// Generate python script and show it
-				var code = Blockly.Python.workspaceToCode(workspacePlayground);
-				var link = document.createElement("a");
-				link.href = 'data:attachment/text,' + encodeURI(code);
-				link.target = '_blank';
-				link.download = "players.py";
-				link.click();
-
-        var code = Blockly.Xml.workspaceToDom(workspacePlayground);
-        var code_xml = Blockly.Xml.domToPrettyText(code);
-        console.log(code_xml);
-			}
-
-			function showCode(event) {
-				var codeDiv = document.getElementById('blocklyText');
-				var codeHolder = document.createElement('pre');
+      function showCode() {
+        var codeDiv = document.getElementById('blocklyText');
+        var codeHolder = document.createElement('pre');
         var code = document.createTextNode(Blockly.Python.workspaceToCode(workspacePlayground));
-				codeHolder.appendChild(code);
-				codeDiv.replaceChild(codeHolder, codeDiv.lastElementChild);
+        codeHolder.appendChild(code);
+        codeDiv.replaceChild(codeHolder, codeDiv.lastElementChild);
+
+        // save current changes in the code to code variable
+        switch (currentRobot) {
+          case "GK":
+            code_gk = Blockly.Python.workspaceToCode(workspacePlayground);
+            break;
+          case "D1":
+            code_d1 = Blockly.Python.workspaceToCode(workspacePlayground);
+            break;
+          case "D2":
+            code_d2 = Blockly.Python.workspaceToCode(workspacePlayground);
+            break;
+          case "F1":
+            code_f1 = Blockly.Python.workspaceToCode(workspacePlayground);
+            break;
+          case "F2":
+            code_f2 = Blockly.Python.workspaceToCode(workspacePlayground);
+            break;
+          default:
+            console.log("Wrong approach!");
+        }
 			}
 
       function changeRobot(position) {
@@ -2179,18 +2137,23 @@
         switch (currentRobot) {
           case "GK":
             blocks_gk = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspacePlayground));
+            code_gk = Blockly.Python.workspaceToCode(workspacePlayground);
             break;
           case "D1":
             blocks_d1 = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspacePlayground));
+            code_d1 = Blockly.Python.workspaceToCode(workspacePlayground);
             break;
           case "D2":
             blocks_d2 = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspacePlayground));
+            code_d2 = Blockly.Python.workspaceToCode(workspacePlayground);
             break;
           case "F1":
             blocks_f1 = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspacePlayground));
+            code_f1 = Blockly.Python.workspaceToCode(workspacePlayground);
             break;
           case "F2":
             blocks_f2 = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspacePlayground));
+            code_f2 = Blockly.Python.workspaceToCode(workspacePlayground);
             break;
           default:
             console.log("Wrong approach!");
