@@ -12,836 +12,2113 @@
   <script src="msg/js/en.js"></script>
   <script src="toolbox_standard.js"></script>
   <script src="constants.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
   <p>AI World Cup Code Generator - Rule Based System</p>
-  <img src="./img/field_region_names.png" style="margin-left: auto; margin-right:auto; display:block; max-width: 30%; height:auto;">
+  <img src="./img/field_region_names.png" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; display:block; max-width: 25%; height:auto;">
+
+  <div class="tab">
+    <button class="tablinks" onclick="changeRobot('GK')">GK</button>
+    <button class="tablinks" onclick="changeRobot('D1')">D1</button>
+    <button class="tablinks" onclick="changeRobot('D2')">D2</button>
+    <button class="tablinks" onclick="changeRobot('F1')">F1</button>
+    <button class="tablinks" onclick="changeRobot('F2')">F2</button>
+  </div>
 
 	<!-- for split screen into block part and code part -->
-	<div class='codeContainer' id='codeContainer'>
-		<div id="blocklyDiv" style="height: 600px; width: 67%; border: 0.5px solid #DDDDDD;" onchange="showCode();">
-			<xml xmlns="https://developers.google.com/blockly/xml" id="startBlocks" style="display:none;">
-				<variables>
-					<variable id="h?}mXo/wtYe8dBZBQB[9">angle</variable>
-					<variable id="}vOM7?PdUO}P9B/#DRtc">protection_radius</variable>
-					<variable id="6lU[D8H{gc-}@zG:};jh">x</variable>
-					<variable id="jf{t7R@%1Ogf$(dl:Gi|">y</variable>
-				</variables>
-				<block type="variables_set" id="AUpO5!Kn,ZFoB/=M$=r=" x="20" y="20">
-					<field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
-					<value name="VALUE">
-					<block type="env_variables" id="u-Qu%^xuDSy%4:*B+J26">
-						<field name="CONSTANT">DEFENSE_ANGLE</field>
-					</block>
-					</value>
-					<next>
-					<block type="variables_set" id="BV]Ao,X5a_{r7voL!K!Y">
-						<field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
-						<value name="VALUE">
-						<block type="math_arithmetic" id="._um+-;`BsYs$]5WY!(6">
-							<field name="OP">MINUS</field>
-							<value name="A">
-							<shadow type="math_number" id="gFfz;ygauE3|A{Gl7bYS">
-								<field name="NUM">1</field>
-							</shadow>
-							<block type="math_arithmetic" id="954}uiAR7~xy439OCL[f">
-								<field name="OP">DIVIDE</field>
-								<value name="A">
-								<shadow type="math_number" id="-QE6[$SJ@16Xe[_[(b[2">
-									<field name="NUM">1</field>
-								</shadow>
-								<block type="env_constant_index" id="QlZTq{=~_g_v,j76rP?X">
-									<field name="OP">GOAL_AREA</field>
-									<value name="NUM">
-									<block type="env_coordinates_index" id="ELQI-lN+]TfuIP{R7lfN">
-										<field name="CONSTANT">Y</field>
-									</block>
-									</value>
-								</block>
-								</value>
-								<value name="B">
-								<shadow type="math_number" id="Yllyu,M~@4{fKjfagt`D">
-									<field name="NUM">2</field>
-								</shadow>
-								</value>
-							</block>
-							</value>
-							<value name="B">
-							<shadow type="math_number" id="URD[0o;Q=cCzLtuLx_Sa">
-								<field name="NUM">0.1</field>
-							</shadow>
-							</value>
-						</block>
-						</value>
-						<next>
-						<block type="controls_if" id="M+mtk=WKt@D^^aunE42_">
-							<mutation elseif="4" else="1"/></mutation> 
-							<value name="IF0">
-							<block type="ball_is_own_goal" id=".,.sMFMhMk^kP+WAa4BL">
-								<value name="predicted_ball">
-								<block type="env_variables_1d" id="}^k.GUYsW[*$8W1ux)Bh">
-									<field name="OP">PREDICTED_BALL</field>
-								</block>
-								</value>
-								<value name="field">
-								<block type="env_constant_index" id="$r6d#K}`9h`SfnhzpfFH">
-									<field name="OP">FIELD</field>
-								</block>
-								</value>
-								<value name="goal_area">
-								<block type="env_constant_index" id="[jHK([00KKa2bFg;SMm/">
-									<field name="OP">GOAL_AREA</field>
-								</block>
-								</value>
-							</block>
-							</value>
-							<statement name="DO0">
-							<block type="variables_set" id="!_kbSV;%F4n-60hYj852">
-								<field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
-								<value name="VALUE">
-								<block type="math_arithmetic" id=".Pvge^jTjn?UL]aH,J~z">
-									<field name="OP">MINUS</field>
-									<value name="A">
-									<shadow type="math_number" id="i]u6fdcY)KN:WT:=lV]I">
-										<field name="NUM">1</field>
-									</shadow>
-									<block type="math_arithmetic" id="-V6(DH1UW-6n1_3Q}Zy?">
-										<field name="OP">MULTIPLY</field>
-										<value name="A">
-										<shadow type="math_number" id="Npb8p(KxR5a?fYLp(YBb">
-											<field name="NUM">1</field>
-										</shadow>
-										<block type="math_trig" id="7]Z;K]wNK:UF3iV]#_C#">
-											<field name="OP">COS</field>
-											<value name="NUM">
-											<shadow type="math_number" id="0mzN)FVbyAHE2p5vBDVa">
-												<field name="NUM">45</field>
-											</shadow>
-											<block type="radian2degree" id="DEJFCfxE3A@Fk%8bNCz+">
-												<value name="rad">
-												<block type="variables_get" id="d8hNR*ipf*7gtM0-N`03">
-													<field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
-												</block>
-												</value>
-											</block>
-											</value>
-										</block>
-										</value>
-										<value name="B">
-										<shadow type="math_number" id="~nvNjm`}k=EJ,=~~3AlY">
-											<field name="NUM">1</field>
-										</shadow>
-										<block type="variables_get" id=")qB/J[r.k`2}O$~DQQBX">
-											<field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
-										</block>
-										</value>
-									</block>
-									</value>
-									<value name="B">
-									<shadow type="math_number" id="t=)/@uT@zR{^|0)ghY_}">
-										<field name="NUM">1</field>
-									</shadow>
-									<block type="math_arithmetic" id="]$-wHz#v0|bjh+Aa|{z`">
-										<field name="OP">DIVIDE</field>
-										<value name="A">
-										<shadow type="math_number" id="l?JrM?@2pzePZ?a^/;Bs">
-											<field name="NUM">1</field>
-										</shadow>
-										<block type="env_constant_index" id="St{pO9,W*N4e8/b=9RCI">
-											<field name="OP">FIELD</field>
-											<value name="NUM">
-											<block type="env_coordinates_index" id="qL!~=8*M(a*^H]1wCeg{">
-												<field name="CONSTANT">X</field>
-											</block>
-											</value>
-										</block>
-										</value>
-										<value name="B">
-										<shadow type="math_number" id="N5J_uKLq]UajxRzs6`)T">
-											<field name="NUM">2</field>
-										</shadow>
-										</value>
-									</block>
-									</value>
-								</block>
-								</value>
-								<next>
-								<block type="variables_set" id="#*I;mI67ZiLD=OjSJ|Ey">
-									<field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-									<value name="VALUE">
-									<block type="math_arithmetic" id="p~^pDWlXSlT%`h+H-W~Z">
-										<field name="OP">MULTIPLY</field>
-										<value name="A">
-										<shadow type="math_number">
-											<field name="NUM">1</field>
-										</shadow>
-										<block type="math_trig" id="n)*2u/7JL;?B1hv90]?D">
-											<field name="OP">SIN</field>
-											<value name="NUM">
-											<shadow type="math_number">
-												<field name="NUM">45</field>
-											</shadow>
-											<block type="radian2degree" id="R#$1sDC:V6-D+b_lNeP3">
-												<value name="rad">
-												<block type="variables_get" id="*M:!b?fG?hDMa=Vpuk+%">
-													<field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
-												</block>
-												</value>
-											</block>
-											</value>
-										</block>
-										</value>
-										<value name="B">
-										<shadow type="math_number">
-											<field name="NUM">1</field>
-										</shadow>
-										<block type="variables_get" id="L}phT[Jr|R#YxL*;$B3N">
-											<field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
-										</block>
-										</value>
-									</block>
-									</value>
-								</block>
-								</next>
-							</block>
-							</statement>
-							<value name="IF1">
-							<block type="ball_is_own_penalty" id="nj*)~gpXlzcO,;TD{w_c">
-								<value name="predicted_ball">
-								<block type="env_variables_1d" id="XKXF5(J-FV:}(jApNSaw">
-									<field name="OP">PREDICTED_BALL</field>
-								</block>
-								</value>
-								<value name="field">
-								<block type="env_constant_index" id="U,RKLs-qu(JHAmF]]50W">
-									<field name="OP">FIELD</field>
-								</block>
-								</value>
-								<value name="penalty_area">
-								<block type="env_constant_index" id="PJetd+5p^f/f1T=H|Elo">
-									<field name="OP">PENALTY_AREA</field>
-								</block>
-								</value>
-							</block>
-							</value>
-							<statement name="DO1">
-							<block type="variables_set" id="]2![4cJk}Y;w))ENMp=D">
-								<field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
-								<value name="VALUE">
-								<block type="math_arithmetic" id="2I9vRI+pt8q9Z-8oqrX%">
-									<field name="OP">MINUS</field>
-									<value name="A">
-									<shadow type="math_number">
-										<field name="NUM">1</field>
-									</shadow>
-									<block type="math_arithmetic" id="FdGl*aJ)Ejw0xN~Z)krq">
-										<field name="OP">MULTIPLY</field>
-										<value name="A">
-										<shadow type="math_number">
-											<field name="NUM">1</field>
-										</shadow>
-										<block type="math_trig" id="=Rce+zaX;8lFY670f*r_">
-											<field name="OP">COS</field>
-											<value name="NUM">
-											<shadow type="math_number">
-												<field name="NUM">45</field>
-											</shadow>
-											<block type="radian2degree" id="%mIvVfhfnSkvljnDR?ME">
-												<value name="rad">
-												<block type="variables_get" id="0WAQ:(72M$~8bp/)BdAH">
-													<field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
-												</block>
-												</value>
-											</block>
-											</value>
-										</block>
-										</value>
-										<value name="B">
-										<shadow type="math_number">
-											<field name="NUM">1</field>
-										</shadow>
-										<block type="variables_get" id="^Wsv,!C4vE3:nS=OCZ}*">
-											<field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
-										</block>
-										</value>
-									</block>
-									</value>
-									<value name="B">
-									<shadow type="math_number">
-										<field name="NUM">1</field>
-									</shadow>
-									<block type="math_arithmetic" id="8k2sWn1(mDM2aV8*JNl^">
-										<field name="OP">DIVIDE</field>
-										<value name="A">
-										<shadow type="math_number">
-											<field name="NUM">1</field>
-										</shadow>
-										<block type="env_constant_index" id="#{j1OjTb3$=.ko$4h0p#">
-											<field name="OP">FIELD</field>
-											<value name="NUM">
-											<block type="env_coordinates_index" id="$yKv^^X.;U9f`;kXz/1/">
-												<field name="CONSTANT">X</field>
-											</block>
-											</value>
-										</block>
-										</value>
-										<value name="B">
-										<shadow type="math_number" id="r7DGTa~jU8a_h67iBRD*">
-											<field name="NUM">2</field>
-										</shadow>
-										</value>
-									</block>
-									</value>
-								</block>
-								</value>
-								<next>
-								<block type="variables_set" id="$)G]ZD2M/U+6o|pdCt9p">
-									<field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-									<value name="VALUE">
-									<block type="math_arithmetic" id="%*Y^+1LCiR8:Sb;gnXD[">
-										<field name="OP">MULTIPLY</field>
-										<value name="A">
-										<shadow type="math_number">
-											<field name="NUM">1</field>
-										</shadow>
-										<block type="math_trig" id="dc[$7g%MXWF+2My_uGwD">
-											<field name="OP">SIN</field>
-											<value name="NUM">
-											<shadow type="math_number">
-												<field name="NUM">45</field>
-											</shadow>
-											<block type="radian2degree" id="y(XtI*h4)]I|6;]$Uu:n">
-												<value name="rad">
-												<block type="variables_get" id="caTT?]E%[_%G.(5~Yc/f">
-													<field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
-												</block>
-												</value>
-											</block>
-											</value>
-										</block>
-										</value>
-										<value name="B">
-										<shadow type="math_number">
-											<field name="NUM">1</field>
-										</shadow>
-										<block type="variables_get" id="r9.^I_uOJ#l+60HjM6*w">
-											<field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
-										</block>
-										</value>
-									</block>
-									</value>
-								</block>
-								</next>
-							</block>
-							</statement>
-							<value name="IF2">
-							<block type="ball_is_own_field" id="NpxI*`EC`fi2sZ1SUR(B">
-								<value name="predicted_ball">
-								<block type="env_variables_1d" id="CD{V?`sb/Y%TDbE]fv!.">
-									<field name="OP">PREDICTED_BALL</field>
-								</block>
-								</value>
-							</block>
-							</value>
-							<statement name="DO2">
-							<block type="variables_set" id="LP04jV;L}Cd+*r3yb0c]">
-								<field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
-								<value name="VALUE">
-								<block type="math_arithmetic" id="2o7*@_MH#ztxUCAIb%J=">
-									<field name="OP">MINUS</field>
-									<value name="A">
-									<shadow type="math_number">
-										<field name="NUM">1</field>
-									</shadow>
-									<block type="math_arithmetic" id="q.XbOO*TQE/#K,C{$Z=m">
-										<field name="OP">MULTIPLY</field>
-										<value name="A">
-										<shadow type="math_number">
-											<field name="NUM">1</field>
-										</shadow>
-										<block type="math_trig" id="{1ez6Ft)MaJ^7Y0U!7A=">
-											<field name="OP">COS</field>
-											<value name="NUM">
-											<shadow type="math_number">
-												<field name="NUM">45</field>
-											</shadow>
-											<block type="radian2degree" id="]q,fk-7W5nD?KN7QCC[D">
-												<value name="rad">
-												<block type="variables_get" id="a~#cvT$6wu%o;%LBd=1(">
-													<field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
-												</block>
-												</value>
-											</block>
-											</value>
-										</block>
-										</value>
-										<value name="B">
-										<shadow type="math_number" id="qv4u.B2mju`*.w$;l{V{">
-											<field name="NUM">1</field>
-										</shadow>
-										<block type="variables_get" id="DR`1aN?%Mirv}KPWWk3m">
-											<field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
-										</block>
-										</value>
-									</block>
-									</value>
-									<value name="B">
-									<shadow type="math_number" id="K;5auLUpqVYWO{./af7m">
-										<field name="NUM">1</field>
-									</shadow>
-									<block type="math_arithmetic" id="2JjTQ$iSFL2Vy!q(rh.l">
-										<field name="OP">DIVIDE</field>
-										<value name="A">
-										<shadow type="math_number">
-											<field name="NUM">1</field>
-										</shadow>
-										<block type="env_constant_index" id="+tZB+X[m#4Vd.cl(glHs">
-											<field name="OP">FIELD</field>
-											<value name="NUM">
-											<block type="env_coordinates_index" id="E8;axoX,C11u}377ADg-">
-												<field name="CONSTANT">X</field>
-											</block>
-											</value>
-										</block>
-										</value>
-										<value name="B">
-										<shadow type="math_number" id="oU403*c)TV73G9$MTNy9">
-											<field name="NUM">2</field>
-										</shadow>
-										</value>
-									</block>
-									</value>
-								</block>
-								</value>
-								<next>
-								<block type="variables_set" id="qa7O:_`9~P|JJKkWnR2+">
-									<field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-									<value name="VALUE">
-									<block type="math_arithmetic" id="/p?8SJ~9:{mV+jA$yz#W">
-										<field name="OP">MULTIPLY</field>
-										<value name="A">
-										<shadow type="math_number">
-											<field name="NUM">1</field>
-										</shadow>
-										<block type="math_trig" id="_IU}wu|%tlwyjG+AZ4E$">
-											<field name="OP">SIN</field>
-											<value name="NUM">
-											<shadow type="math_number">
-												<field name="NUM">45</field>
-											</shadow>
-											<block type="radian2degree" id=",P{()*M9HoW6^E.:a8r_">
-												<value name="rad">
-												<block type="variables_get" id="`EQ|KYG-KV*Fh`/i*}Gd">
-													<field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
-												</block>
-												</value>
-											</block>
-											</value>
-										</block>
-										</value>
-										<value name="B">
-										<shadow type="math_number" id="Nbcr#1HplJExd*a%;}Wz">
-											<field name="NUM">1</field>
-										</shadow>
-										<block type="variables_get" id="dj!!0D(PkBpekI5Y(`Ed">
-											<field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
-										</block>
-										</value>
-									</block>
-									</value>
-								</block>
-								</next>
-							</block>
-							</statement>
-							<value name="IF3">
-							<block type="ball_is_opp_goal" id="zE/gtw]K3k|^J8PW$Kr%">
-								<value name="predicted_ball">
-								<block type="env_variables_1d" id="tcck}-uUJpR~htnQxxZ`">
-									<field name="OP">PREDICTED_BALL</field>
-								</block>
-								</value>
-								<value name="field">
-								<block type="env_constant_index" id="rNE-1QO`S8#1u2x41)Hc">
-									<field name="OP">FIELD</field>
-								</block>
-								</value>
-								<value name="goal_area">
-								<block type="env_constant_index" id="y$U@Yc?44lHf!;[8Rjt]">
-									<field name="OP">GOAL_AREA</field>
-								</block>
-								</value>
-							</block>
-							</value>
-							<statement name="DO3">
-							<block type="variables_set" id="FX$zR8V2$vylG0_YYYol">
-								<field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
-								<value name="VALUE">
-								<block type="math_arithmetic" id="9.]8hEk,s1Q:tV,-^PEr">
-									<field name="OP">MINUS</field>
-									<value name="A">
-									<shadow type="math_number">
-										<field name="NUM">1</field>
-									</shadow>
-									<block type="math_arithmetic" id=")/Bf#:Q#?bgu|P!T+nT!">
-										<field name="OP">MULTIPLY</field>
-										<value name="A">
-										<shadow type="math_number">
-											<field name="NUM">1</field>
-										</shadow>
-										<block type="math_trig" id=",bffG33Gk=%u_BxZu^K@">
-											<field name="OP">COS</field>
-											<value name="NUM">
-											<shadow type="math_number">
-												<field name="NUM">45</field>
-											</shadow>
-											<block type="radian2degree" id="|CgG#j]Qolvk.kBsHOY=">
-												<value name="rad">
-												<block type="variables_get" id="H,Qk#v4$jX7fR:l0W=RS">
-													<field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
-												</block>
-												</value>
-											</block>
-											</value>
-										</block>
-										</value>
-										<value name="B">
-										<shadow type="math_number">
-											<field name="NUM">1</field>
-										</shadow>
-										<block type="variables_get" id=".mnKu#~29)N}4{NIl]78">
-											<field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
-										</block>
-										</value>
-									</block>
-									</value>
-									<value name="B">
-									<shadow type="math_number">
-										<field name="NUM">1</field>
-									</shadow>
-									<block type="math_arithmetic" id="v@=xBVb*].i0z0XT(5U?">
-										<field name="OP">DIVIDE</field>
-										<value name="A">
-										<shadow type="math_number">
-											<field name="NUM">1</field>
-										</shadow>
-										<block type="env_constant_index" id="mJ5+;BRTWj-/%XG*AgpU">
-											<field name="OP">FIELD</field>
-											<value name="NUM">
-											<block type="env_coordinates_index" id="*Z_P!_:aYX+x{4x=eYI^">
-												<field name="CONSTANT">X</field>
-											</block>
-											</value>
-										</block>
-										</value>
-										<value name="B">
-										<shadow type="math_number" id="D/4[1+XTAk]z?mKBuE5r">
-											<field name="NUM">2</field>
-										</shadow>
-										</value>
-									</block>
-									</value>
-								</block>
-								</value>
-								<next>
-								<block type="variables_set" id=".U[Hgp7n]^e)`QM75,HP">
-									<field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-									<value name="VALUE">
-									<block type="math_arithmetic" id="mR_5f~Qp%AZQ?QY}#GHx">
-										<field name="OP">MULTIPLY</field>
-										<value name="A">
-										<shadow type="math_number">
-											<field name="NUM">1</field>
-										</shadow>
-										<block type="math_trig" id="D8*6}TRArz,FK3gdw,O{">
-											<field name="OP">SIN</field>
-											<value name="NUM">
-											<shadow type="math_number">
-												<field name="NUM">45</field>
-											</shadow>
-											<block type="radian2degree" id="jkQcjD_N_^jBdJrx;{G:">
-												<value name="rad">
-												<block type="variables_get" id="4w,2j?r8r3xyc*J~f*19">
-													<field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
-												</block>
-												</value>
-											</block>
-											</value>
-										</block>
-										</value>
-										<value name="B">
-										<shadow type="math_number">
-											<field name="NUM">1</field>
-										</shadow>
-										<block type="variables_get" id="0J`1-.6Pv@QE9GCwPoJ/">
-											<field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
-										</block>
-										</value>
-									</block>
-									</value>
-								</block>
-								</next>
-							</block>
-							</statement>
-							<value name="IF4">
-							<block type="ball_is_opp_penalty" id="oBNMkF+zabI3il46Khlm">
-								<value name="predicted_ball">
-								<block type="env_variables_1d" id="1!=;7FG(KRy(8Y^|Gyla">
-									<field name="OP">PREDICTED_BALL</field>
-								</block>
-								</value>
-								<value name="field">
-								<block type="env_constant_index" id="MJhx:p;1n]_8!CGJDPia">
-									<field name="OP">FIELD</field>
-								</block>
-								</value>
-								<value name="penalty_area">
-								<block type="env_constant_index" id="tW45*)u6E6Yk^LzJ+*{[">
-									<field name="OP">PENALTY_AREA</field>
-								</block>
-								</value>
-							</block>
-							</value>
-							<statement name="DO4">
-							<block type="variables_set" id="7[b|9jO2aFB8S@d(SZNm">
-								<field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
-								<value name="VALUE">
-								<block type="math_arithmetic" id="C$65;mK%sLoU,b,TouYV">
-									<field name="OP">MINUS</field>
-									<value name="A">
-									<shadow type="math_number">
-										<field name="NUM">1</field>
-									</shadow>
-									<block type="math_arithmetic" id="L`Sco^$`|cql1.?NUvEl">
-										<field name="OP">MULTIPLY</field>
-										<value name="A">
-										<shadow type="math_number">
-											<field name="NUM">1</field>
-										</shadow>
-										<block type="math_trig" id="oO7@y2emnR$YyKxsS|fr">
-											<field name="OP">COS</field>
-											<value name="NUM">
-											<shadow type="math_number">
-												<field name="NUM">45</field>
-											</shadow>
-											<block type="radian2degree" id="xsH]Bwq9T2}fT)Fa2efm">
-												<value name="rad">
-												<block type="variables_get" id="!C[Q4qCGR?k@=%2mFN0c">
-													<field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
-												</block>
-												</value>
-											</block>
-											</value>
-										</block>
-										</value>
-										<value name="B">
-										<shadow type="math_number">
-											<field name="NUM">1</field>
-										</shadow>
-										<block type="variables_get" id="2$cGe4*SoA0hMV|O1@p7">
-											<field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
-										</block>
-										</value>
-									</block>
-									</value>
-									<value name="B">
-									<shadow type="math_number">
-										<field name="NUM">1</field>
-									</shadow>
-									<block type="math_arithmetic" id="e`%wkR}e}hbodC]X(DA}">
-										<field name="OP">DIVIDE</field>
-										<value name="A">
-										<shadow type="math_number">
-											<field name="NUM">1</field>
-										</shadow>
-										<block type="env_constant_index" id="#lL1elO?K+PIZdLB?[4R">
-											<field name="OP">FIELD</field>
-											<value name="NUM">
-											<block type="env_coordinates_index" id="_%6GvsiV69jS:IL3g_Ke">
-												<field name="CONSTANT">X</field>
-											</block>
-											</value>
-										</block>
-										</value>
-										<value name="B">
-										<shadow type="math_number" id="k.UxFQGe4Ot*4%!K8!!_">
-											<field name="NUM">2</field>
-										</shadow>
-										</value>
-									</block>
-									</value>
-								</block>
-								</value>
-								<next>
-								<block type="variables_set" id=":uWl*vx:=0~L@7g(-[*v">
-									<field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-									<value name="VALUE">
-									<block type="math_arithmetic" id="UbDttCu:V`NE~6gJ#9yG">
-										<field name="OP">MULTIPLY</field>
-										<value name="A">
-										<shadow type="math_number">
-											<field name="NUM">1</field>
-										</shadow>
-										<block type="math_trig" id="]~g2t5gGyEvJj:7=PT2B">
-											<field name="OP">SIN</field>
-											<value name="NUM">
-											<shadow type="math_number">
-												<field name="NUM">45</field>
-											</shadow>
-											<block type="radian2degree" id="WFOjV.$6-J.qcv~^$-}X">
-												<value name="rad">
-												<block type="variables_get" id="?zdNVxJ,FX3519LTs;88">
-													<field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
-												</block>
-												</value>
-											</block>
-											</value>
-										</block>
-										</value>
-										<value name="B">
-										<shadow type="math_number">
-											<field name="NUM">1</field>
-										</shadow>
-										<block type="variables_get" id="j`i;ffO7Wz$M2R}mfd$g">
-											<field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
-										</block>
-										</value>
-									</block>
-									</value>
-								</block>
-								</next>
-							</block>
-							</statement>
-							<statement name="ELSE">
-							<block type="variables_set" id="i`Uxj6YV1WtnPlzst[L+">
-								<field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
-								<value name="VALUE">
-								<block type="math_arithmetic" id="c!{%AiA_hvAl/$+^BP-,">
-									<field name="OP">MINUS</field>
-									<value name="A">
-									<shadow type="math_number">
-										<field name="NUM">1</field>
-									</shadow>
-									<block type="math_arithmetic" id="*/tFX$IyMDl_sN9d$G6C">
-										<field name="OP">MULTIPLY</field>
-										<value name="A">
-										<shadow type="math_number">
-											<field name="NUM">1</field>
-										</shadow>
-										<block type="math_trig" id="j=Al=Utf(_D5x}8ts{7%">
-											<field name="OP">COS</field>
-											<value name="NUM">
-											<shadow type="math_number">
-												<field name="NUM">45</field>
-											</shadow>
-											<block type="radian2degree" id="|Fz@/u6KeIGp.Sb-n@T;">
-												<value name="rad">
-												<block type="variables_get" id="R4$,,+mrCSwgVpG77iP(">
-													<field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
-												</block>
-												</value>
-											</block>
-											</value>
-										</block>
-										</value>
-										<value name="B">
-										<shadow type="math_number">
-											<field name="NUM">1</field>
-										</shadow>
-										<block type="variables_get" id="R47c{ky^/G@q;0kQ4pW=">
-											<field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
-										</block>
-										</value>
-									</block>
-									</value>
-									<value name="B">
-									<shadow type="math_number">
-										<field name="NUM">1</field>
-									</shadow>
-									<block type="math_arithmetic" id="t(^-7+ON,D,X]8L*0aIG">
-										<field name="OP">DIVIDE</field>
-										<value name="A">
-										<shadow type="math_number">
-											<field name="NUM">1</field>
-										</shadow>
-										<block type="env_constant_index" id="L@B)qh2VJF~5~SrMUKNg">
-											<field name="OP">FIELD</field>
-											<value name="NUM">
-											<block type="env_coordinates_index" id="x#KESnwLMYdZe%~S:4y]">
-												<field name="CONSTANT">X</field>
-											</block>
-											</value>
-										</block>
-										</value>
-										<value name="B">
-										<shadow type="math_number" id="Dl5n;6d7[hQ3dye:6x1-">
-											<field name="NUM">2</field>
-										</shadow>
-										</value>
-									</block>
-									</value>
-								</block>
-								</value>
-								<next>
-								<block type="variables_set" id=".W!ta(kH5#R~ZM@AqHIW">
-									<field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-									<value name="VALUE">
-									<block type="math_arithmetic" id="50Y3uO{R+TI1ek6,ui2d">
-										<field name="OP">MULTIPLY</field>
-										<value name="A">
-										<shadow type="math_number">
-											<field name="NUM">1</field>
-										</shadow>
-										<block type="math_trig" id="dH3?4Ft{PuUL,_YsX9X=">
-											<field name="OP">SIN</field>
-											<value name="NUM">
-											<shadow type="math_number">
-												<field name="NUM">45</field>
-											</shadow>
-											<block type="radian2degree" id="8~_1_!Xp~q34?GhZ`=Ag">
-												<value name="rad">
-												<block type="variables_get" id="mje?p4aUo]v!l6ohA9jq">
-													<field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
-												</block>
-												</value>
-											</block>
-											</value>
-										</block>
-										</value>
-										<value name="B">
-										<shadow type="math_number">
-											<field name="NUM">1</field>
-										</shadow>
-										<block type="variables_get" id="=aa~cbP84Fw8IFc=He:9">
-											<field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
-										</block>
-										</value>
-									</block>
-									</value>
-								</block>
-								</next>
-							</block>
-							</statement>
-						</block>
-						</next>
-					</block>
-					</next>
-				</block>
-			</xml>
+	<div id='codeContainer' style="height: 750px">
+		<div id="blocklyDiv" style="width: 67%; border: 0px solid #DDDDDD;" onchange="showCode();">
+      <xml id="default_blocks_gk" style="display:none;">
+        <variables>
+          <variable id="h?}mXo/wtYe8dBZBQB[9">angle</variable>
+          <variable id="}vOM7?PdUO}P9B/#DRtc">protection_radius</variable>
+          <variable id="6lU[D8H{gc-}@zG:};jh">x</variable>
+          <variable id="jf{t7R@%1Ogf$(dl:Gi|">y</variable>
+        </variables>
+        <block type="variables_set" id="AUpO5!Kn,ZFoB/=M$=r=" x="20" y="20">
+          <field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
+          <value name="VALUE">
+            <block type="env_variables" id="u-Qu%^xuDSy%4:*B+J26">
+              <field name="CONSTANT">DEFENSE_ANGLE</field>
+            </block>
+          </value>
+          <next>
+            <block type="variables_set" id="BV]Ao,X5a_{r7voL!K!Y">
+              <field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
+              <value name="VALUE">
+                <block type="math_arithmetic" id="._um+-;`BsYs$]5WY!(6">
+                  <field name="OP">MINUS</field>
+                  <value name="A">
+                    <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="gFfz;ygauE3|A{Gl7bYS">
+                      <field name="NUM">1</field>
+                    </shadow>
+                    <block type="math_arithmetic" id="954}uiAR7~xy439OCL[f">
+                      <field name="OP">DIVIDE</field>
+                      <value name="A">
+                        <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="-QE6[$SJ@16Xe[_[(b[2">
+                          <field name="NUM">1</field>
+                        </shadow>
+                        <block type="env_constant_index" id="QlZTq{=~_g_v,j76rP?X">
+                          <field name="OP">GOAL_AREA</field>
+                          <value name="NUM">
+                            <block type="env_coordinates_index" id="ELQI-lN+]TfuIP{R7lfN">
+                              <field name="CONSTANT">Y</field>
+                            </block>
+                          </value>
+                        </block>
+                      </value>
+                      <value name="B">
+                        <shadow type="math_number" id="Yllyu,M~@4{fKjfagt`D">
+                          <field name="NUM">2</field>
+                        </shadow>
+                      </value>
+                    </block>
+                  </value>
+                  <value name="B">
+                    <shadow type="math_number" id="URD[0o;Q=cCzLtuLx_Sa">
+                      <field name="NUM">0.1</field>
+                    </shadow>
+                  </value>
+                </block>
+              </value>
+              <next>
+                <block type="controls_if" id="M+mtk=WKt@D^^aunE42_">
+                  <mutation elseif="4" else="1"/></mutation>
+                  <value name="IF0">
+                    <block type="ball_is_own_goal" id=".,.sMFMhMk^kP+WAa4BL">
+                      <value name="predicted_ball">
+                        <block type="env_variables_1d" id="}^k.GUYsW[*$8W1ux)Bh">
+                          <field name="OP">PREDICTED_BALL</field>
+                        </block>
+                      </value>
+                      <value name="field">
+                        <block type="env_constant_index" id="$r6d#K}`9h`SfnhzpfFH">
+                          <field name="OP">FIELD</field>
+                        </block>
+                      </value>
+                      <value name="goal_area">
+                        <block type="env_constant_index" id="[jHK([00KKa2bFg;SMm/">
+                          <field name="OP">GOAL_AREA</field>
+                        </block>
+                      </value>
+                    </block>
+                  </value>
+                  <statement name="DO0">
+                    <block type="variables_set" id="!_kbSV;%F4n-60hYj852">
+                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                      <value name="VALUE">
+                        <block type="math_arithmetic" id=".Pvge^jTjn?UL]aH,J~z">
+                          <field name="OP">MINUS</field>
+                          <value name="A">
+                            <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="i]u6fdcY)KN:WT:=lV]I">
+                              <field name="NUM">1</field>
+                            </shadow>
+                            <block type="math_arithmetic" id="-V6(DH1UW-6n1_3Q}Zy?">
+                              <field name="OP">MULTIPLY</field>
+                              <value name="A">
+                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="Npb8p(KxR5a?fYLp(YBb">
+                                  <field name="NUM">1</field>
+                                </shadow>
+                                <block type="math_trig" id="7]Z;K]wNK:UF3iV]#_C#">
+                                  <field name="OP">COS</field>
+                                  <value name="NUM">
+                                    <shadow type="math_number" id="0mzN)FVbyAHE2p5vBDVa">
+                                      <field name="NUM">45</field>
+                                    </shadow>
+                                    <block type="variables_get" id="d8hNR*ipf*7gtM0-N`03">
+                                      <field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
+                                    </block>
+                                  </value>
+                                </block>
+                              </value>
+                              <value name="B">
+                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="~nvNjm`}k=EJ,=~~3AlY">
+                                  <field name="NUM">1</field>
+                                </shadow>
+                                <block type="variables_get" id=")qB/J[r.k`2}O$~DQQBX">
+                                  <field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
+                                </block>
+                              </value>
+                            </block>
+                          </value>
+                          <value name="B">
+                            <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="t=)/@uT@zR{^|0)ghY_}">
+                              <field name="NUM">1</field>
+                            </shadow>
+                            <block type="math_arithmetic" id="]$-wHz#v0|bjh+Aa|{z`">
+                              <field name="OP">DIVIDE</field>
+                              <value name="A">
+                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="l?JrM?@2pzePZ?a^/;Bs">
+                                  <field name="NUM">1</field>
+                                </shadow>
+                                <block type="env_constant_index" id="St{pO9,W*N4e8/b=9RCI">
+                                  <field name="OP">FIELD</field>
+                                  <value name="NUM">
+                                    <block type="env_coordinates_index" id="qL!~=8*M(a*^H]1wCeg{">
+                                      <field name="CONSTANT">X</field>
+                                    </block>
+                                  </value>
+                                </block>
+                              </value>
+                              <value name="B">
+                                <shadow type="math_number" id="N5J_uKLq]UajxRzs6`)T">
+                                  <field name="NUM">2</field>
+                                </shadow>
+                              </value>
+                            </block>
+                          </value>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="variables_set" id="#*I;mI67ZiLD=OjSJ|Ey">
+                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                          <value name="VALUE">
+                            <block type="math_arithmetic" id="p~^pDWlXSlT%`h+H-W~Z">
+                              <field name="OP">MULTIPLY</field>
+                              <value name="A">
+                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                                  <field name="NUM">1</field>
+                                </shadow>
+                                <block type="math_trig" id="n)*2u/7JL;?B1hv90]?D">
+                                  <field name="OP">SIN</field>
+                                  <value name="NUM">
+                                    <shadow type="math_number" id="=%}gJXY71JGfuh0eQj(9">
+                                      <field name="NUM">45</field>
+                                    </shadow>
+                                    <block type="variables_get" id="*M:!b?fG?hDMa=Vpuk+%">
+                                      <field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
+                                    </block>
+                                  </value>
+                                </block>
+                              </value>
+                              <value name="B">
+                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                                  <field name="NUM">1</field>
+                                </shadow>
+                                <block type="variables_get" id="L}phT[Jr|R#YxL*;$B3N">
+                                  <field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
+                                </block>
+                              </value>
+                            </block>
+                          </value>
+                        </block>
+                      </next>
+                    </block>
+                  </statement>
+                  <value name="IF1">
+                    <block type="ball_is_own_penalty" id="nj*)~gpXlzcO,;TD{w_c">
+                      <value name="predicted_ball">
+                        <block type="env_variables_1d" id="XKXF5(J-FV:}(jApNSaw">
+                          <field name="OP">PREDICTED_BALL</field>
+                        </block>
+                      </value>
+                      <value name="field">
+                        <block type="env_constant_index" id="U,RKLs-qu(JHAmF]]50W">
+                          <field name="OP">FIELD</field>
+                        </block>
+                      </value>
+                      <value name="penalty_area">
+                        <block type="env_constant_index" id="PJetd+5p^f/f1T=H|Elo">
+                          <field name="OP">PENALTY_AREA</field>
+                        </block>
+                      </value>
+                    </block>
+                  </value>
+                  <statement name="DO1">
+                    <block type="variables_set" id="]2![4cJk}Y;w))ENMp=D">
+                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                      <value name="VALUE">
+                        <block type="math_arithmetic" id="2I9vRI+pt8q9Z-8oqrX%">
+                          <field name="OP">MINUS</field>
+                          <value name="A">
+                            <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                              <field name="NUM">1</field>
+                            </shadow>
+                            <block type="math_arithmetic" id="FdGl*aJ)Ejw0xN~Z)krq">
+                              <field name="OP">MULTIPLY</field>
+                              <value name="A">
+                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                                  <field name="NUM">1</field>
+                                </shadow>
+                                <block type="math_trig" id="=Rce+zaX;8lFY670f*r_">
+                                  <field name="OP">COS</field>
+                                  <value name="NUM">
+                                    <shadow type="math_number" id="gg?E45Nq6R_A*ZB[Je+/">
+                                      <field name="NUM">45</field>
+                                    </shadow>
+                                    <block type="variables_get" id="0WAQ:(72M$~8bp/)BdAH">
+                                      <field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
+                                    </block>
+                                  </value>
+                                </block>
+                              </value>
+                              <value name="B">
+                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                                  <field name="NUM">1</field>
+                                </shadow>
+                                <block type="variables_get" id="^Wsv,!C4vE3:nS=OCZ}*">
+                                  <field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
+                                </block>
+                              </value>
+                            </block>
+                          </value>
+                          <value name="B">
+                            <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                              <field name="NUM">1</field>
+                            </shadow>
+                            <block type="math_arithmetic" id="8k2sWn1(mDM2aV8*JNl^">
+                              <field name="OP">DIVIDE</field>
+                              <value name="A">
+                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                                  <field name="NUM">1</field>
+                                </shadow>
+                                <block type="env_constant_index" id="#{j1OjTb3$=.ko$4h0p#">
+                                  <field name="OP">FIELD</field>
+                                  <value name="NUM">
+                                    <block type="env_coordinates_index" id="$yKv^^X.;U9f`;kXz/1/">
+                                      <field name="CONSTANT">X</field>
+                                    </block>
+                                  </value>
+                                </block>
+                              </value>
+                              <value name="B">
+                                <shadow type="math_number" id="r7DGTa~jU8a_h67iBRD*">
+                                  <field name="NUM">2</field>
+                                </shadow>
+                              </value>
+                            </block>
+                          </value>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="variables_set" id="$)G]ZD2M/U+6o|pdCt9p">
+                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                          <value name="VALUE">
+                            <block type="math_arithmetic" id="%*Y^+1LCiR8:Sb;gnXD[">
+                              <field name="OP">MULTIPLY</field>
+                              <value name="A">
+                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                                  <field name="NUM">1</field>
+                                </shadow>
+                                <block type="math_trig" id="dc[$7g%MXWF+2My_uGwD">
+                                  <field name="OP">SIN</field>
+                                  <value name="NUM">
+                                    <shadow type="math_number" id="0^`(?;Qx5A,Cc6Rcq*XR">
+                                      <field name="NUM">45</field>
+                                    </shadow>
+                                    <block type="variables_get" id="caTT?]E%[_%G.(5~Yc/f">
+                                      <field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
+                                    </block>
+                                  </value>
+                                </block>
+                              </value>
+                              <value name="B">
+                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                                  <field name="NUM">1</field>
+                                </shadow>
+                                <block type="variables_get" id="r9.^I_uOJ#l+60HjM6*w">
+                                  <field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
+                                </block>
+                              </value>
+                            </block>
+                          </value>
+                        </block>
+                      </next>
+                    </block>
+                  </statement>
+                  <value name="IF2">
+                    <block type="ball_is_own_field" id="NpxI*`EC`fi2sZ1SUR(B">
+                      <value name="predicted_ball">
+                        <block type="env_variables_1d" id="CD{V?`sb/Y%TDbE]fv!.">
+                          <field name="OP">PREDICTED_BALL</field>
+                        </block>
+                      </value>
+                    </block>
+                  </value>
+                  <statement name="DO2">
+                    <block type="variables_set" id="LP04jV;L}Cd+*r3yb0c]">
+                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                      <value name="VALUE">
+                        <block type="math_arithmetic" id="2o7*@_MH#ztxUCAIb%J=">
+                          <field name="OP">MINUS</field>
+                          <value name="A">
+                            <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                              <field name="NUM">1</field>
+                            </shadow>
+                            <block type="math_arithmetic" id="q.XbOO*TQE/#K,C{$Z=m">
+                              <field name="OP">MULTIPLY</field>
+                              <value name="A">
+                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                                  <field name="NUM">1</field>
+                                </shadow>
+                                <block type="math_trig" id="{1ez6Ft)MaJ^7Y0U!7A=">
+                                  <field name="OP">COS</field>
+                                  <value name="NUM">
+                                    <shadow type="math_number" id="vp~Y1s7|,Pv@il~gM0~e">
+                                      <field name="NUM">45</field>
+                                    </shadow>
+                                    <block type="variables_get" id="a~#cvT$6wu%o;%LBd=1(">
+                                      <field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
+                                    </block>
+                                  </value>
+                                </block>
+                              </value>
+                              <value name="B">
+                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="qv4u.B2mju`*.w$;l{V{">
+                                  <field name="NUM">1</field>
+                                </shadow>
+                                <block type="variables_get" id="DR`1aN?%Mirv}KPWWk3m">
+                                  <field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
+                                </block>
+                              </value>
+                            </block>
+                          </value>
+                          <value name="B">
+                            <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="K;5auLUpqVYWO{./af7m">
+                              <field name="NUM">1</field>
+                            </shadow>
+                            <block type="math_arithmetic" id="2JjTQ$iSFL2Vy!q(rh.l">
+                              <field name="OP">DIVIDE</field>
+                              <value name="A">
+                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                                  <field name="NUM">1</field>
+                                </shadow>
+                                <block type="env_constant_index" id="+tZB+X[m#4Vd.cl(glHs">
+                                  <field name="OP">FIELD</field>
+                                  <value name="NUM">
+                                    <block type="env_coordinates_index" id="E8;axoX,C11u}377ADg-">
+                                      <field name="CONSTANT">X</field>
+                                    </block>
+                                  </value>
+                                </block>
+                              </value>
+                              <value name="B">
+                                <shadow type="math_number" id="oU403*c)TV73G9$MTNy9">
+                                  <field name="NUM">2</field>
+                                </shadow>
+                              </value>
+                            </block>
+                          </value>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="variables_set" id="qa7O:_`9~P|JJKkWnR2+">
+                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                          <value name="VALUE">
+                            <block type="math_arithmetic" id="/p?8SJ~9:{mV+jA$yz#W">
+                              <field name="OP">MULTIPLY</field>
+                              <value name="A">
+                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                                  <field name="NUM">1</field>
+                                </shadow>
+                                <block type="math_trig" id="_IU}wu|%tlwyjG+AZ4E$">
+                                  <field name="OP">SIN</field>
+                                  <value name="NUM">
+                                    <shadow type="math_number" id=".gW`p7FaM_MGSKL##}J[">
+                                      <field name="NUM">45</field>
+                                    </shadow>
+                                    <block type="variables_get" id="`EQ|KYG-KV*Fh`/i*}Gd">
+                                      <field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
+                                    </block>
+                                  </value>
+                                </block>
+                              </value>
+                              <value name="B">
+                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="Nbcr#1HplJExd*a%;}Wz">
+                                  <field name="NUM">1</field>
+                                </shadow>
+                                <block type="variables_get" id="dj!!0D(PkBpekI5Y(`Ed">
+                                  <field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
+                                </block>
+                              </value>
+                            </block>
+                          </value>
+                        </block>
+                      </next>
+                    </block>
+                  </statement>
+                  <value name="IF3">
+                    <block type="ball_is_opp_goal" id="zE/gtw]K3k|^J8PW$Kr%">
+                      <value name="predicted_ball">
+                        <block type="env_variables_1d" id="tcck}-uUJpR~htnQxxZ`">
+                          <field name="OP">PREDICTED_BALL</field>
+                        </block>
+                      </value>
+                      <value name="field">
+                        <block type="env_constant_index" id="rNE-1QO`S8#1u2x41)Hc">
+                          <field name="OP">FIELD</field>
+                        </block>
+                      </value>
+                      <value name="goal_area">
+                        <block type="env_constant_index" id="y$U@Yc?44lHf!;[8Rjt]">
+                          <field name="OP">GOAL_AREA</field>
+                        </block>
+                      </value>
+                    </block>
+                  </value>
+                  <statement name="DO3">
+                    <block type="variables_set" id="FX$zR8V2$vylG0_YYYol">
+                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                      <value name="VALUE">
+                        <block type="math_arithmetic" id="9.]8hEk,s1Q:tV,-^PEr">
+                          <field name="OP">MINUS</field>
+                          <value name="A">
+                            <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                              <field name="NUM">1</field>
+                            </shadow>
+                            <block type="math_arithmetic" id=")/Bf#:Q#?bgu|P!T+nT!">
+                              <field name="OP">MULTIPLY</field>
+                              <value name="A">
+                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                                  <field name="NUM">1</field>
+                                </shadow>
+                                <block type="math_trig" id=",bffG33Gk=%u_BxZu^K@">
+                                  <field name="OP">COS</field>
+                                  <value name="NUM">
+                                    <shadow type="math_number" id="5`ijk$^sKpd+r{wgSjD~">
+                                      <field name="NUM">45</field>
+                                    </shadow>
+                                    <block type="variables_get" id="H,Qk#v4$jX7fR:l0W=RS">
+                                      <field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
+                                    </block>
+                                  </value>
+                                </block>
+                              </value>
+                              <value name="B">
+                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                                  <field name="NUM">1</field>
+                                </shadow>
+                                <block type="variables_get" id=".mnKu#~29)N}4{NIl]78">
+                                  <field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
+                                </block>
+                              </value>
+                            </block>
+                          </value>
+                          <value name="B">
+                            <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                              <field name="NUM">1</field>
+                            </shadow>
+                            <block type="math_arithmetic" id="v@=xBVb*].i0z0XT(5U?">
+                              <field name="OP">DIVIDE</field>
+                              <value name="A">
+                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                                  <field name="NUM">1</field>
+                                </shadow>
+                                <block type="env_constant_index" id="mJ5+;BRTWj-/%XG*AgpU">
+                                  <field name="OP">FIELD</field>
+                                  <value name="NUM">
+                                    <block type="env_coordinates_index" id="*Z_P!_:aYX+x{4x=eYI^">
+                                      <field name="CONSTANT">X</field>
+                                    </block>
+                                  </value>
+                                </block>
+                              </value>
+                              <value name="B">
+                                <shadow type="math_number" id="D/4[1+XTAk]z?mKBuE5r">
+                                  <field name="NUM">2</field>
+                                </shadow>
+                              </value>
+                            </block>
+                          </value>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="variables_set" id=".U[Hgp7n]^e)`QM75,HP">
+                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                          <value name="VALUE">
+                            <block type="math_arithmetic" id="mR_5f~Qp%AZQ?QY}#GHx">
+                              <field name="OP">MULTIPLY</field>
+                              <value name="A">
+                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                                  <field name="NUM">1</field>
+                                </shadow>
+                                <block type="math_trig" id="D8*6}TRArz,FK3gdw,O{">
+                                  <field name="OP">SIN</field>
+                                  <value name="NUM">
+                                    <shadow type="math_number" id="_K1^yQ*tp4WolAVCzlgz">
+                                      <field name="NUM">45</field>
+                                    </shadow>
+                                    <block type="variables_get" id="4w,2j?r8r3xyc*J~f*19">
+                                      <field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
+                                    </block>
+                                  </value>
+                                </block>
+                              </value>
+                              <value name="B">
+                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                                  <field name="NUM">1</field>
+                                </shadow>
+                                <block type="variables_get" id="0J`1-.6Pv@QE9GCwPoJ/">
+                                  <field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
+                                </block>
+                              </value>
+                            </block>
+                          </value>
+                        </block>
+                      </next>
+                    </block>
+                  </statement>
+                  <value name="IF4">
+                    <block type="ball_is_opp_penalty" id="oBNMkF+zabI3il46Khlm">
+                      <value name="predicted_ball">
+                        <block type="env_variables_1d" id="1!=;7FG(KRy(8Y^|Gyla">
+                          <field name="OP">PREDICTED_BALL</field>
+                        </block>
+                      </value>
+                      <value name="field">
+                        <block type="env_constant_index" id="MJhx:p;1n]_8!CGJDPia">
+                          <field name="OP">FIELD</field>
+                        </block>
+                      </value>
+                      <value name="penalty_area">
+                        <block type="env_constant_index" id="tW45*)u6E6Yk^LzJ+*{[">
+                          <field name="OP">PENALTY_AREA</field>
+                        </block>
+                      </value>
+                    </block>
+                  </value>
+                  <statement name="DO4">
+                    <block type="variables_set" id="7[b|9jO2aFB8S@d(SZNm">
+                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                      <value name="VALUE">
+                        <block type="math_arithmetic" id="C$65;mK%sLoU,b,TouYV">
+                          <field name="OP">MINUS</field>
+                          <value name="A">
+                            <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                              <field name="NUM">1</field>
+                            </shadow>
+                            <block type="math_arithmetic" id="L`Sco^$`|cql1.?NUvEl">
+                              <field name="OP">MULTIPLY</field>
+                              <value name="A">
+                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                                  <field name="NUM">1</field>
+                                </shadow>
+                                <block type="math_trig" id="oO7@y2emnR$YyKxsS|fr">
+                                  <field name="OP">COS</field>
+                                  <value name="NUM">
+                                    <shadow type="math_number" id=";QOX341lHh{V^,a{pU/T">
+                                      <field name="NUM">45</field>
+                                    </shadow>
+                                    <block type="variables_get" id="!C[Q4qCGR?k@=%2mFN0c">
+                                      <field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
+                                    </block>
+                                  </value>
+                                </block>
+                              </value>
+                              <value name="B">
+                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                                  <field name="NUM">1</field>
+                                </shadow>
+                                <block type="variables_get" id="2$cGe4*SoA0hMV|O1@p7">
+                                  <field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
+                                </block>
+                              </value>
+                            </block>
+                          </value>
+                          <value name="B">
+                            <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                              <field name="NUM">1</field>
+                            </shadow>
+                            <block type="math_arithmetic" id="e`%wkR}e}hbodC]X(DA}">
+                              <field name="OP">DIVIDE</field>
+                              <value name="A">
+                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                                  <field name="NUM">1</field>
+                                </shadow>
+                                <block type="env_constant_index" id="#lL1elO?K+PIZdLB?[4R">
+                                  <field name="OP">FIELD</field>
+                                  <value name="NUM">
+                                    <block type="env_coordinates_index" id="_%6GvsiV69jS:IL3g_Ke">
+                                      <field name="CONSTANT">X</field>
+                                    </block>
+                                  </value>
+                                </block>
+                              </value>
+                              <value name="B">
+                                <shadow type="math_number" id="k.UxFQGe4Ot*4%!K8!!_">
+                                  <field name="NUM">2</field>
+                                </shadow>
+                              </value>
+                            </block>
+                          </value>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="variables_set" id=":uWl*vx:=0~L@7g(-[*v">
+                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                          <value name="VALUE">
+                            <block type="math_arithmetic" id="UbDttCu:V`NE~6gJ#9yG">
+                              <field name="OP">MULTIPLY</field>
+                              <value name="A">
+                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                                  <field name="NUM">1</field>
+                                </shadow>
+                                <block type="math_trig" id="]~g2t5gGyEvJj:7=PT2B">
+                                  <field name="OP">SIN</field>
+                                  <value name="NUM">
+                                    <shadow type="math_number" id="?3H{.[-lEGXiAXCiHD+-">
+                                      <field name="NUM">45</field>
+                                    </shadow>
+                                    <block type="variables_get" id="?zdNVxJ,FX3519LTs;88">
+                                      <field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
+                                    </block>
+                                  </value>
+                                </block>
+                              </value>
+                              <value name="B">
+                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                                  <field name="NUM">1</field>
+                                </shadow>
+                                <block type="variables_get" id="j`i;ffO7Wz$M2R}mfd$g">
+                                  <field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
+                                </block>
+                              </value>
+                            </block>
+                          </value>
+                        </block>
+                      </next>
+                    </block>
+                  </statement>
+                  <statement name="ELSE">
+                    <block type="variables_set" id="i`Uxj6YV1WtnPlzst[L+">
+                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                      <value name="VALUE">
+                        <block type="math_arithmetic" id="c!{%AiA_hvAl/$+^BP-,">
+                          <field name="OP">MINUS</field>
+                          <value name="A">
+                            <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                              <field name="NUM">1</field>
+                            </shadow>
+                            <block type="math_arithmetic" id="*/tFX$IyMDl_sN9d$G6C">
+                              <field name="OP">MULTIPLY</field>
+                              <value name="A">
+                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                                  <field name="NUM">1</field>
+                                </shadow>
+                                <block type="math_trig" id="j=Al=Utf(_D5x}8ts{7%">
+                                  <field name="OP">COS</field>
+                                  <value name="NUM">
+                                    <shadow type="math_number" id="iD7#5WG;jC9,Kq~wnA?*">
+                                      <field name="NUM">45</field>
+                                    </shadow>
+                                    <block type="variables_get" id="R4$,,+mrCSwgVpG77iP(">
+                                      <field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
+                                    </block>
+                                  </value>
+                                </block>
+                              </value>
+                              <value name="B">
+                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                                  <field name="NUM">1</field>
+                                </shadow>
+                                <block type="variables_get" id="R47c{ky^/G@q;0kQ4pW=">
+                                  <field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
+                                </block>
+                              </value>
+                            </block>
+                          </value>
+                          <value name="B">
+                            <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                              <field name="NUM">1</field>
+                            </shadow>
+                            <block type="math_arithmetic" id="t(^-7+ON,D,X]8L*0aIG">
+                              <field name="OP">DIVIDE</field>
+                              <value name="A">
+                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                                  <field name="NUM">1</field>
+                                </shadow>
+                                <block type="env_constant_index" id="L@B)qh2VJF~5~SrMUKNg">
+                                  <field name="OP">FIELD</field>
+                                  <value name="NUM">
+                                    <block type="env_coordinates_index" id="x#KESnwLMYdZe%~S:4y]">
+                                      <field name="CONSTANT">X</field>
+                                    </block>
+                                  </value>
+                                </block>
+                              </value>
+                              <value name="B">
+                                <shadow type="math_number" id="Dl5n;6d7[hQ3dye:6x1-">
+                                  <field name="NUM">2</field>
+                                </shadow>
+                              </value>
+                            </block>
+                          </value>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="variables_set" id=".W!ta(kH5#R~ZM@AqHIW">
+                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                          <value name="VALUE">
+                            <block type="math_arithmetic" id="50Y3uO{R+TI1ek6,ui2d">
+                              <field name="OP">MULTIPLY</field>
+                              <value name="A">
+                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                                  <field name="NUM">1</field>
+                                </shadow>
+                                <block type="math_trig" id="dH3?4Ft{PuUL,_YsX9X=">
+                                  <field name="OP">SIN</field>
+                                  <value name="NUM">
+                                    <shadow type="math_number" id="6Sk3C08^WW]65I|38{?X">
+                                      <field name="NUM">45</field>
+                                    </shadow>
+                                    <block type="variables_get" id="mje?p4aUo]v!l6ohA9jq">
+                                      <field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
+                                    </block>
+                                  </value>
+                                </block>
+                              </value>
+                              <value name="B">
+                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                                  <field name="NUM">1</field>
+                                </shadow>
+                                <block type="variables_get" id="=aa~cbP84Fw8IFc=He:9">
+                                  <field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
+                                </block>
+                              </value>
+                            </block>
+                          </value>
+                        </block>
+                      </next>
+                    </block>
+                  </statement>
+                </block>
+              </next>
+            </block>
+          </next>
+        </block>
+      </xml>
+      <xml id="default_blocks_d1" style="display:none;">
+        <variables>
+          <variable id="CTa5t7ByUE#Feu1:+Hgc">ox</variable>
+          <variable id="yu~xLRpJf-*~h1c/1SlU">min_x</variable>
+          <variable id="r8x5UF.[T!^86Oo5SXsz">min_y</variable>
+          <variable id="?L0[){AZdk}90c=-H/5-">mult</variable>
+          <variable id="6lU[D8H{gc-}@zG:};jh">x</variable>
+          <variable id="jf{t7R@%1Ogf$(dl:Gi|">y</variable>
+          <variable id="h?}mXo/wtYe8dBZBQB[9">angle</variable>
+          <variable id="}vOM7?PdUO}P9B/#DRtc">protection_radius</variable>
+        </variables>
+        <block type="variables_set" id="$4:%5!m@,7jS~^5MiJVN" x="18" y="20">
+          <field name="VAR" id="CTa5t7ByUE#Feu1:+Hgc">ox</field>
+          <value name="VALUE">
+            <block type="math_number" id="]4V|p$*4%5vkF~HwJcGc">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <next>
+            <block type="variables_set" id="a-7^RT@N-D/m]s]]EQfA">
+              <field name="VAR" id="yu~xLRpJf-*~h1c/1SlU">min_x</field>
+              <value name="VALUE">
+                <block type="math_arithmetic" id="]-3i|VF$+Al-j1,:k4lj">
+                  <field name="OP">ADD</field>
+                  <value name="A">
+                    <shadow type="math_number" id="S,I@_pnFC:pW-h*qQjzj">
+                      <field name="NUM">1</field>
+                    </shadow>
+                    <block type="math_arithmetic" id="izn[hZ86RA7{C@_A2E2_">
+                      <field name="OP">DIVIDE</field>
+                      <value name="A">
+                        <shadow type="math_number" id="BgJtCktpXT@9)SeS2BLu">
+                          <field name="NUM">1</field>
+                        </shadow>
+                        <block type="math_arithmetic" id="^jl5N)1Tmt;SqSwQ@2]k">
+                          <field name="OP">MULTIPLY</field>
+                          <value name="A">
+                            <shadow type="math_number" id=",anlLiv*n7Qs~ux}vFqf">
+                              <field name="NUM">-1</field>
+                            </shadow>
+                          </value>
+                          <value name="B">
+                            <shadow type="math_number" id="t8H#A%%Wga:,I69j*.iL">
+                              <field name="NUM">0</field>
+                            </shadow>
+                            <block type="env_constant_index" id=";?h^5.DW-2;N=:VRkGJ_">
+                              <field name="OP">FIELD</field>
+                              <value name="NUM">
+                                <block type="env_coordinates_index" id="(Zm|QmKcu.6|a-[#/X.T">
+                                  <field name="CONSTANT">X</field>
+                                </block>
+                              </value>
+                            </block>
+                          </value>
+                        </block>
+                      </value>
+                      <value name="B">
+                        <shadow type="math_number" id="yNz2vyX4l_}h{5yd?ob{">
+                          <field name="NUM">2</field>
+                        </shadow>
+                      </value>
+                    </block>
+                  </value>
+                  <value name="B">
+                    <shadow type="math_number" id="rM2cV#)0/p!H2[jNST4i">
+                      <field name="NUM">1</field>
+                    </shadow>
+                    <block type="env_constant_index" id="*m:;[_~o[ny|fM7]mZ{=">
+                      <field name="OP">GOAL_AREA</field>
+                      <value name="NUM">
+                        <block type="env_coordinates_index" id="V:HFGwqXp5L$j4JVX8X$">
+                          <field name="CONSTANT">X</field>
+                        </block>
+                      </value>
+                    </block>
+                  </value>
+                </block>
+              </value>
+              <next>
+                <block type="variables_set" id="`O^2vgEG%oo=zoQxFgKL">
+                  <field name="VAR" id="r8x5UF.[T!^86Oo5SXsz">min_y</field>
+                  <value name="VALUE">
+                    <block type="math_arithmetic" id="1.)XE65%N}|,~7XUwHyO">
+                      <field name="OP">DIVIDE</field>
+                      <value name="A">
+                        <shadow type="math_number" id="moRyHHvW]lqFhM}+Jof2">
+                          <field name="NUM">1</field>
+                        </shadow>
+                        <block type="env_constant_index" id="6nQo0tZ8}!h*kwe)eU8y">
+                          <field name="OP">GOAL_AREA</field>
+                          <value name="NUM">
+                            <block type="env_coordinates_index" id="ynb[s=5vMLv34o3IEz)r">
+                              <field name="CONSTANT">Y</field>
+                            </block>
+                          </value>
+                        </block>
+                      </value>
+                      <value name="B">
+                        <shadow type="math_number" id="O:NF1yyLTXajt.^heb7x">
+                          <field name="NUM">2</field>
+                        </shadow>
+                      </value>
+                    </block>
+                  </value>
+                  <next>
+                    <block type="controls_if" id="vyb0o@`kc(hehWn6v^Y4">
+                      <mutation elseif="4" else="1"/></mutation>
+                      <value name="IF0">
+                        <block type="ball_is_own_goal" id="(`?!gtOF}?U*XDe.wG.$">
+                          <value name="predicted_ball">
+                            <block type="env_variables_1d" id=";$)#a190%M)].5!SXo@[">
+                              <field name="OP">PREDICTED_BALL</field>
+                            </block>
+                          </value>
+                          <value name="field">
+                            <block type="env_constant_index" id="lZl@:{dqmsIPsr^;B$:X">
+                              <field name="OP">FIELD</field>
+                            </block>
+                          </value>
+                          <value name="goal_area">
+                            <block type="env_constant_index" id="*7y09U$E,^^F[1=xg%}=">
+                              <field name="OP">GOAL_AREA</field>
+                            </block>
+                          </value>
+                        </block>
+                      </value>
+                      <statement name="DO0">
+                        <block type="variables_set" id="{Lf!`I0f;h}Rari)~-?i">
+                          <field name="VAR" id="?L0[){AZdk}90c=-H/5-">mult</field>
+                          <value name="VALUE">
+                            <block type="math_number" id="Ey/PSCTp7Z@*3)0{NJAl">
+                              <field name="NUM">1</field>
+                            </block>
+                          </value>
+                          <next>
+                            <block type="controls_if" id="V*g3N{4F*Za_rSQeMGr$">
+                              <value name="IF0">
+                                <block type="logic_compare" id="biSQ3v`Tw13#m)g?~Su[">
+                                  <field name="OP">LT</field>
+                                  <value name="A">
+                                    <block type="env_variables_1d" id="IefA$sVkONr|d2G47Q!l">
+                                      <field name="OP">PREDICTED_BALL</field>
+                                      <value name="NUM">
+                                        <block type="env_coordinates_index" id="diJ1D}iGJzI~$H$42gYN">
+                                          <field name="CONSTANT">Y</field>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </value>
+                                  <value name="B">
+                                    <block type="math_number" id="d_#Legn_2X)JT+H2[y/K">
+                                      <field name="NUM">0</field>
+                                    </block>
+                                  </value>
+                                </block>
+                              </value>
+                              <statement name="DO0">
+                                <block type="variables_set" id="x_KbR:89;lMu9ri([|4l">
+                                  <field name="VAR" id="?L0[){AZdk}90c=-H/5-">mult</field>
+                                  <value name="VALUE">
+                                    <block type="math_arithmetic" id="w|SWUD5rRJm7F_+gjKWO">
+                                      <field name="OP">MULTIPLY</field>
+                                      <value name="A">
+                                        <shadow type="math_number" id="0MY]|y*$@j^I8GveaAQF">
+                                          <field name="NUM">-1</field>
+                                        </shadow>
+                                      </value>
+                                      <value name="B">
+                                        <shadow type="math_number" id=".L(lgP}Yun6R_~VMp/d#">
+                                          <field name="NUM">1</field>
+                                        </shadow>
+                                        <block type="variables_get" id="t_uay!b[SNwA99A{.kD)">
+                                          <field name="VAR" id="?L0[){AZdk}90c=-H/5-">mult</field>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </value>
+                                </block>
+                              </statement>
+                              <next>
+                                <block type="variables_set" id="D+D85VP%Q;I[,D74U[B~">
+                                  <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                                  <value name="VALUE">
+                                    <block type="math_arithmetic" id="N`)NJ+kIg#Q@VsxIAJTl">
+                                      <field name="OP">ADD</field>
+                                      <value name="A">
+                                        <shadow type="math_number" id=",bAx;q,q/_|gYzO~3W*%">
+                                          <field name="NUM">1</field>
+                                        </shadow>
+                                        <block type="variables_get" id="UH#RE%=JQe~d$vt8AI4,">
+                                          <field name="VAR" id="yu~xLRpJf-*~h1c/1SlU">min_x</field>
+                                        </block>
+                                      </value>
+                                      <value name="B">
+                                        <shadow type="math_number" id="1AO0RC#zx-2AYLF=DToz">
+                                          <field name="NUM">1</field>
+                                        </shadow>
+                                        <block type="variables_get" id="sY/Cq8QpdqS|d]3i+~b0">
+                                          <field name="VAR" id="CTa5t7ByUE#Feu1:+Hgc">ox</field>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </value>
+                                  <next>
+                                    <block type="variables_set" id="R@g%DG1[**nC@HN]vQn_">
+                                      <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                                      <value name="VALUE">
+                                        <block type="math_arithmetic" id="[^@R+9Qz_WP(.Pd}N:h4">
+                                          <field name="OP">ADD</field>
+                                          <value name="A">
+                                            <shadow type="math_number" id="-_,:}2vR{@Cu*Z8HP)I1">
+                                              <field name="NUM">1</field>
+                                            </shadow>
+                                            <block type="env_variables_1d" id="B7m[qhxpZaDzmO*33We2">
+                                              <field name="OP">PREDICTED_BALL</field>
+                                              <value name="NUM">
+                                                <block type="env_coordinates_index" id="x:i1@Q:yJPU4Q/w4w-X7">
+                                                  <field name="CONSTANT">Y</field>
+                                                </block>
+                                              </value>
+                                            </block>
+                                          </value>
+                                          <value name="B">
+                                            <shadow type="math_number" id="w2-::9!lQK|h~#CEK6RO">
+                                              <field name="NUM">1</field>
+                                            </shadow>
+                                            <block type="math_arithmetic" id="Sk@x^5Y*j$LZI_:PJ58@">
+                                              <field name="OP">MULTIPLY</field>
+                                              <value name="A">
+                                                <shadow type="math_number" id="5[=TP4S6D[m,G{.*sdTs">
+                                                  <field name="NUM">0</field>
+                                                </shadow>
+                                                <block type="variables_get" id="ARTb-UO#!WB5aGHXvjN4">
+                                                  <field name="VAR" id="?L0[){AZdk}90c=-H/5-">mult</field>
+                                                </block>
+                                              </value>
+                                              <value name="B">
+                                                <shadow type="math_number" id=";NP8,bAq%EFCu#|#}-au">
+                                                  <field name="NUM">1</field>
+                                                </shadow>
+                                                <block type="env_constant_noindex" id=")ieTtx|s]UJKW.|C}x@w">
+                                                  <field name="CONSTANT">ROBOT_SIZE</field>
+                                                </block>
+                                              </value>
+                                            </block>
+                                          </value>
+                                        </block>
+                                      </value>
+                                      <next>
+                                        <block type="variables_set" id="a%kH*Qc^WxwV8x7dAE3}">
+                                          <field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
+                                          <value name="VALUE">
+                                            <block type="env_variables" id="y#AH2BR2!+OyJ!xvN2P8">
+                                              <field name="CONSTANT">DEFENSE_ANGLE</field>
+                                            </block>
+                                          </value>
+                                        </block>
+                                      </next>
+                                    </block>
+                                  </next>
+                                </block>
+                              </next>
+                            </block>
+                          </next>
+                        </block>
+                      </statement>
+                      <value name="IF1">
+                        <block type="ball_is_own_penalty" id="!1-2@]z?U}1$[g23o|.E">
+                          <value name="predicted_ball">
+                            <block type="env_variables_1d" id="}v:y?pqan9ZE|tos^/5h">
+                              <field name="OP">PREDICTED_BALL</field>
+                            </block>
+                          </value>
+                          <value name="field">
+                            <block type="env_constant_index" id="$oXWU_YNm$J#`X;6OEk0">
+                              <field name="OP">FIELD</field>
+                            </block>
+                          </value>
+                          <value name="penalty_area">
+                            <block type="env_constant_index" id="gp9{G2c0bpJAIgj(9Xjs">
+                              <field name="OP">PENALTY_AREA</field>
+                            </block>
+                          </value>
+                        </block>
+                      </value>
+                      <statement name="DO1">
+                        <block type="variables_set" id="M9[InCop,LwvrT|]Ak|Y">
+                          <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                          <value name="VALUE">
+                            <block type="math_on_list" id="UqfQAAV~r7h)P^Bz@5aD">
+                              <mutation op="MAX"/></mutation>
+                              <field name="OP">MAX</field>
+                              <value name="LIST">
+                                <block type="lists_create_with" id="+c=LWj$4H;_w@-KfYU6K">
+                                  <mutation items="2"/></mutation>
+                                  <value name="ADD0">
+                                    <block type="math_arithmetic" id="z!0SH851aJ3H:nv*SA6H">
+                                      <field name="OP">ADD</field>
+                                      <value name="A">
+                                        <shadow type="math_number" id="7)F8IvhAD=IjVk6]6U)z">
+                                          <field name="NUM">1</field>
+                                        </shadow>
+                                        <block type="variables_get" id="Jl5m8XgP-)sjkChn`:(U">
+                                          <field name="VAR" id="yu~xLRpJf-*~h1c/1SlU">min_x</field>
+                                        </block>
+                                      </value>
+                                      <value name="B">
+                                        <shadow type="math_number">
+                                          <field name="NUM">1</field>
+                                        </shadow>
+                                        <block type="variables_get" id="(of77y]Sjn!=cQaODKW|">
+                                          <field name="VAR" id="CTa5t7ByUE#Feu1:+Hgc">ox</field>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </value>
+                                  <value name="ADD1">
+                                    <block type="env_variables_1d" id="(8_R7eHxmjDJDX8TJ#EA">
+                                      <field name="OP">PREDICTED_BALL</field>
+                                      <value name="NUM">
+                                        <block type="env_coordinates_index" id="J[E|$N|V|sgK;Z,yeuyu">
+                                          <field name="CONSTANT">X</field>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </value>
+                                </block>
+                              </value>
+                            </block>
+                          </value>
+                          <next>
+                            <block type="variables_set" id="ugf;,[zO_a5yC_UR}Q~+">
+                              <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                              <value name="VALUE">
+                                <block type="env_variables_1d" id="*t?2]n)^R(I0`$9@On!3">
+                                  <field name="OP">PREDICTED_BALL</field>
+                                  <value name="NUM">
+                                    <block type="env_coordinates_index" id="#O^pX*?BF/Dwqwu8p_+I">
+                                      <field name="CONSTANT">Y</field>
+                                    </block>
+                                  </value>
+                                </block>
+                              </value>
+                              <next>
+                                <block type="variables_set" id="qU#y=iDrT99Y,W~^Y+y7">
+                                  <field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
+                                  <value name="VALUE">
+                                    <block type="env_variables" id="Q3HIT)lM${}[!+uuMI8i">
+                                      <field name="CONSTANT">DEFENSE_ANGLE</field>
+                                    </block>
+                                  </value>
+                                </block>
+                              </next>
+                            </block>
+                          </next>
+                        </block>
+                      </statement>
+                      <value name="IF2">
+                        <block type="ball_is_own_field" id="nn10h9.~|uAC5Hlqum;u">
+                          <value name="predicted_ball">
+                            <block type="env_variables_1d" id="pufYeEGVz0}j70(zBx!E">
+                              <field name="OP">PREDICTED_BALL</field>
+                            </block>
+                          </value>
+                        </block>
+                      </value>
+                      <statement name="DO2">
+                        <block type="controls_if" id="v|6eDjlO1t$En{{Ns%]+">
+                          <mutation else="1"/></mutation>
+                          <value name="IF0">
+                            <block type="logic_compare" id="*{#a6r1rBn8}+D}-Lu72">
+                              <field name="OP">EQ</field>
+                              <value name="A">
+                                <block type="env_variables" id="m:e=*jh7Xf~#ack(!@XR">
+                                  <field name="CONSTANT">ROBOT_ID</field>
+                                </block>
+                              </value>
+                              <value name="B">
+                                <block type="env_variables" id="VN+N7im|M!jqm2Lgu)uL">
+                                  <field name="CONSTANT">IDX</field>
+                                </block>
+                              </value>
+                            </block>
+                          </value>
+                          <statement name="DO0">
+                            <block type="variables_set" id="s`AdRF1X4w.tV-%?9x8g">
+                              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                              <value name="VALUE">
+                                <block type="env_variables_1d" id=",TO%-0IMdP}88JLI5ofx">
+                                  <field name="OP">PREDICTED_BALL</field>
+                                  <value name="NUM">
+                                    <block type="env_coordinates_index" id="k]%#A^@f]hSq%EC)F62u">
+                                      <field name="CONSTANT">X</field>
+                                    </block>
+                                  </value>
+                                </block>
+                              </value>
+                              <next>
+                                <block type="variables_set" id="%[^[a+EbeMYE-~R{mQP[">
+                                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                                  <value name="VALUE">
+                                    <block type="env_variables_1d" id="`@=C2J)KNWPNz7,PtKmU">
+                                      <field name="OP">PREDICTED_BALL</field>
+                                      <value name="NUM">
+                                        <block type="env_coordinates_index" id="E_-d3X6zMA!tRZ~XB+Dp">
+                                          <field name="CONSTANT">Y</field>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </value>
+                                  <next>
+                                    <block type="variables_set" id="qprV(qlfEU;uo7@P[DN1">
+                                      <field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
+                                      <value name="VALUE">
+                                        <block type="env_variables" id="3gVZw}i1@Z!IzKQp!Q#O">
+                                          <field name="CONSTANT">DEFENSE_ANGLE</field>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </next>
+                                </block>
+                              </next>
+                            </block>
+                          </statement>
+                          <statement name="ELSE">
+                            <block type="variables_set" id="1dnIGhiABE^x!qFnr.gx">
+                              <field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
+                              <value name="VALUE">
+                                <block type="env_variables" id="P~y(YqUc6p7*q]Yy,EDa">
+                                  <field name="CONSTANT">DEFENSE_ANGLE</field>
+                                </block>
+                              </value>
+                              <next>
+                                <block type="variables_set" id="K+5iXyy`5}/nN3tvi2{m">
+                                  <field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
+                                  <value name="VALUE">
+                                    <block type="math_number" id="mB,Bnv/$7|+_gtNCtY/x">
+                                      <field name="NUM">1.2</field>
+                                    </block>
+                                  </value>
+                                  <next>
+                                    <block type="variables_set" id="4#MMBHX(]bitP@0bQXk,">
+                                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                                      <value name="VALUE">
+                                        <block type="math_arithmetic" id="4bT1Gj+*`F`h_]%@F~}B">
+                                          <field name="OP">MINUS</field>
+                                          <value name="A">
+                                            <shadow type="math_number" id="ho*H9n4b7%w-5G?LOzzQ">
+                                              <field name="NUM">1</field>
+                                            </shadow>
+                                            <block type="math_arithmetic" id="YsHf)NNG_u@mj:f9+Op[">
+                                              <field name="OP">MULTIPLY</field>
+                                              <value name="A">
+                                                <shadow type="math_number" id="RC?t:NS+OEP{+)pB9X87">
+                                                  <field name="NUM">1</field>
+                                                </shadow>
+                                                <block type="math_trig" id="Gc#9:*ZVmlJ52e8LxO]4">
+                                                  <field name="OP">COS</field>
+                                                  <value name="NUM">
+                                                    <shadow type="math_number" id="|Lx(G8db{|SJD$5/peMt">
+                                                      <field name="NUM">45</field>
+                                                    </shadow>
+                                                    <block type="variables_get" id="!K2mY8?]]GrFs61KFB|e">
+                                                      <field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
+                                                    </block>
+                                                  </value>
+                                                </block>
+                                              </value>
+                                              <value name="B">
+                                                <shadow type="math_number" id="v6(Rnq_cqKz@i09jSo6V">
+                                                  <field name="NUM">1</field>
+                                                </shadow>
+                                                <block type="variables_get" id="NWVF+%}Y4}T7w9#.HXX%">
+                                                  <field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
+                                                </block>
+                                              </value>
+                                            </block>
+                                          </value>
+                                          <value name="B">
+                                            <shadow type="math_number" id="TZz6r(V_i{NG:zv^4BbT">
+                                              <field name="NUM">1</field>
+                                            </shadow>
+                                            <block type="math_arithmetic" id="{]D*)1Liuoz[fze3dAel">
+                                              <field name="OP">DIVIDE</field>
+                                              <value name="A">
+                                                <shadow type="math_number" id="li0i.{_GAI@cqB3vafez">
+                                                  <field name="NUM">1</field>
+                                                </shadow>
+                                                <block type="env_constant_index" id="qR5-stM[jyGF`Jb`!`Nn">
+                                                  <field name="OP">FIELD</field>
+                                                  <value name="NUM">
+                                                    <block type="env_coordinates_index" id="OHKL~YV:]Qpt9]*TV+_a">
+                                                      <field name="CONSTANT">X</field>
+                                                    </block>
+                                                  </value>
+                                                </block>
+                                              </value>
+                                              <value name="B">
+                                                <shadow type="math_number" id="6j3qih`Nqi7X*W~~|kxA">
+                                                  <field name="NUM">2</field>
+                                                </shadow>
+                                              </value>
+                                            </block>
+                                          </value>
+                                        </block>
+                                      </value>
+                                      <next>
+                                        <block type="variables_set" id=";XVN[z!Qo!jIK+fee@4;">
+                                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                                          <value name="VALUE">
+                                            <block type="math_arithmetic" id="#8G7?6]3nRYyD|WL#Rn/">
+                                              <field name="OP">ADD</field>
+                                              <value name="A">
+                                                <shadow type="math_number" id="V:Y/(z+VYun{-|4Cu9]u">
+                                                  <field name="NUM">1</field>
+                                                </shadow>
+                                                <block type="math_arithmetic" id=")mT#9BF-.5Id,in[D~O~">
+                                                  <field name="OP">MULTIPLY</field>
+                                                  <value name="A">
+                                                    <shadow type="math_number" id="w2Ml(e3eQ#[4bP{7bcl|">
+                                                      <field name="NUM">1</field>
+                                                    </shadow>
+                                                    <block type="math_trig" id="{(9=7ra#_tH(Qg2yzRnI">
+                                                      <field name="OP">SIN</field>
+                                                      <value name="NUM">
+                                                        <shadow type="math_number" id="OLV6:LV-eZjc$Fz-auTy">
+                                                          <field name="NUM">45</field>
+                                                        </shadow>
+                                                        <block type="variables_get" id="K0,n?FUs2Z%5Zl:/;zPK">
+                                                          <field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
+                                                        </block>
+                                                      </value>
+                                                    </block>
+                                                  </value>
+                                                  <value name="B">
+                                                    <shadow type="math_number" id="O9DsKhZ*8a%k*Z5HuV(k">
+                                                      <field name="NUM">1</field>
+                                                    </shadow>
+                                                    <block type="variables_get" id="NSS~OBVobjHS[f.0_x..">
+                                                      <field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
+                                                    </block>
+                                                  </value>
+                                                </block>
+                                              </value>
+                                              <value name="B">
+                                                <shadow type="math_number" id="GJvycoK#`~}Y6xImN,v7">
+                                                  <field name="NUM">0</field>
+                                                </shadow>
+                                              </value>
+                                            </block>
+                                          </value>
+                                        </block>
+                                      </next>
+                                    </block>
+                                  </next>
+                                </block>
+                              </next>
+                            </block>
+                          </statement>
+                        </block>
+                      </statement>
+                      <value name="IF3">
+                        <block type="ball_is_opp_goal" id="#Q2%SjcfB5sikdo5.aIs">
+                          <value name="predicted_ball">
+                            <block type="env_variables_1d" id="et.+MRICzVsx=7-lX!69">
+                              <field name="OP">PREDICTED_BALL</field>
+                            </block>
+                          </value>
+                          <value name="field">
+                            <block type="env_constant_index" id="*pAuT2w`Wr}[/*s7E1|A">
+                              <field name="OP">FIELD</field>
+                            </block>
+                          </value>
+                          <value name="goal_area">
+                            <block type="env_constant_index" id="T8o5S*1lbdjz_s~`!h$;">
+                              <field name="OP">GOAL_AREA</field>
+                            </block>
+                          </value>
+                        </block>
+                      </value>
+                      <statement name="DO3">
+                        <block type="controls_if" id="o(]]5UMH/WXNKkW[]WCy">
+                          <mutation else="1"/></mutation>
+                          <value name="IF0">
+                            <block type="logic_compare" id="7F$//[nZwZY,k#45}N/W">
+                              <field name="OP">EQ</field>
+                              <value name="A">
+                                <block type="env_variables" id="9K@V!y#zl6*.B*F8[6V1">
+                                  <field name="CONSTANT">ROBOT_ID</field>
+                                </block>
+                              </value>
+                              <value name="B">
+                                <block type="env_variables" id="CjLAVLCnBJ0wO?SZ~TDb">
+                                  <field name="CONSTANT">IDX</field>
+                                </block>
+                              </value>
+                            </block>
+                          </value>
+                          <statement name="DO0">
+                            <block type="variables_set" id="^Qq!Km|:Y1Ely5hU_EE:">
+                              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                              <value name="VALUE">
+                                <block type="math_arithmetic" id="3~Xc7BS}{}$|D!Sd;9{_">
+                                  <field name="OP">MINUS</field>
+                                  <value name="A">
+                                    <shadow type="math_number" id="GVX9}hqWV:~epy-QZ7f|">
+                                      <field name="NUM">1</field>
+                                    </shadow>
+                                    <block type="math_arithmetic" id="lf?=0rqh@t_PAtX7.=cw">
+                                      <field name="OP">MINUS</field>
+                                      <value name="A">
+                                        <shadow type="math_number" id="RKy:pVLH2$O7PA.r)(Yo">
+                                          <field name="NUM">1</field>
+                                        </shadow>
+                                        <block type="math_arithmetic" id="^nG74(l=NI(0OGhxn~zD">
+                                          <field name="OP">DIVIDE</field>
+                                          <value name="A">
+                                            <shadow type="math_number" id="cw]a%WGG$Xrwp]F46+Q6">
+                                              <field name="NUM">1</field>
+                                            </shadow>
+                                            <block type="env_constant_index" id="BwT-{Y@6i+N^G-k^cH1t">
+                                              <field name="OP">FIELD</field>
+                                              <value name="NUM">
+                                                <block type="env_coordinates_index" id="mzq_P`aA+]O-VMRlU_H[">
+                                                  <field name="CONSTANT">X</field>
+                                                </block>
+                                              </value>
+                                            </block>
+                                          </value>
+                                          <value name="B">
+                                            <shadow type="math_number" id="$nTqO*]f3=|K6vIG4P1p">
+                                              <field name="NUM">2</field>
+                                            </shadow>
+                                          </value>
+                                        </block>
+                                      </value>
+                                      <value name="B">
+                                        <shadow type="math_number" id="`-to,b[cb6Ph@L9@6-Hr">
+                                          <field name="NUM">1</field>
+                                        </shadow>
+                                        <block type="env_constant_index" id="jpF?-um;Z76JwNW4!Rq5">
+                                          <field name="OP">PENALTY_AREA</field>
+                                          <value name="NUM">
+                                            <block type="env_coordinates_index" id="HJP~GLZznO5BZZ,6{W%B">
+                                              <field name="CONSTANT">Y</field>
+                                            </block>
+                                          </value>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </value>
+                                  <value name="B">
+                                    <shadow type="math_number" id="D)_dhS6t/uv]226k,uV8">
+                                      <field name="NUM">0.2</field>
+                                    </shadow>
+                                  </value>
+                                </block>
+                              </value>
+                              <next>
+                                <block type="variables_set" id="OqG9u[rLjre!?OX}mr=Q">
+                                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                                  <value name="VALUE">
+                                    <block type="env_variables_1d" id="+Ms@kd;r$x@bU}Q9gt8B">
+                                      <field name="OP">PREDICTED_BALL</field>
+                                      <value name="NUM">
+                                        <block type="env_coordinates_index" id="/N=J4l}pWoo79-1-5?l8">
+                                          <field name="CONSTANT">Y</field>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </value>
+                                  <next>
+                                    <block type="variables_set" id="L%!2`l)87+$#4x%jLi24">
+                                      <field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
+                                      <value name="VALUE">
+                                        <block type="env_variables" id="4d0~TY{h8,.8ImULiG3J">
+                                          <field name="CONSTANT">ATTACK_ANGLE</field>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </next>
+                                </block>
+                              </next>
+                            </block>
+                          </statement>
+                          <statement name="ELSE">
+                            <block type="variables_set" id="JI5}VQBMtGC=0P)h.`/n">
+                              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                              <value name="VALUE">
+                                <block type="math_arithmetic" id="u47FIah)-6E2%Vdu^`2f">
+                                  <field name="OP">MINUS</field>
+                                  <value name="A">
+                                    <shadow type="math_number" id="=vpxH4IMBPcdY5Tr~]DR">
+                                      <field name="NUM">1</field>
+                                    </shadow>
+                                    <block type="env_variables_1d" id="y|kPs6nxuFj=%tY/4?ip">
+                                      <field name="OP">CUR_BALL</field>
+                                      <value name="NUM">
+                                        <block type="env_coordinates_index" id="o(@_?=Ttau7?ODBfGw{x">
+                                          <field name="CONSTANT">X</field>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </value>
+                                  <value name="B">
+                                    <shadow type="math_number" id="{?ZiAif]l([P*k0H$dhv">
+                                      <field name="NUM">1</field>
+                                    </shadow>
+                                  </value>
+                                </block>
+                              </value>
+                              <next>
+                                <block type="controls_if" id="!,B18Bt$@D)7#dU@DOe3">
+                                  <mutation else="1"/></mutation>
+                                  <value name="IF0">
+                                    <block type="logic_compare" id="mxOi0Aez-UL!OkX/gwfr">
+                                      <field name="OP">GT</field>
+                                      <value name="A">
+                                        <block type="env_variables_1d" id="W-t+hiU93hI#jE@/hI9B">
+                                          <field name="OP">CUR_BALL</field>
+                                          <value name="NUM">
+                                            <block type="env_coordinates_index" id="vq[;CySO*v{ZVlH9t4L:">
+                                              <field name="CONSTANT">Y</field>
+                                            </block>
+                                          </value>
+                                        </block>
+                                      </value>
+                                      <value name="B">
+                                        <block type="math_number" id="%b:)5H)rmM_B~@+Ik^hV">
+                                          <field name="NUM">0</field>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </value>
+                                  <statement name="DO0">
+                                    <block type="variables_set" id="Rz!C52G(+xq.qPtZ3vXo">
+                                      <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                                      <value name="VALUE">
+                                        <block type="math_on_list" id="rkAthKwRwVxU)ABI1_?u">
+                                          <mutation op="MIN"/></mutation>
+                                          <field name="OP">MIN</field>
+                                          <value name="LIST">
+                                            <block type="lists_create_with" id="PY!7=(/?9iw(t+H*3DMv">
+                                              <mutation items="2"/></mutation>
+                                              <value name="ADD0">
+                                                <block type="env_variables_1d" id="yA|i_89xh9UKh3E_^;Yj">
+                                                  <field name="OP">CUR_BALL</field>
+                                                  <value name="NUM">
+                                                    <block type="env_coordinates_index" id="{V4o3)JVc|?AX{()+?yG">
+                                                      <field name="CONSTANT">Y</field>
+                                                    </block>
+                                                  </value>
+                                                </block>
+                                              </value>
+                                              <value name="ADD1">
+                                                <block type="math_number" id="]gqKkLnm`d7)Ud2eux+%">
+                                                  <field name="NUM">2</field>
+                                                </block>
+                                              </value>
+                                            </block>
+                                          </value>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </statement>
+                                  <statement name="ELSE">
+                                    <block type="variables_set" id="-q-BTm:#yu+M%ih42cm5">
+                                      <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                                      <value name="VALUE">
+                                        <block type="math_on_list" id="@(f7VtR:U:l_z^zgH$a[">
+                                          <mutation op="MIN"/></mutation>
+                                          <field name="OP">MIN</field>
+                                          <value name="LIST">
+                                            <block type="lists_create_with" id="5dfm6PO52ci@M~Yh4Q#9">
+                                              <mutation items="2"/></mutation>
+                                              <value name="ADD0">
+                                                <block type="env_variables_1d" id="9FV)/RIQ(uO3CJT=~-H6">
+                                                  <field name="OP">CUR_BALL</field>
+                                                  <value name="NUM">
+                                                    <block type="env_coordinates_index" id="jMaLi^l[c~d]8mh~Xi-1">
+                                                      <field name="CONSTANT">Y</field>
+                                                    </block>
+                                                  </value>
+                                                </block>
+                                              </value>
+                                              <value name="ADD1">
+                                                <block type="math_number" id="U}Y?=ey=Gk|;KR*r7`ah">
+                                                  <field name="NUM">-2</field>
+                                                </block>
+                                              </value>
+                                            </block>
+                                          </value>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </statement>
+                                </block>
+                              </next>
+                            </block>
+                          </statement>
+                        </block>
+                      </statement>
+                      <value name="IF4">
+                        <block type="ball_is_opp_penalty" id="2%ERfstKJ2$o-TS(j:d|">
+                          <value name="predicted_ball">
+                            <block type="env_variables_1d" id="Wx}Ps3tEfBaP$=drPr9d">
+                              <field name="OP">PREDICTED_BALL</field>
+                            </block>
+                          </value>
+                          <value name="field">
+                            <block type="env_constant_index" id="E|TVsUtWktF$Vf%lA-_A">
+                              <field name="OP">FIELD</field>
+                            </block>
+                          </value>
+                          <value name="penalty_area">
+                            <block type="env_constant_index" id="cqOivj6_ZCnYQdZxEF%Z">
+                              <field name="OP">PENALTY_AREA</field>
+                            </block>
+                          </value>
+                        </block>
+                      </value>
+                      <statement name="DO4">
+                        <block type="controls_if" id="d:^;|}3?IHaIyU$t;sf,">
+                          <mutation else="1"/></mutation>
+                          <value name="IF0">
+                            <block type="logic_compare" id="-`Iv7$NUPX{53vftAdSF">
+                              <field name="OP">EQ</field>
+                              <value name="A">
+                                <block type="env_variables" id="QF?d!T2tRzU4v%Y,.`Q4">
+                                  <field name="CONSTANT">ROBOT_ID</field>
+                                </block>
+                              </value>
+                              <value name="B">
+                                <block type="env_variables" id="jRL9%0@e;.:b6J:sd-5c">
+                                  <field name="CONSTANT">IDX</field>
+                                </block>
+                              </value>
+                            </block>
+                          </value>
+                          <statement name="DO0">
+                            <block type="variables_set" id="FvtEFTftc0`:hO.GWOzH">
+                              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                              <value name="VALUE">
+                                <block type="math_arithmetic" id="~l}KLrxSNSvtcArEkJxk">
+                                  <field name="OP">MINUS</field>
+                                  <value name="A">
+                                    <shadow type="math_number">
+                                      <field name="NUM">1</field>
+                                    </shadow>
+                                    <block type="math_arithmetic" id="Ek?1hc0sm#{6#$qFnc=q">
+                                      <field name="OP">MINUS</field>
+                                      <value name="A">
+                                        <shadow type="math_number">
+                                          <field name="NUM">1</field>
+                                        </shadow>
+                                        <block type="math_arithmetic" id="!=UeGg))`{9Ci+g,bNNZ">
+                                          <field name="OP">DIVIDE</field>
+                                          <value name="A">
+                                            <shadow type="math_number">
+                                              <field name="NUM">1</field>
+                                            </shadow>
+                                            <block type="env_constant_index" id="cpqP!?pf=`b7,6S9ptKM">
+                                              <field name="OP">FIELD</field>
+                                              <value name="NUM">
+                                                <block type="env_coordinates_index" id="fwUodV])~i[e|(NDtVr`">
+                                                  <field name="CONSTANT">X</field>
+                                                </block>
+                                              </value>
+                                            </block>
+                                          </value>
+                                          <value name="B">
+                                            <shadow type="math_number" id="@A7n2qB@[E1/^Ztzqo5i">
+                                              <field name="NUM">2</field>
+                                            </shadow>
+                                          </value>
+                                        </block>
+                                      </value>
+                                      <value name="B">
+                                        <shadow type="math_number">
+                                          <field name="NUM">1</field>
+                                        </shadow>
+                                        <block type="env_constant_index" id="+a(|JD0]M5nF7x*2(4M5">
+                                          <field name="OP">PENALTY_AREA</field>
+                                          <value name="NUM">
+                                            <block type="env_coordinates_index" id="mY5#,Q_F:.akz@~0+Q)k">
+                                              <field name="CONSTANT">Y</field>
+                                            </block>
+                                          </value>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </value>
+                                  <value name="B">
+                                    <shadow type="math_number" id="Oa{[.!Xjh$Fn/~J#beP(">
+                                      <field name="NUM">0.2</field>
+                                    </shadow>
+                                  </value>
+                                </block>
+                              </value>
+                              <next>
+                                <block type="variables_set" id="O]S9){QK5pD_#DRi2]!=">
+                                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                                  <value name="VALUE">
+                                    <block type="env_variables_1d" id="s#)JZC{2=D*~+YKtonh(">
+                                      <field name="OP">PREDICTED_BALL</field>
+                                      <value name="NUM">
+                                        <block type="env_coordinates_index" id="82}#D[t3ADtBh`e^%=T:">
+                                          <field name="CONSTANT">Y</field>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </value>
+                                  <next>
+                                    <block type="variables_set" id="d!t3~^_:usnHf/-$baaa">
+                                      <field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
+                                      <value name="VALUE">
+                                        <block type="env_variables" id="#|wWZNWr:o+:IZV/F[|p">
+                                          <field name="CONSTANT">ATTACK_ANGLE</field>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </next>
+                                </block>
+                              </next>
+                            </block>
+                          </statement>
+                          <statement name="ELSE">
+                            <block type="variables_set" id="-CC1r`C7z!m)9gWrx$vL">
+                              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                              <value name="VALUE">
+                                <block type="math_arithmetic" id="VIJA(T#CWk)MLPRAbEq}">
+                                  <field name="OP">MINUS</field>
+                                  <value name="A">
+                                    <shadow type="math_number">
+                                      <field name="NUM">1</field>
+                                    </shadow>
+                                    <block type="env_variables_1d" id="N^(~mMfx0mTwkup{5({6">
+                                      <field name="OP">CUR_BALL</field>
+                                      <value name="NUM">
+                                        <block type="env_coordinates_index" id="O8FT~ANM^-7B~~:c4#:N">
+                                          <field name="CONSTANT">X</field>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </value>
+                                  <value name="B">
+                                    <shadow type="math_number" id="KtWs3#Yu9-w4?k{jeqR+">
+                                      <field name="NUM">1</field>
+                                    </shadow>
+                                  </value>
+                                </block>
+                              </value>
+                              <next>
+                                <block type="controls_if" id="#tCEf{?3JKI_WZ{]Sv3}">
+                                  <mutation else="1"/></mutation>
+                                  <value name="IF0">
+                                    <block type="logic_compare" id="BEkksvt4`;RkS{!!+4gs">
+                                      <field name="OP">GT</field>
+                                      <value name="A">
+                                        <block type="env_variables_1d" id="1R*9@0/r[!~lR~=ATj_k">
+                                          <field name="OP">CUR_BALL</field>
+                                          <value name="NUM">
+                                            <block type="env_coordinates_index" id="~/$VfS4{YiSv3vx4$qPd">
+                                              <field name="CONSTANT">Y</field>
+                                            </block>
+                                          </value>
+                                        </block>
+                                      </value>
+                                      <value name="B">
+                                        <block type="math_number" id="p(]0d8bm9hEL:E`=_XmK">
+                                          <field name="NUM">0</field>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </value>
+                                  <statement name="DO0">
+                                    <block type="variables_set" id="=uW9G8v/TJ#$;TCI,y+H">
+                                      <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                                      <value name="VALUE">
+                                        <block type="math_on_list" id="#kKb8L6=.vuraXm_uqN^">
+                                          <mutation op="MIN"/></mutation>
+                                          <field name="OP">MIN</field>
+                                          <value name="LIST">
+                                            <block type="lists_create_with" id="LJ4*HzC5Y3)}LwT;pU.w">
+                                              <mutation items="2"/></mutation>
+                                              <value name="ADD0">
+                                                <block type="env_variables_1d" id="r[f0h3,#Qc0GgzXYY3xD">
+                                                  <field name="OP">CUR_BALL</field>
+                                                  <value name="NUM">
+                                                    <block type="env_coordinates_index" id="#zGH=4)y9$=6pRKn8)xL">
+                                                      <field name="CONSTANT">Y</field>
+                                                    </block>
+                                                  </value>
+                                                </block>
+                                              </value>
+                                              <value name="ADD1">
+                                                <block type="math_number" id="pi9=ohOjW_)$l~,^J3HI">
+                                                  <field name="NUM">2</field>
+                                                </block>
+                                              </value>
+                                            </block>
+                                          </value>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </statement>
+                                  <statement name="ELSE">
+                                    <block type="variables_set" id="O~O26A9MN_~@ytsQ:`8b">
+                                      <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                                      <value name="VALUE">
+                                        <block type="math_on_list" id="qu-s?:Z719EM69nEnsbK">
+                                          <mutation op="MIN"/></mutation>
+                                          <field name="OP">MIN</field>
+                                          <value name="LIST">
+                                            <block type="lists_create_with" id="KF+DE!y0_/EV(vvDcD%H">
+                                              <mutation items="2"/></mutation>
+                                              <value name="ADD0">
+                                                <block type="env_variables_1d" id="0P7W^K@v~AAtG5,e%[;H">
+                                                  <field name="OP">CUR_BALL</field>
+                                                  <value name="NUM">
+                                                    <block type="env_coordinates_index" id="LdAOr#`/_dBSYMpYfWeG">
+                                                      <field name="CONSTANT">Y</field>
+                                                    </block>
+                                                  </value>
+                                                </block>
+                                              </value>
+                                              <value name="ADD1">
+                                                <block type="math_number" id="n,.:^KMGeLk!@:!$RBjP">
+                                                  <field name="NUM">-2</field>
+                                                </block>
+                                              </value>
+                                            </block>
+                                          </value>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </statement>
+                                </block>
+                              </next>
+                            </block>
+                          </statement>
+                        </block>
+                      </statement>
+                      <statement name="ELSE">
+                        <block type="controls_if" id="Xf,q:.syuYD5c.R{biC/">
+                          <mutation else="1"/></mutation>
+                          <value name="IF0">
+                            <block type="logic_compare" id="*FvWT=I7_6lN-2:`TQOF">
+                              <field name="OP">EQ</field>
+                              <value name="A">
+                                <block type="env_variables" id="W|dzW3g+`eNp:(7*~*3?">
+                                  <field name="CONSTANT">ROBOT_ID</field>
+                                </block>
+                              </value>
+                              <value name="B">
+                                <block type="env_variables" id="M||!Y(frp^)nbaUP.eVj">
+                                  <field name="CONSTANT">IDX</field>
+                                </block>
+                              </value>
+                            </block>
+                          </value>
+                          <statement name="DO0">
+                            <block type="variables_set" id=";UT_{2wM`8@SEf^UhIG=">
+                              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                              <value name="VALUE">
+                                <block type="env_variables_1d" id="(~0}Itpyr!]{7JhF[Hdo">
+                                  <field name="OP">PREDICTED_BALL</field>
+                                  <value name="NUM">
+                                    <block type="env_coordinates_index" id="C{[uAc3y6ePL8KH7iH+R">
+                                      <field name="CONSTANT">X</field>
+                                    </block>
+                                  </value>
+                                </block>
+                              </value>
+                              <next>
+                                <block type="variables_set" id=";1qvb/E~Q.hej;`|!;gK">
+                                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                                  <value name="VALUE">
+                                    <block type="env_variables_1d" id="i/mYiySLm)a_+x[zgpRs">
+                                      <field name="OP">PREDICTED_BALL</field>
+                                      <value name="NUM">
+                                        <block type="env_coordinates_index" id="5$k@0AjGVj41?D@6i;o#">
+                                          <field name="CONSTANT">Y</field>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </value>
+                                  <next>
+                                    <block type="variables_set" id="xB[wi@d_?u[ZJpf37@/4">
+                                      <field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
+                                      <value name="VALUE">
+                                        <block type="env_variables" id="4wx#CTVwvw*VGV8z4d*,">
+                                          <field name="CONSTANT">DEFENSE_ANGLE</field>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </next>
+                                </block>
+                              </next>
+                            </block>
+                          </statement>
+                          <statement name="ELSE">
+                            <block type="variables_set" id="*XW~vDznc)vzu(iVd_Nk">
+                              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                              <value name="VALUE">
+                                <block type="math_arithmetic" id="y9F6rTk:*},{4PBIh+NR">
+                                  <field name="OP">MINUS</field>
+                                  <value name="A">
+                                    <shadow type="math_number">
+                                      <field name="NUM">1</field>
+                                    </shadow>
+                                    <block type="env_variables_1d" id="30YptUu44MEf[b[gqqy/">
+                                      <field name="OP">CUR_BALL</field>
+                                      <value name="NUM">
+                                        <block type="env_coordinates_index" id="q+TkU]4yk?jM%KJ8pG!1">
+                                          <field name="CONSTANT">X</field>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </value>
+                                  <value name="B">
+                                    <shadow type="math_number" id="?5EP.iPhlj1l6j)+6,C]">
+                                      <field name="NUM">1</field>
+                                    </shadow>
+                                  </value>
+                                </block>
+                              </value>
+                              <next>
+                                <block type="controls_if" id="QtSSfnYl^K#Qr1Ah*5.*">
+                                  <mutation else="1"/></mutation>
+                                  <value name="IF0">
+                                    <block type="logic_compare" id="XbjM!Rk5mczqec!J{gFu">
+                                      <field name="OP">GT</field>
+                                      <value name="A">
+                                        <block type="env_variables_1d" id="`(bKmIBsv,wI5Rq,j;TM">
+                                          <field name="OP">CUR_BALL</field>
+                                          <value name="NUM">
+                                            <block type="env_coordinates_index" id="rBb%Iw5[33q#6B[uf3|F">
+                                              <field name="CONSTANT">Y</field>
+                                            </block>
+                                          </value>
+                                        </block>
+                                      </value>
+                                      <value name="B">
+                                        <block type="math_number" id="q,%uq+QtmMD|{Q7OXZjo">
+                                          <field name="NUM">0</field>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </value>
+                                  <statement name="DO0">
+                                    <block type="variables_set" id="+d3`;E;wVSL@M=dmdB9u">
+                                      <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                                      <value name="VALUE">
+                                        <block type="math_on_list" id="3hTi(##}5=m0H1Q?V9,:">
+                                          <mutation op="MIN"/></mutation>
+                                          <field name="OP">MIN</field>
+                                          <value name="LIST">
+                                            <block type="lists_create_with" id="Gg$p!%UOgD/MTg|n7Fwe">
+                                              <mutation items="2"/></mutation>
+                                              <value name="ADD0">
+                                                <block type="env_variables_1d" id="HlKzCP:@(554,xZfpY5;">
+                                                  <field name="OP">CUR_BALL</field>
+                                                  <value name="NUM">
+                                                    <block type="env_coordinates_index" id="H{w;%#n@U.-k51j.^e;c">
+                                                      <field name="CONSTANT">Y</field>
+                                                    </block>
+                                                  </value>
+                                                </block>
+                                              </value>
+                                              <value name="ADD1">
+                                                <block type="math_number" id="?3#C~cTzm3{l}0(|ai)S">
+                                                  <field name="NUM">2</field>
+                                                </block>
+                                              </value>
+                                            </block>
+                                          </value>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </statement>
+                                  <statement name="ELSE">
+                                    <block type="variables_set" id="f*v_.9PR!.foxY|}WmmS">
+                                      <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                                      <value name="VALUE">
+                                        <block type="math_on_list" id="A-?`}:w)-,XODb:G-UMC">
+                                          <mutation op="MIN"/></mutation>
+                                          <field name="OP">MIN</field>
+                                          <value name="LIST">
+                                            <block type="lists_create_with" id="0)WYpflPB_;*OG5f$D:e">
+                                              <mutation items="2"/></mutation>
+                                              <value name="ADD0">
+                                                <block type="env_variables_1d" id="MN4Do0fIU2,0zIIgF@=o">
+                                                  <field name="OP">CUR_BALL</field>
+                                                  <value name="NUM">
+                                                    <block type="env_coordinates_index" id="o[(=P+kFbyak2k=RoL4S">
+                                                      <field name="CONSTANT">Y</field>
+                                                    </block>
+                                                  </value>
+                                                </block>
+                                              </value>
+                                              <value name="ADD1">
+                                                <block type="math_number" id="4O,@4MOra!7#M:{VIAwg">
+                                                  <field name="NUM">-2</field>
+                                                </block>
+                                              </value>
+                                            </block>
+                                          </value>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </statement>
+                                  <next>
+                                    <block type="variables_set" id="^P1Um,wBaaO#hG7uZObq">
+                                      <field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
+                                      <value name="VALUE">
+                                        <block type="env_variables" id="8cz#{X{oASK}}CaY*xmf">
+                                          <field name="CONSTANT">ATTACK_ANGLE</field>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </next>
+                                </block>
+                              </next>
+                            </block>
+                          </statement>
+                        </block>
+                      </statement>
+                    </block>
+                  </next>
+                </block>
+              </next>
+            </block>
+          </next>
+        </block>
+      </xml>
 		</div>
 
-		<div id="blocklyText" style="height: auto; overflow:auto; width: 33%; border: 1px solid #DDDDDD; padding: 10px">
-			<h1><span>Generated Python Code</span></h1>
+		<div id="blocklyText" style="width: 33%; overflow:auto; border: 1px solid #DDDDDD; border-left-width:0px; padding: 10px;">
+			<h1>
+				<span>Generated Python Code</span>
+			</h1>
 			<pre translate="no" dir="ltr"></pre>
 		</div>
 
 		<script type="text/javascript">
 			var workspacePlayground = Blockly.inject('blocklyDiv', {
-						media: 'media/',
-						toolbox: BLOCKLY_TOOLBOX_XML['standard'],
-						zoom: {controls: true}
-					});
-		
-			Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'), workspacePlayground);
+        media: 'media/',
+        toolbox: BLOCKLY_TOOLBOX_XML['standard'],
+        move:{
+          scrollbars: true,
+          drag: true,
+          wheel: true
+        },
+        zoom:{
+          controls: true,
+          wheel: true,
+          startScale: 1.0,
+          maxScale: 3,
+          minScale: 0.3,
+          scaleSpeed: 1.2
+        }
+      });
+
+      // const logFileText = async file => {
+      //     const response = await fetch(file)
+      //     const text = await response.text()
+      //     console.log(text)
+      // }
+
+      // logFileText('a.txt')
+ 
+      // function readTextFile(file) {
+      //   var rawFile = new XMLHttpRequest();
+      //   rawFile.open("GET", file, false);
+      //   rawFile.onreadystatechange = function () {
+      //       if(rawFile.readyState === 4)
+      //       {
+      //           if(rawFile.status === 200 || rawFile.status == 0)
+      //           {
+      //               var allText = rawFile.responseText;
+      //               alert(allText);
+      //           }
+      //       }
+      //   };
+      //   rawFile.send(null);
+      // }
+
+      // readTextFile("file:///C:/a.txt");
+
+      var blocks_gk = Blockly.Xml.domToPrettyText(document.getElementById('default_blocks_gk'));
+      var blocks_d1 = Blockly.Xml.domToPrettyText(document.getElementById('default_blocks_d1'));
+      // default block을 만들어서 바꾸어야 함. + 파일 분리
+      var blocks_d2 = Blockly.Xml.domToPrettyText(document.getElementById('default_blocks_d1'));
+      var blocks_f1 = Blockly.Xml.domToPrettyText(document.getElementById('default_blocks_d1'));
+      var blocks_f2 = Blockly.Xml.domToPrettyText(document.getElementById('default_blocks_d1'));
+      
+      var tablinks = document.getElementsByClassName("tablinks");
+      tablinks[0].className += " active";
+      var currentRobot = 'GK';
+      Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(blocks_gk), workspacePlayground);
+      workspacePlayground.addChangeListener(showCode);
+
+      // let getXMLFile = function(path, callback) {
+      //   let request = new XMLHttpRequest();
+      //   request.open("GET", path, false);
+      //   request.setRequestHeader("Content-Type", "text/xml");
+      //   request.onreadystatechange == function () {
+      //     if (request.readyState === 4) {
+      //       if (request.status === 200 || request.status === 0) {
+      //         callback(request.responseXML);
+      //       }
+      //     }
+      //   };
+      //   request.send();
+      // }
+
+      // getXMLFile("file:///C:/default_blocks_gk.xml", function(xml) {
+      //   console.log(xml);
+      // });
+
+      // function readSingleFile(e) {
+      //   var file = e.target.files[0];
+      //   if (!file) return;
+      //   var reader = new FileReader();
+      //   reader.onload = function(e) {
+      //     var contents = e.target.result;
+      //     console.log(contents);
+      //   };
+      //   reader.readAsText(file);
+      // }
 
 			function preprocessCode(rawcode){
 				var code_with_tabs = rawcode.replace(/\n/g, "\n        ");
@@ -851,6 +2128,7 @@
 			function saveCode() {
 				// Generate python script and download it
 				var code = Blockly.Python.workspaceToCode(workspacePlayground);
+				// var code_xml = Blockly.Xml.domToPrettyText(code);
 				var code_with_tabs = preprocessCode(code);
 				var players_script = PLAYERS_P1.concat(code_with_tabs, PLAYERS_P2)
 				// console.log(newcode);
@@ -870,12 +2148,66 @@
 				var code = document.createTextNode(Blockly.Python.workspaceToCode(workspacePlayground));
 				codeHolder.appendChild(code);
 				codeDiv.replaceChild(codeHolder, codeDiv.lastElementChild);
-				// prettyPrint();
 			}
-			workspacePlayground.addChangeListener(showCode);
+
+      function changeRobot(position) {
+        console.log("previous robot : " + currentRobot);
+        console.log("new robot : " + position);
+
+        // save current blocks to proper robot
+        switch (currentRobot) {
+          case "GK":
+            blocks_gk = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspacePlayground));
+            break;
+          case "D1":
+            blocks_d1 = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspacePlayground));
+            break;
+          case "D2":
+            blocks_d2 = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspacePlayground));
+            break;
+          case "F1":
+            blocks_f1 = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspacePlayground));
+            break;
+          case "F2":
+            blocks_f2 = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspacePlayground));
+            break;
+          default:
+            console.log("Wrong approach!");
+        }
+
+        workspacePlayground.clear();
+        var tablinks = document.getElementsByClassName("tablinks");
+        for (var i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        currentRobot = position;
+        switch (position) {
+          case "GK":
+            tablinks[0].className += " active";
+            Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(blocks_gk), workspacePlayground);
+            break;
+          case "D1":
+            tablinks[1].className += " active";
+            Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(blocks_d1), workspacePlayground);
+            break;
+          case "D2":
+            tablinks[2].className += " active";
+            Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(blocks_d2), workspacePlayground);
+            break;
+          case "F1":
+            tablinks[3].className += " active";
+            Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(blocks_f1), workspacePlayground);
+            break;
+          case "F2":
+            tablinks[4].className += " active";
+            Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(blocks_f2), workspacePlayground);
+            break;
+          default:
+            console.log("Wrong approach!");
+        }
+      }
 		</script>
 	</div>
-
-	<button type="button" onclick="saveCode();">Generate Code</button>
+  <button id="saveButton" onclick="saveCode();">Generate Code</button>
 </body>
 </html>
