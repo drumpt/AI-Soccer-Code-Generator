@@ -38,7 +38,7 @@ Blockly.Python['env_constant_noindex'] = function(block) {
     'MAX_LINEAR_VELOCITY': ['self.max_linear_velocity', Blockly.Python.ORDER_MEMBER]
   };
   var constant = block.getFieldValue('CONSTANT');
-  console.log(constant);
+  // console.log(constant);
   return CONSTANTS[constant];
 };
 
@@ -48,9 +48,9 @@ Blockly.Python['env_constant_index'] = function(block) {
   var code;
   var arg;
   arg = Blockly.Python.valueToCode(block, 'NUM', Blockly.Python.ORDER_NONE);
-  console.log("Hi!");
-  console.log(arg.length);
-  console.log("Hello!");
+  // console.log("Hi!");
+  // console.log(arg.length);
+  // console.log("Hello!");
   switch (operator) {
     case 'FIELD':
       code = 'self.field[' + arg + ']';

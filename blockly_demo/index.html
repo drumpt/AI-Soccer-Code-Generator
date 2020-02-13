@@ -2166,7 +2166,7 @@
 			function showCode(event) {
 				var codeDiv = document.getElementById('blocklyText');
 				var codeHolder = document.createElement('pre');
-				var code = document.createTextNode(Blockly.Python.workspaceToCode(workspacePlayground));
+        var code = document.createTextNode(Blockly.Python.workspaceToCode(workspacePlayground));
 				codeHolder.appendChild(code);
 				codeDiv.replaceChild(codeHolder, codeDiv.lastElementChild);
 			}
