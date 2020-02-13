@@ -844,7 +844,7 @@
 			Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'), workspacePlayground);
 
 			function preprocessCode(rawcode){
-				var code_with_tabs = rawcode.replace(/\n/g, "\n\t\t");
+				var code_with_tabs = rawcode.replace(/\n/g, "\n        ");
 				return code_with_tabs
 			}
 			
