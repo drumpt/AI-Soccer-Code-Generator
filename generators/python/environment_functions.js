@@ -157,6 +157,6 @@ Blockly.Python['distance'] = function(block) {
   Blockly.Python['printconsole'] = function(block) {
     var value_message = Blockly.Python.valueToCode(block, 'message', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    var code = 'print(' + value_message + ")";
+    var code = 'helper.printConsole(' + value_message + ")";
     return code;
   };
