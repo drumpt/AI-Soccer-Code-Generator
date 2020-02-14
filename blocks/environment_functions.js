@@ -382,4 +382,24 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       "tooltip": "",
       "helpUrl": ""
     },
+
+    {
+      "type": "printconsole",
+      "message0": "printConsole %1 (message : %2 )",
+      "args0": [
+        {
+          "type": "input_dummy"
+        },
+        {
+          "type": "input_value",
+          "name": "message"
+        }
+      ],
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 20,
+      "tooltip": "",
+      "helpUrl": ""
+    }
 ]);  // END JSON EXTRACT (Do not delete this comment.)

@@ -65,9 +65,9 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       }
     ],
     "output": "Number",
-    "style": "math_blocks",
-    "tooltip": "%{BKY_MATH_CONSTANT_TOOLTIP}",
-    "helpUrl": "%{BKY_MATH_CONSTANT_HELPURL}"
+    "colour": "#DEB887",
+    "tooltip": "",
+    "helpUrl": ""
   },  
 
   // Block for game_state constants in robot soccer:
@@ -93,9 +93,9 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       }
     ],
     "output": "Number",
-    "style": "math_blocks",
-    "tooltip": "%{BKY_MATH_CONSTANT_TOOLTIP}",
-    "helpUrl": "%{BKY_MATH_CONSTANT_HELPURL}"
+    "colour": "#DEB887",
+    "tooltip": "",
+    "helpUrl": ""
   },
 
   // Block for reset_reason constants in robot soccer:
@@ -133,8 +133,8 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       }
     ],
     "output": "Number",
-    "style": "math_blocks",
-    "tooltip": "%{BKY_MATH_CONSTANT_TOOLTIP}",
-    "helpUrl": "%{BKY_MATH_CONSTANT_HELPURL}"
+    "colour": "#DEB887",
+    "tooltip": "",
+    "helpUrl": ""
   }
 ]);

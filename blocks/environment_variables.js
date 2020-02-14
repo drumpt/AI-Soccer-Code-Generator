@@ -55,9 +55,9 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       }
     ],
     "output": "Number",
-    "style": "math_blocks",
-    "tooltip": "%{BKY_MATH_CONSTANT_TOOLTIP}",
-    "helpUrl": "%{BKY_MATH_CONSTANT_HELPURL}"
+    "colour": "808000",
+    "tooltip": "",
+    "helpUrl": ""
   },
 
   // Block for environment variables that are arrays.
@@ -80,9 +80,9 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       }
     ],
     "output": "Number",
-    "style": "math_blocks",
-    "helpUrl": "%{BKY_MATH_TRIG_HELPURL}",
-    "extensions": ["math_op_tooltip"]
+    "colour": "808000",
+    "tooltip": "",
+    "helpUrl": ""
   },
 
   // Block for environment variables that are 2-d arrays.
@@ -110,8 +110,8 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       }
     ],
     "output": "Number",
-    "style": "math_blocks",
-    "helpUrl": "%{BKY_MATH_TRIG_HELPURL}",
-    "extensions": ["math_op_tooltip"]
+    "colour": "808000",
+    "tooltip": "",
+    "helpUrl": ""
   }
 ]);

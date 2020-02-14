@@ -30,27 +30,17 @@ Blockly.Python.addReservedWords('math,random,Number');
 Blockly.Python['env_constant_noindex'] = function(block) {
   // Constants: STATE_DEFAULT, STATE_BACKPASS, STATE_GOALKICK, STATE_CORNERKICK, STATE_PENALTYKICK.
   var CONSTANTS = {
-    // 'self.robot_size': ['ROBOT_SIZE', Blockly.Python.ORDER_MEMBER],
-    // 'self.max_linear_velocity': ['MAX_LINEAR_VELOCITY', Blockly.Python.ORDER_MEMBER]
-    // 'robot_size': ['ROBOT_SIZE', Blockly.Python.ORDER_MEMBER],
-    // 'max_linear_velocity': ['MAX_LINEAR_VELOCITY', Blockly.Python.ORDER_MEMBER]
     'ROBOT_SIZE': ['self.robot_size', Blockly.Python.ORDER_MEMBER],
     'MAX_LINEAR_VELOCITY': ['self.max_linear_velocity', Blockly.Python.ORDER_MEMBER]
   };
   var constant = block.getFieldValue('CONSTANT');
-  // console.log(constant);
   return CONSTANTS[constant];
 };
 
 Blockly.Python['env_constant_index'] = function(block) {
-  // Math operators with single operand.
   var operator = block.getFieldValue('OP');
   var code;
-  var arg;
-  arg = Blockly.Python.valueToCode(block, 'NUM', Blockly.Python.ORDER_NONE);
-  // console.log("Hi!");
-  // console.log(arg.length);
-  // console.log("Hello!");
+  var arg = Blockly.Python.valueToCode(block, 'NUM', Blockly.Python.ORDER_NONE);
   switch (operator) {
     case 'FIELD':
       code = 'self.field[' + arg + ']';

@@ -51,9 +51,9 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       }
     ],
     "output": "Number",
-    "style": "math_blocks",
-    "tooltip": "%{BKY_MATH_CONSTANT_TOOLTIP}",
-    "helpUrl": "%{BKY_MATH_CONSTANT_HELPURL}"
+    "colour": "#800020",
+    "tooltip": "",
+    "helpUrl": ""
   },
 
   // Block for environment constants that are arrays.
@@ -78,8 +78,8 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       }
     ],
     "output": "Number",
-    "style": "math_blocks",
-    "helpUrl": "%{BKY_MATH_TRIG_HELPURL}",
-    "extensions": ["math_op_tooltip"]
+    "colour": "#800020",
+    "tooltip": "",
+    "helpUrl": ""
   }
 ]);
