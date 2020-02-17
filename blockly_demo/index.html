@@ -14,6 +14,8 @@
   <script src="constants.js"></script>
   <script src="default_codes.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.2.0/jszip.min.js"></script>
 </head>
 <body>
   <p>AI World Cup Code Generator - Rule Based System</p>
@@ -1365,17 +1367,26 @@
                           strategy_d2, PLAYERS_P4,
                           strategy_f1, PLAYERS_P5,
                           strategy_f2, PLAYERS_P6);
-        // console.log(newcode);
-        var link = document.createElement("a");
-        var blob = new Blob([players_script], {type: 'text/plain'});
-        // link.href = 'data:attachment/text,' + encodeURI(TEST);
-        link.href = window.URL.createObjectURL(blob);
-        link.id = 'download_link'
-        link.download = "players.py";
-        link.click();
+        var helper_script = HELPER
+        var main_script = MAIN
 
-        var xml_txt = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspacePlayground));
-        console.log(xml_txt);
+        var link = document.createElement("a");
+        var players_blob = new Blob([players_script], {type: 'text/plain'});
+        var helper_blob = new Blob([helper_script], {type: 'text/plain'});
+        var main_blob = new Blob([main_script], {type: 'text/plain'});
+
+        var zip = new JSZip();
+        zip.file("players"+".py", players_blob, {type: 'text/plain'});
+        zip.file("helper"+".py", helper_blob, {type: 'text/plain'});
+        zip.file("main"+".py", main_blob, {type: 'text/plain'});
+            
+        zip.generateAsync({type:"blob"}).then(function(content) {
+            // see FileSaver.js
+            saveAs(content, "mystrategy.zip");
+        });
+
+        // var xml_txt = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspacePlayground));
+        // console.log(xml_txt);
       }
 
       function showCode() {
