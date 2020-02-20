@@ -19,7 +19,7 @@
 </head>
 <body>
   <p>AI World Cup Code Generator - Rule Based System</p>
-  <img src="./img/field_region_names.png" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; display:block; max-width: 30%; height:auto;">
+  <img src="./img/field_information.png" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; display:block; max-width: 50%; height:auto;">
 
   <div class="tab">
     <button class="tablinks" onclick="changeRobot('GK')">GK</button>
@@ -1303,6 +1303,44 @@
           </statement>
         </block>
       </xml>
+
+      <xml id="default_blocks_test" style="display:none;">
+        <block type="controls_if" id="ncm]ni@t|lQ=gjoz`31|" x="28" y="85">
+          <mutation elseif="1" else="1"></mutation>
+          <value name="IF0">
+            <block type="logic_boolean" id="VL96iz#=aa]|}Ay*bT[Y">
+              <field name="BOOL">TRUE</field>
+            </block>
+          </value>
+          <statement name="DO0">
+            <block type="printconsole" id="1f;8b+Da0X=ED?Yc1WLF">
+              <value name="message">
+                <block type="math_number" id="x^D?LbO2iC6z.ZQVUC@B">
+                  <field name="NUM">1</field>
+                </block>
+              </value>
+            </block>
+          </statement>
+          <statement name="DO1">
+            <block type="printconsole" id="m-EzT`{j0:RznSTYURA1">
+              <value name="message">
+                <block type="math_number" id="D?NKRG7Ed6zAdQg=|xX@">
+                  <field name="NUM">2</field>
+                </block>
+              </value>
+            </block>
+          </statement>
+          <statement name="ELSE">
+            <block type="printconsole" id="-rDRV*3A2OQi]aEjq~To">
+              <value name="message">
+                <block type="math_number" id="I^/20i,fHp@TAA5$_Gr_">
+                  <field name="NUM">3</field>
+                </block>
+              </value>
+            </block>
+          </statement>
+        </block>
+      </xml>
 		</div>
 
 		<div id="blocklyText" style="width: 33%; overflow:auto; border: 1px solid #DDDDDD; border-left-width:0px; padding: 10px;">
@@ -1332,6 +1370,7 @@
       });
 
       var blocks_gk = Blockly.Xml.domToPrettyText(document.getElementById('default_blocks_gk'));
+      // var blocks_gk = Blockly.Xml.domToPrettyText(document.getElementById('default_blocks_test'));
       var blocks_d1 = Blockly.Xml.domToPrettyText(document.getElementById('default_blocks_d1'));
       var blocks_d2 = Blockly.Xml.domToPrettyText(document.getElementById('default_blocks_d2'));
       var blocks_f1 = Blockly.Xml.domToPrettyText(document.getElementById('default_blocks_f1'));
@@ -1385,8 +1424,8 @@
             saveAs(content, "mystrategy.zip");
         });
 
-        // var xml_txt = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspacePlayground));
-        // console.log(xml_txt);
+        var xml_txt = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspacePlayground));
+        console.log(xml_txt);
       }
 
       function showCode() {
@@ -1420,8 +1459,8 @@
 
       function changeRobot(position) {
         // for debugging
-        console.log("previous robot : " + currentRobot);
-        console.log("new robot : " + position);
+        // console.log("previous robot : " + currentRobot);
+        // console.log("new robot : " + position);
 
         // save current blocks to proper robot
         switch (currentRobot) {
