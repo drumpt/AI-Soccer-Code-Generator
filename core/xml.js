@@ -301,6 +301,7 @@ Blockly.Xml.domToText = function(dom) {
     oldText = text;
     text = text.replace(regexp, '$1&#10;$2');
   } while (text != oldText);
+  text = text.replace(/<(\w+)([^<]*)\/>/g, '<$1$2></$1>');
   return text;
 };
 
