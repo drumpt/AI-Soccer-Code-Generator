@@ -10,6 +10,7 @@ p {
   height: 60px;
   line-height: 60px; /* This should match with height for aligning w.r.t. vertical line */
   font-size: x-large;
+  font-weight: bold;
   text-align: center;
   color: white;
   background-color: black;
