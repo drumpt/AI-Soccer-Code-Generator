@@ -8,14 +8,11 @@
   <script src="blockly_compressed.js"></script>
   <script src="python_compressed.js"></script>
   <script src="blocks_compressed.js"></script>
-  <script src="code.js"></script>
+  <!-- <script src="code.js"></script> -->
   <script src="msg/js/en.js"></script>
   <script src="toolbox_standard.js"></script>
   <script src="constants.js"></script>
   <script src="default_codes.js"></script>
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.2.0/jszip.min.js"></script> -->
 </head>
 <body>
   <p>AI World Cup Code Generator - Rule Based System</p>
@@ -1303,44 +1300,6 @@
           </statement>
         </block>
       </xml>
-
-      <xml id="default_blocks_test" style="display:none;">
-        <block type="controls_if" id="ncm]ni@t|lQ=gjoz`31|" x="28" y="85">
-          <mutation elseif="1" else="1"></mutation>
-          <value name="IF0">
-            <block type="logic_boolean" id="VL96iz#=aa]|}Ay*bT[Y">
-              <field name="BOOL">TRUE</field>
-            </block>
-          </value>
-          <statement name="DO0">
-            <block type="printconsole" id="1f;8b+Da0X=ED?Yc1WLF">
-              <value name="message">
-                <block type="math_number" id="x^D?LbO2iC6z.ZQVUC@B">
-                  <field name="NUM">1</field>
-                </block>
-              </value>
-            </block>
-          </statement>
-          <statement name="DO1">
-            <block type="printconsole" id="m-EzT`{j0:RznSTYURA1">
-              <value name="message">
-                <block type="math_number" id="D?NKRG7Ed6zAdQg=|xX@">
-                  <field name="NUM">2</field>
-                </block>
-              </value>
-            </block>
-          </statement>
-          <statement name="ELSE">
-            <block type="printconsole" id="-rDRV*3A2OQi]aEjq~To">
-              <value name="message">
-                <block type="math_number" id="I^/20i,fHp@TAA5$_Gr_">
-                  <field name="NUM">3</field>
-                </block>
-              </value>
-            </block>
-          </statement>
-        </block>
-      </xml>
 		</div>
 
 		<div id="blocklyText" style="width: 33%; overflow:auto; border: 1px solid #DDDDDD; border-left-width:0px; padding: 10px;">
@@ -1370,17 +1329,17 @@
       });
 
       var blocks_gk = Blockly.Xml.domToPrettyText(document.getElementById('default_blocks_gk'));
-      // var blocks_gk = Blockly.Xml.domToPrettyText(document.getElementById('default_blocks_test'));
       var blocks_d1 = Blockly.Xml.domToPrettyText(document.getElementById('default_blocks_d1'));
       var blocks_d2 = Blockly.Xml.domToPrettyText(document.getElementById('default_blocks_d2'));
       var blocks_f1 = Blockly.Xml.domToPrettyText(document.getElementById('default_blocks_f1'));
       var blocks_f2 = Blockly.Xml.domToPrettyText(document.getElementById('default_blocks_f2'));
 
-	    var code_gk = DEFAULT_GK
-      var code_d1 = DEFAULT_D1
-      var code_d2 = DEFAULT_D2
-      var code_f1 = DEFAULT_F1
-      var code_f2 = DEFAULT_F2
+      // Need to modify when I try to modify the variables above
+	    var code_gk = DEFAULT_GK;
+      var code_d1 = DEFAULT_D1;
+      var code_d2 = DEFAULT_D2;
+      var code_f1 = DEFAULT_F1;
+      var code_f2 = DEFAULT_F2;
 
       var tablinks = document.getElementsByClassName("tablinks");
       tablinks[0].className += " active";
@@ -1406,8 +1365,8 @@
                           strategy_d2, PLAYERS_P4,
                           strategy_f1, PLAYERS_P5,
                           strategy_f2, PLAYERS_P6);
-        var helper_script = HELPER
-        var main_script = MAIN
+        var helper_script = HELPER;
+        var main_script = MAIN;
 
         var link = document.createElement("a");
         var players_blob = new Blob([players_script], {type: 'text/plain'});
