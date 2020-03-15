@@ -36,6 +36,11 @@ AI World Cup Code Generator helps you make your own strategy with rule-based sys
 1. After choosing the conditions for reinforcement learning, you can also download files by clicking **Generate Code** button. The files include python files include python files related to your model, parameters, and some low-level functions used to run AI World Cup with deep-learning.
 
 ### 2.5 Execution
+
+<p align="center">
+  <img src=./blockly_demo/img/config_json.png>
+</p>
+
 1. After download the files from rule-based strategy or deep learning strategy, you need to unzip the compressed file and move it into **test_world-develop/examples_new** folder(or the folder that you implemented your previous strategy).
 1. Open Webots simulator and change the executable for team_a or team_b as **"examples_new/mystrategy/main.py"** in rule-based case or **"examples_new/mystrategy/train.py"** in deep learning case.
 
