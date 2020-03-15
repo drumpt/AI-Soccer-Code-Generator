@@ -61,7 +61,7 @@ AI World Cup Code Generator helps you make your own strategy with rule-based sys
 - Change colors for categories and blocks.
 
 ### 3.2 Deep learning strategy
-- Make default codes for all algorithms.**(Now deep learning part is not available)**
+- Make default codes for all algorithms. **(Now making deep learning strategy is not available)**
 
 ### 3.3 General features
 - Modify and save default code.
