@@ -1,7 +1,7 @@
 # AI World Cup Code Generator
 
 ## 1. Introduction
-AI World Cup Code Generator is a web-based, visual programming editor for [AI World Cup](http://aiworldcup.org/) based on [google blockly](https://developers.google.com/blockly/). Users can participate in AI World Cup without deep background of programming or machine learning by using this tool.
+AI World Cup Code Generator is a web-based, visual programming editor for [AI World Cup](http://aiworldcup.org/) based on [google blockly](https://developers.google.com/blockly/). By using this tool, users can participate in AI World Cup without deep background for programming or machine learning.
 
 ## 2. How to use
 AI World Cup Code Generator helps you make your own strategy with rule-based system and deep learning system. You can choose one of the strategy that you want.
@@ -26,14 +26,14 @@ AI World Cup Code Generator helps you make your own strategy with rule-based sys
 1. For rule-based strategy, you need to define proper actions of 5 robots. You will use the **block-coding system** instead of writing the python code directly. Now the default code for each robot is to define actions for that robot based on the position of the ball. There are many categories in the left side. Below is the description for each category.
 - **Environment indices** category contains indices of game status, and the ball.
 - **Environment constants** category contains the variables that does not change over time. This includes field, goal, penalty area, goal area, robot size, and max linear velocity.
-- **Environment variables** cateogry contains the variables that changes over time constantly. This includes the position of current ball, predicted ball, current posture of own robot, and current posture of opposite robot.
+- **Environment variables** category contains the variables that changes over time constantly. This includes the position of current ball, predicted ball, current posture of own robot, and current posture of opposite robot.
 - **Environment functions** category contains the helper functions that can be used in making your own strategy. The functions includes distance function, radian to degree function, degree to radian function, some functions that can check the position of the ball, get attack angle function, get defense angle function, set wheel velocity function, and printConsole function that can be used in debugging.
 - **Logic** category contains if-else(or if-elif-else) statement, comparison statement, and/or statement, not statement, and boolean statement.
 - **Loops** category contains for loop and while loop.
 - **Math** category contains a number, arithmetic operators(+, -, ×, ÷, ^), and arithmetic functions(square root, absolute, exponential, logarithmic, trigonometric, inverse trigonometric function), and some other mathematical blocks.
 - **Lists** category contains some blocks for list. You can create list, and apply some operators on that list.
 - **Variables** category is for defining your own variable. You can define new variables and set or change as you want.
-- **Functons** category is for defining your own function. You can define new functions and use them in your strategy.
+- **Functions** category is for defining your own function. You can define new functions and use them in your strategy.
 2. After making your code for all robots, you can download files by clicking **Generate Code** button. The files include python files related to your strategy and some low-level functions used to run AI World Cup.
 
 ### 2.4 Making deep learning strategy
@@ -58,7 +58,7 @@ AI World Cup Code Generator helps you make your own strategy with rule-based sys
 
 ### 3.1 Rule-based strategy
 - Develop 3-dimensional version.
-- Change colours for categories and blocks.
+- Change colors for categories and blocks.
 
 ### 3.2 Deep learning strategy
 - Make default codes for all algorithms.**(Now deep learning part is not available)**
