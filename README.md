@@ -32,7 +32,7 @@ AI World Cup Code Generator helps you make your own strategy with rule-based sys
 - **Loops** category contains for loop and while loop.
 - **Math** category contains a number, arithmetic operators(+, -, ×, ÷, ^), and arithmetic functions(square root, absolute, exponential, logarithmic, trigonometric, inverse trigonometric function), and some other mathematical blocks.
 - **Lists** category contains some blocks for list. You can create list, and apply some operators on that list.
-- **Variables** category is for defining your own variable. You can define new variables and set or change as you want.
+- **Variables** category is for defining your own variable. You can define new variables and set or change them as you want.
 - **Functions** category is for defining your own function. You can define new functions and use them in your strategy.
 2. After making your code for all robots, you can download files by clicking **Generate Code** button. The files include python files related to your strategy and some low-level functions used to run AI World Cup.
 
