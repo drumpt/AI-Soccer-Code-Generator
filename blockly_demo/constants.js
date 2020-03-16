@@ -11,7 +11,7 @@ var PLAYERS_P1 =
 + 'try:\n'
 + '    from participant import Game, Frame\n'
 + 'except ImportError as err:\n'
-+ '    print(\'player_random-walk: \'participant\' module cannot be imported:\', err)\n'
++ '    print(\'player_random-walk: "participant" module cannot be imported:\', err)\n'
 + '    raise\n'
 + '\n'
 + 'import math\n'
@@ -60,11 +60,11 @@ var PLAYERS_P1 =
 + '        self.robot_size = robot_size\n'
 + '        self.max_linear_velocity = max_linear_velocity\n'
 + '\n'
-+ '    def move(self, id, idx, idx_opp, defense_angle, attack_angle, cur_posture, cur_posture_opp, previous_ball, cur_ball, predicted_ball):\n';
++ '    def move(self, robot_id, idx, idx_opp, defense_angle, attack_angle, cur_posture, cur_posture_opp, previous_ball, cur_ball, predicted_ball):\n';
 
 var PLAYERS_P2 = 
 '\n'
-+ '        left_wheel, right_wheel = helper.go_to(id, x, y, cur_posture, cur_ball, self.max_linear_velocity)\n'
++ '        left_wheel, right_wheel = helper.go_to(robot_id, x, y, cur_posture, cur_ball, self.max_linear_velocity)\n'
 + '        slider_horizontal, slider_vertical = helper.kick(kick)\n'
 + '        slider_jump = helper.jump(jump)\n'
 + '        return left_wheel, right_wheel, slider_horizontal, slider_vertical, slider_jump\n'
@@ -79,11 +79,11 @@ var PLAYERS_P2 =
 + '        self.robot_size = robot_size\n'
 + '        self.max_linear_velocity = max_linear_velocity\n'
 + '\n'
-+ '    def move(self, id, idx, idx_opp, defense_angle, attack_angle, cur_posture, cur_posture_opp, previous_ball, cur_ball, predicted_ball):\n';
++ '    def move(self, robot_id, idx, idx_opp, defense_angle, attack_angle, cur_posture, cur_posture_opp, previous_ball, cur_ball, predicted_ball):\n';
 
 var PLAYERS_P3 = 
 '\n'
-+ '        left_wheel, right_wheel = helper.go_to(id, x, y, cur_posture, cur_ball, self.max_linear_velocity)\n'
++ '        left_wheel, right_wheel = helper.go_to(robot_id, x, y, cur_posture, cur_ball, self.max_linear_velocity)\n'
 + '        slider_horizontal, slider_vertical = helper.kick(kick)\n'
 + '        slider_jump = helper.jump(jump)\n'
 + '        return left_wheel, right_wheel, slider_horizontal, slider_vertical, slider_jump\n'
@@ -98,11 +98,11 @@ var PLAYERS_P3 =
 + '        self.robot_size = robot_size\n'
 + '        self.max_linear_velocity = max_linear_velocity\n'
 + '\n'
-+ '    def move(self, id, idx, idx_opp, defense_angle, attack_angle, cur_posture, cur_posture_opp, previous_ball, cur_ball, predicted_ball):\n';
++ '    def move(self, robot_id, idx, idx_opp, defense_angle, attack_angle, cur_posture, cur_posture_opp, previous_ball, cur_ball, predicted_ball):\n';
 
 var PLAYERS_P4 = 
 '\n'
-+ '        left_wheel, right_wheel = helper.go_to(id, x, y, cur_posture, cur_ball, self.max_linear_velocity)\n'
++ '        left_wheel, right_wheel = helper.go_to(robot_id, x, y, cur_posture, cur_ball, self.max_linear_velocity)\n'
 + '        slider_horizontal, slider_vertical = helper.kick(kick)\n'
 + '        slider_jump = helper.jump(jump)\n'
 + '        return left_wheel, right_wheel, slider_horizontal, slider_vertical, slider_jump\n'
@@ -117,11 +117,11 @@ var PLAYERS_P4 =
 + '        self.robot_size = robot_size\n'
 + '        self.max_linear_velocity = max_linear_velocity\n'
 + '\n'
-+ '    def move(self, id, idx, idx_opp, defense_angle, attack_angle, cur_posture, cur_posture_opp, previous_ball, cur_ball, predicted_ball):\n';
++ '    def move(self, robot_id, idx, idx_opp, defense_angle, attack_angle, cur_posture, cur_posture_opp, previous_ball, cur_ball, predicted_ball):\n';
 
 var PLAYERS_P5 = 
 '\n'
-+ '        left_wheel, right_wheel = helper.go_to(id, x, y, cur_posture, cur_ball, self.max_linear_velocity)\n'
++ '        left_wheel, right_wheel = helper.go_to(robot_id, x, y, cur_posture, cur_ball, self.max_linear_velocity)\n'
 + '        slider_horizontal, slider_vertical = helper.kick(kick)\n'
 + '        slider_jump = helper.jump(jump)\n'
 + '        return left_wheel, right_wheel, slider_horizontal, slider_vertical, slider_jump\n'
@@ -136,11 +136,11 @@ var PLAYERS_P5 =
 + '        self.robot_size = robot_size\n'
 + '        self.max_linear_velocity = max_linear_velocity\n'
 + '\n'
-+ '    def move(self, id, idx, idx_opp, defense_angle, attack_angle, cur_posture, cur_posture_opp, previous_ball, cur_ball, predicted_ball):\n';
++ '    def move(self, robot_id, idx, idx_opp, defense_angle, attack_angle, cur_posture, cur_posture_opp, previous_ball, cur_ball, predicted_ball):\n';
 
 var PLAYERS_P6 = 
 '\n'
-+ '        left_wheel, right_wheel = helper.go_to(id, x, y, cur_posture, cur_ball, self.max_linear_velocity)\n'
++ '        left_wheel, right_wheel = helper.go_to(robot_id, x, y, cur_posture, cur_ball, self.max_linear_velocity)\n'
 + '        slider_horizontal, slider_vertical = helper.kick(kick)\n'
 + '        slider_jump = helper.jump(jump)\n'
 + '        return left_wheel, right_wheel, slider_horizontal, slider_vertical, slider_jump\n';
@@ -158,7 +158,7 @@ var MAIN =
 + 'try:\n'
 + '    from participant import Participant, Game, Frame\n'
 + 'except ImportError as err:\n'
-+ '    print(\'player_random-walk: \'participant\' module cannot be imported:\', err)\n'
++ '    print(\'player_random-walk: "participant" module cannot be imported:\', err)\n'
 + '    raise\n'
 + '\n'
 + 'import math\n'
@@ -329,7 +329,7 @@ var HELPER =
 + 'try:\n'
 + '    from participant import Game, Frame\n'
 + 'except ImportError as err:\n'
-+ '    print(\'player_random-walk: \'participant\' module cannot be imported:\', err)\n'
++ '    print(\'player_random-walk: "participant" module cannot be imported:\', err)\n'
 + '    raise\n'
 + '\n'
 + 'import math\n'
