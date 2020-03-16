@@ -79,7 +79,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "check": "Number"
       }
     ],
-    "output": "Number",
+    "output": "Boolean",
     "colour": "808000",
     "tooltip": "",
     "helpUrl": ""
