@@ -1,0 +1,16 @@
+var PARAMETERS = 
+'{'
++ '  "rl_parameters": {'
++ '    "gamma": 0.99,'
++ '    "batch_size": 32,'
++ '    "buffer_size": 50000,'
++ '    "lr": 0.001,'
++ '    "grad_norm_clip": 10'
++ '  },'
++ '  "agent_parameters": {'
++ '    "hidden_dim": 64'
++ '  },'
++ '  "sim_parameters": {'
++ '    "frame_skip": 4'
++ '  }'
++ '}';

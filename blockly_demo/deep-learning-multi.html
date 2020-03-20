@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="style_deep_learning.css">
   <script src="deeplearning_codes.js"></script>
+  <script src="params.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.2.0/jszip.min.js"></script>
@@ -24,7 +25,7 @@
   -->
 
   <!-- define codeContainer for splitting screen into block part and code part --> 
-  <div id='codeContainer' style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%; border: 2px solid #DDDDDD; height: 900px">
+  <div id='codeContainer' style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%; border: 2px solid #DDDDDD; height: 1000px">
 
     <form>
         <div class="form-group" style="margin-left: auto; margin-right:auto; margin-top: 15px; margin-bottom: 15px; width: 50%;">
@@ -67,10 +68,7 @@
                 Return: reward value for one timestep
             </small>
         </div>
-        <div style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
-            Choose your Deep Reinforcement Learning algorithm
-        </div>
-        <div class="form-row"  style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
+        <!-- <div class="form-row"  style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="iql_algorithm" value="dqn">
                 <label class="form-check-label" for="iql_algorithm">IQL</label>
@@ -83,24 +81,24 @@
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="qtran_algorithm" value="ppo" disabled>
                 <label class="form-check-label" for="qtran_algorithm">QTRAN (disabled)</label>
             </div>
-        </div>
+        </div> -->
         <div style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
             Choose which robots to train
         </div> 
         <div class="custom-control custom-switch" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
-            <input type="checkbox" class="custom-control-input" id="switchGK" checked>
+            <input type="checkbox" class="custom-control-input" id="switchGK">
             <label class="custom-control-label" for="switchGK">GK</label>
         </div>
         <div class="custom-control custom-switch" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
-            <input type="checkbox" class="custom-control-input" id="switchD1" checked>
+            <input type="checkbox" class="custom-control-input" id="switchD1">
             <label class="custom-control-label" for="switchD1">D1</label>
         </div>
         <div class="custom-control custom-switch" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
-            <input type="checkbox" class="custom-control-input" id="switchD2" checked>
+            <input type="checkbox" class="custom-control-input" id="switchD2">
             <label class="custom-control-label" for="switchD2">D2</label>
         </div>
         <div class="custom-control custom-switch" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
-            <input type="checkbox" class="custom-control-input" id="switchF1" checked>
+            <input type="checkbox" class="custom-control-input" id="switchF1">
             <label class="custom-control-label" for="switchF1">F1</label>
         </div>
         <div class="custom-control custom-switch" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
@@ -116,6 +114,16 @@
         </div>
     </form>
 
+    <div style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
+        Choose your Deep Reinforcement Learning algorithm
+    </div>
+    <div id="dl-block" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; max-width: 50%; height:auto;">
+        <div class="tab" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; max-width: 50%; height:auto;">
+            <button class="tablinks" onclick="chooseType('IQL')">IQL</button>
+            <button class="tablinks" onclick="chooseType('QMIX')">QMIX</button>
+        </div>
+    </div>
+
     <script type="text/javascript">
         
         // Need to modify when I try to modify the variables above
@@ -129,55 +137,121 @@
 
         var tablinks = document.getElementsByClassName("tablinks");
         tablinks[0].className += " active";
-        var currentType = 'SR';
+        var currentType = 'IQL';
+
+        createIQLform();
+
+        var json_data = JSON.parse(PARAMETERS)
+
+        function get_form_data () {
+            var frameskip = document.getElementById("frameskipInput");
+            if (frameskip.value) {
+                json_data.sim_parameters.frame_skip = parseInt(frameskip.value)
+            } 
+            console.log(json_data.sim_parameters.frame_skip)
+        }
 
         function saveCode() {
 
-            var link = document.createElement("a");
-            var dqn_blob = new Blob([code_dqn], {type: 'text/plain'});
-            var episode_memory_blob = new Blob([code_episode_memory], {type: 'text/plain'});
-            var helper_blob = new Blob([code_helper], {type: 'text/plain'});
-            var networks_blob = new Blob([code_networks], {type: 'text/plain'});
-            var play_blob = new Blob([code_play], {type: 'text/plain'});
-            var rl_utils_blob = new Blob([code_rl_utils], {type: 'text/plain'});
-            var train_blob = new Blob([code_train], {type: 'text/plain'});
+            get_form_data()
+            
+            // var link = document.createElement("a");
+            // var dqn_blob = new Blob([code_dqn], {type: 'text/plain'});
+            // var episode_memory_blob = new Blob([code_episode_memory], {type: 'text/plain'});
+            // var helper_blob = new Blob([code_helper], {type: 'text/plain'});
+            // var networks_blob = new Blob([code_networks], {type: 'text/plain'});
+            // var play_blob = new Blob([code_play], {type: 'text/plain'});
+            // var rl_utils_blob = new Blob([code_rl_utils], {type: 'text/plain'});
+            // var train_blob = new Blob([code_train], {type: 'text/plain'});
 
-            var zip = new JSZip();
-            zip.file("dqn"+".py", dqn_blob, {type: 'text/plain'});
-            zip.file("episode_memory"+".py", episode_memory_blob, {type: 'text/plain'});
-            zip.file("helper"+".py", helper_blob, {type: 'text/plain'});
-            zip.file("networks"+".py", networks_blob, {type: 'text/plain'});
-            zip.file("play"+".py", play_blob, {type: 'text/plain'});
-            zip.file("rl_utils"+".py", rl_utils_blob, {type: 'text/plain'});
-            zip.file("train"+".py", train_blob, {type: 'text/plain'});
+            // var zip = new JSZip();
+            // zip.file("dqn"+".py", dqn_blob, {type: 'text/plain'});
+            // zip.file("episode_memory"+".py", episode_memory_blob, {type: 'text/plain'});
+            // zip.file("helper"+".py", helper_blob, {type: 'text/plain'});
+            // zip.file("networks"+".py", networks_blob, {type: 'text/plain'});
+            // zip.file("play"+".py", play_blob, {type: 'text/plain'});
+            // zip.file("rl_utils"+".py", rl_utils_blob, {type: 'text/plain'});
+            // zip.file("train"+".py", train_blob, {type: 'text/plain'});
+            // // add the params.json file here
 
-            zip.generateAsync({type:"blob"}).then(function(content) {
-                // see FileSaver.js
-                saveAs(content, "mystrategy.zip");
-            });
+            // zip.generateAsync({type:"blob"}).then(function(content) {
+            //     // see FileSaver.js
+            //     saveAs(content, "mystrategy.zip");
+            // });
         }
 
-        // function chooseType(position) {
+        function chooseType(position) {
 
-        //     // replace current robot with new robot
-        //     var tablinks = document.getElementsByClassName("tablinks");
-        //     for (var i = 0; i < tablinks.length; i++) {
-        //         tablinks[i].className = tablinks[i].className.replace(" active", "");
-        //     }
-        //     currentType = position;
-        //     switch (position) {
-        //         case "SR":
-        //             tablinks[0].className += " active";
-        //             // Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(blocks_gk), workspacePlayground);
-        //         break;
-        //         case "MR":
-        //             tablinks[1].className += " active";
-        //             // Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(blocks_d1), workspacePlayground);
-        //         break;
-        //     default:
-        //         console.log("Error: type does not exist.");
-        //     }
-        // }
+            var dlDiv = document.getElementById("dl-block");
+            var tablinks = document.getElementsByClassName("tablinks");
+            document.getElementById("parametersblock-id").remove();
+            for (var i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            currentType = position;
+            switch (position) {
+                case "IQL":
+                    tablinks[0].className += " active";
+                    createIQLform();
+                break;
+                case "QMIX":
+                    tablinks[1].className += " active";
+                    createQMIXform();
+                break;
+            default:
+                console.log("Error: type does not exist.");
+            }
+        }
+
+        function createIQLform(){
+
+            // need to start form tag
+            var dlDiv = document.getElementById("dl-block");
+            var innerDiv = document.createElement('div');
+            innerDiv.className = 'parametersBlock';
+            innerDiv.id = 'parametersblock-id';
+            dlDiv.appendChild(innerDiv);
+            var lr_form = document.createElement('div');
+            lr_form.className = "form-group";
+            lr_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;";
+            var lr_label = document.createElement('label');
+            lr_label.for = "learningRateInput";
+            lr_label.innerHTML = "Learning Rate: ";
+            lr_form.appendChild(lr_label);
+            var lr_input = document.createElement('input');
+            lr_input.type = "text";
+            lr_input.class = "form-control";
+            lr_input.id = "learningRateInput";
+            lr_input.placeholder = "0.001";
+            lr_form.appendChild(lr_input);
+            innerDiv.appendChild(lr_form);
+
+        }
+
+        function createQMIXform(){
+
+            // need to start form tag
+            var dlDiv = document.getElementById("dl-block");
+            var innerDiv = document.createElement('div');
+            innerDiv.className = 'parametersBlock';
+            innerDiv.id = 'parametersblock-id';
+            dlDiv.appendChild(innerDiv);
+            var lr_form = document.createElement('div');
+            lr_form.className = "form-group";
+            lr_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;";
+            var lr_label = document.createElement('label');
+            lr_label.for = "learningRateInput";
+            lr_label.innerHTML = "Learning Rate: ";
+            lr_form.appendChild(lr_label);
+            var lr_input = document.createElement('input');
+            lr_input.type = "text";
+            lr_input.class = "form-control";
+            lr_input.id = "learningRateInput";
+            lr_input.placeholder = "0.002";
+            lr_form.appendChild(lr_input);
+            innerDiv.appendChild(lr_form);
+
+        }
 
     </script>
 
