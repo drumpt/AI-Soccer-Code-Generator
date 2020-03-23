@@ -25,7 +25,7 @@
   -->
 
   <!-- define codeContainer for splitting screen into block part and code part --> 
-  <div id='codeContainer' style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%; border: 2px solid #DDDDDD; height: 1000px">
+  <div id='codeContainer' style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%; border: 2px solid #DDDDDD; height: 1430px">
 
     <form>
         <div class="form-group" style="margin-left: auto; margin-right:auto; margin-top: 15px; margin-bottom: 15px; width: 50%;">
@@ -141,43 +141,91 @@
 
         createIQLform();
 
-        var json_data = JSON.parse(PARAMETERS)
+        var json_data = JSON.parse(MULTI_PARAMETERS)
 
         function get_form_data () {
             var frameskip = document.getElementById("frameskipInput");
             if (frameskip.value) {
                 json_data.sim_parameters.frame_skip = parseInt(frameskip.value)
-            } 
-            console.log(json_data.sim_parameters.frame_skip)
+            }
+            switch (currentType) {
+                case "IQL":
+                    var gamma = document.getElementById("gammaInput");
+                    var batchsize = document.getElementById("batchSizeInput");
+                    var buffersize = document.getElementById("bufferSizeInput");
+                    var lr = document.getElementById("learningRateInput");
+                    var epsilonsteps = document.getElementById("epsilonStepsInput");
+                    if (gamma.value) {
+                        json_data.dqn_parameters.gamma = parseFloat(gamma.value)
+                    }
+                    if (batchsize.value) {
+                        json_data.dqn_parameters.batch_size = parseInt(batchsize.value)
+                    }
+                    if (buffersize.value) {
+                        json_data.dqn_parameters.buffer_size = parseInt(buffersize.value)
+                    }
+                    if (lr.value) {
+                        json_data.dqn_parameters.lr = parseFloat(lr.value)
+                    }
+                    if (epsilonsteps.value) {
+                        json_data.dqn_parameters.epsilon_steps = parseInt(epsilonsteps.value)
+                    }
+                break;
+                case "QMIX":
+                    var gamma = document.getElementById("gammaInput");
+                    var batchsize = document.getElementById("batchSizeInput");
+                    var buffersize = document.getElementById("bufferSizeInput");
+                    var lr = document.getElementById("learningRateInput");
+                    var expnoise = document.getElementById("expNoiseInput");
+                    if (gamma.value) {
+                        json_data.ddpg_parameters.gamma = parseFloat(gamma.value)
+                    }
+                    if (batchsize.value) {
+                        json_data.ddpg_parameters.batch_size = parseInt(batchsize.value)
+                    }
+                    if (buffersize.value) {
+                        json_data.ddpg_parameters.buffer_size = parseInt(buffersize.value)
+                    }
+                    if (lr.value) {
+                        json_data.ddpg_parameters.lr = parseFloat(lr.value)
+                    }
+                    if (expnoise.value) {
+                        json_data.ddpg_parameters.exploration_noise = parseFloat(expnoise.value)
+                    }
+                break;
+            default:
+                console.log("Error: type does not exist.");
+            }
         }
 
         function saveCode() {
 
             get_form_data()
-            
-            // var link = document.createElement("a");
-            // var dqn_blob = new Blob([code_dqn], {type: 'text/plain'});
-            // var episode_memory_blob = new Blob([code_episode_memory], {type: 'text/plain'});
-            // var helper_blob = new Blob([code_helper], {type: 'text/plain'});
-            // var networks_blob = new Blob([code_networks], {type: 'text/plain'});
-            // var play_blob = new Blob([code_play], {type: 'text/plain'});
-            // var rl_utils_blob = new Blob([code_rl_utils], {type: 'text/plain'});
-            // var train_blob = new Blob([code_train], {type: 'text/plain'});
 
-            // var zip = new JSZip();
-            // zip.file("dqn"+".py", dqn_blob, {type: 'text/plain'});
-            // zip.file("episode_memory"+".py", episode_memory_blob, {type: 'text/plain'});
-            // zip.file("helper"+".py", helper_blob, {type: 'text/plain'});
-            // zip.file("networks"+".py", networks_blob, {type: 'text/plain'});
-            // zip.file("play"+".py", play_blob, {type: 'text/plain'});
-            // zip.file("rl_utils"+".py", rl_utils_blob, {type: 'text/plain'});
-            // zip.file("train"+".py", train_blob, {type: 'text/plain'});
-            // // add the params.json file here
+            var link = document.createElement("a");
+            var dqn_blob = new Blob([code_dqn], {type: 'text/plain'});
+            var episode_memory_blob = new Blob([code_episode_memory], {type: 'text/plain'});
+            var helper_blob = new Blob([code_helper], {type: 'text/plain'});
+            var networks_blob = new Blob([code_networks], {type: 'text/plain'});
+            var play_blob = new Blob([code_play], {type: 'text/plain'});
+            var rl_utils_blob = new Blob([code_rl_utils], {type: 'text/plain'});
+            var train_blob = new Blob([code_train], {type: 'text/plain'});
+            var params_blob = new Blob([JSON.stringify(json_data)], {type: 'text/plain'});
 
-            // zip.generateAsync({type:"blob"}).then(function(content) {
-            //     // see FileSaver.js
-            //     saveAs(content, "mystrategy.zip");
-            // });
+            var zip = new JSZip();
+            zip.file("dqn"+".py", dqn_blob, {type: 'text/plain'});
+            zip.file("episode_memory"+".py", episode_memory_blob, {type: 'text/plain'});
+            zip.file("helper"+".py", helper_blob, {type: 'text/plain'});
+            zip.file("networks"+".py", networks_blob, {type: 'text/plain'});
+            zip.file("play"+".py", play_blob, {type: 'text/plain'});
+            zip.file("rl_utils"+".py", rl_utils_blob, {type: 'text/plain'});
+            zip.file("train"+".py", train_blob, {type: 'text/plain'});
+            zip.file("params"+".json", params_blob, {type: 'text/plain'});
+
+            zip.generateAsync({type:"blob"}).then(function(content) {
+                // see FileSaver.js
+                saveAs(content, "mystrategy.zip");
+            });
         }
 
         function chooseType(position) {
@@ -211,6 +259,71 @@
             innerDiv.className = 'parametersBlock';
             innerDiv.id = 'parametersblock-id';
             dlDiv.appendChild(innerDiv);
+       
+            // gamma
+            var gamma_form = document.createElement('div');
+            gamma_form.className = "form-group";
+            gamma_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;";
+            var gamma_label = document.createElement('label');
+            gamma_label.for = "gammaInput";
+            gamma_label.innerHTML = "Gamma: ";
+            gamma_form.appendChild(gamma_label);
+            var gamma_input = document.createElement('input');
+            gamma_input.type = "text";
+            gamma_input.class = "form-control";
+            gamma_input.id = "gammaInput";
+            gamma_input.placeholder = "0.99";
+            gamma_form.appendChild(gamma_input);
+            var gamma_small = document.createElement('small');
+            gamma_small.id = "gammaHelpBlock";
+            gamma_small.class = "form-text text-muted";
+            gamma_small.innerHTML = "(float)";
+            gamma_form.appendChild(gamma_small);
+            innerDiv.appendChild(gamma_form);
+
+            // batch size
+            var batch_form = document.createElement('div');
+            batch_form.className = "form-group";
+            batch_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;";
+            var batch_label = document.createElement('label');
+            batch_label.for = "batchSizeInput";
+            batch_label.innerHTML = "Batch Size: ";
+            batch_form.appendChild(batch_label);
+            var batch_input = document.createElement('input');
+            batch_input.type = "text";
+            batch_input.class = "form-control";
+            batch_input.id = "batchSizeInput";
+            batch_input.placeholder = "32";
+            batch_form.appendChild(batch_input);
+            var batch_small = document.createElement('small');
+            batch_small.id = "batchHelpBlock";
+            batch_small.class = "form-text text-muted";
+            batch_small.innerHTML = "(integer)";
+            batch_form.appendChild(batch_small);
+            innerDiv.appendChild(batch_form);
+
+            // buffer size
+            var buffer_form = document.createElement('div');
+            buffer_form.className = "form-group";
+            buffer_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;";
+            var buffer_label = document.createElement('label');
+            buffer_label.for = "bufferSizeInput";
+            buffer_label.innerHTML = "Buffer Size: ";
+            buffer_form.appendChild(buffer_label);
+            var buffer_input = document.createElement('input');
+            buffer_input.type = "text";
+            buffer_input.class = "form-control";
+            buffer_input.id = "bufferSizeInput";
+            buffer_input.placeholder = "50000";
+            buffer_form.appendChild(buffer_input);
+            var buffer_small = document.createElement('small');
+            buffer_small.id = "bufferHelpBlock";
+            buffer_small.class = "form-text text-muted";
+            buffer_small.innerHTML = "(integer)";
+            buffer_form.appendChild(buffer_small);
+            innerDiv.appendChild(buffer_form);
+
+            // learning rate
             var lr_form = document.createElement('div');
             lr_form.className = "form-group";
             lr_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;";
@@ -224,7 +337,34 @@
             lr_input.id = "learningRateInput";
             lr_input.placeholder = "0.001";
             lr_form.appendChild(lr_input);
+            var lr_small = document.createElement('small');
+            lr_small.id = "lrHelpBlock";
+            lr_small.class = "form-text text-muted";
+            lr_small.innerHTML = "(float)";
+            lr_form.appendChild(lr_small);
             innerDiv.appendChild(lr_form);
+
+            // epsilon_steps
+            var epsilon_form = document.createElement('div');
+            epsilon_form.className = "form-group";
+            epsilon_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;";
+            var epsilon_label = document.createElement('label');
+            epsilon_label.for = "epsilonStepsInput";
+            epsilon_label.innerHTML = "Epsilon Steps: ";
+            epsilon_form.appendChild(epsilon_label);
+            var epsilon_input = document.createElement('input');
+            epsilon_input.type = "text";
+            epsilon_input.class = "form-control";
+            epsilon_input.id = "epsilonStepsInput";
+            epsilon_input.placeholder = "20000";
+            epsilon_form.appendChild(epsilon_input);
+            var epsilon_small = document.createElement('small');
+            epsilon_small.id = "epsilonHelpBlock";
+            epsilon_small.class = "form-text text-muted";
+            epsilon_small.innerHTML = "(integer)";
+            epsilon_form.appendChild(epsilon_small);
+            innerDiv.appendChild(epsilon_form);
+
 
         }
 
@@ -236,6 +376,71 @@
             innerDiv.className = 'parametersBlock';
             innerDiv.id = 'parametersblock-id';
             dlDiv.appendChild(innerDiv);
+
+            // gamma
+            var gamma_form = document.createElement('div');
+            gamma_form.className = "form-group";
+            gamma_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;";
+            var gamma_label = document.createElement('label');
+            gamma_label.for = "gammaInput";
+            gamma_label.innerHTML = "Gamma: ";
+            gamma_form.appendChild(gamma_label);
+            var gamma_input = document.createElement('input');
+            gamma_input.type = "text";
+            gamma_input.class = "form-control";
+            gamma_input.id = "gammaInput";
+            gamma_input.placeholder = "0.99";
+            gamma_form.appendChild(gamma_input);
+            var gamma_small = document.createElement('small');
+            gamma_small.id = "gammaHelpBlock";
+            gamma_small.class = "form-text text-muted";
+            gamma_small.innerHTML = "(float)";
+            gamma_form.appendChild(gamma_small);
+            innerDiv.appendChild(gamma_form);
+
+            // batch size
+            var batch_form = document.createElement('div');
+            batch_form.className = "form-group";
+            batch_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;";
+            var batch_label = document.createElement('label');
+            batch_label.for = "batchSizeInput";
+            batch_label.innerHTML = "Batch Size: ";
+            batch_form.appendChild(batch_label);
+            var batch_input = document.createElement('input');
+            batch_input.type = "text";
+            batch_input.class = "form-control";
+            batch_input.id = "batchSizeInput";
+            batch_input.placeholder = "32";
+            batch_form.appendChild(batch_input);
+            var batch_small = document.createElement('small');
+            batch_small.id = "batchHelpBlock";
+            batch_small.class = "form-text text-muted";
+            batch_small.innerHTML = "(integer)";
+            batch_form.appendChild(batch_small);
+            innerDiv.appendChild(batch_form);
+
+            // buffer size
+            var buffer_form = document.createElement('div');
+            buffer_form.className = "form-group";
+            buffer_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;";
+            var buffer_label = document.createElement('label');
+            buffer_label.for = "bufferSizeInput";
+            buffer_label.innerHTML = "Buffer Size: ";
+            buffer_form.appendChild(buffer_label);
+            var buffer_input = document.createElement('input');
+            buffer_input.type = "text";
+            buffer_input.class = "form-control";
+            buffer_input.id = "bufferSizeInput";
+            buffer_input.placeholder = "50000";
+            buffer_form.appendChild(buffer_input);
+            var buffer_small = document.createElement('small');
+            buffer_small.id = "bufferHelpBlock";
+            buffer_small.class = "form-text text-muted";
+            buffer_small.innerHTML = "(integer)";
+            buffer_form.appendChild(buffer_small);
+            innerDiv.appendChild(buffer_form);
+
+            // learning rate
             var lr_form = document.createElement('div');
             lr_form.className = "form-group";
             lr_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;";
@@ -249,7 +454,33 @@
             lr_input.id = "learningRateInput";
             lr_input.placeholder = "0.002";
             lr_form.appendChild(lr_input);
+            var lr_small = document.createElement('small');
+            lr_small.id = "lrHelpBlock";
+            lr_small.class = "form-text text-muted";
+            lr_small.innerHTML = "(float)";
+            lr_form.appendChild(lr_small);
             innerDiv.appendChild(lr_form);
+
+            // exploration noise
+            var expnoise_form = document.createElement('div');
+            expnoise_form.className = "form-group";
+            expnoise_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;";
+            var expnoise_label = document.createElement('label');
+            expnoise_label.for = "expNoiseInput";
+            expnoise_label.innerHTML = "Exploration Noise: ";
+            expnoise_form.appendChild(expnoise_label);
+            var expnoise_input = document.createElement('input');
+            expnoise_input.type = "text";
+            expnoise_input.class = "form-control";
+            expnoise_input.id = "expNoiseInput";
+            expnoise_input.placeholder = "0.2";
+            expnoise_form.appendChild(expnoise_input);
+            var expnoise_small = document.createElement('small');
+            expnoise_small.id = "expnoiseHelpBlock";
+            expnoise_small.class = "form-text text-muted";
+            expnoise_small.innerHTML = "(float)";
+            expnoise_form.appendChild(expnoise_small);
+            innerDiv.appendChild(expnoise_form);
 
         }
 
