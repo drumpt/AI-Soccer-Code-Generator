@@ -25,7 +25,7 @@
   -->
 
   <!-- define codeContainer for splitting screen into block part and code part --> 
-  <div id='codeContainer' style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%; border: 2px solid #DDDDDD; height: 1430px">
+  <div id='codeContainer' style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%; border: 2px solid #DDDDDD; height: 1450px">
 
     <form>
         <div class="form-group" style="margin-left: auto; margin-right:auto; margin-top: 15px; margin-bottom: 15px; width: 50%;">
@@ -104,6 +104,9 @@
         <div class="custom-control custom-switch" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
             <input type="checkbox" class="custom-control-input" id="switchF2" checked>
             <label class="custom-control-label" for="switchF2">F2</label>
+            <small id="chooseRobotHelpBlock" class="form-text text-muted">
+                Choose just one robot to train
+            </small>
         </div>
         <div class="form-group" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
             <label for="frameskipInput">Frame Skip</label>
@@ -198,12 +201,30 @@
             }
         }
         
-        function saveCode() {
-
-            get_form_data()
+        function getRobot () {
 
             var switch_GK = document.getElementById("switchGK");
-            console.log(switch_GK.checked);
+            var switch_D1 = document.getElementById("switchD1");
+            var switch_D2 = document.getElementById("switchD2");
+            var switch_F1 = document.getElementById("switchF1");
+            var switch_F2 = document.getElementById("switchF2");
+
+            json_data.sim_parameters.robot = [switch_GK.checked, switch_D1.checked, switch_D2.checked, switch_F1.checked, switch_F2.checked];
+
+            var counts = {};
+            json_data.sim_parameters.robot.forEach(function(x) { counts[x] = (counts[x] || 0)+1; });
+
+            return counts;
+        }
+        
+        function saveCode() {
+
+            get_form_data();
+            counts = getRobot();
+
+            if (counts['true'] != 1) {
+                alert('Choose just one robot.');
+            }
 
             // var link = document.createElement("a");
             // var dqn_blob = new Blob([code_dqn], {type: 'text/plain'});

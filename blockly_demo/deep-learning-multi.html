@@ -25,7 +25,7 @@
   -->
 
   <!-- define codeContainer for splitting screen into block part and code part --> 
-  <div id='codeContainer' style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%; border: 2px solid #DDDDDD; height: 1430px">
+  <div id='codeContainer' style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%; border: 2px solid #DDDDDD; height: 1450px">
 
     <form>
         <div class="form-group" style="margin-left: auto; margin-right:auto; margin-top: 15px; margin-bottom: 15px; width: 50%;">
@@ -86,24 +86,27 @@
             Choose which robots to train
         </div> 
         <div class="custom-control custom-switch" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
-            <input type="checkbox" class="custom-control-input" id="switchGK">
+            <input type="checkbox" class="custom-control-input" id="switchGK" checked>
             <label class="custom-control-label" for="switchGK">GK</label>
         </div>
         <div class="custom-control custom-switch" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
-            <input type="checkbox" class="custom-control-input" id="switchD1">
+            <input type="checkbox" class="custom-control-input" id="switchD1" checked>
             <label class="custom-control-label" for="switchD1">D1</label>
         </div>
         <div class="custom-control custom-switch" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
-            <input type="checkbox" class="custom-control-input" id="switchD2">
+            <input type="checkbox" class="custom-control-input" id="switchD2" checked>
             <label class="custom-control-label" for="switchD2">D2</label>
         </div>
         <div class="custom-control custom-switch" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
-            <input type="checkbox" class="custom-control-input" id="switchF1">
+            <input type="checkbox" class="custom-control-input" id="switchF1" checked>
             <label class="custom-control-label" for="switchF1">F1</label>
         </div>
         <div class="custom-control custom-switch" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
             <input type="checkbox" class="custom-control-input" id="switchF2" checked>
             <label class="custom-control-label" for="switchF2">F2</label>
+            <small id="chooseRobotHelpBlock" class="form-text text-muted">
+                Choose at least one robot to train
+            </small>
         </div>
         <div class="form-group" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
             <label for="frameskipInput">Frame Skip</label>
@@ -198,34 +201,55 @@
             }
         }
 
+        function getRobot () {
+
+            var switch_GK = document.getElementById("switchGK");
+            var switch_D1 = document.getElementById("switchD1");
+            var switch_D2 = document.getElementById("switchD2");
+            var switch_F1 = document.getElementById("switchF1");
+            var switch_F2 = document.getElementById("switchF2");
+
+            json_data.sim_parameters.robot = [switch_GK.checked, switch_D1.checked, switch_D2.checked, switch_F1.checked, switch_F2.checked];
+
+            var counts = {};
+            json_data.sim_parameters.robot.forEach(function(x) { counts[x] = (counts[x] || 0)+1; });
+
+            return counts;
+        }
+
         function saveCode() {
 
             get_form_data()
+            counts = getRobot();
 
-            var link = document.createElement("a");
-            var dqn_blob = new Blob([code_dqn], {type: 'text/plain'});
-            var episode_memory_blob = new Blob([code_episode_memory], {type: 'text/plain'});
-            var helper_blob = new Blob([code_helper], {type: 'text/plain'});
-            var networks_blob = new Blob([code_networks], {type: 'text/plain'});
-            var play_blob = new Blob([code_play], {type: 'text/plain'});
-            var rl_utils_blob = new Blob([code_rl_utils], {type: 'text/plain'});
-            var train_blob = new Blob([code_train], {type: 'text/plain'});
-            var params_blob = new Blob([JSON.stringify(json_data)], {type: 'text/plain'});
+            if (counts['false'] == 5) {
+                alert('Choose at least one robot.');
+            }
 
-            var zip = new JSZip();
-            zip.file("dqn"+".py", dqn_blob, {type: 'text/plain'});
-            zip.file("episode_memory"+".py", episode_memory_blob, {type: 'text/plain'});
-            zip.file("helper"+".py", helper_blob, {type: 'text/plain'});
-            zip.file("networks"+".py", networks_blob, {type: 'text/plain'});
-            zip.file("play"+".py", play_blob, {type: 'text/plain'});
-            zip.file("rl_utils"+".py", rl_utils_blob, {type: 'text/plain'});
-            zip.file("train"+".py", train_blob, {type: 'text/plain'});
-            zip.file("params"+".json", params_blob, {type: 'text/plain'});
+            // var link = document.createElement("a");
+            // var dqn_blob = new Blob([code_dqn], {type: 'text/plain'});
+            // var episode_memory_blob = new Blob([code_episode_memory], {type: 'text/plain'});
+            // var helper_blob = new Blob([code_helper], {type: 'text/plain'});
+            // var networks_blob = new Blob([code_networks], {type: 'text/plain'});
+            // var play_blob = new Blob([code_play], {type: 'text/plain'});
+            // var rl_utils_blob = new Blob([code_rl_utils], {type: 'text/plain'});
+            // var train_blob = new Blob([code_train], {type: 'text/plain'});
+            // var params_blob = new Blob([JSON.stringify(json_data)], {type: 'text/plain'});
 
-            zip.generateAsync({type:"blob"}).then(function(content) {
-                // see FileSaver.js
-                saveAs(content, "mystrategy.zip");
-            });
+            // var zip = new JSZip();
+            // zip.file("dqn"+".py", dqn_blob, {type: 'text/plain'});
+            // zip.file("episode_memory"+".py", episode_memory_blob, {type: 'text/plain'});
+            // zip.file("helper"+".py", helper_blob, {type: 'text/plain'});
+            // zip.file("networks"+".py", networks_blob, {type: 'text/plain'});
+            // zip.file("play"+".py", play_blob, {type: 'text/plain'});
+            // zip.file("rl_utils"+".py", rl_utils_blob, {type: 'text/plain'});
+            // zip.file("train"+".py", train_blob, {type: 'text/plain'});
+            // zip.file("params"+".json", params_blob, {type: 'text/plain'});
+
+            // zip.generateAsync({type:"blob"}).then(function(content) {
+            //     // see FileSaver.js
+            //     saveAs(content, "mystrategy.zip");
+            // });
         }
 
         function chooseType(position) {
