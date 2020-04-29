@@ -34,7 +34,6 @@ BLOCKLY_TOOLBOX_XML['standard'] =
 +   '<block type="ball_is_opp_field"></block>'
 +   '<block type="get_defense_kick_angle"></block>'
 +   '<block type="get_attack_kick_angle"></block>'
-+   '<block type="set_wheel_velocity"></block>'
 +   '<block type="printconsole">'
 +     '<mutation divisor_input="true"></mutation>'
 +   '</block>'
