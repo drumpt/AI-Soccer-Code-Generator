@@ -30,38 +30,50 @@ goog.require('Blockly.Theme');
 Blockly.Themes.Classic = {};
 
 Blockly.Themes.Classic.defaultBlockStyles = {
-  "colour_blocks": {
-    "colourPrimary": "20"
+  "environment_indices_blocks": {
+    "colourPrimary": "#d31900"
   },
-  "list_blocks": {
-    // "colourPrimary": "260"
-    "colourPrimary": "#8d8680"
+  "environment_constants_blocks": {
+    "colourPrimary": "#ff8500"
+  },
+  "environment_variables_blocks": {
+    "colourPrimary": "#ffdf00"
+  },
+  "environment_functions_blocks": {
+    "colourPrimary": "#b1dc57"
   },
   "logic_blocks": {
     // "colourPrimary": "210"
-    "colourPrimary": "#d56428"
+    "colourPrimary": "#04862c"
   },
   "loop_blocks": {
     // "colourPrimary": "120"
-    "colourPrimary": "#506c31"
+    "colourPrimary": "#0097bc"
   },
   "math_blocks": {
     // "colourPrimary": "230"
-    "colourPrimary": "#31446c"
+    "colourPrimary": "#0052be"
   },
-  "procedure_blocks": {
-    // "colourPrimary": "290"
-    "colourPrimary": "#432362"
+  "list_blocks": {
+    // "colourPrimary": "260"
+    "colourPrimary": "#25286f"
   },
   "text_blocks": {
     "colourPrimary": "160"
   },
+  "colour_blocks": {
+    "colourPrimary": "20"
+  },
   "variable_blocks": {
-    "colourPrimary": "#73225c"
     // "colourPrimary": "330"
+    "colourPrimary": "#99138e"
   },
   "variable_dynamic_blocks": {
     "colourPrimary": "310"
+  },
+  "procedure_blocks": {
+    // "colourPrimary": "290"
+    "colourPrimary": "#dd056a"
   },
   "hat_blocks": {
     "colourPrimary": "330",

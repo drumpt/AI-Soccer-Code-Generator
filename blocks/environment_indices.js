@@ -67,7 +67,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       }
     ],
     "output": "Number",
-    "colour": "#DEB887",
+    "style": "environment_indices_blocks",
     "tooltip": "",
     "helpUrl": ""
   },  
@@ -95,7 +95,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       }
     ],
     "output": "Number",
-    "colour": "#DEB887",
+    "style": "environment_indices_blocks",
     "tooltip": "",
     "helpUrl": ""
   },
@@ -135,7 +135,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       }
     ],
     "output": "Number",
-    "colour": "#DEB887",
+    "style": "environment_indices_blocks",
     "tooltip": "",
     "helpUrl": ""
   }

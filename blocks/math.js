@@ -43,6 +43,8 @@ goog.require('Blockly.FieldVariable');
  */
 Blockly.Constants.Math.HUE = 230;
 
+// we can change the colors of all blocks directly by modifying core/theme/classic.js
+
 Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
   // Block for numeric value.

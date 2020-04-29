@@ -65,7 +65,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       ],
       "inputsInline": true,
       "output": "Number",
-      "colour": 20,
+      "style": "environment_functions_blocks",
       "tooltip": "",
       "helpUrl": ""
     },
@@ -85,7 +85,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       ],
       "inputsInline": true,
       "output": "Number",
-      "colour": 20,
+      "style": "environment_functions_blocks",
       "tooltip": "",
       "helpUrl": ""
     },
@@ -105,7 +105,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       ],
       "inputsInline": true,
       "output": "Number",
-      "colour": 20,
+      "style": "environment_functions_blocks",
       "tooltip": "",
       "helpUrl": ""
     },
@@ -115,7 +115,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       "message0": "predict_ball",
       "inputsInline": true,
       "output": null,
-      "colour": 20,
+      "style": "environment_functions_blocks",
       "tooltip": "",
       "helpUrl": ""
     },
@@ -125,7 +125,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       "message0": "find_closest_robot",
       "inputsInline": true,
       "output": "Number",
-      "colour": 20,
+      "style": "environment_functions_blocks",
       "tooltip": "",
       "helpUrl": ""
     },
@@ -144,7 +144,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       ],
       "inputsInline": true,
       "output": "Boolean",
-      "colour": 20,
+      "style": "environment_functions_blocks",
       "tooltip": "",
       "helpUrl": ""
     },
@@ -163,7 +163,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       ],
       "inputsInline": true,
       "output": "Boolean",
-      "colour": 20,
+      "style": "environment_functions_blocks",
       "tooltip": "",
       "helpUrl": ""
     },
@@ -182,7 +182,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       ],
       "inputsInline": true,
       "output": "Boolean",
-      "colour": 20,
+      "style": "environment_functions_blocks",
       "tooltip": "",
       "helpUrl": ""
     },
@@ -201,7 +201,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       ],
       "inputsInline": true,
       "output": "Boolean",
-      "colour": 20,
+      "style": "environment_functions_blocks",
       "tooltip": "",
       "helpUrl": ""
     },
@@ -220,7 +220,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       ],
       "inputsInline": true,
       "output": "Boolean",
-      "colour": 20,
+      "style": "environment_functions_blocks",
       "tooltip": "",
       "helpUrl": ""
     },
@@ -239,7 +239,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       ],
       "inputsInline": true,
       "output": "Boolean",
-      "colour": 20,
+      "style": "environment_functions_blocks",
       "tooltip": "",
       "helpUrl": ""
     },
@@ -249,7 +249,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       "message0": "get_defense_kick_angle",
       "inputsInline": true,
       "output": "Number",
-      "colour": 20,
+      "style": "environment_functions_blocks",
       "tooltip": "",
       "helpUrl": ""
     },
@@ -259,7 +259,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       "message0": "get_attack_kick_angle",
       "inputsInline": true,
       "output": "Number",
-      "colour": 20,
+      "style": "environment_functions_blocks",
       "tooltip": "",
       "helpUrl": ""
     },
@@ -306,7 +306,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       "inputsInline": true,
       "previousStatement": null,
       "nextStatement": null,
-      "colour": 20,
+      "style": "environment_functions_blocks",
       "tooltip": "",
       "helpUrl": ""
     }

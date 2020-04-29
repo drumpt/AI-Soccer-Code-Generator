@@ -55,7 +55,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       }
     ],
     "output": "Number",
-    "colour": "808000",
+    "style": "environment_variables_blocks",
     "tooltip": "",
     "helpUrl": ""
   },
@@ -80,7 +80,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       }
     ],
     "output": "Number",
-    "colour": "808000",
+    "style": "environment_variables_blocks",
     "tooltip": "",
     "helpUrl": ""
   },
@@ -110,7 +110,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       }
     ],
     "output": "Number",
-    "colour": "808000",
+    "style": "environment_variables_blocks",
     "tooltip": "",
     "helpUrl": ""
   }
