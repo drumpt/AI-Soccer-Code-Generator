@@ -67,7 +67,7 @@ Blockly.Python['distance'] = function(block) {
   Blockly.Python['ball_is_own_goal'] = function(block) {
     var value_predicted_ball = Blockly.Python.valueToCode(block, 'predicted_ball', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    var code = "helper.ball_is_own_goal(" + value_predicted_ball + ")";
+    var code = "helper.ball_is_own_goal(" + value_predicted_ball + ", self.field, self.goal_area)";
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.Python.ORDER_NONE];
   };
@@ -75,7 +75,7 @@ Blockly.Python['distance'] = function(block) {
   Blockly.Python['ball_is_own_penalty'] = function(block) {
     var value_predicted_ball = Blockly.Python.valueToCode(block, 'predicted_ball', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    var code = 'helper.ball_is_own_penalty(' + value_predicted_ball + ")";
+    var code = 'helper.ball_is_own_penalty(' + value_predicted_ball + ", self.field, self.penalty_area)";
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.Python.ORDER_NONE];
   };
@@ -91,7 +91,7 @@ Blockly.Python['distance'] = function(block) {
   Blockly.Python['ball_is_opp_goal'] = function(block) {
     var value_predicted_ball = Blockly.Python.valueToCode(block, 'predicted_ball', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    var code = 'helper.ball_is_opp_goal(' + value_predicted_ball + ")";
+    var code = 'helper.ball_is_opp_goal(' + value_predicted_ball + ", self.field, self.goal_area)";
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.Python.ORDER_NONE];
   };
@@ -99,7 +99,7 @@ Blockly.Python['distance'] = function(block) {
   Blockly.Python['ball_is_opp_penalty'] = function(block) {
     var value_predicted_ball = Blockly.Python.valueToCode(block, 'predicted_ball', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    var code = 'helper.ball_is_opp_penalty(' + value_predicted_ball + ")";
+    var code = 'helper.ball_is_opp_penalty(' + value_predicted_ball + "self.field, self.penalty_area)";
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.Python.ORDER_NONE];
   };
