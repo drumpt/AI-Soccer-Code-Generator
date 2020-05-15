@@ -7,8 +7,9 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="style_deep_learning.css">
-  <script src="deeplearning_single_codes.js"></script>
-  <script src="params.js"></script>
+  <script src="template-codes/single_dqn_codes.js"></script>
+  <script src="template-codes/single_ddpg_codes.js"></script>
+  <script src="template-codes/params.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.2.0/jszip.min.js"></script>
@@ -17,71 +18,56 @@
   <p>AI World Cup Code Generator - Deep Learning System</p>
   <img src="./img/field_information_3d.png" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; display:block; max-width: 50%; height:auto;">
 
-  <!--
-  <div class="tab" style="margin-left: auto; margin-right:auto; margin-bottom: 0px; max-width: 50%; height:auto;">
-    <button class="tablinks" onclick="chooseType('SR')">Single Robot</button>
-    <button class="tablinks" onclick="chooseType('MR')">Multiple Robots</button>
-  </div>
-  -->
-
   <!-- define codeContainer for splitting screen into block part and code part --> 
-  <div id='codeContainer' style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%; border: 2px solid #DDDDDD; height: 1450px">
+  <div id='codeContainer' style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%; border: 2px solid #DDDDDD; height: 1600px">
 
     <form>
         <div class="form-group" style="margin-left: auto; margin-right:auto; margin-top: 15px; margin-bottom: 15px; width: 50%;">
             <label for="selectState">Select your State design</label>
             <select class="form-control" id="selectState">
-                <option>ROBOT_RELATIVE_POSITION</option>
-                <option>ROBOT_COORDINATES</option>
-                <option>ROBOT_COORDINATES_AND_LIDAR</option>
+                <option value="relative">RELATIVE_POSITION</option>
+                <option value="full">FULL_POSITION</option>
+                <option value="smm" disabled>MINIMAP</option>
             </select>
             <small id="stateHelpBlock" class="form-text text-muted">
                 There are currently 3 possible state options: <br>
-                1) Option 1 <br>
-                2) Option 2 <br>
-                3) Option 3
+                1) Relative Position: relative position of active robot in relation to the ball, orientation and orientation error <br>
+                2) Full Position: relative position and velocity of the all robots in relation to the ball, orientation and orientation error of active robot <br>
+                3) Minimap: minimap with robot positions and active robot position and orientation. <i>(currently not available)</i>
             </small>
         </div>    
         <div class="form-group" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
             <label for="selectAction">Select your Action design</label>
             <select class="form-control" id="selectAction">
-                <option>10_DISCRETE_ACTIONS</option>
-                <option>20_DISCRETE_ACTIONS</option>
-                <option>CONTINUOUS_ACTIONS</option>
+                <option value="discrete">7_DISCRETE</option>
+                <option value="extendeddiscrete">13_DISCRETE</option>
+                <option value="continous" disabled>CONTINUOUS</option>
             </select>
             <small id="actionHelpBlock" class="form-text text-muted">
                 There are currently 3 possible action options: <br>
-                1) Option 1 <br>
-                2) Option 2 <br>
-                3) Option 3
+                1) 7 Discrete: seven discrete actions defined as a ratio over the maximum linear velocity of the robot <br>
+                2) 13 Discrete: thirteen discrete actions defined as a ratio over the maximum linear velocity of the robot <br>
+                3) Continous: continuous actions for the wheel and slider actions <i>(applied to DDPG algorithm)</i>
             </small>
-            </div>  
+        </div>  
         <div class="form-group" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
             <label for="selectReward">Select your Reward design</label>
             <select class="form-control" id="selectReward">
-                <option>ROBOT_TO_BALL</option>
-                <option>BALL_TO_OPPONENT_GOAL</option>
-                <option>GOAL_SCORED</option>
+                <option value="positive_followball">POSITIVE_FOLLOWBALL</option>
+                <option value="negative_followball">NEGATIVE_FOLLOWBALL</option>
+                <option value="basic">BASIC</option>
+                <option value="differential">DIFFERENTIAL</option>
+                <option value="checkpoint">CHECKPOINT</option>
             </select>
             <small id="rewardHelpBlock" class="form-text text-muted">
-                Design your reward function: <br>
-                Return: reward value for one timestep
+                There are currently 3 possible action options: <br>
+                1) Positive Follow Ball: positive reward in relation to distance and orientation difference to the ball <br>
+                2) Negative Follow Ball: negative reward in relation to distance and orientation difference to the ball <br>
+                3) Basic: score/concede reward, distance between robots and the ball, distance between ball and opponent goal <br>
+                4) Differential: score/concede reward, differential reward based on ball movement <br>
+                5) Checkpoint: reward is gained/lost if the ball is moving to/from the opponent field
             </small>
         </div>
-        <!-- <div class="form-row"  style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="dqn_algorithm" value="dqn">
-                <label class="form-check-label" for="dqn_algorithm">DQN</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ddqn_algorithm" value="ddqn">
-                <label class="form-check-label" for="ddqn_algorithm">DDQN</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ddpg_algorithm" value="ppo" disabled>
-                <label class="form-check-label" for="ddpg_algorithm">DDPG (disabled)</label>
-            </div>
-        </div> -->
         <div style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
             Choose which robots to train
         </div> 
@@ -105,12 +91,12 @@
             <input type="checkbox" class="custom-control-input" id="switchF2" checked>
             <label class="custom-control-label" for="switchF2">F2</label>
             <small id="chooseRobotHelpBlock" class="form-text text-muted">
-                Choose just one robot to train
+                Choose just one robot to train in single-agent mode
             </small>
         </div>
         <div class="form-group" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
             <label for="frameskipInput">Frame Skip</label>
-            <input type="text" class="form-control" id="frameskipInput" placeholder="4">
+            <input type="text" class="form-control" id="frameskipInput" placeholder="2">
             <small id="frameskipHelpBlock" class="form-text text-muted">
                 Store experiences every 'frame_skip' value timesteps
             </small>
@@ -129,14 +115,23 @@
 
     <script type="text/javascript">
         
-        // Need to modify when I try to modify the variables above
-        var code_dqn = DQN;
-        var code_episode_memory = EPISODE_MEMORY;
-        var code_helper = HELPER;
-        var code_networks = NETWORKS;
-        var code_play = PLAY;
-        var code_rl_utils = RL_UTILS;
-        var code_train = TRAIN;
+        // DQN variables
+        var code_algorithm_dqn = ALGORITHM_DQN;
+        var code_episode_memory_dqn = EPISODE_MEMORY_DQN;
+        var code_helper_dqn = HELPER_DQN;
+        var code_networks_dqn = NETWORKS_DQN;
+        var code_play_dqn = PLAY_DQN;
+        var code_rl_utils_dqn = RL_UTILS_DQN;
+        var code_train_dqn = TRAIN_DQN;
+
+        // DDPG variables
+        var code_algorithm_ddpg = ALGORITHM_DDPG;
+        var code_episode_memory_ddpg = EPISODE_MEMORY_DDPG;
+        var code_helper_ddpg = HELPER_DDPG;
+        var code_networks_ddpg = NETWORKS_DDPG;
+        var code_play_ddpg = PLAY_DDPG;
+        var code_rl_utils_ddpg = RL_UTILS_DDPG;
+        var code_train_ddpg = TRAIN_DDPG;
 
         var tablinks = document.getElementsByClassName("tablinks");
         tablinks[0].className += " active";
@@ -148,52 +143,66 @@
 
         function get_form_data () {
             var frameskip = document.getElementById("frameskipInput");
+            var state_type = document.getElementById("selectState");
+            var action_type = document.getElementById("selectAction");
+            var reward_type = document.getElementById("selectReward");
+            if (state_type.value) {
+                json_data.sim_parameters.state_type = state_type.value;
+            }
+            if (action_type.value) {
+                json_data.sim_parameters.action_type = action_type.value;
+            }
+            if (reward_type.value) {
+                json_data.sim_parameters.reward_type = reward_type.value;
+            }
             if (frameskip.value) {
-                json_data.sim_parameters.frame_skip = parseInt(frameskip.value)
+                json_data.sim_parameters.frame_skip = parseInt(frameskip.value);
             }
             switch (currentType) {
                 case "DQN":
+                    json_data.sim_parameters.algorithm = "dqn"
                     var gamma = document.getElementById("gammaInput");
                     var batchsize = document.getElementById("batchSizeInput");
                     var buffersize = document.getElementById("bufferSizeInput");
                     var lr = document.getElementById("learningRateInput");
                     var epsilonsteps = document.getElementById("epsilonStepsInput");
                     if (gamma.value) {
-                        json_data.dqn_parameters.gamma = parseFloat(gamma.value)
+                        json_data.dqn_parameters.gamma = parseFloat(gamma.value);
                     }
                     if (batchsize.value) {
-                        json_data.dqn_parameters.batch_size = parseInt(batchsize.value)
+                        json_data.dqn_parameters.batch_size = parseInt(batchsize.value);
                     }
                     if (buffersize.value) {
-                        json_data.dqn_parameters.buffer_size = parseInt(buffersize.value)
+                        json_data.dqn_parameters.buffer_size = parseInt(buffersize.value);
                     }
                     if (lr.value) {
-                        json_data.dqn_parameters.lr = parseFloat(lr.value)
+                        json_data.dqn_parameters.lr = parseFloat(lr.value);
                     }
                     if (epsilonsteps.value) {
-                        json_data.dqn_parameters.epsilon_steps = parseInt(epsilonsteps.value)
+                        json_data.dqn_parameters.epsilon_steps = parseInt(epsilonsteps.value);
                     }
                 break;
                 case "DDPG":
+                    json_data.sim_parameters.algorithm = "ddpg"
                     var gamma = document.getElementById("gammaInput");
                     var batchsize = document.getElementById("batchSizeInput");
                     var buffersize = document.getElementById("bufferSizeInput");
-                    var lr = document.getElementById("learningRateInput");
-                    var expnoise = document.getElementById("expNoiseInput");
+                    var actor_lr = document.getElementById("actorLearningRateInput");
+                    var critic_lr = document.getElementById("criticLearningRateInput");
                     if (gamma.value) {
-                        json_data.ddpg_parameters.gamma = parseFloat(gamma.value)
+                        json_data.ddpg_parameters.gamma = parseFloat(gamma.value);
                     }
                     if (batchsize.value) {
-                        json_data.ddpg_parameters.batch_size = parseInt(batchsize.value)
+                        json_data.ddpg_parameters.batch_size = parseInt(batchsize.value);
                     }
                     if (buffersize.value) {
-                        json_data.ddpg_parameters.buffer_size = parseInt(buffersize.value)
+                        json_data.ddpg_parameters.buffer_size = parseInt(buffersize.value);
                     }
-                    if (lr.value) {
-                        json_data.ddpg_parameters.lr = parseFloat(lr.value)
+                    if (actor_lr.value) {
+                        json_data.ddpg_parameters.actor_lr = parseFloat(actor_lr.value);
                     }
-                    if (expnoise.value) {
-                        json_data.ddpg_parameters.exploration_noise = parseFloat(expnoise.value)
+                    if (critic_lr.value) {
+                        json_data.ddpg_parameters.critic_lr = parseFloat(critic_lr.value);
                     }
                 break;
             default:
@@ -226,18 +235,55 @@
                 alert('Choose just one robot.');
             }
 
-            var link = document.createElement("a");
-            var dqn_blob = new Blob([code_dqn], {type: 'text/plain'});
-            var episode_memory_blob = new Blob([code_episode_memory], {type: 'text/plain'});
-            var helper_blob = new Blob([code_helper], {type: 'text/plain'});
-            var networks_blob = new Blob([code_networks], {type: 'text/plain'});
-            var play_blob = new Blob([code_play], {type: 'text/plain'});
-            var rl_utils_blob = new Blob([code_rl_utils], {type: 'text/plain'});
-            var train_blob = new Blob([code_train], {type: 'text/plain'});
-            var params_blob = new Blob([JSON.stringify(json_data)], {type: 'text/plain'});
+            switch (currentType) {
+                case "DQN":
+                    var link = document.createElement("a");
+                    var algorithm_blob = new Blob([code_algorithm_dqn], {type: 'text/plain'});
+                    var episode_memory_blob = new Blob([code_episode_memory_dqn], {type: 'text/plain'});
+                    var helper_blob = new Blob([code_helper_dqn], {type: 'text/plain'});
+                    var networks_blob = new Blob([code_networks_dqn], {type: 'text/plain'});
+                    var play_blob = new Blob([code_play_dqn], {type: 'text/plain'});
+                    var rl_utils_blob = new Blob([code_rl_utils_dqn], {type: 'text/plain'});
+                    var train_blob = new Blob([code_train_dqn], {type: 'text/plain'});
+                    var params_blob = new Blob([JSON.stringify(json_data)], {type: 'text/plain'});
+                break;
+                case "DDPG":
+                    var link = document.createElement("a");
+                    var algorithm_blob = new Blob([code_algorithm_ddpg], {type: 'text/plain'});
+                    var episode_memory_blob = new Blob([code_episode_memory_ddpg], {type: 'text/plain'});
+                    var helper_blob = new Blob([code_helper_ddpg], {type: 'text/plain'});
+                    var networks_blob = new Blob([code_networks_ddpg], {type: 'text/plain'});
+                    var play_blob = new Blob([code_play_ddpg], {type: 'text/plain'});
+                    var rl_utils_blob = new Blob([code_rl_utils_ddpg], {type: 'text/plain'});
+                    var train_blob = new Blob([code_train_ddpg], {type: 'text/plain'});
+                    var params_blob = new Blob([JSON.stringify(json_data)], {type: 'text/plain'});
+                break;
+            default:
+                console.log("Cannot generate code variable to save.");
+            }
+
+            // var link = document.createElement("a");
+            // var dqn_blob = new Blob([code_dqn], {type: 'text/plain'});
+            // var episode_memory_blob = new Blob([code_episode_memory], {type: 'text/plain'});
+            // var helper_blob = new Blob([code_helper], {type: 'text/plain'});
+            // var networks_blob = new Blob([code_networks], {type: 'text/plain'});
+            // var play_blob = new Blob([code_play], {type: 'text/plain'});
+            // var rl_utils_blob = new Blob([code_rl_utils], {type: 'text/plain'});
+            // var train_blob = new Blob([code_train], {type: 'text/plain'});
+            // var params_blob = new Blob([JSON.stringify(json_data)], {type: 'text/plain'});
 
             var zip = new JSZip();
-            zip.file("dqn"+".py", dqn_blob, {type: 'text/plain'});
+            switch (currentType) {
+                case "DQN":
+                    zip.file("dqn"+".py", algorithm_blob, {type: 'text/plain'});
+                break;
+                case "DDPG":
+                    zip.file("ddpg"+".py", algorithm_blob, {type: 'text/plain'});
+                break;
+            default:
+                console.log("Error.");
+            }
+            // zip.file("dqn"+".py", dqn_blob, {type: 'text/plain'});
             zip.file("episode_memory"+".py", episode_memory_blob, {type: 'text/plain'});
             zip.file("helper"+".py", helper_blob, {type: 'text/plain'});
             zip.file("networks"+".py", networks_blob, {type: 'text/plain'});
@@ -338,7 +384,7 @@
             buffer_input.type = "text";
             buffer_input.class = "form-control";
             buffer_input.id = "bufferSizeInput";
-            buffer_input.placeholder = "50000";
+            buffer_input.placeholder = "100000";
             buffer_form.appendChild(buffer_input);
             var buffer_small = document.createElement('small');
             buffer_small.id = "bufferHelpBlock";
@@ -412,7 +458,7 @@
             gamma_input.type = "text";
             gamma_input.class = "form-control";
             gamma_input.id = "gammaInput";
-            gamma_input.placeholder = "0.99";
+            gamma_input.placeholder = "0.9";
             gamma_form.appendChild(gamma_input);
             var gamma_small = document.createElement('small');
             gamma_small.id = "gammaHelpBlock";
@@ -433,7 +479,7 @@
             batch_input.type = "text";
             batch_input.class = "form-control";
             batch_input.id = "batchSizeInput";
-            batch_input.placeholder = "32";
+            batch_input.placeholder = "64";
             batch_form.appendChild(batch_input);
             var batch_small = document.createElement('small');
             batch_small.id = "batchHelpBlock";
@@ -454,7 +500,7 @@
             buffer_input.type = "text";
             buffer_input.class = "form-control";
             buffer_input.id = "bufferSizeInput";
-            buffer_input.placeholder = "50000";
+            buffer_input.placeholder = "100000";
             buffer_form.appendChild(buffer_input);
             var buffer_small = document.createElement('small');
             buffer_small.id = "bufferHelpBlock";
@@ -463,47 +509,47 @@
             buffer_form.appendChild(buffer_small);
             innerDiv.appendChild(buffer_form);
 
-            // learning rate
-            var lr_form = document.createElement('div');
-            lr_form.className = "form-group";
-            lr_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;";
-            var lr_label = document.createElement('label');
-            lr_label.for = "learningRateInput";
-            lr_label.innerHTML = "Learning Rate: ";
-            lr_form.appendChild(lr_label);
-            var lr_input = document.createElement('input');
-            lr_input.type = "text";
-            lr_input.class = "form-control";
-            lr_input.id = "learningRateInput";
-            lr_input.placeholder = "0.002";
-            lr_form.appendChild(lr_input);
-            var lr_small = document.createElement('small');
-            lr_small.id = "lrHelpBlock";
-            lr_small.class = "form-text text-muted";
-            lr_small.innerHTML = "(float)";
-            lr_form.appendChild(lr_small);
-            innerDiv.appendChild(lr_form);
+            // actor learning rate
+            var actor_lr_form = document.createElement('div');
+            actor_lr_form.className = "form-group";
+            actor_lr_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;";
+            var actor_lr_label = document.createElement('label');
+            actor_lr_label.for = "actorLearningRateInput";
+            actor_lr_label.innerHTML = "Actor Learning Rate: ";
+            actor_lr_form.appendChild(actor_lr_label);
+            var actor_lr_input = document.createElement('input');
+            actor_lr_input.type = "text";
+            actor_lr_input.class = "form-control";
+            actor_lr_input.id = "actorLearningRateInput";
+            actor_lr_input.placeholder = "0.0001";
+            actor_lr_form.appendChild(actor_lr_input);
+            var actor_lr_small = document.createElement('small');
+            actor_lr_small.id = "actorlrHelpBlock";
+            actor_lr_small.class = "form-text text-muted";
+            actor_lr_small.innerHTML = "(float)";
+            actor_lr_form.appendChild(actor_lr_small);
+            innerDiv.appendChild(actor_lr_form);
 
-            // exploration noise
-            var expnoise_form = document.createElement('div');
-            expnoise_form.className = "form-group";
-            expnoise_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;";
-            var expnoise_label = document.createElement('label');
-            expnoise_label.for = "expNoiseInput";
-            expnoise_label.innerHTML = "Exploration Noise: ";
-            expnoise_form.appendChild(expnoise_label);
-            var expnoise_input = document.createElement('input');
-            expnoise_input.type = "text";
-            expnoise_input.class = "form-control";
-            expnoise_input.id = "expNoiseInput";
-            expnoise_input.placeholder = "0.2";
-            expnoise_form.appendChild(expnoise_input);
-            var expnoise_small = document.createElement('small');
-            expnoise_small.id = "expnoiseHelpBlock";
-            expnoise_small.class = "form-text text-muted";
-            expnoise_small.innerHTML = "(float)";
-            expnoise_form.appendChild(expnoise_small);
-            innerDiv.appendChild(expnoise_form);
+            // critic learning rate
+            var critic_lr_form = document.createElement('div');
+            critic_lr_form.className = "form-group";
+            critic_lr_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;";
+            var critic_lr_label = document.createElement('label');
+            critic_lr_label.for = "criticLearningRateInput";
+            critic_lr_label.innerHTML = "Critic Learning Rate: ";
+            critic_lr_form.appendChild(critic_lr_label);
+            var critic_lr_input = document.createElement('input');
+            critic_lr_input.type = "text";
+            critic_lr_input.class = "form-control";
+            critic_lr_input.id = "criticLearningRateInput";
+            critic_lr_input.placeholder = "0.001";
+            critic_lr_form.appendChild(critic_lr_input);
+            var critic_lr_small = document.createElement('small');
+            critic_lr_small.id = "criticlrHelpBlock";
+            critic_lr_small.class = "form-text text-muted";
+            critic_lr_small.innerHTML = "(float)";
+            critic_lr_form.appendChild(critic_lr_small);
+            innerDiv.appendChild(critic_lr_form);
 
         }
 
