@@ -7,51 +7,56 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="style_deep_learning.css">
+  <script src="template-blocks/blockly_compressed.js"></script>
+  <script src="template-blocks/python_compressed.js"></script>
+  <script src="template-blocks/blocks_compressed.js"></script>
+  <script src="template-blocks/toolbox_standard.js"></script>
+  <script src="msg/js/en.js"></script>
   <script src="template-codes/multi_iql_codes.js"></script>
   <script src="template-codes/multi_qmix_codes.js"></script>
   <script src="template-codes/params.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.2.0/jszip.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
   <p>AI World Cup Code Generator - Deep Learning System</p>
   <img src="./img/field_information_3d.png" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; display:block; max-width: 50%; height:auto;">
 
-  <!-- define codeContainer for splitting screen into block part and code part --> 
-  <div id='codeContainer' style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%; border: 2px solid #DDDDDD; height: 1600px">
-
-    <form>
-        <div class="form-group" style="margin-left: auto; margin-right:auto; margin-top: 15px; margin-bottom: 15px; width: 50%;">
-            <label for="selectState">Select your State design</label>
+  <div id='codeContainer' style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 100%; height: auto">
+    <div class="divOuter">
+        <div class="form-group">
+            <label for="selectState" style="font-weight: bold">STATE</label>
             <select class="form-control" id="selectState">
                 <option value="relative">RELATIVE_POSITION</option>
                 <option value="full">FULL_POSITION</option>
                 <option value="smm" disabled>MINIMAP</option>
             </select>
-            <small id="stateHelpBlock" class="form-text text-muted">
+            <small id="stateHelpBlock" class="form-text text-muted" style="text-align: left; font-size: 15px;">
                 There are currently 3 possible state options: <br>
-                1) Relative Position: relative position of active robot in relation to the ball, orientation and orientation error <br>
-                2) Full Position: relative position and velocity of the all robots in relation to the ball, orientation and orientation error of active robot <br>
-                3) Minimap: minimap with robot positions and active robot position and orientation. <i>(currently not available)</i>
+                - Relative Position: relative position of active robot in relation to the ball, orientation and orientation error <br>
+                - Full Position: relative position and velocity of the all robots in relation to the ball, orientation and orientation error of active robot <br>
+                - Minimap: minimap with robot positions and active robot position and orientation <i>(currently not available)</i>
             </small>
-        </div>    
-        <div class="form-group" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
-            <label for="selectAction">Select your Action design</label>
+        </div>
+        <div class="form-group">
+            <label for="selectAction" style="font-weight: bold">ACTION</label>
             <select class="form-control" id="selectAction">
                 <option value="discrete">7_DISCRETE</option>
                 <option value="extendeddiscrete">13_DISCRETE</option>
                 <option value="continous" disabled>CONTINUOUS</option>
             </select>
-            <small id="actionHelpBlock" class="form-text text-muted">
+            <small id="actionHelpBlock" class="form-text text-muted" style="text-align: left; font-size: 15px;">
                 There are currently 3 possible action options: <br>
-                1) 7 Discrete: seven discrete actions defined as a ratio over the maximum linear velocity of the robot <br>
-                2) 13 Discrete: thirteen discrete actions defined as a ratio over the maximum linear velocity of the robot <br>
-                3) Continous: continuous actions for the wheel and slider actions <i>(applied to DDPG algorithm)</i>
+                - 7 Discrete: seven discrete actions defined as a ratio over the maximum linear velocity of the robot <br>
+                - 13 Discrete: thirteen discrete actions defined as a ratio over the maximum linear velocity of the robot <br>
+                - Continous: continuous actions for the wheel and slider actions <i>(applied to DDPG algorithm)</i>
             </small>
-        </div>  
-        <div class="form-group" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
-            <label for="selectReward">Select your Reward design</label>
+        </div>
+        <div class="form-group">
+            <label for="selectReward" style="font-weight: bold">REWARD</label>
             <select class="form-control" id="selectReward">
                 <option value="positive_followball">POSITIVE_FOLLOWBALL</option>
                 <option value="negative_followball">NEGATIVE_FOLLOWBALL</option>
@@ -59,62 +64,69 @@
                 <option value="differential">DIFFERENTIAL</option>
                 <option value="checkpoint">CHECKPOINT</option>
             </select>
-            <small id="rewardHelpBlock" class="form-text text-muted">
-                There are currently 3 possible action options: <br>
-                1) Positive Follow Ball: positive reward in relation to distance and orientation difference to the ball <br>
-                2) Negative Follow Ball: negative reward in relation to distance and orientation difference to the ball <br>
-                3) Basic: score/concede reward, distance between robots and the ball, distance between ball and opponent goal <br>
-                4) Differential: score/concede reward, differential reward based on ball movement <br>
-                5) Checkpoint: reward is gained/lost if the ball is moving to/from the opponent field
+            <small id="rewardHelpBlock" class="form-text text-muted" style="text-align: left; font-size: 15px;">
+                There are currently 5 possible action options: <br>
+                - Positive Follow Ball: positive reward in relation to distance and orientation difference to the ball <br>
+                - Negative Follow Ball: negative reward in relation to distance and orientation difference to the ball <br>
+                - Basic: score/concede reward, distance between robots and the ball, distance between ball and opponent goal <br>
+                - Differential: score/concede reward, differential reward based on ball movement <br>
+                - Checkpoint: reward is gained/lost if the ball is moving to/from the opponent field
             </small>
         </div>
-        <div style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
-            Choose which robots to train
-        </div> 
-        <div class="custom-control custom-switch" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
-            <input type="checkbox" class="custom-control-input" id="switchGK" checked disabled>
-            <label class="custom-control-label" for="switchGK">GK</label>
+    </div>
+
+    <div class="divOuter">
+        <div class="form-group">
+            <div style="font-weight: bold; margin-bottom: 15px">
+                ROBOT
+            </div>
+            <div class="choose-robots">
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="switchGK" checked>
+                    <label class="custom-control-label" for="switchGK">GK</label>
+                </div>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="switchD1" checked>
+                    <label class="custom-control-label" for="switchD1">D1</label>
+                </div>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="switchD2" checked>
+                    <label class="custom-control-label" for="switchD2">D2</label>
+                </div>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="switchF1" checked>
+                    <label class="custom-control-label" for="switchF1">F1</label>
+                </div>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="switchF2" checked>
+                    <label class="custom-control-label" for="switchF2">F2</label>
+                </div>
+            </div>
+            <div id="chooseRobotHelpBlock" class="form-text text-muted" style="font-size: 15px; text-align: left">
+                Current version trains all 5 robots at the same time
+            </div>
         </div>
-        <div class="custom-control custom-switch" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
-            <input type="checkbox" class="custom-control-input" id="switchD1" checked disabled>
-            <label class="custom-control-label" for="switchD1">D1</label>
-        </div>
-        <div class="custom-control custom-switch" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
-            <input type="checkbox" class="custom-control-input" id="switchD2" checked disabled>
-            <label class="custom-control-label" for="switchD2">D2</label>
-        </div>
-        <div class="custom-control custom-switch" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
-            <input type="checkbox" class="custom-control-input" id="switchF1" checked disabled>
-            <label class="custom-control-label" for="switchF1">F1</label>
-        </div>
-        <div class="custom-control custom-switch" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
-            <input type="checkbox" class="custom-control-input" id="switchF2" checked disabled>
-            <label class="custom-control-label" for="switchF2">F2</label>
-            <small id="chooseRobotHelpBlock" class="form-text text-muted">
-                <i>Current version trains all 5 robots of a team</i>
-            </small>
-        </div>
-        <div class="form-group" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
-            <label for="frameskipInput">Frame Skip</label>
+        <div class="form-group">
+            <label for="frameskipInput" style="font-weight: bold">FRAME SKIP</label>
             <input type="text" class="form-control" id="frameskipInput" placeholder="2">
-            <small id="frameskipHelpBlock" class="form-text text-muted">
+            <small id="frameskipHelpBlock" class="form-text text-muted" style="font-size: 15px; text-align: left">
                 Store experiences every 'frame_skip' value timesteps
             </small>
         </div>
-    </form>
-
-    <div style="margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;">
-        Choose your Deep Reinforcement Learning algorithm
+        <div class="form-group">
+            <div style="margin-left: auto; margin-right:auto; margin-bottom: 15px; font-weight: bold">
+                ALGORITHM
+            </div>
+            <div id="dl-block" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; height:auto;">
+                <div class="tab" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; max-width: 50%; height:auto;">
+                    <button class="tablinks" onclick="chooseType('IQL')">IQL</button>
+                    <button class="tablinks" onclick="chooseType('QMIX')">QMIX</button>
+                </div>
+            </div>    
+        </div>    
     </div>
-    <div id="dl-block" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; max-width: 50%; height:auto;">
-        <div class="tab" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; max-width: 50%; height:auto;">
-            <button class="tablinks" onclick="chooseType('IQL')">IQL</button>
-            <button class="tablinks" onclick="chooseType('QMIX')">QMIX</button>
-        </div>
-    </div>
 
-    <script type="text/javascript">
-        
+    <script type="text/javascript">    
         // IQL variables
         var code_algorithm_iql = ALGORITHM_IQL;
         var code_episode_memory_iql = EPISODE_MEMORY_IQL;
@@ -136,7 +148,6 @@
         var tablinks = document.getElementsByClassName("tablinks");
         tablinks[0].className += " active";
         var currentType = 'IQL';
-
         createIQLform();
 
         var json_data = JSON.parse(MULTI_PARAMETERS)
@@ -181,7 +192,7 @@
                     if (epsilonsteps.value) {
                         json_data.iql_parameters.epsilon_steps = parseInt(epsilonsteps.value)
                     }
-                break;
+                    break;
                 case "QMIX":
                     json_data.sim_parameters.algorithm = "qmix"
                     var gamma = document.getElementById("gammaInput");
@@ -204,14 +215,13 @@
                     if (epsilonsteps.value) {
                         json_data.qmix_parameters.epsilon_steps = parseInt(epsilonsteps.value)
                     }
-                break;
-            default:
-                console.log("Error: type does not exist.");
+                    break;
+                default:
+                    console.log("Error: type does not exist.");
             }
         }
 
         function getRobot () {
-
             var switch_GK = document.getElementById("switchGK");
             var switch_D1 = document.getElementById("switchD1");
             var switch_D2 = document.getElementById("switchD2");
@@ -227,7 +237,6 @@
         }
 
         function saveCode() {
-
             get_form_data()
             counts = getRobot();
 
@@ -276,12 +285,12 @@
             switch (currentType) {
                 case "IQL":
                     zip.file("dqn"+".py", algorithm_blob, {type: 'text/plain'});
-                break;
+                    break;
                 case "QMIX":
                     zip.file("qmix"+".py", algorithm_blob, {type: 'text/plain'});
-                break;
-            default:
-                console.log("Error.");
+                    break;
+                default:
+                    console.log("Error.");
             }
             // zip.file("dqn"+".py", dqn_blob, {type: 'text/plain'});
             zip.file("episode_memory"+".py", episode_memory_blob, {type: 'text/plain'});

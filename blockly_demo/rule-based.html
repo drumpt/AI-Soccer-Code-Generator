@@ -8,12 +8,10 @@
   <script src="template-blocks/blockly_compressed.js"></script>
   <script src="template-blocks/python_compressed.js"></script>
   <script src="template-blocks/blocks_compressed.js"></script>
-  <!-- <script src="code.js"></script> -->
-  <script src="msg/js/en.js"></script>
   <script src="template-blocks/toolbox_standard.js"></script>
+  <script src="msg/js/en.js"></script>
   <script src="template-codes/constants.js"></script>
   <script src="template-codes/default_codes.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.2.0/jszip.min.js"></script>
 </head>
@@ -1548,13 +1546,14 @@
       var blocks_f1 = Blockly.Xml.domToPrettyText(document.getElementById('default_blocks_f1'));
       var blocks_f2 = Blockly.Xml.domToPrettyText(document.getElementById('default_blocks_f2'));
 
-      // Need to modify when I try to modify the variables above
+      // need to modify when I try to modify the variables above
 	    var code_gk = DEFAULT_GK;
       var code_d1 = DEFAULT_D1;
       var code_d2 = DEFAULT_D2;
       var code_f1 = DEFAULT_F1;
       var code_f2 = DEFAULT_F2;
 
+      // initialize with goalkeeper blocks
       var tablinks = document.getElementsByClassName("tablinks");
       tablinks[0].className += " active";
       var currentRobot = 'GK';
@@ -1693,7 +1692,7 @@
             console.log("Wrong approach!");
         }
       }
-  </script>
+    </script>
 	</div>
   <button id="saveButton" onclick="saveCode();">Generate Code</button>
 </body>
