@@ -255,7 +255,7 @@
                     var rl_utils_blob = new Blob([code_rl_utils_iql], {type: 'text/plain'});
                     var train_blob = new Blob([code_train_iql], {type: 'text/plain'});
                     var params_blob = new Blob([JSON.stringify(json_data)], {type: 'text/plain'});
-                break;
+                    break;
                 case "QMIX":
                     var link = document.createElement("a");
                     var algorithm_blob = new Blob([code_algorithm_qmix], {type: 'text/plain'});
@@ -266,9 +266,9 @@
                     var rl_utils_blob = new Blob([code_rl_utils_qmix], {type: 'text/plain'});
                     var train_blob = new Blob([code_train_qmix], {type: 'text/plain'});
                     var params_blob = new Blob([JSON.stringify(json_data)], {type: 'text/plain'});
-                break;
-            default:
-                console.log("Cannot generate code variable to save.");
+                    break;
+                default:
+                    console.log("Cannot generate code variable to save.");
             }
 
             // var link = document.createElement("a");
@@ -320,13 +320,13 @@
                 case "IQL":
                     tablinks[0].className += " active";
                     createIQLform();
-                break;
+                    break;
                 case "QMIX":
                     tablinks[1].className += " active";
                     createQMIXform();
-                break;
-            default:
-                console.log("Error: type does not exist.");
+                    break;
+                default:
+                    console.log("Error: type does not exist.");
             }
         }
 
@@ -341,114 +341,126 @@
        
             // gamma
             var gamma_form = document.createElement('div');
-            gamma_form.className = "form-group";
-            gamma_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;";
+            // gamma_form.className = "form-group";
+            gamma_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px;";
             var gamma_label = document.createElement('label');
             gamma_label.for = "gammaInput";
             gamma_label.innerHTML = "Gamma: ";
+            gamma_label.style = "margin-right: 10px";
             gamma_form.appendChild(gamma_label);
             var gamma_input = document.createElement('input');
             gamma_input.type = "text";
             gamma_input.class = "form-control";
             gamma_input.id = "gammaInput";
             gamma_input.placeholder = "0.99";
+            gamma_input.style = "margin-right: 5px";
             gamma_form.appendChild(gamma_input);
             var gamma_small = document.createElement('small');
             gamma_small.id = "gammaHelpBlock";
             gamma_small.class = "form-text text-muted";
             gamma_small.innerHTML = "(float)";
             gamma_form.appendChild(gamma_small);
+            gamma_form.style = "text-align: center";
             innerDiv.appendChild(gamma_form);
 
             // batch size
             var batch_form = document.createElement('div');
-            batch_form.className = "form-group";
-            batch_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;";
+            // batch_form.className = "form-group";
+            batch_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px;";
             var batch_label = document.createElement('label');
             batch_label.for = "batchSizeInput";
             batch_label.innerHTML = "Batch Size: ";
+            batch_label.style = "margin-right: 10px";
             batch_form.appendChild(batch_label);
             var batch_input = document.createElement('input');
             batch_input.type = "text";
             batch_input.class = "form-control";
             batch_input.id = "batchSizeInput";
             batch_input.placeholder = "64";
+            batch_input.style = "margin-right: 5px";
             batch_form.appendChild(batch_input);
             var batch_small = document.createElement('small');
             batch_small.id = "batchHelpBlock";
             batch_small.class = "form-text text-muted";
             batch_small.innerHTML = "(integer)";
             batch_form.appendChild(batch_small);
+            batch_form.style = "text-align: center";
             innerDiv.appendChild(batch_form);
 
             // buffer size
             var buffer_form = document.createElement('div');
-            buffer_form.className = "form-group";
+            // buffer_form.className = "form-group";
             buffer_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;";
             var buffer_label = document.createElement('label');
             buffer_label.for = "bufferSizeInput";
             buffer_label.innerHTML = "Buffer Size: ";
+            buffer_label.style = "margin-right: 10px";
             buffer_form.appendChild(buffer_label);
             var buffer_input = document.createElement('input');
             buffer_input.type = "text";
             buffer_input.class = "form-control";
             buffer_input.id = "bufferSizeInput";
             buffer_input.placeholder = "100000";
+            buffer_input.style = "margin-right: 5px";
             buffer_form.appendChild(buffer_input);
             var buffer_small = document.createElement('small');
             buffer_small.id = "bufferHelpBlock";
             buffer_small.class = "form-text text-muted";
             buffer_small.innerHTML = "(integer)";
             buffer_form.appendChild(buffer_small);
+            buffer_form.style = "text-align: center";
             innerDiv.appendChild(buffer_form);
 
             // learning rate
             var lr_form = document.createElement('div');
-            lr_form.className = "form-group";
+            // lr_form.className = "form-group";
             lr_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;";
             var lr_label = document.createElement('label');
             lr_label.for = "learningRateInput";
             lr_label.innerHTML = "Learning Rate: ";
+            lr_label.style = "margin-right: 10px";
             lr_form.appendChild(lr_label);
             var lr_input = document.createElement('input');
             lr_input.type = "text";
             lr_input.class = "form-control";
             lr_input.id = "learningRateInput";
             lr_input.placeholder = "0.00005";
+            lr_input.style = "margin-right: 5px";
             lr_form.appendChild(lr_input);
             var lr_small = document.createElement('small');
             lr_small.id = "lrHelpBlock";
             lr_small.class = "form-text text-muted";
             lr_small.innerHTML = "(float)";
             lr_form.appendChild(lr_small);
+            lr_form.style = "text-align: center";
             innerDiv.appendChild(lr_form);
 
             // epsilon_steps
             var epsilon_form = document.createElement('div');
-            epsilon_form.className = "form-group";
+            // epsilon_form.className = "form-group";
             epsilon_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;";
             var epsilon_label = document.createElement('label');
             epsilon_label.for = "epsilonStepsInput";
             epsilon_label.innerHTML = "Epsilon Steps: ";
+            epsilon_label.style = "margin-right: 10px";
             epsilon_form.appendChild(epsilon_label);
             var epsilon_input = document.createElement('input');
             epsilon_input.type = "text";
             epsilon_input.class = "form-control";
             epsilon_input.id = "epsilonStepsInput";
             epsilon_input.placeholder = "20000";
+            epsilon_input.style = "margin-right: 5px";
             epsilon_form.appendChild(epsilon_input);
             var epsilon_small = document.createElement('small');
             epsilon_small.id = "epsilonHelpBlock";
             epsilon_small.class = "form-text text-muted";
             epsilon_small.innerHTML = "(integer)";
             epsilon_form.appendChild(epsilon_small);
+            epsilon_form.style = "text-align: center";
             innerDiv.appendChild(epsilon_form);
-
-
         }
 
         function createQMIXform(){
-
             // need to start form tag
             var dlDiv = document.getElementById("dl-block");
             var innerDiv = document.createElement('div');
@@ -458,16 +470,18 @@
 
             // gamma
             var gamma_form = document.createElement('div');
-            gamma_form.className = "form-group";
-            gamma_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;";
+            // gamma_form.className = "form-group";
+            gamma_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px;";
             var gamma_label = document.createElement('label');
             gamma_label.for = "gammaInput";
             gamma_label.innerHTML = "Gamma: ";
+            gamma_label.style = "margin-right: 10px";
             gamma_form.appendChild(gamma_label);
             var gamma_input = document.createElement('input');
             gamma_input.type = "text";
             gamma_input.class = "form-control";
             gamma_input.id = "gammaInput";
+            gamma_input.style = "margin-right: 5px";
             gamma_input.placeholder = "0.9";
             gamma_form.appendChild(gamma_input);
             var gamma_small = document.createElement('small');
@@ -475,20 +489,23 @@
             gamma_small.class = "form-text text-muted";
             gamma_small.innerHTML = "(float)";
             gamma_form.appendChild(gamma_small);
+            gamma_form.style = "text-align: center";
             innerDiv.appendChild(gamma_form);
 
             // batch size
             var batch_form = document.createElement('div');
-            batch_form.className = "form-group";
-            batch_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;";
+            // batch_form.className = "form-group";
+            batch_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px;";
             var batch_label = document.createElement('label');
             batch_label.for = "batchSizeInput";
             batch_label.innerHTML = "Batch Size: ";
+            batch_label.style = "margin-right: 10px";
             batch_form.appendChild(batch_label);
             var batch_input = document.createElement('input');
             batch_input.type = "text";
             batch_input.class = "form-control";
             batch_input.id = "batchSizeInput";
+            batch_input.style = "margin-right: 5px";
             batch_input.placeholder = "64";
             batch_form.appendChild(batch_input);
             var batch_small = document.createElement('small');
@@ -496,20 +513,23 @@
             batch_small.class = "form-text text-muted";
             batch_small.innerHTML = "(integer)";
             batch_form.appendChild(batch_small);
+            batch_form.style = "text-align: center";
             innerDiv.appendChild(batch_form);
 
             // buffer size
             var buffer_form = document.createElement('div');
-            buffer_form.className = "form-group";
-            buffer_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;";
+            // buffer_form.className = "form-group";
+            buffer_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px;";
             var buffer_label = document.createElement('label');
             buffer_label.for = "bufferSizeInput";
             buffer_label.innerHTML = "Buffer Size: ";
+            buffer_label.style = "margin-right: 10px";
             buffer_form.appendChild(buffer_label);
             var buffer_input = document.createElement('input');
             buffer_input.type = "text";
             buffer_input.class = "form-control";
             buffer_input.id = "bufferSizeInput";
+            buffer_input.style = "margin-right: 5px";
             buffer_input.placeholder = "100000";
             buffer_form.appendChild(buffer_input);
             var buffer_small = document.createElement('small');
@@ -517,60 +537,59 @@
             buffer_small.class = "form-text text-muted";
             buffer_small.innerHTML = "(integer)";
             buffer_form.appendChild(buffer_small);
+            buffer_form.style = "text-align: center";
             innerDiv.appendChild(buffer_form);
 
             // learning rate
             var lr_form = document.createElement('div');
-            lr_form.className = "form-group";
-            lr_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;";
+            // lr_form.className = "form-group";
+            lr_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px;";
             var lr_label = document.createElement('label');
             lr_label.for = "learningRateInput";
             lr_label.innerHTML = "Learning Rate: ";
+            lr_label.style = "margin-right: 10px";
             lr_form.appendChild(lr_label);
             var lr_input = document.createElement('input');
             lr_input.type = "text";
             lr_input.class = "form-control";
             lr_input.id = "learningRateInput";
             lr_input.placeholder = "0.00005";
+            lr_input.style = "margin-right: 5px";
             lr_form.appendChild(lr_input);
             var lr_small = document.createElement('small');
             lr_small.id = "lrHelpBlock";
             lr_small.class = "form-text text-muted";
             lr_small.innerHTML = "(float)";
             lr_form.appendChild(lr_small);
+            lr_form.style = "text-align: center";
             innerDiv.appendChild(lr_form);
 
             // epsilon_steps
             var epsilon_form = document.createElement('div');
-            epsilon_form.className = "form-group";
-            epsilon_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px; width: 50%;";
+            // epsilon_form.className = "form-group";
+            epsilon_form.style = "margin-left: auto; margin-right:auto; margin-bottom: 15px;";
             var epsilon_label = document.createElement('label');
             epsilon_label.for = "epsilonStepsInput";
             epsilon_label.innerHTML = "Epsilon Steps: ";
+            epsilon_label.style = "margin-right: 10px";
             epsilon_form.appendChild(epsilon_label);
             var epsilon_input = document.createElement('input');
             epsilon_input.type = "text";
             epsilon_input.class = "form-control";
             epsilon_input.id = "epsilonStepsInput";
             epsilon_input.placeholder = "20000";
+            epsilon_input.style = "margin-right: 5px";
             epsilon_form.appendChild(epsilon_input);
             var epsilon_small = document.createElement('small');
             epsilon_small.id = "epsilonHelpBlock";
             epsilon_small.class = "form-text text-muted";
             epsilon_small.innerHTML = "(integer)";
             epsilon_form.appendChild(epsilon_small);
+            epsilon_form.style = "text-align: center";
             innerDiv.appendChild(epsilon_form);
-
         }
-
     </script>
-
   </div>
-
   <button id="saveButton" onclick="saveCode();">Generate Code</button>
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>  
 </body>
 </html>
