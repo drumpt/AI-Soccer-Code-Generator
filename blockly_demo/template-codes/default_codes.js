@@ -1,8 +1,5 @@
 var DEFAULT_GK = 
-'kick = False\n'
-+ 'jump = False\n'
-+ '\n'
-+ 'protection_radius = self.goal_area[Y]/2 - 0.1\n'
+'protection_radius = self.goal_area[Y]/2 - 0.1\n'
 + 'angle = defense_angle\n'
 + 'protection_x = math.cos(angle) * protection_radius - self.field[X]/2\n'
 + 'protection_y = math.sin(angle) * protection_radius\n'
@@ -26,10 +23,7 @@ var DEFAULT_GK =
 + '    y = protection_y\n';
 
 var DEFAULT_D1 =
-'kick = False\n'
-+ 'jump = False\n'
-+ '\n'
-+ 'if helper.ball_is_own_goal(predicted_ball, self.field, self.goal_area):\n'
+'if helper.ball_is_own_goal(predicted_ball, self.field, self.goal_area):\n'
 + '    x = -1.5\n'
 + '    y = 1.5\n'
 + 'elif helper.ball_is_own_penalty(predicted_ball, self.field, self.penalty_area):\n'
@@ -49,10 +43,7 @@ var DEFAULT_D1 =
 + '    y = 1.5\n';
 
 var DEFAULT_D2 = 
-'kick = False\n'
-+ 'jump = False\n'
-+ '\n'
-+ 'if helper.ball_is_own_goal(predicted_ball, self.field, self.goal_area):\n'
+'if helper.ball_is_own_goal(predicted_ball, self.field, self.goal_area):\n'
 + '    x = -1.5\n'
 + '    y = -1.5\n'
 + 'elif helper.ball_is_own_penalty(predicted_ball, self.field, self.penalty_area):\n'
@@ -72,10 +63,7 @@ var DEFAULT_D2 =
 + '    y = -1.5\n';
 
 var DEFAULT_F1 =
-'kick = False\n'
-+ 'jump = False\n'
-+ '\n'
-+ 'if helper.ball_is_own_goal(predicted_ball, self.field, self.goal_area):\n'
+'if helper.ball_is_own_goal(predicted_ball, self.field, self.goal_area):\n'
 + '    x = -0.5\n'
 + '    y = 1\n'
 + 'elif helper.ball_is_own_penalty(predicted_ball, self.field, self.penalty_area):\n'
@@ -95,10 +83,7 @@ var DEFAULT_F1 =
 + '    y = 1\n';
 
 var DEFAULT_F2 =
-'kick = False\n'
-+ 'jump = False\n'
-+ '\n'
-+ 'if helper.ball_is_own_goal(predicted_ball, self.field, self.goal_area):\n'
+'if helper.ball_is_own_goal(predicted_ball, self.field, self.goal_area):\n'
 + '    x = -0.5\n'
 + '    y = -1\n'
 + 'elif helper.ball_is_own_penalty(predicted_ball, self.field, self.penalty_area):\n'
@@ -111,12 +96,12 @@ var DEFAULT_F2 =
 + '    x = cur_ball[X]\n'
 + '    y = cur_ball[Y]\n'
 + '    if cur_posture[robot_id][BALL_POSSESSION]:\n'
-+ '        kick = True\n'
++ '        quickpass = True\n'
 + 'elif helper.ball_is_opp_penalty(predicted_ball, self.field, self.penalty_area):\n'
 + '    x = cur_ball[X]\n'
 + '    y = cur_ball[Y]\n'
 + '    if cur_posture[robot_id][BALL_POSSESSION]:\n'
-+ '        kick = True\n'
++ '        cross = True\n'
 + 'else:\n'
 + '    x = cur_ball[X]\n'
 + '    y = cur_ball[Y]\n'
