@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>AI SOCCER CODE GENERATOR USAGE MANUAL</title>
+    <link rel="stylesheet" href="style_readme.css">
+</head>
+<body>
+    <h1>AI Soccer Code Generator Usage Manual</h1>
+        <hr>
+        <h2>Introduction</h2>
+            <p>
+                AI Soccer is a 5:5 robot soccer game where each participant develops an algorithm with the objective of defeating the opponent's algorithm by controlling 5 robots in the team. <br>
+                The player program can control the robot by determining the wheel velocities and kick/jump mechanism actions to be performed based on the robots coordinates and orientation, the ball coordinates, or/and the game image.
+            </p>
+            <p>
+                AI Soccer Code Generator is web-based, visual programming editor for AI Soccer based on google blockly. By using this tool, users can participate in AI Soccer without deep background of programming and deep learning. <br>
+                AI Soccer Code Generator helps you make your own strategy with rule-based system and deep learning system. You may choose one of the system that you want.
+            </p>
+        <hr>
+        <h2>Rule-based System</h2>
+            <p>
+                For rule-based system, you need to define proper actions of 5 robots. You will use the block-coding system instead of writing the python code directly. <br>
+                Now the default code for each robot is to define actions for that robot based on the position of the ball. There are many categories in the left side. Below is the description for each category. <br>
+                <p>
+                    Environment indices category contains indices of game status, and ball. <br>
+                    Environment constants category contains the variables that does not change over time. This includes field, goal, penalty area, goal area, robot size, and max linear velocity. <br>
+                    Environment variables category contains the variables that changes over time constantly. This includes the position of current ball, predicted ball, current posture of own robot, and current posture of opposite robot. <br>
+                    Environment functions category contains the helper functions that can be used in making your own strategy. The functions includes distance function, radian to degree function, degree to radian function, some functions that can check the position of the ball, get attack angle function, get defense angle function, set wheel velocity function, and printConsole function that can be used in debugging. <br>
+                    Logic category contains if-else(or if-elif-else) statement, comparison statement, and/or statement, not statement, and boolean statement. <br>
+                    Loops category contains for loop and while loop. <br>
+                    Math category contains a number, arithmetic operators(+, -, ×, ÷, ^), and arithmetic functions(square root, absolute, exponential, logarithmic, trigonometric, inverse trigonometric function), and some other mathematical blocks. <br>
+                    Lists category contains some blocks for list. You can create list, and apply some operators on that list. <br>
+                    Variables category is for defining your own variable. You can define new variables and set or change them as you want. <br>
+                    Functions category is for defining your own function. You can define new functions and use them in your strategy. <br>
+                </p>
+            </p>
+            <p>
+                After making your code for all robots, you can download files by clicking Generate Code button. The files include python files related to your strategy and some low-level functions used to run AI Soccer. <br>
+                Then you need to unzip the compressed file and move it into test_world-develop/examples_new folder(or the folder that you implemented your previous strategy). <br>
+                Open Webots simulator and change "executable" for team_a or team_b as "examples_new/mystrategy/main.py".
+            </p>
+        <hr>
+        <h2>Deep Learning System</h2>
+            <p>
+                Reinforcement Learning (RL) algorithm is an algorithm that learns to improve its quality by trying different strategies in order to maximize the rewards it will receive in the near future. <br>
+                A RL framework can be modeled by a state, action and reward function. Using a video game as example, the state would be the video game screen picture, the reward function would be the current score at the game and the action would be the possible combinations of the action in the video game controller. <br>
+                The objective of the RL framework then, is to maximize the score obtained during one episode. Usually, based on the state, while playing a video game the action is done by a human (like when you play FIFA soccer video game). However, using AI, this mapping between state and action can be done by a neural network.
+            </p>
+            <p>
+                For deep learning system, the same RL framework combined with deep learning can be used to develop strategy algorithms. The AI Soccer, similar to the Atari problem, can be interpreted as shown in the figure. <br>
+                In this case, based on the field image and the robot coordinates and orientation, the player should decide the robots wheel velocities and kick and jump mechanism values. Different algorithms can be used to map the state information to the action chosen at each timestep depending if you want to train one or multiple robot soccer agents. <br>
+                In this system, currently the DQN and DDPG algorithms are provided for the single agent case and the IQL and QMIX algorithms are provided for the multi agent case.
+            </p>
+            <p>
+                After choosing the conditions for reinforcement learning, you can also download files by clicking Generate Code button. The files include python files include python files related to your model, parameters, and some low-level functions used to run AI Soccer with deep-learning. <br>
+                Then you need to unzip the compressed file and move it into test_world-develop/examples_new folder(or the folder that you implemented your previous strategy). <br>
+                Open Webots simulator and change "executable" for team_a or team_b as "examples_new/mystrategy/train.py". <br> <br>
+            </p>
+</body>
+</html>

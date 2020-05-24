@@ -70,7 +70,6 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       {
         "type": "input_value",
         "name": "IF0",
-        "check": "Boolean"
       }
     ],
     "message1": "%{BKY_CONTROLS_IF_MSG_THEN} %1",
@@ -95,7 +94,6 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       {
         "type": "input_value",
         "name": "IF0",
-        "check": "Boolean"
       }
     ],
     "message1": "%{BKY_CONTROLS_IF_MSG_THEN} %1",

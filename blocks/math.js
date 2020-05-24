@@ -43,6 +43,8 @@ goog.require('Blockly.FieldVariable');
  */
 Blockly.Constants.Math.HUE = 230;
 
+// we can change the colors of all blocks directly by modifying core/theme/classic.js
+
 Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
   // Block for numeric value.
@@ -150,8 +152,8 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     ],
     "output": "Number",
     "style": "math_blocks",
-    "helpUrl": "%{BKY_MATH_TRIG_HELPURL}",
-    "extensions": ["math_op_tooltip"]
+    "tooltip": "Return the trigonometric results for real number.",
+    "helpUrl": "%{BKY_MATH_TRIG_HELPURL}"
   },
 
   // Block for constants: PI, E, the Golden Ratio, sqrt(2), 1/sqrt(2), INFINITY.

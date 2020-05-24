@@ -58,16 +58,18 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
           ["BALL", "BALL"],
           ["X", "X"],
           ["Y", "Y"],
+          ["Z", "Z"],
           ["TH", "TH"],
           ["ACTIVE", "ACTIVE"],
-          ["TOUCH", "TOUCH"]
+          ["TOUCH", "TOUCH"],
+          ["BALL_POSSESSION", "BALL_POSSESSION"]
         ]
       }
     ],
     "output": "Number",
-    "style": "math_blocks",
-    "tooltip": "%{BKY_MATH_CONSTANT_TOOLTIP}",
-    "helpUrl": "%{BKY_MATH_CONSTANT_HELPURL}"
+    "style": "environment_indices_blocks",
+    "tooltip": "",
+    "helpUrl": ""
   },  
 
   // Block for game_state constants in robot soccer:
@@ -93,9 +95,9 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       }
     ],
     "output": "Number",
-    "style": "math_blocks",
-    "tooltip": "%{BKY_MATH_CONSTANT_TOOLTIP}",
-    "helpUrl": "%{BKY_MATH_CONSTANT_HELPURL}"
+    "style": "environment_indices_blocks",
+    "tooltip": "",
+    "helpUrl": ""
   },
 
   // Block for reset_reason constants in robot soccer:
@@ -133,8 +135,8 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       }
     ],
     "output": "Number",
-    "style": "math_blocks",
-    "tooltip": "%{BKY_MATH_CONSTANT_TOOLTIP}",
-    "helpUrl": "%{BKY_MATH_CONSTANT_HELPURL}"
+    "style": "environment_indices_blocks",
+    "tooltip": "",
+    "helpUrl": ""
   }
 ]);

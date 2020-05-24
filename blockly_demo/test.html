@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>AI SOCCER CODE GENERATOR - Rule Based System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="style_rule_based.css">
+  <script src="template-blocks/blockly_compressed.js"></script>
+  <script src="template-blocks/python_compressed.js"></script>
+  <script src="template-blocks/blocks_compressed.js"></script>
+  <script src="template-blocks/toolbox_standard.js"></script>
+  <script src="msg/js/en.js"></script>
+  <script src="template-codes/constants.js"></script>
+  <script src="template-codes/default_codes.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.2.0/jszip.min.js"></script>
+</head>
+<body>
+    <div id="blocklyDiv" style="width: 100px; height: 50px;">
+		<xml id="default_blocks_gk" style="display:none">
+			<block type="logic_boolean" x="10" y="10">
+			  <field name="BOOL">TRUE</field>
+			</block>
+		</xml>
+		<script type="text/javascript">
+			var workspacePlayground = Blockly.inject('blocklyDiv', {
+                media: 'media/',
+            });
+            var blocks_gk = Blockly.Xml.domToPrettyText(document.getElementById('default_blocks_gk'));
+            Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(blocks_gk), workspacePlayground);
+        </script>
+    </div>
+</body>
+</html>

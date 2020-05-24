@@ -30,32 +30,50 @@ goog.require('Blockly.Theme');
 Blockly.Themes.Classic = {};
 
 Blockly.Themes.Classic.defaultBlockStyles = {
-  "colour_blocks": {
-    "colourPrimary": "20"
+  "environment_indices_blocks": {
+    "colourPrimary": "#d31900"
   },
-  "list_blocks": {
-    "colourPrimary": "260"
+  "environment_constants_blocks": {
+    "colourPrimary": "#ff8500"
+  },
+  "environment_variables_blocks": {
+    "colourPrimary": "#ffdf00"
+  },
+  "environment_functions_blocks": {
+    "colourPrimary": "#b1dc57"
   },
   "logic_blocks": {
-    "colourPrimary": "210"
+    // "colourPrimary": "210"
+    "colourPrimary": "#04862c"
   },
   "loop_blocks": {
-    "colourPrimary": "120"
+    // "colourPrimary": "120"
+    "colourPrimary": "#0097bc"
   },
   "math_blocks": {
-    "colourPrimary": "230"
+    // "colourPrimary": "230"
+    "colourPrimary": "#0052be"
   },
-  "procedure_blocks": {
-    "colourPrimary": "290"
+  "list_blocks": {
+    // "colourPrimary": "260"
+    "colourPrimary": "#25286f"
   },
   "text_blocks": {
     "colourPrimary": "160"
   },
+  "colour_blocks": {
+    "colourPrimary": "20"
+  },
   "variable_blocks": {
-    "colourPrimary": "330"
+    // "colourPrimary": "330"
+    "colourPrimary": "#99138e"
   },
   "variable_dynamic_blocks": {
     "colourPrimary": "310"
+  },
+  "procedure_blocks": {
+    // "colourPrimary": "290"
+    "colourPrimary": "#dd056a"
   },
   "hat_blocks": {
     "colourPrimary": "330",
@@ -68,25 +86,31 @@ Blockly.Themes.Classic.categoryStyles = {
     "colour": "20"
   },
   "list_category": {
-    "colour": "260"
+    // "colour": "260"
+    "colour": "#8d8680"
   },
   "logic_category": {
-    "colour": "210"
+    // "colour": "210"
+    "colour": "#d56428"
   },
   "loop_category": {
-    "colour": "120"
+    // "colour": "120"
+    "colour": "#506c31"
   },
   "math_category": {
-    "colour": "230"
+    // "colour": "230"
+    "colour": "#31446c"
   },
   "procedure_category": {
-    "colour": "290"
+    // "colour": "290"
+    "colour": "#432362"
   },
   "text_category": {
     "colour": "160"
   },
   "variable_category": {
-    "colour": "330"
+    // "colour": "330"
+    "colour": "#73225c"
   },
   "variable_dynamic_category": {
     "colour": "310"

@@ -33,9 +33,11 @@ Blockly.Python['env_coordinates_index'] = function(block) {
     'BALL': ['BALL', Blockly.Python.ORDER_MEMBER],
     'X': ['X', Blockly.Python.ORDER_MEMBER],
     'Y': ['Y', Blockly.Python.ORDER_MEMBER],
+    'Z': ['Z', Blockly.Python.ORDER_MEMBER],
     'TH': ['TH', Blockly.Python.ORDER_MEMBER],
     'ACTIVE': ['ACTIVE', Blockly.Python.ORDER_MEMBER],
-    'TOUCH': ['TOUCH', Blockly.Python.ORDER_MEMBER]
+    'TOUCH': ['TOUCH', Blockly.Python.ORDER_MEMBER],
+    'BALL_POSSESSION': ['BALL_POSSESSION', Blockly.Python.ORDER_MEMBER]
   };
   var constant = block.getFieldValue('CONSTANT');
   return CONSTANTS[constant];

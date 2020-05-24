@@ -72,16 +72,16 @@ Blockly.Python['env_variables_2d'] = function(block) {
   arg2 = Blockly.Python.valueToCode(block, 'NUM2', Blockly.Python.ORDER_NONE);
   switch (operator) {
     case 'CUR_POSTURE':
-      code = 'self.cur_posture[' + arg1 + ']' + '[' + arg2 + ']';
+      code = 'cur_posture[' + arg1 + ']' + '[' + arg2 + ']';
       break;
     case 'CUR_POSTURE_OPP':
-      code = 'self.cur_posture_opp[' + arg1 + ']' + '[' + arg2 + ']';
+      code = 'cur_posture_opp[' + arg1 + ']' + '[' + arg2 + ']';
       break;
   }
   if (arg1.length === 0 || arg2.length === 0) {
     // code = code.replace("[", "").replace("]", "");
-    if (code.startsWith("self.cur_posture_opp")) code = "self.cur_posture_opp"
-    else code = "self.cur_posture"
+    if (code.startsWith("cur_posture_opp")) code = "cur_posture_opp"
+    else code = "cur_posture"
   }
   if (code) {
     return [code, Blockly.Python.ORDER_FUNCTION_CALL];

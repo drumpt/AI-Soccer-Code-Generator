@@ -65,7 +65,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       ],
       "inputsInline": true,
       "output": "Number",
-      "colour": 20,
+      "style": "environment_functions_blocks",
       "tooltip": "",
       "helpUrl": ""
     },
@@ -85,7 +85,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       ],
       "inputsInline": true,
       "output": "Number",
-      "colour": 20,
+      "style": "environment_functions_blocks",
       "tooltip": "",
       "helpUrl": ""
     },
@@ -105,64 +105,34 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       ],
       "inputsInline": true,
       "output": "Number",
-      "colour": 20,
+      "style": "environment_functions_blocks",
       "tooltip": "",
       "helpUrl": ""
     },
   
     {
       "type": "predict_ball",
-      "message0": "predict_ball %1 (cur_ball : %2 previous_ball : %3 )",
-      "args0": [
-        {
-          "type": "input_dummy"
-        },
-        {
-          "type": "input_value",
-          "name": "cur_ball"
-        },
-        {
-          "type": "input_value",
-          "name": "previous_ball"
-        }
-      ],
+      "message0": "predict_ball",
       "inputsInline": true,
       "output": null,
-      "colour": 20,
+      "style": "environment_functions_blocks",
       "tooltip": "",
       "helpUrl": ""
     },
   
     {
       "type": "find_closest_robot",
-      "message0": "find_closest_robot %1 (cur_ball : %2 cur_posture : %3 number_of_robots : %4 )",
-      "args0": [
-        {
-          "type": "input_dummy"
-        },
-        {
-          "type": "input_value",
-          "name": "cur_ball"
-        },
-        {
-          "type": "input_value",
-          "name": "cur_posture"
-        },
-        {
-          "type": "input_value",
-          "name": "number_of_robots"
-        }
-      ],
+      "message0": "find_closest_robot",
       "inputsInline": true,
       "output": "Number",
-      "colour": 20,
+      "style": "environment_functions_blocks",
       "tooltip": "",
       "helpUrl": ""
     },
   
     {
       "type": "ball_is_own_goal",
-      "message0": "ball_is_own_goal %1 (predicted_ball : %2 field : %3 goal_area : %4 )",
+      "message0": "ball_is_own_goal (predicted ball : %1 %2 )",
       "args0": [
         {
           "type": "input_dummy"
@@ -170,26 +140,18 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         {
           "type": "input_value",
           "name": "predicted_ball"
-        },
-        {
-          "type": "input_value",
-          "name": "field"
-        },
-        {
-          "type": "input_value",
-          "name": "goal_area"
         }
       ],
       "inputsInline": true,
       "output": "Boolean",
-      "colour": 20,
+      "style": "environment_functions_blocks",
       "tooltip": "",
       "helpUrl": ""
     },
   
     {
       "type": "ball_is_own_penalty",
-      "message0": "ball_is_own_penalty %1 (predicted_ball : %2 field : %3 penalty_area : %4 )",
+      "message0": "ball_is_own_penalty (predicted ball : %1 %2 )",
       "args0": [
         {
           "type": "input_dummy"
@@ -197,19 +159,11 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         {
           "type": "input_value",
           "name": "predicted_ball"
-        },
-        {
-          "type": "input_value",
-          "name": "field"
-        },
-        {
-          "type": "input_value",
-          "name": "penalty_area"
         }
       ],
       "inputsInline": true,
       "output": "Boolean",
-      "colour": 20,
+      "style": "environment_functions_blocks",
       "tooltip": "",
       "helpUrl": ""
     },
@@ -228,14 +182,14 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       ],
       "inputsInline": true,
       "output": "Boolean",
-      "colour": 20,
+      "style": "environment_functions_blocks",
       "tooltip": "",
       "helpUrl": ""
     },
   
     {
       "type": "ball_is_opp_goal",
-      "message0": "ball_is_opp_goal %1 (predicted_ball : %2 field : %3 goal_area : %4 )",
+      "message0": "ball_is_opp_goal (predicted ball : %1 %2 )",
       "args0": [
         {
           "type": "input_dummy"
@@ -243,26 +197,18 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         {
           "type": "input_value",
           "name": "predicted_ball"
-        },
-        {
-          "type": "input_value",
-          "name": "field"
-        },
-        {
-          "type": "input_value",
-          "name": "goal_area"
         }
       ],
       "inputsInline": true,
       "output": "Boolean",
-      "colour": 20,
+      "style": "environment_functions_blocks",
       "tooltip": "",
       "helpUrl": ""
     },
   
     {
       "type": "ball_is_opp_penalty",
-      "message0": "ball_is_opp_penalty %1 (predicted_ball : %2 field : %3 penalty_area : %4 )",
+      "message0": "ball_is_opp_penalty (predicted ball : %1 %2 )",
       "args0": [
         {
           "type": "input_dummy"
@@ -270,19 +216,11 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         {
           "type": "input_value",
           "name": "predicted_ball"
-        },
-        {
-          "type": "input_value",
-          "name": "field"
-        },
-        {
-          "type": "input_value",
-          "name": "penalty_area"
         }
       ],
       "inputsInline": true,
       "output": "Boolean",
-      "colour": 20,
+      "style": "environment_functions_blocks",
       "tooltip": "",
       "helpUrl": ""
     },
@@ -301,85 +239,75 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       ],
       "inputsInline": true,
       "output": "Boolean",
-      "colour": 20,
+      "style": "environment_functions_blocks",
       "tooltip": "",
       "helpUrl": ""
     },
   
     {
       "type": "get_defense_kick_angle",
-      "message0": "get_defense_kick_angle %1 (predicted_ball : %2 field : %3 cur_ball : %4 )",
-      "args0": [
-        {
-          "type": "input_dummy"
-        },
-        {
-          "type": "input_value",
-          "name": "predicted_ball"
-        },
-        {
-          "type": "input_value",
-          "name": "field"
-        },
-        {
-          "type": "input_value",
-          "name": "cur_ball"
-        }
-      ],
+      "message0": "get_defense_kick_angle",
       "inputsInline": true,
       "output": "Number",
-      "colour": 20,
+      "style": "environment_functions_blocks",
       "tooltip": "",
       "helpUrl": ""
     },
   
     {
       "type": "get_attack_kick_angle",
-      "message0": "get_attack_kick_angle %1 (predicted_ball : %2 field : %3 )",
-      "args0": [
-        {
-          "type": "input_dummy"
-        },
-        {
-          "type": "input_value",
-          "name": "predicted_ball"
-        },
-        {
-          "type": "input_value",
-          "name": "field"
-        }
-      ],
+      "message0": "get_attack_kick_angle",
       "inputsInline": true,
       "output": "Number",
-      "colour": 20,
+      "style": "environment_functions_blocks",
       "tooltip": "",
       "helpUrl": ""
     },
   
+    // {
+    //   "type": "set_wheel_velocity",
+    //   "message0": "set_wheel_velocity %1 (max_linear_velocity : %2 left_wheel : %3 right_wheel : %4 )",
+    //   "args0": [
+    //     {
+    //       "type": "input_dummy"
+    //     },
+    //     {
+    //       "type": "input_value",
+    //       "name": "predicted_ball"
+    //     },
+    //     {
+    //       "type": "input_value",
+    //       "name": "field"
+    //     },
+    //     {
+    //       "type": "input_value",
+    //       "name": "cur_ball"
+    //     }
+    //   ],
+    //   "inputsInline": true,
+    //   "output": null,
+    //   "colour": 20,
+    //   "tooltip": "",
+    //   "helpUrl": ""
+    // },
+
     {
-      "type": "set_wheel_velocity",
-      "message0": "set_wheel_velocity %1 (max_linear_velocity : %2 left_wheel : %3 right_wheel : %4 )",
+      "type": "printconsole",
+      "message0": "printConsole %1 (message : %2 )",
       "args0": [
         {
           "type": "input_dummy"
         },
         {
           "type": "input_value",
-          "name": "predicted_ball"
-        },
-        {
-          "type": "input_value",
-          "name": "field"
-        },
-        {
-          "type": "input_value",
-          "name": "cur_ball"
+          "name": "message"
         }
       ],
       "inputsInline": true,
-      "output": null,
-      "colour": 20,
+      "previousStatement": null,
+      "nextStatement": null,
+      "style": "environment_functions_blocks",
       "tooltip": "",
       "helpUrl": ""
-    },
+    }
 ]);  // END JSON EXTRACT (Do not delete this comment.)
