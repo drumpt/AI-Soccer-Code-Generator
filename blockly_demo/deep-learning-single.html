@@ -48,12 +48,14 @@
             <select class="form-control" id="selectAction">
                 <option value="discrete">7_DISCRETE</option>
                 <option value="extendeddiscrete">13_DISCRETE</option>
+                <option value="controlled">CONTROLLED</option>
                 <option value="continous" disabled>CONTINUOUS</option>
             </select>
             <small id="actionHelpBlock" class="form-text text-muted" style="text-align: left; font-size: 15px;">
                 There are currently 3 possible action options: <br>
                 - 7 Discrete: seven discrete actions defined as a ratio over the maximum linear velocity of the robot <br>
                 - 13 Discrete: thirteen discrete actions defined as a ratio over the maximum linear velocity of the robot <br>
+                - Controlled: seven discrete actions defined based on the output of a position P-controller <br>
                 - Continous: continuous actions for the wheel and slider actions <i>(applied to DDPG algorithm)</i>
             </small>
         </div>

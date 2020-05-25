@@ -40,7 +40,7 @@ var MULTI_PARAMETERS =
 + '    "grad_norm_clip": 10'
 + '  },'
 + '  "qmix_parameters": {'
-+ '    "gamma": 0.9,'
++ '    "gamma": 0.99,'
 + '    "batch_size": 64,'
 + '    "buffer_size": 100000,'
 + '    "lr": 0.00005,'
