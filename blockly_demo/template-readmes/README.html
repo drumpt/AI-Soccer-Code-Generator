@@ -13,25 +13,39 @@
                 The player program can control the robot by determining the wheel velocities and kick/jump mechanism actions to be performed based on the robots coordinates and orientation, the ball coordinates, or/and the game image.
             </p>
             <p>
-                AI Soccer Code Generator is web-based, visual programming editor for AI Soccer based on google blockly. By using this tool, users can participate in AI Soccer without deep background of programming and deep learning. <br>
+                AI Soccer Code Generator is web-based, visual programming editor for AI Soccer based on Google Blockly. By using this tool, users can participate in AI Soccer without deep background of programming and deep learning. <br>
                 AI Soccer Code Generator helps you make your own strategy with rule-based system and deep learning system. You may choose one of the system that you want.
             </p>
+            <img src="images/mainpage.png" alt="AI Soccer Code Generator main page">
         <hr>
         <h2>Rule-based System</h2>
             <p>
-                For rule-based system, you need to define proper actions of 5 robots. You will use the block-coding system instead of writing the python code directly. <br>
+                For rule-based system, you need to define proper actions of 5 robots. You will use the block-coding system instead of writing the python code directly. The basic template can be seen next.<br>
+                <img src="images/rulebasedtemplate.png" alt="Rule based basic template"> <br>
                 Now the default code for each robot is to define actions for that robot based on the position of the ball. There are many categories in the left side. Below is the description for each category. <br>
                 <p>
-                    Environment indices category contains indices of game status, and ball. <br>
-                    Environment constants category contains the variables that does not change over time. This includes field, goal, penalty area, goal area, robot size, and max linear velocity. <br>
-                    Environment variables category contains the variables that changes over time constantly. This includes the position of current ball, predicted ball, current posture of own robot, and current posture of opposite robot. <br>
-                    Environment functions category contains the helper functions that can be used in making your own strategy. The functions includes distance function, radian to degree function, degree to radian function, some functions that can check the position of the ball, get attack angle function, get defense angle function, set wheel velocity function, and printConsole function that can be used in debugging. <br>
-                    Logic category contains if-else(or if-elif-else) statement, comparison statement, and/or statement, not statement, and boolean statement. <br>
-                    Loops category contains for loop and while loop. <br>
-                    Math category contains a number, arithmetic operators(+, -, ×, ÷, ^), and arithmetic functions(square root, absolute, exponential, logarithmic, trigonometric, inverse trigonometric function), and some other mathematical blocks. <br>
-                    Lists category contains some blocks for list. You can create list, and apply some operators on that list. <br>
-                    Variables category is for defining your own variable. You can define new variables and set or change them as you want. <br>
-                    Functions category is for defining your own function. You can define new functions and use them in your strategy. <br>
+                    <b>Environment indices</b> category contains indices of game status, and ball. <br>
+                </p>
+                <img src="images/environmentindices.png" alt="Environment indices"> <br>
+                <p>
+                    <b>Environment constants</b> category contains the variables that does not change over time. This includes field, goal, penalty area, goal area, robot size, and max linear velocity. <br>
+                </p>
+                <img src="images/environmentconstants.png" alt="Environment constants"> <br>
+                <p>
+                    <b>Environment variables</b> category contains the variables that changes over time constantly. This includes the position of current ball, predicted ball, current posture of own robot, and current posture of opposite robot. <br>
+                </p>
+                <img src="images/environmentvariables.png" alt="Environment variables"> <br>
+                <p>
+                    <b>Environment functions</b> category contains the helper functions that can be used in making your own strategy. The functions includes distance function, radian to degree function, degree to radian function, some functions that can check the position of the ball, get attack angle function, get defense angle function, set wheel velocity function, and printConsole function that can be used in debugging. <br>
+                </p>
+                <img src="images/environmentfunctions.png" alt="Environment functions"> <br>
+                <p>
+                    <b>Logic</b> category contains if-else(or if-elif-else) statement, comparison statement, and/or statement, not statement, and boolean statement. <br>
+                    <b>Loops</b> category contains for loop and while loop. <br>
+                    <b>Math</b> category contains a number, arithmetic operators(+, -, ×, ÷, ^), and arithmetic functions(square root, absolute, exponential, logarithmic, trigonometric, inverse trigonometric function), and some other mathematical blocks. <br>
+                    <b>Lists</b> category contains some blocks for list. You can create list, and apply some operators on that list. <br>
+                    <b>Variables</b> category is for defining your own variable. You can define new variables and set or change them as you want. <br>
+                    <b>Functions</b> category is for defining your own function. You can define new functions and use them in your strategy. <br>
                 </p>
                 <p>
                     To help you develop your strategy 4 high level actions boolean flags (that can be set to True) are defined. <br>
@@ -41,12 +55,14 @@
                     4. 'jump': if set to true performs a jump move <br>
                     Example of using these flags can be seen in the F2 robot example code.
                 </p>
+                <img src="images/shootactions.png" alt="Shoot and jump actions"> <br>
             </p>
             <p>
-                After making your code for all robots, you can download files by clicking Generate Code button. The files include python files related to your strategy and some low-level functions used to run AI Soccer. <br>
-                Then you need to unzip the compressed file and move it into test_world-develop/examples folder(or the folder that you implemented your previous strategy). <br>
-                Open Webots simulator and change "executable" for team_a or team_b as "examples/mystrategy/main.py".
+                After making your code for all robots, you can download files by clicking <b>Generate Code</b> button. The files include python files related to your strategy and some low-level functions used to run AI Soccer. <br>
+                Then you need to unzip the compressed file and move it into test_world-develop/examples folder (or the folder that you implemented your previous strategy). <br>
+                Open Webots simulator and in the "config.json file" change "executable" for team_a or team_b as "examples/mystrategy/main.py".
             </p>
+            <img src="images/config.png" alt="The file config.json"> <br>
         <hr>
         <h2>Deep Learning System</h2>
             <p>
@@ -55,14 +71,62 @@
                 The objective of the RL framework then, is to maximize the score obtained during one episode. Usually, based on the state, while playing a video game the action is done by a human (like when you play FIFA soccer video game). However, using AI, this mapping between state and action can be done by a neural network.
             </p>
             <p>
-                For deep learning system, the same RL framework combined with deep learning can be used to develop strategy algorithms. The AI Soccer, similar to the Atari problem, can be interpreted as shown in the figure. <br>
-                In this case, based on the field image and the robot coordinates and orientation, the player should decide the robots wheel velocities and kick and jump mechanism values. Different algorithms can be used to map the state information to the action chosen at each timestep depending if you want to train one or multiple robot soccer agents. <br>
-                In this system, currently the DQN and DDPG algorithms are provided for the single agent case and the IQL and QMIX algorithms are provided for the multi agent case.
+                For deep learning system, the same RL framework combined with deep learning can be used to develop strategy algorithms. The AI Soccer, similar to the Atari problem, can be interpreted as shown in the next figure. <br>
+                In this case, based on the the robot coordinates and orientation, the player should decide the robots wheel velocities and kick and jump mechanism values. Different algorithms can be used to map the state information to the action chosen at each timestep depending if you want to train one or multiple robot soccer agents. <br>
+            </p>
+            <img src="images/rlframework.png" alt="The file config.json"> <br>
+            <p>
+                To model the <b>state</b>, the following options are available at the current version of the system: <br>
+                1. <b>Relative position</b>: relative position of the active robot in relation to the ball position, active robot orientation, and orientation error in relation to the ball position. <br> 
+                2. <b>Full position</b>: for all robots, relative position and velocity in relation to the ball, orientation, and orientation error in relation to the ball position. <br>
             </p>
             <p>
-                After choosing the conditions for reinforcement learning, you can also download files by clicking Generate Code button. The files include python files include python files related to your model, parameters, and some low-level functions used to run AI Soccer with deep-learning. <br>
-                Then you need to unzip the compressed file and move it into test_world-develop/examples folder(or the folder that you implemented your previous strategy). <br>
-                Open Webots simulator and change "executable" for team_a or team_b as "examples/mystrategy/train.py". <br> <br>
+                To model the <b>action</b>, the following options are available at the current version of the system: <br>
+                1. <b>7 Discrete</b>: seven discrete actions to define actions such as moving forwards, kick, moving backwads, turn and stop. <br>
+                2. <b>13 Discrete</b>: thirteen discrete actions to define actions such as moving forwards, kick, moving backwads, turn and stop. <br>
+                3. <b>Controlled</b>: seven discrete actions defined based on the output of a position P-controller. <br>
+                4. <b>Continuous</b>: continuous actions for the wheel and slider actions <br>
+            </p>
+                To model the <b>reward</b>, the following options are available at the current version of the system: <br>
+                1. <b>Positive follow ball</b>: positive reward based on terms with distance and orientation error in relation to the ball. <br>
+                2. <b>Negative follow ball</b>: negative reward based on terms with distance and orientation error in relation to the ball. <br>
+                3. <b>Basic</b>: score/concede reward, distance between robots and the ball, distance between ball and opponent goal. <br>
+                4. <b>Differential</b>: score/concede reward, differential reward based on ball movement. <br>
+                5. <b>Checkpoint</b>: reward is gained/lost if the ball is moving to/from the opponent field direction. <br>
+            </p>
+            <p>
+                In this system, currently the <b>DQN</b> and <b>DDPG</b> algorithms are provided for the single agent case and the <b>IQL</b> and <b>QMIX</b> algorithms are provided for the multi agent case.
+            </p>
+            <p>
+                <b>The DQN Algorithm</b>: In 2015, DQN beat human experts in many Atari games. In this example, we will teach one robot soccer agent to the simple task of chasing the ball. 
+                In the DQN algorithm, a neural network tries to predict how good is taking an action at a particular game state. So, it assigns a value, called Q-value, over the benefit of taking that action. The value of taking an action at a particular state is modeled by the rewards receiving in the future after taking that action. The DQN algorithm is implemented in the ‘dqn.py’ file. <br>
+            </p>
+            <img src="images/dqnalgorithm.png" alt="Image source: https://blogs.oracle.com/datascience/reinforcement-learning-deep-q-networks"> <br>
+            <p>
+                <b>The DDPG Algorithm</b>: The DDPG is a famous continuous control reinforcement learning algorithm. The main difference in DDPG to DQN is the ability to handle continues values for the actions, while in the DQN example we discretized the robot to have just 7 actions. 
+                In this example, we will also teach one robot soccer agent to the simple task of chasing the ball. In the DDPG algorithm, two networks are presented: an actor and a critic network. The actor network is responsible to choose the action based on the current game state. 
+                The critic network is responsible to evaluate taking that action at that state. So, it assigns a value over the benefit of taking that action in that state. The value of taking an action at a particular state is modeled by the rewards receiving in the future after taking that action. 
+                The DDPG algorithm is implemented in the ‘ddpg.py’ file. <br>
+            </p>
+            <img src="images/ddpgalgorithm.png" alt="Image source: Reinforcement learning with Python by Sudharsan Ravichandiran"> <br>
+            <p>
+                <b>The IQL Algorithm</b>: The IQL algorithm is a simple extension of the DQL algorithm for the multi-agent scenation. In this case, there exists one network trained to each agent and one reward function to each agent. 
+                So that, each agent can learn a different role based on its own reward function. One advantage of the IQL is that it is easy to learn and the DQN framework can be followed for training. However, in a multi-agent environment, such as in AI Soccer, the IQL has a major drawback as it does not consider the actions of other agents while taking the decision. 
+                This way, cooperative behavior using IQL is not encouraged and it is not clear if the reward received by the robot is because of his own actions or because of the actions of other robots. <br>
+            </p>
+            <img src="images/iqlalgorithm.jpg" alt="Image Source: https://livebook.manning.com/book/deep-reinforcement-learning-in-action/chapter-9/section-9-4?origin=product-toc"> <br>
+            <p>
+                <b>The QMIX Algorithm</b>: The QMIX algorithm tries to solve the drawback of IQL to achieve cooperative behavior by adding a network called mixer that tries to learn the contribution of each robot to the final reward. In this case, there exists one actor network trained to each agent to choose an action based on the current game state. 
+                If more than one agent contributes to the final reward, the output of each actor network of these agents is the input to the mixer network to learn their contributions to the final rewards. The global state of the game is also an input to the mixer network to help learn this contribution. 
+                This way, the reward is rightly assigned for the robots and cooperative behavior can also be encouraged as all agents need to maximize the same reward. Compared to the other frameworks learned until now in this manual, using QMIX there exists 2 types of states. The normal state is the input for the robot actor network, and is related to his view of the game state. 
+                The global state is one of the input of the mixing network and show the full global game state. <br>
+            </p>
+            <img src="images/qmixalgorithm.png" alt="Image Source: QMIX paper"> <br>
+            <p>
+                After choosing the conditions for reinforcement learning, you can also download files by clicking <b>Generate Code</b> button. The files include python files include python files related to your model, parameters, and some low-level functions used to run AI Soccer with deep-learning. <br>
+                Then you need to unzip the compressed file and move it into test_world-develop/examples folder (or the folder that you implemented your previous strategy). <br>
+                Open Webots simulator and in the "config.json file"change "executable" for team_a or team_b as "examples/mystrategy/train.py". <br> 
+                To use your trained model, in the "config.json file"change "executable" for team_a or team_b as "examples/mystrategy/play.py".<br>
             </p>
 </body>
 </html>
