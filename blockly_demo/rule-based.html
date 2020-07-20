@@ -2,21 +2,25 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>AIWC CODE GENERATOR - Rule Based System</title>
+  <title>AI SOCCER CODE GENERATOR - Rule Based System</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="stylesheet" href="style_rule_based.css">
-  <script src="blockly_compressed.js"></script>
-  <script src="python_compressed.js"></script>
-  <script src="blocks_compressed.js"></script>
-  <!-- <script src="code.js"></script> -->
+  <script src="template-blocks/blockly_compressed.js"></script>
+  <script src="template-blocks/python_compressed.js"></script>
+  <script src="template-blocks/blocks_compressed.js"></script>
+  <script src="template-blocks/toolbox_standard.js"></script>
   <script src="msg/js/en.js"></script>
-  <script src="toolbox_standard.js"></script>
-  <script src="constants.js"></script>
-  <script src="default_codes.js"></script>
+  <script src="template-codes/constants.js"></script>
+  <script src="template-codes/default_codes.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.2.0/jszip.min.js"></script>
 </head>
 <body>
-  <p>AI World Cup Code Generator - Rule Based System</p>
-  <img src="./img/field_information.png" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; display:block; max-width: 50%; height:auto;">
+  <p>AI Soccer Code Generator - Rule Based System</p>
+  
+  <img src="./img/field_information_3d.png" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; display:block; max-width: 50%; height:auto;">
+
+  <button type="button" id="readmeButton" onclick="location.href='./template-readmes/README.html'" target="_blank">Get Help</button>
 
   <div class="tab">
     <button class="tablinks" onclick="changeRobot('GK')">GK</button>
@@ -31,6 +35,8 @@
     <div id="blocklyDiv" style="width: 67%; border: 0px solid #DDDDDD;" onchange="showCode();">
       <xml id="default_blocks_gk" style="display:none;">
         <variables>
+          <variable id="QrgtT$V;:y/KA_jF|Rww">shoot</variable>
+          <variable id="C48^.$)W)G9JU$m#4e(.">jump</variable>
           <variable id="}vOM7?PdUO}P9B/#DRtc">protection_radius</variable>
           <variable id="h?}mXo/wtYe8dBZBQB[9">angle</variable>
           <variable id="=qAu[n;uiO[{u2[pFf71">protection_x</variable>
@@ -38,358 +44,338 @@
           <variable id="6lU[D8H{gc-}@zG:};jh">x</variable>
           <variable id="jf{t7R@%1Ogf$(dl:Gi|">y</variable>
         </variables>
-        <block type="variables_set" id="BV]Ao,X5a_{r7voL!K!Y" x="20" y="20">
-          <field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
+        <block type="variables_set" id="oCqeuU00;M%nn6vG`Ulb" x="20" y="20">
+          <field name="VAR" id="QrgtT$V;:y/KA_jF|Rww">shoot</field>
           <value name="VALUE">
-            <block type="math_arithmetic" id="._um+-;`BsYs$]5WY!(6">
-              <field name="OP">MINUS</field>
-              <value name="A">
-                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="gFfz;ygauE3|A{Gl7bYS">
-                  <field name="NUM">1</field>
-                </shadow>
-                <block type="math_arithmetic" id="954}uiAR7~xy439OCL[f">
-                  <field name="OP">DIVIDE</field>
-                  <value name="A">
-                    <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="-QE6[$SJ@16Xe[_[(b[2">
-                      <field name="NUM">1</field>
-                    </shadow>
-                    <block type="env_constant_index" id="QlZTq{=~_g_v,j76rP?X">
-                      <field name="OP">GOAL_AREA</field>
-                      <value name="NUM">
-                        <block type="env_coordinates_index" id="ELQI-lN+]TfuIP{R7lfN">
-                          <field name="CONSTANT">Y</field>
-                        </block>
-                      </value>
-                    </block>
-                  </value>
-                  <value name="B">
-                    <shadow type="math_number" id="Yllyu,M~@4{fKjfagt`D">
-                      <field name="NUM">2</field>
-                    </shadow>
-                  </value>
-                </block>
-              </value>
-              <value name="B">
-                <shadow type="math_number" id="URD[0o;Q=cCzLtuLx_Sa">
-                  <field name="NUM">0.1</field>
-                </shadow>
-              </value>
+            <block type="logic_boolean" id="IpA.FLNvs[rK+E/Gx-mY">
+              <field name="BOOL">FALSE</field>
             </block>
           </value>
           <next>
-            <block type="variables_set" id="AUpO5!Kn,ZFoB/=M$=r=">
-              <field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
+            <block type="variables_set" id="oPC,`=$gtC|w;d1Fr6Vo">
+              <field name="VAR" id="C48^.$)W)G9JU$m#4e(.">jump</field>
               <value name="VALUE">
-                <block type="env_variables" id="u-Qu%^xuDSy%4:*B+J26">
-                  <field name="CONSTANT">DEFENSE_ANGLE</field>
+                <block type="logic_boolean" id="M5/T2av/)3ykRTE:S.|9">
+                  <field name="BOOL">FALSE</field>
                 </block>
               </value>
               <next>
-                <block type="variables_set" id="jWf%v+~Fe0j-o@+tz[!i">
-                  <field name="VAR" id="=qAu[n;uiO[{u2[pFf71">protection_x</field>
+                <block type="variables_set" id="BV]Ao,X5a_{r7voL!K!Y">
+                  <field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
                   <value name="VALUE">
-                    <block type="math_arithmetic" id=".Pvge^jTjn?UL]aH,J~z">
+                    <block type="math_arithmetic" id="._um+-;`BsYs$]5WY!(6">
                       <field name="OP">MINUS</field>
                       <value name="A">
-                        <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="i]u6fdcY)KN:WT:=lV]I">
+                        <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="gFfz;ygauE3|A{Gl7bYS">
                           <field name="NUM">1</field>
                         </shadow>
-                        <block type="math_arithmetic" id="-V6(DH1UW-6n1_3Q}Zy?">
-                          <field name="OP">MULTIPLY</field>
-                          <value name="A">
-                            <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="Npb8p(KxR5a?fYLp(YBb">
-                              <field name="NUM">1</field>
-                            </shadow>
-                            <block type="math_trig" id="7]Z;K]wNK:UF3iV]#_C#">
-                              <field name="OP">COS</field>
-                              <value name="NUM">
-                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="0mzN)FVbyAHE2p5vBDVa">
-                                  <field name="NUM">45</field>
-                                </shadow>
-                                <block type="variables_get" id="d8hNR*ipf*7gtM0-N`03">
-                                  <field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
-                                </block>
-                              </value>
-                            </block>
-                          </value>
-                          <value name="B">
-                            <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="~nvNjm`}k=EJ,=~~3AlY">
-                              <field name="NUM">1</field>
-                            </shadow>
-                            <block type="variables_get" id=")qB/J[r.k`2}O$~DQQBX">
-                              <field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
-                            </block>
-                          </value>
-                        </block>
-                      </value>
-                      <value name="B">
-                        <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="t=)/@uT@zR{^|0)ghY_}">
-                          <field name="NUM">1</field>
-                        </shadow>
-                        <block type="math_arithmetic" id="]$-wHz#v0|bjh+Aa|{z`">
+                        <block type="math_arithmetic" id="954}uiAR7~xy439OCL[f">
                           <field name="OP">DIVIDE</field>
                           <value name="A">
-                            <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="l?JrM?@2pzePZ?a^/;Bs">
+                            <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="-QE6[$SJ@16Xe[_[(b[2">
                               <field name="NUM">1</field>
                             </shadow>
-                            <block type="env_constant_index" id="St{pO9,W*N4e8/b=9RCI">
-                              <field name="OP">FIELD</field>
+                            <block type="env_constant_index" id="QlZTq{=~_g_v,j76rP?X">
+                              <field name="OP">GOAL_AREA</field>
                               <value name="NUM">
-                                <block type="env_coordinates_index" id="qL!~=8*M(a*^H]1wCeg{">
-                                  <field name="CONSTANT">X</field>
+                                <block type="env_coordinates_index" id="ELQI-lN+]TfuIP{R7lfN">
+                                  <field name="CONSTANT">Y</field>
                                 </block>
                               </value>
                             </block>
                           </value>
                           <value name="B">
-                            <shadow type="math_number" id="N5J_uKLq]UajxRzs6`)T">
+                            <shadow type="math_number" id="Yllyu,M~@4{fKjfagt`D">
                               <field name="NUM">2</field>
                             </shadow>
                           </value>
                         </block>
                       </value>
+                      <value name="B">
+                        <shadow type="math_number" id="URD[0o;Q=cCzLtuLx_Sa">
+                          <field name="NUM">0.1</field>
+                        </shadow>
+                      </value>
                     </block>
                   </value>
                   <next>
-                    <block type="variables_set" id="1f^hC3uXHn{t4kdqzcL:">
-                      <field name="VAR" id="J9[wFTN|2~^^)vnA4r9%">protection_y</field>
+                    <block type="variables_set" id="AUpO5!Kn,ZFoB/=M$=r=">
+                      <field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
                       <value name="VALUE">
-                        <block type="math_arithmetic" id="p~^pDWlXSlT%`h+H-W~Z">
-                          <field name="OP">MULTIPLY</field>
-                          <value name="A">
-                            <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
-                              <field name="NUM">1</field>
-                            </shadow>
-                            <block type="math_trig" id="n)*2u/7JL;?B1hv90]?D">
-                              <field name="OP">SIN</field>
-                              <value name="NUM">
-                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="=%}gJXY71JGfuh0eQj(9">
-                                  <field name="NUM">45</field>
-                                </shadow>
-                                <block type="variables_get" id="*M:!b?fG?hDMa=Vpuk+%">
-                                  <field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
-                                </block>
-                              </value>
-                            </block>
-                          </value>
-                          <value name="B">
-                            <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
-                              <field name="NUM">1</field>
-                            </shadow>
-                            <block type="variables_get" id="L}phT[Jr|R#YxL*;$B3N">
-                              <field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
-                            </block>
-                          </value>
+                        <block type="env_variables" id="u-Qu%^xuDSy%4:*B+J26">
+                          <field name="CONSTANT">DEFENSE_ANGLE</field>
                         </block>
                       </value>
                       <next>
-                        <block type="controls_if" id="M+mtk=WKt@D^^aunE42_">
-                          <mutation elseif="4" else="1"/></mutation>
-                          <value name="IF0">
-                            <block type="ball_is_own_goal" id=".,.sMFMhMk^kP+WAa4BL">
-                              <value name="predicted_ball">
-                                <block type="env_variables_1d" id="}^k.GUYsW[*$8W1ux)Bh">
-                                  <field name="OP">PREDICTED_BALL</field>
+                        <block type="variables_set" id="jWf%v+~Fe0j-o@+tz[!i">
+                          <field name="VAR" id="=qAu[n;uiO[{u2[pFf71">protection_x</field>
+                          <value name="VALUE">
+                            <block type="math_arithmetic" id=".Pvge^jTjn?UL]aH,J~z">
+                              <field name="OP">MINUS</field>
+                              <value name="A">
+                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="i]u6fdcY)KN:WT:=lV]I">
+                                  <field name="NUM">1</field>
+                                </shadow>
+                                <block type="math_arithmetic" id="-V6(DH1UW-6n1_3Q}Zy?">
+                                  <field name="OP">MULTIPLY</field>
+                                  <value name="A">
+                                    <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="Npb8p(KxR5a?fYLp(YBb">
+                                      <field name="NUM">1</field>
+                                    </shadow>
+                                    <block type="math_trig" id="7]Z;K]wNK:UF3iV]#_C#">
+                                      <field name="OP">COS</field>
+                                      <value name="NUM">
+                                        <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="0mzN)FVbyAHE2p5vBDVa">
+                                          <field name="NUM">45</field>
+                                        </shadow>
+                                        <block type="variables_get" id="d8hNR*ipf*7gtM0-N`03">
+                                          <field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </value>
+                                  <value name="B">
+                                    <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="~nvNjm`}k=EJ,=~~3AlY">
+                                      <field name="NUM">1</field>
+                                    </shadow>
+                                    <block type="variables_get" id=")qB/J[r.k`2}O$~DQQBX">
+                                      <field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
+                                    </block>
+                                  </value>
                                 </block>
                               </value>
-                              <value name="field">
-                                <block type="env_constant_index" id="$r6d#K}`9h`SfnhzpfFH">
-                                  <field name="OP">FIELD</field>
-                                </block>
-                              </value>
-                              <value name="goal_area">
-                                <block type="env_constant_index" id="[jHK([00KKa2bFg;SMm/">
-                                  <field name="OP">GOAL_AREA</field>
+                              <value name="B">
+                                <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="t=)/@uT@zR{^|0)ghY_}">
+                                  <field name="NUM">1</field>
+                                </shadow>
+                                <block type="math_arithmetic" id="]$-wHz#v0|bjh+Aa|{z`">
+                                  <field name="OP">DIVIDE</field>
+                                  <value name="A">
+                                    <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="l?JrM?@2pzePZ?a^/;Bs">
+                                      <field name="NUM">1</field>
+                                    </shadow>
+                                    <block type="env_constant_index" id="St{pO9,W*N4e8/b=9RCI">
+                                      <field name="OP">FIELD</field>
+                                      <value name="NUM">
+                                        <block type="env_coordinates_index" id="qL!~=8*M(a*^H]1wCeg{">
+                                          <field name="CONSTANT">X</field>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </value>
+                                  <value name="B">
+                                    <shadow type="math_number" id="N5J_uKLq]UajxRzs6`)T">
+                                      <field name="NUM">2</field>
+                                    </shadow>
+                                  </value>
                                 </block>
                               </value>
                             </block>
                           </value>
-                          <statement name="DO0">
-                            <block type="variables_set" id="!_kbSV;%F4n-60hYj852">
-                              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                          <next>
+                            <block type="variables_set" id="1f^hC3uXHn{t4kdqzcL:">
+                              <field name="VAR" id="J9[wFTN|2~^^)vnA4r9%">protection_y</field>
                               <value name="VALUE">
-                                <block type="variables_get" id="7L?DQS@Y$nv{5A:TM;7P">
-                                  <field name="VAR" id="=qAu[n;uiO[{u2[pFf71">protection_x</field>
-                                </block>
-                              </value>
-                              <next>
-                                <block type="variables_set" id="#*I;mI67ZiLD=OjSJ|Ey">
-                                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-                                  <value name="VALUE">
-                                    <block type="variables_get" id="hiz4x0QO]wo1*IGV;s}^">
-                                      <field name="VAR" id="J9[wFTN|2~^^)vnA4r9%">protection_y</field>
+                                <block type="math_arithmetic" id="p~^pDWlXSlT%`h+H-W~Z">
+                                  <field name="OP">MULTIPLY</field>
+                                  <value name="A">
+                                    <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                                      <field name="NUM">1</field>
+                                    </shadow>
+                                    <block type="math_trig" id="n)*2u/7JL;?B1hv90]?D">
+                                      <field name="OP">SIN</field>
+                                      <value name="NUM">
+                                        <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="=%}gJXY71JGfuh0eQj(9">
+                                          <field name="NUM">45</field>
+                                        </shadow>
+                                        <block type="variables_get" id="*M:!b?fG?hDMa=Vpuk+%">
+                                          <field name="VAR" id="h?}mXo/wtYe8dBZBQB[9">angle</field>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </value>
+                                  <value name="B">
+                                    <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                                      <field name="NUM">1</field>
+                                    </shadow>
+                                    <block type="variables_get" id="L}phT[Jr|R#YxL*;$B3N">
+                                      <field name="VAR" id="}vOM7?PdUO}P9B/#DRtc">protection_radius</field>
                                     </block>
                                   </value>
                                 </block>
-                              </next>
-                            </block>
-                          </statement>
-                          <value name="IF1">
-                            <block type="ball_is_own_penalty" id="nj*)~gpXlzcO,;TD{w_c">
-                              <value name="predicted_ball">
-                                <block type="env_variables_1d" id="XKXF5(J-FV:}(jApNSaw">
-                                  <field name="OP">PREDICTED_BALL</field>
-                                </block>
-                              </value>
-                              <value name="field">
-                                <block type="env_constant_index" id="U,RKLs-qu(JHAmF]]50W">
-                                  <field name="OP">FIELD</field>
-                                </block>
-                              </value>
-                              <value name="penalty_area">
-                                <block type="env_constant_index" id="PJetd+5p^f/f1T=H|Elo">
-                                  <field name="OP">PENALTY_AREA</field>
-                                </block>
-                              </value>
-                            </block>
-                          </value>
-                          <statement name="DO1">
-                            <block type="variables_set" id="]2![4cJk}Y;w))ENMp=D">
-                              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
-                              <value name="VALUE">
-                                <block type="variables_get" id="Dy6)3O1V=w2@zE.^Zxh@">
-                                  <field name="VAR" id="=qAu[n;uiO[{u2[pFf71">protection_x</field>
-                                </block>
                               </value>
                               <next>
-                                <block type="variables_set" id="$)G]ZD2M/U+6o|pdCt9p">
-                                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-                                  <value name="VALUE">
-                                    <block type="variables_get" id="YU{[o|_riK[}r-}+4ZRN">
-                                      <field name="VAR" id="J9[wFTN|2~^^)vnA4r9%">protection_y</field>
+                                <block type="controls_if" id="M+mtk=WKt@D^^aunE42_">
+                                  <mutation elseif="4" else="1"></mutation>
+                                  <value name="IF0">
+                                    <block type="ball_is_own_goal" id=".,.sMFMhMk^kP+WAa4BL">
+                                      <value name="predicted_ball">
+                                        <block type="env_variables_1d" id="}^k.GUYsW[*$8W1ux)Bh">
+                                          <field name="OP">PREDICTED_BALL</field>
+                                        </block>
+                                      </value>
                                     </block>
                                   </value>
+                                  <statement name="DO0">
+                                    <block type="variables_set" id="!_kbSV;%F4n-60hYj852">
+                                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                                      <value name="VALUE">
+                                        <block type="variables_get" id="7L?DQS@Y$nv{5A:TM;7P">
+                                          <field name="VAR" id="=qAu[n;uiO[{u2[pFf71">protection_x</field>
+                                        </block>
+                                      </value>
+                                      <next>
+                                        <block type="variables_set" id="#*I;mI67ZiLD=OjSJ|Ey">
+                                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                                          <value name="VALUE">
+                                            <block type="variables_get" id="hiz4x0QO]wo1*IGV;s}^">
+                                              <field name="VAR" id="J9[wFTN|2~^^)vnA4r9%">protection_y</field>
+                                            </block>
+                                          </value>
+                                        </block>
+                                      </next>
+                                    </block>
+                                  </statement>
+                                  <value name="IF1">
+                                    <block type="ball_is_own_penalty" id="nj*)~gpXlzcO,;TD{w_c">
+                                      <value name="predicted_ball">
+                                        <block type="env_variables_1d" id="XKXF5(J-FV:}(jApNSaw">
+                                          <field name="OP">PREDICTED_BALL</field>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </value>
+                                  <statement name="DO1">
+                                    <block type="variables_set" id="]2![4cJk}Y;w))ENMp=D">
+                                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                                      <value name="VALUE">
+                                        <block type="variables_get" id="Dy6)3O1V=w2@zE.^Zxh@">
+                                          <field name="VAR" id="=qAu[n;uiO[{u2[pFf71">protection_x</field>
+                                        </block>
+                                      </value>
+                                      <next>
+                                        <block type="variables_set" id="$)G]ZD2M/U+6o|pdCt9p">
+                                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                                          <value name="VALUE">
+                                            <block type="variables_get" id="YU{[o|_riK[}r-}+4ZRN">
+                                              <field name="VAR" id="J9[wFTN|2~^^)vnA4r9%">protection_y</field>
+                                            </block>
+                                          </value>
+                                        </block>
+                                      </next>
+                                    </block>
+                                  </statement>
+                                  <value name="IF2">
+                                    <block type="ball_is_own_field" id="NpxI*`EC`fi2sZ1SUR(B">
+                                      <value name="predicted_ball">
+                                        <block type="env_variables_1d" id="CD{V?`sb/Y%TDbE]fv!.">
+                                          <field name="OP">PREDICTED_BALL</field>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </value>
+                                  <statement name="DO2">
+                                    <block type="variables_set" id="LP04jV;L}Cd+*r3yb0c]">
+                                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                                      <value name="VALUE">
+                                        <block type="variables_get" id="oOxmL@q%7G{~:LQ:cZBe">
+                                          <field name="VAR" id="=qAu[n;uiO[{u2[pFf71">protection_x</field>
+                                        </block>
+                                      </value>
+                                      <next>
+                                        <block type="variables_set" id="qa7O:_`9~P|JJKkWnR2+">
+                                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                                          <value name="VALUE">
+                                            <block type="variables_get" id="G[k$-wQJNTDwjeP!+b]M">
+                                              <field name="VAR" id="J9[wFTN|2~^^)vnA4r9%">protection_y</field>
+                                            </block>
+                                          </value>
+                                        </block>
+                                      </next>
+                                    </block>
+                                  </statement>
+                                  <value name="IF3">
+                                    <block type="ball_is_opp_goal" id="zE/gtw]K3k|^J8PW$Kr%">
+                                      <value name="predicted_ball">
+                                        <block type="env_variables_1d" id="tcck}-uUJpR~htnQxxZ`">
+                                          <field name="OP">PREDICTED_BALL</field>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </value>
+                                  <statement name="DO3">
+                                    <block type="variables_set" id="FX$zR8V2$vylG0_YYYol">
+                                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                                      <value name="VALUE">
+                                        <block type="variables_get" id="Mos(}J1(6J^wJb-)8(!:">
+                                          <field name="VAR" id="=qAu[n;uiO[{u2[pFf71">protection_x</field>
+                                        </block>
+                                      </value>
+                                      <next>
+                                        <block type="variables_set" id=".U[Hgp7n]^e)`QM75,HP">
+                                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                                          <value name="VALUE">
+                                            <block type="variables_get" id="Cb%s}QtYw$*Y{tR=;PW|">
+                                              <field name="VAR" id="J9[wFTN|2~^^)vnA4r9%">protection_y</field>
+                                            </block>
+                                          </value>
+                                        </block>
+                                      </next>
+                                    </block>
+                                  </statement>
+                                  <value name="IF4">
+                                    <block type="ball_is_opp_penalty" id="oBNMkF+zabI3il46Khlm">
+                                      <value name="predicted_ball">
+                                        <block type="env_variables_1d" id="1!=;7FG(KRy(8Y^|Gyla">
+                                          <field name="OP">PREDICTED_BALL</field>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </value>
+                                  <statement name="DO4">
+                                    <block type="variables_set" id="7[b|9jO2aFB8S@d(SZNm">
+                                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                                      <value name="VALUE">
+                                        <block type="variables_get" id="Oqh+uYEnuns!`!DnUPm^">
+                                          <field name="VAR" id="=qAu[n;uiO[{u2[pFf71">protection_x</field>
+                                        </block>
+                                      </value>
+                                      <next>
+                                        <block type="variables_set" id=":uWl*vx:=0~L@7g(-[*v">
+                                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                                          <value name="VALUE">
+                                            <block type="variables_get" id="Bf$5bF)[Ppl]3u0.9*0T">
+                                              <field name="VAR" id="J9[wFTN|2~^^)vnA4r9%">protection_y</field>
+                                            </block>
+                                          </value>
+                                        </block>
+                                      </next>
+                                    </block>
+                                  </statement>
+                                  <statement name="ELSE">
+                                    <block type="variables_set" id="i`Uxj6YV1WtnPlzst[L+">
+                                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                                      <value name="VALUE">
+                                        <block type="variables_get" id="6#x_V];79D8+bki%@Dnn">
+                                          <field name="VAR" id="=qAu[n;uiO[{u2[pFf71">protection_x</field>
+                                        </block>
+                                      </value>
+                                      <next>
+                                        <block type="variables_set" id=".W!ta(kH5#R~ZM@AqHIW">
+                                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                                          <value name="VALUE">
+                                            <block type="variables_get" id="@Fj%h5u7,a06M~)[jo{G">
+                                              <field name="VAR" id="J9[wFTN|2~^^)vnA4r9%">protection_y</field>
+                                            </block>
+                                          </value>
+                                        </block>
+                                      </next>
+                                    </block>
+                                  </statement>
                                 </block>
                               </next>
                             </block>
-                          </statement>
-                          <value name="IF2">
-                            <block type="ball_is_own_field" id="NpxI*`EC`fi2sZ1SUR(B">
-                              <value name="predicted_ball">
-                                <block type="env_variables_1d" id="CD{V?`sb/Y%TDbE]fv!.">
-                                  <field name="OP">PREDICTED_BALL</field>
-                                </block>
-                              </value>
-                            </block>
-                          </value>
-                          <statement name="DO2">
-                            <block type="variables_set" id="LP04jV;L}Cd+*r3yb0c]">
-                              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
-                              <value name="VALUE">
-                                <block type="variables_get" id="oOxmL@q%7G{~:LQ:cZBe">
-                                  <field name="VAR" id="=qAu[n;uiO[{u2[pFf71">protection_x</field>
-                                </block>
-                              </value>
-                              <next>
-                                <block type="variables_set" id="qa7O:_`9~P|JJKkWnR2+">
-                                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-                                  <value name="VALUE">
-                                    <block type="variables_get" id="G[k$-wQJNTDwjeP!+b]M">
-                                      <field name="VAR" id="J9[wFTN|2~^^)vnA4r9%">protection_y</field>
-                                    </block>
-                                  </value>
-                                </block>
-                              </next>
-                            </block>
-                          </statement>
-                          <value name="IF3">
-                            <block type="ball_is_opp_goal" id="zE/gtw]K3k|^J8PW$Kr%">
-                              <value name="predicted_ball">
-                                <block type="env_variables_1d" id="tcck}-uUJpR~htnQxxZ`">
-                                  <field name="OP">PREDICTED_BALL</field>
-                                </block>
-                              </value>
-                              <value name="field">
-                                <block type="env_constant_index" id="rNE-1QO`S8#1u2x41)Hc">
-                                  <field name="OP">FIELD</field>
-                                </block>
-                              </value>
-                              <value name="goal_area">
-                                <block type="env_constant_index" id="y$U@Yc?44lHf!;[8Rjt]">
-                                  <field name="OP">GOAL_AREA</field>
-                                </block>
-                              </value>
-                            </block>
-                          </value>
-                          <statement name="DO3">
-                            <block type="variables_set" id="FX$zR8V2$vylG0_YYYol">
-                              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
-                              <value name="VALUE">
-                                <block type="variables_get" id="Mos(}J1(6J^wJb-)8(!:">
-                                  <field name="VAR" id="=qAu[n;uiO[{u2[pFf71">protection_x</field>
-                                </block>
-                              </value>
-                              <next>
-                                <block type="variables_set" id=".U[Hgp7n]^e)`QM75,HP">
-                                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-                                  <value name="VALUE">
-                                    <block type="variables_get" id="Cb%s}QtYw$*Y{tR=;PW|">
-                                      <field name="VAR" id="J9[wFTN|2~^^)vnA4r9%">protection_y</field>
-                                    </block>
-                                  </value>
-                                </block>
-                              </next>
-                            </block>
-                          </statement>
-                          <value name="IF4">
-                            <block type="ball_is_opp_penalty" id="oBNMkF+zabI3il46Khlm">
-                              <value name="predicted_ball">
-                                <block type="env_variables_1d" id="1!=;7FG(KRy(8Y^|Gyla">
-                                  <field name="OP">PREDICTED_BALL</field>
-                                </block>
-                              </value>
-                              <value name="field">
-                                <block type="env_constant_index" id="MJhx:p;1n]_8!CGJDPia">
-                                  <field name="OP">FIELD</field>
-                                </block>
-                              </value>
-                              <value name="penalty_area">
-                                <block type="env_constant_index" id="tW45*)u6E6Yk^LzJ+*{[">
-                                  <field name="OP">PENALTY_AREA</field>
-                                </block>
-                              </value>
-                            </block>
-                          </value>
-                          <statement name="DO4">
-                            <block type="variables_set" id="7[b|9jO2aFB8S@d(SZNm">
-                              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
-                              <value name="VALUE">
-                                <block type="variables_get" id="Oqh+uYEnuns!`!DnUPm^">
-                                  <field name="VAR" id="=qAu[n;uiO[{u2[pFf71">protection_x</field>
-                                </block>
-                              </value>
-                              <next>
-                                <block type="variables_set" id=":uWl*vx:=0~L@7g(-[*v">
-                                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-                                  <value name="VALUE">
-                                    <block type="variables_get" id="Bf$5bF)[Ppl]3u0.9*0T">
-                                      <field name="VAR" id="J9[wFTN|2~^^)vnA4r9%">protection_y</field>
-                                    </block>
-                                  </value>
-                                </block>
-                              </next>
-                            </block>
-                          </statement>
-                          <statement name="ELSE">
-                            <block type="variables_set" id="i`Uxj6YV1WtnPlzst[L+">
-                              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
-                              <value name="VALUE">
-                                <block type="variables_get" id="6#x_V];79D8+bki%@Dnn">
-                                  <field name="VAR" id="=qAu[n;uiO[{u2[pFf71">protection_x</field>
-                                </block>
-                              </value>
-                              <next>
-                                <block type="variables_set" id=".W!ta(kH5#R~ZM@AqHIW">
-                                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-                                  <value name="VALUE">
-                                    <block type="variables_get" id="@Fj%h5u7,a06M~)[jo{G">
-                                      <field name="VAR" id="J9[wFTN|2~^^)vnA4r9%">protection_y</field>
-                                    </block>
-                                  </value>
-                                </block>
-                              </next>
-                            </block>
-                          </statement>
+                          </next>
                         </block>
                       </next>
                     </block>
@@ -401,914 +387,946 @@
         </block>
       </xml>
 
+
+
+
       <xml id="default_blocks_d1" style="display:none;">
         <variables>
+          <variable id="7Fe[I$U[VlE@:R1X-US(">shoot</variable>
+          <variable id="eCCictY^]|z=ruRZAoJ;">jump</variable>
           <variable id="6lU[D8H{gc-}@zG:};jh">x</variable>
           <variable id="jf{t7R@%1Ogf$(dl:Gi|">y</variable>
         </variables>
-        <block type="controls_if" id="M+mtk=WKt@D^^aunE42_" x="20" y="20">
-          <mutation elseif="4" else="1"/></mutation>
-          <value name="IF0">
-            <block type="ball_is_own_goal" id=".,.sMFMhMk^kP+WAa4BL">
-              <value name="predicted_ball">
-                <block type="env_variables_1d" id="}^k.GUYsW[*$8W1ux)Bh">
-                  <field name="OP">PREDICTED_BALL</field>
-                </block>
-              </value>
-              <value name="field">
-                <block type="env_constant_index" id="$r6d#K}`9h`SfnhzpfFH">
-                  <field name="OP">FIELD</field>
-                </block>
-              </value>
-              <value name="goal_area">
-                <block type="env_constant_index" id="[jHK([00KKa2bFg;SMm/">
-                  <field name="OP">GOAL_AREA</field>
-                </block>
-              </value>
+        <block type="variables_set" id="8In];]logRF_^7a%Z;YZ" x="20" y="20">
+          <field name="VAR" id="7Fe[I$U[VlE@:R1X-US(">shoot</field>
+          <value name="VALUE">
+            <block type="logic_boolean" id="_M(5$6WP]Uv],bq{czFF">
+              <field name="BOOL">FALSE</field>
             </block>
           </value>
-          <statement name="DO0">
-            <block type="variables_set" id="!_kbSV;%F4n-60hYj852">
-              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+          <next>
+            <block type="variables_set" id="?aJ!-G*,F?`HsZC{SB,(">
+              <field name="VAR" id="eCCictY^]|z=ruRZAoJ;">jump</field>
               <value name="VALUE">
-                <block type="math_number" id=":[{@ARqNen3ZCY|BveWV">
-                  <field name="NUM">-1.5</field>
+                <block type="logic_boolean" id="G@;JG*Zq*];ChYoM7,QL">
+                  <field name="BOOL">FALSE</field>
                 </block>
               </value>
               <next>
-                <block type="variables_set" id="#*I;mI67ZiLD=OjSJ|Ey">
-                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-                  <value name="VALUE">
-                    <block type="math_number" id="T3a#;VXE(3`38$.G[FgP">
-                      <field name="NUM">1.5</field>
+                <block type="controls_if" id="M+mtk=WKt@D^^aunE42_">
+                  <mutation elseif="4" else="1"></mutation>
+                  <value name="IF0">
+                    <block type="ball_is_own_goal" id=".,.sMFMhMk^kP+WAa4BL">
+                      <value name="predicted_ball">
+                        <block type="env_variables_1d" id="}^k.GUYsW[*$8W1ux)Bh">
+                          <field name="OP">PREDICTED_BALL</field>
+                        </block>
+                      </value>
                     </block>
                   </value>
+                  <statement name="DO0">
+                    <block type="variables_set" id="!_kbSV;%F4n-60hYj852">
+                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                      <value name="VALUE">
+                        <block type="math_number" id=":[{@ARqNen3ZCY|BveWV">
+                          <field name="NUM">-1.5</field>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="variables_set" id="#*I;mI67ZiLD=OjSJ|Ey">
+                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                          <value name="VALUE">
+                            <block type="math_number" id="T3a#;VXE(3`38$.G[FgP">
+                              <field name="NUM">1.5</field>
+                            </block>
+                          </value>
+                        </block>
+                      </next>
+                    </block>
+                  </statement>
+                  <value name="IF1">
+                    <block type="ball_is_own_penalty" id="nj*)~gpXlzcO,;TD{w_c">
+                      <value name="predicted_ball">
+                        <block type="env_variables_1d" id="XKXF5(J-FV:}(jApNSaw">
+                          <field name="OP">PREDICTED_BALL</field>
+                        </block>
+                      </value>
+                    </block>
+                  </value>
+                  <statement name="DO1">
+                    <block type="variables_set" id="]2![4cJk}Y;w))ENMp=D">
+                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                      <value name="VALUE">
+                        <block type="math_number" id="JIi~]`oindjM]^gs4f4;">
+                          <field name="NUM">-1.5</field>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="variables_set" id="$)G]ZD2M/U+6o|pdCt9p">
+                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                          <value name="VALUE">
+                            <block type="math_number" id="6:mKIXK,$x0_qjaK(6v+">
+                              <field name="NUM">1.5</field>
+                            </block>
+                          </value>
+                        </block>
+                      </next>
+                    </block>
+                  </statement>
+                  <value name="IF2">
+                    <block type="ball_is_own_field" id="NpxI*`EC`fi2sZ1SUR(B">
+                      <value name="predicted_ball">
+                        <block type="env_variables_1d" id="CD{V?`sb/Y%TDbE]fv!.">
+                          <field name="OP">PREDICTED_BALL</field>
+                        </block>
+                      </value>
+                    </block>
+                  </value>
+                  <statement name="DO2">
+                    <block type="variables_set" id="LP04jV;L}Cd+*r3yb0c]">
+                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                      <value name="VALUE">
+                        <block type="math_number" id="x?N*,x~ob[Jb3;G#ES_=">
+                          <field name="NUM">-1.5</field>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="variables_set" id="qa7O:_`9~P|JJKkWnR2+">
+                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                          <value name="VALUE">
+                            <block type="math_number" id="LcdR8fp}K{h{/Fuy6;qR">
+                              <field name="NUM">1.5</field>
+                            </block>
+                          </value>
+                        </block>
+                      </next>
+                    </block>
+                  </statement>
+                  <value name="IF3">
+                    <block type="ball_is_opp_goal" id="zE/gtw]K3k|^J8PW$Kr%">
+                      <value name="predicted_ball">
+                        <block type="env_variables_1d" id="tcck}-uUJpR~htnQxxZ`">
+                          <field name="OP">PREDICTED_BALL</field>
+                        </block>
+                      </value>
+                    </block>
+                  </value>
+                  <statement name="DO3">
+                    <block type="variables_set" id="FX$zR8V2$vylG0_YYYol">
+                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                      <value name="VALUE">
+                        <block type="math_number" id="L#{t:MpZ+oJgg`f1ItGx">
+                          <field name="NUM">-1.5</field>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="variables_set" id=".U[Hgp7n]^e)`QM75,HP">
+                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                          <value name="VALUE">
+                            <block type="math_number" id="wsm#X2j[?CKB%Eb0I2]x">
+                              <field name="NUM">1.5</field>
+                            </block>
+                          </value>
+                        </block>
+                      </next>
+                    </block>
+                  </statement>
+                  <value name="IF4">
+                    <block type="ball_is_opp_penalty" id="oBNMkF+zabI3il46Khlm">
+                      <value name="predicted_ball">
+                        <block type="env_variables_1d" id="1!=;7FG(KRy(8Y^|Gyla">
+                          <field name="OP">PREDICTED_BALL</field>
+                        </block>
+                      </value>
+                    </block>
+                  </value>
+                  <statement name="DO4">
+                    <block type="variables_set" id="7[b|9jO2aFB8S@d(SZNm">
+                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                      <value name="VALUE">
+                        <block type="math_number" id="U^y8LF5|vBJmampQF:3F">
+                          <field name="NUM">-1.5</field>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="variables_set" id=":uWl*vx:=0~L@7g(-[*v">
+                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                          <value name="VALUE">
+                            <block type="math_number" id="U~Y7;|BjZ)=+?8(*tDgb">
+                              <field name="NUM">1.5</field>
+                            </block>
+                          </value>
+                        </block>
+                      </next>
+                    </block>
+                  </statement>
+                  <statement name="ELSE">
+                    <block type="variables_set" id="i`Uxj6YV1WtnPlzst[L+">
+                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                      <value name="VALUE">
+                        <block type="math_number" id="wO|KY#H1cr$s[+j8-S3^">
+                          <field name="NUM">-1.5</field>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="variables_set" id=".W!ta(kH5#R~ZM@AqHIW">
+                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                          <value name="VALUE">
+                            <block type="math_number" id="{:;p|z9fOpXdVU6_0Xyb">
+                              <field name="NUM">1.5</field>
+                            </block>
+                          </value>
+                        </block>
+                      </next>
+                    </block>
+                  </statement>
                 </block>
               </next>
             </block>
-          </statement>
-          <value name="IF1">
-            <block type="ball_is_own_penalty" id="nj*)~gpXlzcO,;TD{w_c">
-              <value name="predicted_ball">
-                <block type="env_variables_1d" id="XKXF5(J-FV:}(jApNSaw">
-                  <field name="OP">PREDICTED_BALL</field>
-                </block>
-              </value>
-              <value name="field">
-                <block type="env_constant_index" id="U,RKLs-qu(JHAmF]]50W">
-                  <field name="OP">FIELD</field>
-                </block>
-              </value>
-              <value name="penalty_area">
-                <block type="env_constant_index" id="PJetd+5p^f/f1T=H|Elo">
-                  <field name="OP">PENALTY_AREA</field>
-                </block>
-              </value>
-            </block>
-          </value>
-          <statement name="DO1">
-            <block type="variables_set" id="]2![4cJk}Y;w))ENMp=D">
-              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
-              <value name="VALUE">
-                <block type="math_number" id="JIi~]`oindjM]^gs4f4;">
-                  <field name="NUM">-1.5</field>
-                </block>
-              </value>
-              <next>
-                <block type="variables_set" id="$)G]ZD2M/U+6o|pdCt9p">
-                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-                  <value name="VALUE">
-                    <block type="math_number" id="6:mKIXK,$x0_qjaK(6v+">
-                      <field name="NUM">1.5</field>
-                    </block>
-                  </value>
-                </block>
-              </next>
-            </block>
-          </statement>
-          <value name="IF2">
-            <block type="ball_is_own_field" id="NpxI*`EC`fi2sZ1SUR(B">
-              <value name="predicted_ball">
-                <block type="env_variables_1d" id="CD{V?`sb/Y%TDbE]fv!.">
-                  <field name="OP">PREDICTED_BALL</field>
-                </block>
-              </value>
-            </block>
-          </value>
-          <statement name="DO2">
-            <block type="variables_set" id="LP04jV;L}Cd+*r3yb0c]">
-              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
-              <value name="VALUE">
-                <block type="math_number" id="x?N*,x~ob[Jb3;G#ES_=">
-                  <field name="NUM">-1.5</field>
-                </block>
-              </value>
-              <next>
-                <block type="variables_set" id="qa7O:_`9~P|JJKkWnR2+">
-                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-                  <value name="VALUE">
-                    <block type="math_number" id="LcdR8fp}K{h{/Fuy6;qR">
-                      <field name="NUM">1.5</field>
-                    </block>
-                  </value>
-                </block>
-              </next>
-            </block>
-          </statement>
-          <value name="IF3">
-            <block type="ball_is_opp_goal" id="zE/gtw]K3k|^J8PW$Kr%">
-              <value name="predicted_ball">
-                <block type="env_variables_1d" id="tcck}-uUJpR~htnQxxZ`">
-                  <field name="OP">PREDICTED_BALL</field>
-                </block>
-              </value>
-              <value name="field">
-                <block type="env_constant_index" id="rNE-1QO`S8#1u2x41)Hc">
-                  <field name="OP">FIELD</field>
-                </block>
-              </value>
-              <value name="goal_area">
-                <block type="env_constant_index" id="y$U@Yc?44lHf!;[8Rjt]">
-                  <field name="OP">GOAL_AREA</field>
-                </block>
-              </value>
-            </block>
-          </value>
-          <statement name="DO3">
-            <block type="variables_set" id="FX$zR8V2$vylG0_YYYol">
-              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
-              <value name="VALUE">
-                <block type="math_number" id="L#{t:MpZ+oJgg`f1ItGx">
-                  <field name="NUM">-1.5</field>
-                </block>
-              </value>
-              <next>
-                <block type="variables_set" id=".U[Hgp7n]^e)`QM75,HP">
-                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-                  <value name="VALUE">
-                    <block type="math_number" id="wsm#X2j[?CKB%Eb0I2]x">
-                      <field name="NUM">1.5</field>
-                    </block>
-                  </value>
-                </block>
-              </next>
-            </block>
-          </statement>
-          <value name="IF4">
-            <block type="ball_is_opp_penalty" id="oBNMkF+zabI3il46Khlm">
-              <value name="predicted_ball">
-                <block type="env_variables_1d" id="1!=;7FG(KRy(8Y^|Gyla">
-                  <field name="OP">PREDICTED_BALL</field>
-                </block>
-              </value>
-              <value name="field">
-                <block type="env_constant_index" id="MJhx:p;1n]_8!CGJDPia">
-                  <field name="OP">FIELD</field>
-                </block>
-              </value>
-              <value name="penalty_area">
-                <block type="env_constant_index" id="tW45*)u6E6Yk^LzJ+*{[">
-                  <field name="OP">PENALTY_AREA</field>
-                </block>
-              </value>
-            </block>
-          </value>
-          <statement name="DO4">
-            <block type="variables_set" id="7[b|9jO2aFB8S@d(SZNm">
-              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
-              <value name="VALUE">
-                <block type="math_number" id="U^y8LF5|vBJmampQF:3F">
-                  <field name="NUM">-1.5</field>
-                </block>
-              </value>
-              <next>
-                <block type="variables_set" id=":uWl*vx:=0~L@7g(-[*v">
-                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-                  <value name="VALUE">
-                    <block type="math_number" id="U~Y7;|BjZ)=+?8(*tDgb">
-                      <field name="NUM">1.5</field>
-                    </block>
-                  </value>
-                </block>
-              </next>
-            </block>
-          </statement>
-          <statement name="ELSE">
-            <block type="variables_set" id="i`Uxj6YV1WtnPlzst[L+">
-              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
-              <value name="VALUE">
-                <block type="math_number" id="wO|KY#H1cr$s[+j8-S3^">
-                  <field name="NUM">-1.5</field>
-                </block>
-              </value>
-              <next>
-                <block type="variables_set" id=".W!ta(kH5#R~ZM@AqHIW">
-                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-                  <value name="VALUE">
-                    <block type="math_number" id="{:;p|z9fOpXdVU6_0Xyb">
-                      <field name="NUM">1.5</field>
-                    </block>
-                  </value>
-                </block>
-              </next>
-            </block>
-          </statement>
+          </next>
         </block>
       </xml>
+
+
+
+
 
       <xml id="default_blocks_d2" style="display:none;">
         <variables>
+          <variable id="7Fe[I$U[VlE@:R1X-US(">shoot</variable>
+          <variable id="eCCictY^]|z=ruRZAoJ;">jump</variable>
           <variable id="6lU[D8H{gc-}@zG:};jh">x</variable>
           <variable id="jf{t7R@%1Ogf$(dl:Gi|">y</variable>
         </variables>
-        <block type="controls_if" id="M+mtk=WKt@D^^aunE42_" x="20" y="20">
-          <mutation elseif="4" else="1"/></mutation>
-          <value name="IF0">
-            <block type="ball_is_own_goal" id=".,.sMFMhMk^kP+WAa4BL">
-              <value name="predicted_ball">
-                <block type="env_variables_1d" id="}^k.GUYsW[*$8W1ux)Bh">
-                  <field name="OP">PREDICTED_BALL</field>
-                </block>
-              </value>
-              <value name="field">
-                <block type="env_constant_index" id="$r6d#K}`9h`SfnhzpfFH">
-                  <field name="OP">FIELD</field>
-                </block>
-              </value>
-              <value name="goal_area">
-                <block type="env_constant_index" id="[jHK([00KKa2bFg;SMm/">
-                  <field name="OP">GOAL_AREA</field>
-                </block>
-              </value>
+        <block type="variables_set" id="8In];]logRF_^7a%Z;YZ" x="20" y="20">
+          <field name="VAR" id="7Fe[I$U[VlE@:R1X-US(">shoot</field>
+          <value name="VALUE">
+            <block type="logic_boolean" id="_M(5$6WP]Uv],bq{czFF">
+              <field name="BOOL">FALSE</field>
             </block>
           </value>
-          <statement name="DO0">
-            <block type="variables_set" id="!_kbSV;%F4n-60hYj852">
-              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+          <next>
+            <block type="variables_set" id="?aJ!-G*,F?`HsZC{SB,(">
+              <field name="VAR" id="eCCictY^]|z=ruRZAoJ;">jump</field>
               <value name="VALUE">
-                <block type="math_number" id=":[{@ARqNen3ZCY|BveWV">
-                  <field name="NUM">-1.5</field>
+                <block type="logic_boolean" id="G@;JG*Zq*];ChYoM7,QL">
+                  <field name="BOOL">FALSE</field>
                 </block>
               </value>
               <next>
-                <block type="variables_set" id="#*I;mI67ZiLD=OjSJ|Ey">
-                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-                  <value name="VALUE">
-                    <block type="math_number" id="T3a#;VXE(3`38$.G[FgP">
-                      <field name="NUM">-1.5</field>
+                <block type="controls_if" id="M+mtk=WKt@D^^aunE42_">
+                  <mutation elseif="4" else="1"></mutation>
+                  <value name="IF0">
+                    <block type="ball_is_own_goal" id=".,.sMFMhMk^kP+WAa4BL">
+                      <value name="predicted_ball">
+                        <block type="env_variables_1d" id="}^k.GUYsW[*$8W1ux)Bh">
+                          <field name="OP">PREDICTED_BALL</field>
+                        </block>
+                      </value>
                     </block>
                   </value>
+                  <statement name="DO0">
+                    <block type="variables_set" id="!_kbSV;%F4n-60hYj852">
+                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                      <value name="VALUE">
+                        <block type="math_number" id=":[{@ARqNen3ZCY|BveWV">
+                          <field name="NUM">-1.5</field>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="variables_set" id="#*I;mI67ZiLD=OjSJ|Ey">
+                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                          <value name="VALUE">
+                            <block type="math_number" id="T3a#;VXE(3`38$.G[FgP">
+                              <field name="NUM">-1.5</field>
+                            </block>
+                          </value>
+                        </block>
+                      </next>
+                    </block>
+                  </statement>
+                  <value name="IF1">
+                    <block type="ball_is_own_penalty" id="nj*)~gpXlzcO,;TD{w_c">
+                      <value name="predicted_ball">
+                        <block type="env_variables_1d" id="XKXF5(J-FV:}(jApNSaw">
+                          <field name="OP">PREDICTED_BALL</field>
+                        </block>
+                      </value>
+                    </block>
+                  </value>
+                  <statement name="DO1">
+                    <block type="variables_set" id="]2![4cJk}Y;w))ENMp=D">
+                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                      <value name="VALUE">
+                        <block type="math_number" id="JIi~]`oindjM]^gs4f4;">
+                          <field name="NUM">-1.5</field>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="variables_set" id="$)G]ZD2M/U+6o|pdCt9p">
+                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                          <value name="VALUE">
+                            <block type="math_number" id="6:mKIXK,$x0_qjaK(6v+">
+                              <field name="NUM">-1.5</field>
+                            </block>
+                          </value>
+                        </block>
+                      </next>
+                    </block>
+                  </statement>
+                  <value name="IF2">
+                    <block type="ball_is_own_field" id="NpxI*`EC`fi2sZ1SUR(B">
+                      <value name="predicted_ball">
+                        <block type="env_variables_1d" id="CD{V?`sb/Y%TDbE]fv!.">
+                          <field name="OP">PREDICTED_BALL</field>
+                        </block>
+                      </value>
+                    </block>
+                  </value>
+                  <statement name="DO2">
+                    <block type="variables_set" id="LP04jV;L}Cd+*r3yb0c]">
+                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                      <value name="VALUE">
+                        <block type="math_number" id="x?N*,x~ob[Jb3;G#ES_=">
+                          <field name="NUM">-1.5</field>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="variables_set" id="qa7O:_`9~P|JJKkWnR2+">
+                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                          <value name="VALUE">
+                            <block type="math_number" id="LcdR8fp}K{h{/Fuy6;qR">
+                              <field name="NUM">-1.5</field>
+                            </block>
+                          </value>
+                        </block>
+                      </next>
+                    </block>
+                  </statement>
+                  <value name="IF3">
+                    <block type="ball_is_opp_goal" id="zE/gtw]K3k|^J8PW$Kr%">
+                      <value name="predicted_ball">
+                        <block type="env_variables_1d" id="tcck}-uUJpR~htnQxxZ`">
+                          <field name="OP">PREDICTED_BALL</field>
+                        </block>
+                      </value>
+                    </block>
+                  </value>
+                  <statement name="DO3">
+                    <block type="variables_set" id="FX$zR8V2$vylG0_YYYol">
+                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                      <value name="VALUE">
+                        <block type="math_number" id="L#{t:MpZ+oJgg`f1ItGx">
+                          <field name="NUM">-1.5</field>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="variables_set" id=".U[Hgp7n]^e)`QM75,HP">
+                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                          <value name="VALUE">
+                            <block type="math_number" id="wsm#X2j[?CKB%Eb0I2]x">
+                              <field name="NUM">-1.5</field>
+                            </block>
+                          </value>
+                        </block>
+                      </next>
+                    </block>
+                  </statement>
+                  <value name="IF4">
+                    <block type="ball_is_opp_penalty" id="oBNMkF+zabI3il46Khlm">
+                      <value name="predicted_ball">
+                        <block type="env_variables_1d" id="1!=;7FG(KRy(8Y^|Gyla">
+                          <field name="OP">PREDICTED_BALL</field>
+                        </block>
+                      </value>
+                    </block>
+                  </value>
+                  <statement name="DO4">
+                    <block type="variables_set" id="7[b|9jO2aFB8S@d(SZNm">
+                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                      <value name="VALUE">
+                        <block type="math_number" id="U^y8LF5|vBJmampQF:3F">
+                          <field name="NUM">-1.5</field>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="variables_set" id=":uWl*vx:=0~L@7g(-[*v">
+                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                          <value name="VALUE">
+                            <block type="math_number" id="U~Y7;|BjZ)=+?8(*tDgb">
+                              <field name="NUM">-1.5</field>
+                            </block>
+                          </value>
+                        </block>
+                      </next>
+                    </block>
+                  </statement>
+                  <statement name="ELSE">
+                    <block type="variables_set" id="i`Uxj6YV1WtnPlzst[L+">
+                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                      <value name="VALUE">
+                        <block type="math_number" id="wO|KY#H1cr$s[+j8-S3^">
+                          <field name="NUM">-1.5</field>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="variables_set" id=".W!ta(kH5#R~ZM@AqHIW">
+                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                          <value name="VALUE">
+                            <block type="math_number" id="{:;p|z9fOpXdVU6_0Xyb">
+                              <field name="NUM">-1.5</field>
+                            </block>
+                          </value>
+                        </block>
+                      </next>
+                    </block>
+                  </statement>
                 </block>
               </next>
             </block>
-          </statement>
-          <value name="IF1">
-            <block type="ball_is_own_penalty" id="nj*)~gpXlzcO,;TD{w_c">
-              <value name="predicted_ball">
-                <block type="env_variables_1d" id="XKXF5(J-FV:}(jApNSaw">
-                  <field name="OP">PREDICTED_BALL</field>
-                </block>
-              </value>
-              <value name="field">
-                <block type="env_constant_index" id="U,RKLs-qu(JHAmF]]50W">
-                  <field name="OP">FIELD</field>
-                </block>
-              </value>
-              <value name="penalty_area">
-                <block type="env_constant_index" id="PJetd+5p^f/f1T=H|Elo">
-                  <field name="OP">PENALTY_AREA</field>
-                </block>
-              </value>
-            </block>
-          </value>
-          <statement name="DO1">
-            <block type="variables_set" id="]2![4cJk}Y;w))ENMp=D">
-              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
-              <value name="VALUE">
-                <block type="math_number" id="JIi~]`oindjM]^gs4f4;">
-                  <field name="NUM">-1.5</field>
-                </block>
-              </value>
-              <next>
-                <block type="variables_set" id="$)G]ZD2M/U+6o|pdCt9p">
-                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-                  <value name="VALUE">
-                    <block type="math_number" id="6:mKIXK,$x0_qjaK(6v+">
-                      <field name="NUM">-1.5</field>
-                    </block>
-                  </value>
-                </block>
-              </next>
-            </block>
-          </statement>
-          <value name="IF2">
-            <block type="ball_is_own_field" id="NpxI*`EC`fi2sZ1SUR(B">
-              <value name="predicted_ball">
-                <block type="env_variables_1d" id="CD{V?`sb/Y%TDbE]fv!.">
-                  <field name="OP">PREDICTED_BALL</field>
-                </block>
-              </value>
-            </block>
-          </value>
-          <statement name="DO2">
-            <block type="variables_set" id="LP04jV;L}Cd+*r3yb0c]">
-              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
-              <value name="VALUE">
-                <block type="math_number" id="x?N*,x~ob[Jb3;G#ES_=">
-                  <field name="NUM">-1.5</field>
-                </block>
-              </value>
-              <next>
-                <block type="variables_set" id="qa7O:_`9~P|JJKkWnR2+">
-                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-                  <value name="VALUE">
-                    <block type="math_number" id="LcdR8fp}K{h{/Fuy6;qR">
-                      <field name="NUM">-1.5</field>
-                    </block>
-                  </value>
-                </block>
-              </next>
-            </block>
-          </statement>
-          <value name="IF3">
-            <block type="ball_is_opp_goal" id="zE/gtw]K3k|^J8PW$Kr%">
-              <value name="predicted_ball">
-                <block type="env_variables_1d" id="tcck}-uUJpR~htnQxxZ`">
-                  <field name="OP">PREDICTED_BALL</field>
-                </block>
-              </value>
-              <value name="field">
-                <block type="env_constant_index" id="rNE-1QO`S8#1u2x41)Hc">
-                  <field name="OP">FIELD</field>
-                </block>
-              </value>
-              <value name="goal_area">
-                <block type="env_constant_index" id="y$U@Yc?44lHf!;[8Rjt]">
-                  <field name="OP">GOAL_AREA</field>
-                </block>
-              </value>
-            </block>
-          </value>
-          <statement name="DO3">
-            <block type="variables_set" id="FX$zR8V2$vylG0_YYYol">
-              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
-              <value name="VALUE">
-                <block type="math_number" id="L#{t:MpZ+oJgg`f1ItGx">
-                  <field name="NUM">-1.5</field>
-                </block>
-              </value>
-              <next>
-                <block type="variables_set" id=".U[Hgp7n]^e)`QM75,HP">
-                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-                  <value name="VALUE">
-                    <block type="math_number" id="wsm#X2j[?CKB%Eb0I2]x">
-                      <field name="NUM">-1.5</field>
-                    </block>
-                  </value>
-                </block>
-              </next>
-            </block>
-          </statement>
-          <value name="IF4">
-            <block type="ball_is_opp_penalty" id="oBNMkF+zabI3il46Khlm">
-              <value name="predicted_ball">
-                <block type="env_variables_1d" id="1!=;7FG(KRy(8Y^|Gyla">
-                  <field name="OP">PREDICTED_BALL</field>
-                </block>
-              </value>
-              <value name="field">
-                <block type="env_constant_index" id="MJhx:p;1n]_8!CGJDPia">
-                  <field name="OP">FIELD</field>
-                </block>
-              </value>
-              <value name="penalty_area">
-                <block type="env_constant_index" id="tW45*)u6E6Yk^LzJ+*{[">
-                  <field name="OP">PENALTY_AREA</field>
-                </block>
-              </value>
-            </block>
-          </value>
-          <statement name="DO4">
-            <block type="variables_set" id="7[b|9jO2aFB8S@d(SZNm">
-              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
-              <value name="VALUE">
-                <block type="math_number" id="U^y8LF5|vBJmampQF:3F">
-                  <field name="NUM">-1.5</field>
-                </block>
-              </value>
-              <next>
-                <block type="variables_set" id=":uWl*vx:=0~L@7g(-[*v">
-                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-                  <value name="VALUE">
-                    <block type="math_number" id="U~Y7;|BjZ)=+?8(*tDgb">
-                      <field name="NUM">-1.5</field>
-                    </block>
-                  </value>
-                </block>
-              </next>
-            </block>
-          </statement>
-          <statement name="ELSE">
-            <block type="variables_set" id="i`Uxj6YV1WtnPlzst[L+">
-              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
-              <value name="VALUE">
-                <block type="math_number" id="wO|KY#H1cr$s[+j8-S3^">
-                  <field name="NUM">-1.5</field>
-                </block>
-              </value>
-              <next>
-                <block type="variables_set" id=".W!ta(kH5#R~ZM@AqHIW">
-                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-                  <value name="VALUE">
-                    <block type="math_number" id="{:;p|z9fOpXdVU6_0Xyb">
-                      <field name="NUM">-1.5</field>
-                    </block>
-                  </value>
-                </block>
-              </next>
-            </block>
-          </statement>
+          </next>
         </block>
       </xml>
+
+
+
+
 
       <xml id="default_blocks_f1" style="display:none;">
         <variables>
+          <variable id="8O0T)1t}?t}NZF.)YN-;">shoot</variable>
+          <variable id="ayn/+9@6DH.G*sqh_%sr">jump</variable>
           <variable id="6lU[D8H{gc-}@zG:};jh">x</variable>
           <variable id="jf{t7R@%1Ogf$(dl:Gi|">y</variable>
         </variables>
-        <block type="controls_if" id="M+mtk=WKt@D^^aunE42_" x="20" y="20">
-          <mutation elseif="4" else="1"/></mutation>
-          <value name="IF0">
-            <block type="ball_is_own_goal" id=".,.sMFMhMk^kP+WAa4BL">
-              <value name="predicted_ball">
-                <block type="env_variables_1d" id="}^k.GUYsW[*$8W1ux)Bh">
-                  <field name="OP">PREDICTED_BALL</field>
-                </block>
-              </value>
-              <value name="field">
-                <block type="env_constant_index" id="$r6d#K}`9h`SfnhzpfFH">
-                  <field name="OP">FIELD</field>
-                </block>
-              </value>
-              <value name="goal_area">
-                <block type="env_constant_index" id="[jHK([00KKa2bFg;SMm/">
-                  <field name="OP">GOAL_AREA</field>
-                </block>
-              </value>
+        <block type="variables_set" id="Y+mojAsO{|c7T%$lxi#[" x="20" y="20">
+          <field name="VAR" id="8O0T)1t}?t}NZF.)YN-;">shoot</field>
+          <value name="VALUE">
+            <block type="logic_boolean" id="wF2pt=9+ztT/@7la;rP@">
+              <field name="BOOL">FALSE</field>
             </block>
           </value>
-          <statement name="DO0">
-            <block type="variables_set" id="!_kbSV;%F4n-60hYj852">
-              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+          <next>
+            <block type="variables_set" id="aWA4O{u-9f`V-28$bq!z">
+              <field name="VAR" id="ayn/+9@6DH.G*sqh_%sr">jump</field>
               <value name="VALUE">
-                <block type="math_number" id=":[{@ARqNen3ZCY|BveWV">
-                  <field name="NUM">-0.5</field>
+                <block type="logic_boolean" id="ZV8_/8xg6fpf(g.-2-u.">
+                  <field name="BOOL">FALSE</field>
                 </block>
               </value>
               <next>
-                <block type="variables_set" id="#*I;mI67ZiLD=OjSJ|Ey">
-                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-                  <value name="VALUE">
-                    <block type="math_number" id="T3a#;VXE(3`38$.G[FgP">
-                      <field name="NUM">1</field>
+                <block type="controls_if" id="M+mtk=WKt@D^^aunE42_">
+                  <mutation elseif="4" else="1"></mutation>
+                  <value name="IF0">
+                    <block type="ball_is_own_goal" id=".,.sMFMhMk^kP+WAa4BL">
+                      <value name="predicted_ball">
+                        <block type="env_variables_1d" id="}^k.GUYsW[*$8W1ux)Bh">
+                          <field name="OP">PREDICTED_BALL</field>
+                        </block>
+                      </value>
                     </block>
                   </value>
+                  <statement name="DO0">
+                    <block type="variables_set" id="!_kbSV;%F4n-60hYj852">
+                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                      <value name="VALUE">
+                        <block type="math_number" id=":[{@ARqNen3ZCY|BveWV">
+                          <field name="NUM">-0.5</field>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="variables_set" id="#*I;mI67ZiLD=OjSJ|Ey">
+                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                          <value name="VALUE">
+                            <block type="math_number" id="T3a#;VXE(3`38$.G[FgP">
+                              <field name="NUM">1</field>
+                            </block>
+                          </value>
+                        </block>
+                      </next>
+                    </block>
+                  </statement>
+                  <value name="IF1">
+                    <block type="ball_is_own_penalty" id="nj*)~gpXlzcO,;TD{w_c">
+                      <value name="predicted_ball">
+                        <block type="env_variables_1d" id="XKXF5(J-FV:}(jApNSaw">
+                          <field name="OP">PREDICTED_BALL</field>
+                        </block>
+                      </value>
+                    </block>
+                  </value>
+                  <statement name="DO1">
+                    <block type="variables_set" id="]2![4cJk}Y;w))ENMp=D">
+                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                      <value name="VALUE">
+                        <block type="math_number" id="JIi~]`oindjM]^gs4f4;">
+                          <field name="NUM">-0.5</field>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="variables_set" id="$)G]ZD2M/U+6o|pdCt9p">
+                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                          <value name="VALUE">
+                            <block type="math_number" id="6:mKIXK,$x0_qjaK(6v+">
+                              <field name="NUM">1</field>
+                            </block>
+                          </value>
+                        </block>
+                      </next>
+                    </block>
+                  </statement>
+                  <value name="IF2">
+                    <block type="ball_is_own_field" id="NpxI*`EC`fi2sZ1SUR(B">
+                      <value name="predicted_ball">
+                        <block type="env_variables_1d" id="CD{V?`sb/Y%TDbE]fv!.">
+                          <field name="OP">PREDICTED_BALL</field>
+                        </block>
+                      </value>
+                    </block>
+                  </value>
+                  <statement name="DO2">
+                    <block type="variables_set" id="LP04jV;L}Cd+*r3yb0c]">
+                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                      <value name="VALUE">
+                        <block type="math_number" id="x?N*,x~ob[Jb3;G#ES_=">
+                          <field name="NUM">-0.5</field>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="variables_set" id="qa7O:_`9~P|JJKkWnR2+">
+                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                          <value name="VALUE">
+                            <block type="math_number" id="LcdR8fp}K{h{/Fuy6;qR">
+                              <field name="NUM">1</field>
+                            </block>
+                          </value>
+                        </block>
+                      </next>
+                    </block>
+                  </statement>
+                  <value name="IF3">
+                    <block type="ball_is_opp_goal" id="zE/gtw]K3k|^J8PW$Kr%">
+                      <value name="predicted_ball">
+                        <block type="env_variables_1d" id="tcck}-uUJpR~htnQxxZ`">
+                          <field name="OP">PREDICTED_BALL</field>
+                        </block>
+                      </value>
+                    </block>
+                  </value>
+                  <statement name="DO3">
+                    <block type="variables_set" id="FX$zR8V2$vylG0_YYYol">
+                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                      <value name="VALUE">
+                        <block type="math_number" id="L#{t:MpZ+oJgg`f1ItGx">
+                          <field name="NUM">-0.5</field>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="variables_set" id=".U[Hgp7n]^e)`QM75,HP">
+                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                          <value name="VALUE">
+                            <block type="math_number" id="wsm#X2j[?CKB%Eb0I2]x">
+                              <field name="NUM">1</field>
+                            </block>
+                          </value>
+                        </block>
+                      </next>
+                    </block>
+                  </statement>
+                  <value name="IF4">
+                    <block type="ball_is_opp_penalty" id="oBNMkF+zabI3il46Khlm">
+                      <value name="predicted_ball">
+                        <block type="env_variables_1d" id="1!=;7FG(KRy(8Y^|Gyla">
+                          <field name="OP">PREDICTED_BALL</field>
+                        </block>
+                      </value>
+                    </block>
+                  </value>
+                  <statement name="DO4">
+                    <block type="variables_set" id="7[b|9jO2aFB8S@d(SZNm">
+                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                      <value name="VALUE">
+                        <block type="math_number" id="U^y8LF5|vBJmampQF:3F">
+                          <field name="NUM">-0.5</field>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="variables_set" id=":uWl*vx:=0~L@7g(-[*v">
+                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                          <value name="VALUE">
+                            <block type="math_number" id="U~Y7;|BjZ)=+?8(*tDgb">
+                              <field name="NUM">1</field>
+                            </block>
+                          </value>
+                        </block>
+                      </next>
+                    </block>
+                  </statement>
+                  <statement name="ELSE">
+                    <block type="variables_set" id="i`Uxj6YV1WtnPlzst[L+">
+                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                      <value name="VALUE">
+                        <block type="math_number" id="wO|KY#H1cr$s[+j8-S3^">
+                          <field name="NUM">-0.5</field>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="variables_set" id=".W!ta(kH5#R~ZM@AqHIW">
+                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                          <value name="VALUE">
+                            <block type="math_number" id="{:;p|z9fOpXdVU6_0Xyb">
+                              <field name="NUM">1</field>
+                            </block>
+                          </value>
+                        </block>
+                      </next>
+                    </block>
+                  </statement>
                 </block>
               </next>
             </block>
-          </statement>
-          <value name="IF1">
-            <block type="ball_is_own_penalty" id="nj*)~gpXlzcO,;TD{w_c">
-              <value name="predicted_ball">
-                <block type="env_variables_1d" id="XKXF5(J-FV:}(jApNSaw">
-                  <field name="OP">PREDICTED_BALL</field>
-                </block>
-              </value>
-              <value name="field">
-                <block type="env_constant_index" id="U,RKLs-qu(JHAmF]]50W">
-                  <field name="OP">FIELD</field>
-                </block>
-              </value>
-              <value name="penalty_area">
-                <block type="env_constant_index" id="PJetd+5p^f/f1T=H|Elo">
-                  <field name="OP">PENALTY_AREA</field>
-                </block>
-              </value>
-            </block>
-          </value>
-          <statement name="DO1">
-            <block type="variables_set" id="]2![4cJk}Y;w))ENMp=D">
-              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
-              <value name="VALUE">
-                <block type="math_number" id="JIi~]`oindjM]^gs4f4;">
-                  <field name="NUM">-0.5</field>
-                </block>
-              </value>
-              <next>
-                <block type="variables_set" id="$)G]ZD2M/U+6o|pdCt9p">
-                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-                  <value name="VALUE">
-                    <block type="math_number" id="6:mKIXK,$x0_qjaK(6v+">
-                      <field name="NUM">1</field>
-                    </block>
-                  </value>
-                </block>
-              </next>
-            </block>
-          </statement>
-          <value name="IF2">
-            <block type="ball_is_own_field" id="NpxI*`EC`fi2sZ1SUR(B">
-              <value name="predicted_ball">
-                <block type="env_variables_1d" id="CD{V?`sb/Y%TDbE]fv!.">
-                  <field name="OP">PREDICTED_BALL</field>
-                </block>
-              </value>
-            </block>
-          </value>
-          <statement name="DO2">
-            <block type="variables_set" id="LP04jV;L}Cd+*r3yb0c]">
-              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
-              <value name="VALUE">
-                <block type="math_number" id="x?N*,x~ob[Jb3;G#ES_=">
-                  <field name="NUM">-0.5</field>
-                </block>
-              </value>
-              <next>
-                <block type="variables_set" id="qa7O:_`9~P|JJKkWnR2+">
-                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-                  <value name="VALUE">
-                    <block type="math_number" id="LcdR8fp}K{h{/Fuy6;qR">
-                      <field name="NUM">1</field>
-                    </block>
-                  </value>
-                </block>
-              </next>
-            </block>
-          </statement>
-          <value name="IF3">
-            <block type="ball_is_opp_goal" id="zE/gtw]K3k|^J8PW$Kr%">
-              <value name="predicted_ball">
-                <block type="env_variables_1d" id="tcck}-uUJpR~htnQxxZ`">
-                  <field name="OP">PREDICTED_BALL</field>
-                </block>
-              </value>
-              <value name="field">
-                <block type="env_constant_index" id="rNE-1QO`S8#1u2x41)Hc">
-                  <field name="OP">FIELD</field>
-                </block>
-              </value>
-              <value name="goal_area">
-                <block type="env_constant_index" id="y$U@Yc?44lHf!;[8Rjt]">
-                  <field name="OP">GOAL_AREA</field>
-                </block>
-              </value>
-            </block>
-          </value>
-          <statement name="DO3">
-            <block type="variables_set" id="FX$zR8V2$vylG0_YYYol">
-              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
-              <value name="VALUE">
-                <block type="math_number" id="L#{t:MpZ+oJgg`f1ItGx">
-                  <field name="NUM">-0.5</field>
-                </block>
-              </value>
-              <next>
-                <block type="variables_set" id=".U[Hgp7n]^e)`QM75,HP">
-                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-                  <value name="VALUE">
-                    <block type="math_number" id="wsm#X2j[?CKB%Eb0I2]x">
-                      <field name="NUM">1</field>
-                    </block>
-                  </value>
-                </block>
-              </next>
-            </block>
-          </statement>
-          <value name="IF4">
-            <block type="ball_is_opp_penalty" id="oBNMkF+zabI3il46Khlm">
-              <value name="predicted_ball">
-                <block type="env_variables_1d" id="1!=;7FG(KRy(8Y^|Gyla">
-                  <field name="OP">PREDICTED_BALL</field>
-                </block>
-              </value>
-              <value name="field">
-                <block type="env_constant_index" id="MJhx:p;1n]_8!CGJDPia">
-                  <field name="OP">FIELD</field>
-                </block>
-              </value>
-              <value name="penalty_area">
-                <block type="env_constant_index" id="tW45*)u6E6Yk^LzJ+*{[">
-                  <field name="OP">PENALTY_AREA</field>
-                </block>
-              </value>
-            </block>
-          </value>
-          <statement name="DO4">
-            <block type="variables_set" id="7[b|9jO2aFB8S@d(SZNm">
-              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
-              <value name="VALUE">
-                <block type="math_number" id="U^y8LF5|vBJmampQF:3F">
-                  <field name="NUM">-0.5</field>
-                </block>
-              </value>
-              <next>
-                <block type="variables_set" id=":uWl*vx:=0~L@7g(-[*v">
-                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-                  <value name="VALUE">
-                    <block type="math_number" id="U~Y7;|BjZ)=+?8(*tDgb">
-                      <field name="NUM">1</field>
-                    </block>
-                  </value>
-                </block>
-              </next>
-            </block>
-          </statement>
-          <statement name="ELSE">
-            <block type="variables_set" id="i`Uxj6YV1WtnPlzst[L+">
-              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
-              <value name="VALUE">
-                <block type="math_number" id="wO|KY#H1cr$s[+j8-S3^">
-                  <field name="NUM">-0.5</field>
-                </block>
-              </value>
-              <next>
-                <block type="variables_set" id=".W!ta(kH5#R~ZM@AqHIW">
-                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-                  <value name="VALUE">
-                    <block type="math_number" id="{:;p|z9fOpXdVU6_0Xyb">
-                      <field name="NUM">1</field>
-                    </block>
-                  </value>
-                </block>
-              </next>
-            </block>
-          </statement>
+          </next>
         </block>
       </xml>
+
+
+
+
 
       <xml id="default_blocks_f2" style="display:none;">
         <variables>
+          <variable id=",O1nRl.1!L?1jkesfjQC">shoot</variable>
+          <variable id="V#SWV]izE~jo}{}tY5?o">jump</variable>
           <variable id="6lU[D8H{gc-}@zG:};jh">x</variable>
           <variable id="jf{t7R@%1Ogf$(dl:Gi|">y</variable>
+          <variable id=",@zbj?4f)O*Mp:t[U7Zt">quickpass</variable>
+          <variable id="zzA|jCu-u*:`;4)5GC-L">cross</variable>
         </variables>
-        <block type="controls_if" id="M+mtk=WKt@D^^aunE42_" x="20" y="20">
-          <mutation elseif="4" else="1"/></mutation>
-          <value name="IF0">
-            <block type="ball_is_own_goal" id=".,.sMFMhMk^kP+WAa4BL">
-              <value name="predicted_ball">
-                <block type="env_variables_1d" id="}^k.GUYsW[*$8W1ux)Bh">
-                  <field name="OP">PREDICTED_BALL</field>
-                </block>
-              </value>
-              <value name="field">
-                <block type="env_constant_index" id="$r6d#K}`9h`SfnhzpfFH">
-                  <field name="OP">FIELD</field>
-                </block>
-              </value>
-              <value name="goal_area">
-                <block type="env_constant_index" id="[jHK([00KKa2bFg;SMm/">
-                  <field name="OP">GOAL_AREA</field>
-                </block>
-              </value>
+        <block type="variables_set" id="9PmQ0|MjR#wnPU-l#gOr" x="20" y="20">
+          <field name="VAR" id=",O1nRl.1!L?1jkesfjQC">shoot</field>
+          <value name="VALUE">
+            <block type="logic_boolean" id="LD8FEk!TP$Ww{e77?I}V">
+              <field name="BOOL">TRUE</field>
             </block>
           </value>
-          <statement name="DO0">
-            <block type="variables_set" id="!_kbSV;%F4n-60hYj852">
-              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+          <next>
+            <block type="variables_set" id="!_g#bypDVBpwtxOh6WMD">
+              <field name="VAR" id="V#SWV]izE~jo}{}tY5?o">jump</field>
               <value name="VALUE">
-                <block type="math_number" id=":[{@ARqNen3ZCY|BveWV">
-                  <field name="NUM">-0.5</field>
+                <block type="logic_boolean" id="@^BclF0BU4RXO!S3O%`-">
+                  <field name="BOOL">FALSE</field>
                 </block>
               </value>
               <next>
-                <block type="variables_set" id="#*I;mI67ZiLD=OjSJ|Ey">
-                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-                  <value name="VALUE">
-                    <block type="math_number" id="T3a#;VXE(3`38$.G[FgP">
-                      <field name="NUM">-1</field>
-                    </block>
-                  </value>
-                </block>
-              </next>
-            </block>
-          </statement>
-          <value name="IF1">
-            <block type="ball_is_own_penalty" id="nj*)~gpXlzcO,;TD{w_c">
-              <value name="predicted_ball">
-                <block type="env_variables_1d" id="XKXF5(J-FV:}(jApNSaw">
-                  <field name="OP">PREDICTED_BALL</field>
-                </block>
-              </value>
-              <value name="field">
-                <block type="env_constant_index" id="U,RKLs-qu(JHAmF]]50W">
-                  <field name="OP">FIELD</field>
-                </block>
-              </value>
-              <value name="penalty_area">
-                <block type="env_constant_index" id="PJetd+5p^f/f1T=H|Elo">
-                  <field name="OP">PENALTY_AREA</field>
-                </block>
-              </value>
-            </block>
-          </value>
-          <statement name="DO1">
-            <block type="variables_set" id="]2![4cJk}Y;w))ENMp=D">
-              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
-              <value name="VALUE">
-                <block type="math_number" id="JIi~]`oindjM]^gs4f4;">
-                  <field name="NUM">-0.5</field>
-                </block>
-              </value>
-              <next>
-                <block type="variables_set" id="$)G]ZD2M/U+6o|pdCt9p">
-                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-                  <value name="VALUE">
-                    <block type="math_number" id="6:mKIXK,$x0_qjaK(6v+">
-                      <field name="NUM">-1</field>
-                    </block>
-                  </value>
-                </block>
-              </next>
-            </block>
-          </statement>
-          <value name="IF2">
-            <block type="ball_is_own_field" id="NpxI*`EC`fi2sZ1SUR(B">
-              <value name="predicted_ball">
-                <block type="env_variables_1d" id="CD{V?`sb/Y%TDbE]fv!.">
-                  <field name="OP">PREDICTED_BALL</field>
-                </block>
-              </value>
-            </block>
-          </value>
-          <statement name="DO2">
-            <block type="variables_set" id="LP04jV;L}Cd+*r3yb0c]">
-              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
-              <value name="VALUE">
-                <block type="env_variables_1d" id="`)=ir3Ym9^7n#g*F-aS2">
-                  <field name="OP">CUR_BALL</field>
-                  <value name="NUM">
-                    <block type="env_coordinates_index" id="~{[m%m1yZ1ZTOzTtGQ.Q">
-                      <field name="CONSTANT">X</field>
-                    </block>
-                  </value>
-                </block>
-              </value>
-              <next>
-                <block type="variables_set" id="qa7O:_`9~P|JJKkWnR2+">
-                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-                  <value name="VALUE">
-                    <block type="env_variables_1d" id="Ppo++:`8KmV6!Cg.[)bB">
-                      <field name="OP">CUR_BALL</field>
-                      <value name="NUM">
-                        <block type="env_coordinates_index" id="xhj_$V1.UjWTn1:hGX~Y">
-                          <field name="CONSTANT">Y</field>
+                <block type="controls_if" id="M+mtk=WKt@D^^aunE42_">
+                  <mutation elseif="4" else="1"></mutation>
+                  <value name="IF0">
+                    <block type="ball_is_own_goal" id=".,.sMFMhMk^kP+WAa4BL">
+                      <value name="predicted_ball">
+                        <block type="env_variables_1d" id="}^k.GUYsW[*$8W1ux)Bh">
+                          <field name="OP">PREDICTED_BALL</field>
                         </block>
                       </value>
                     </block>
                   </value>
-                </block>
-              </next>
-            </block>
-          </statement>
-          <value name="IF3">
-            <block type="ball_is_opp_goal" id="zE/gtw]K3k|^J8PW$Kr%">
-              <value name="predicted_ball">
-                <block type="env_variables_1d" id="tcck}-uUJpR~htnQxxZ`">
-                  <field name="OP">PREDICTED_BALL</field>
-                </block>
-              </value>
-              <value name="field">
-                <block type="env_constant_index" id="rNE-1QO`S8#1u2x41)Hc">
-                  <field name="OP">FIELD</field>
-                </block>
-              </value>
-              <value name="goal_area">
-                <block type="env_constant_index" id="y$U@Yc?44lHf!;[8Rjt]">
-                  <field name="OP">GOAL_AREA</field>
-                </block>
-              </value>
-            </block>
-          </value>
-          <statement name="DO3">
-            <block type="variables_set" id="FX$zR8V2$vylG0_YYYol">
-              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
-              <value name="VALUE">
-                <block type="env_variables_1d" id="owX+ztvf)p3xi`;m+c[,">
-                  <field name="OP">CUR_BALL</field>
-                  <value name="NUM">
-                    <block type="env_coordinates_index" id="VJ$}Gp-`b)5a.e=,$xj3">
-                      <field name="CONSTANT">X</field>
+                  <statement name="DO0">
+                    <block type="variables_set" id="!_kbSV;%F4n-60hYj852">
+                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                      <value name="VALUE">
+                        <block type="math_number" id=":[{@ARqNen3ZCY|BveWV">
+                          <field name="NUM">-0.5</field>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="variables_set" id="#*I;mI67ZiLD=OjSJ|Ey">
+                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                          <value name="VALUE">
+                            <block type="math_number" id="T3a#;VXE(3`38$.G[FgP">
+                              <field name="NUM">-1</field>
+                            </block>
+                          </value>
+                        </block>
+                      </next>
                     </block>
-                  </value>
-                </block>
-              </value>
-              <next>
-                <block type="variables_set" id=".U[Hgp7n]^e)`QM75,HP">
-                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-                  <value name="VALUE">
-                    <block type="env_variables_1d" id="#8FN,s4AwAHLrTCX.u$s">
-                      <field name="OP">CUR_BALL</field>
-                      <value name="NUM">
-                        <block type="env_coordinates_index" id="Sl]y#R*Nk^x-s*$D+7i)">
-                          <field name="CONSTANT">Y</field>
+                  </statement>
+                  <value name="IF1">
+                    <block type="ball_is_own_penalty" id="nj*)~gpXlzcO,;TD{w_c">
+                      <value name="predicted_ball">
+                        <block type="env_variables_1d" id="XKXF5(J-FV:}(jApNSaw">
+                          <field name="OP">PREDICTED_BALL</field>
                         </block>
                       </value>
                     </block>
                   </value>
-                </block>
-              </next>
-            </block>
-          </statement>
-          <value name="IF4">
-            <block type="ball_is_opp_penalty" id="oBNMkF+zabI3il46Khlm">
-              <value name="predicted_ball">
-                <block type="env_variables_1d" id="1!=;7FG(KRy(8Y^|Gyla">
-                  <field name="OP">PREDICTED_BALL</field>
-                </block>
-              </value>
-              <value name="field">
-                <block type="env_constant_index" id="MJhx:p;1n]_8!CGJDPia">
-                  <field name="OP">FIELD</field>
-                </block>
-              </value>
-              <value name="penalty_area">
-                <block type="env_constant_index" id="tW45*)u6E6Yk^LzJ+*{[">
-                  <field name="OP">PENALTY_AREA</field>
-                </block>
-              </value>
-            </block>
-          </value>
-          <statement name="DO4">
-            <block type="variables_set" id="7[b|9jO2aFB8S@d(SZNm">
-              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
-              <value name="VALUE">
-                <block type="env_variables_1d" id="OwPAuC97kD6ZKY|4pZK6">
-                  <field name="OP">CUR_BALL</field>
-                  <value name="NUM">
-                    <block type="env_coordinates_index" id="1G$9Ydc*i^5z(t.0kdhr">
-                      <field name="CONSTANT">X</field>
+                  <statement name="DO1">
+                    <block type="variables_set" id="]2![4cJk}Y;w))ENMp=D">
+                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                      <value name="VALUE">
+                        <block type="math_number" id="JIi~]`oindjM]^gs4f4;">
+                          <field name="NUM">-0.5</field>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="variables_set" id="$)G]ZD2M/U+6o|pdCt9p">
+                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                          <value name="VALUE">
+                            <block type="math_number" id="6:mKIXK,$x0_qjaK(6v+">
+                              <field name="NUM">-1</field>
+                            </block>
+                          </value>
+                        </block>
+                      </next>
                     </block>
-                  </value>
-                </block>
-              </value>
-              <next>
-                <block type="variables_set" id=":uWl*vx:=0~L@7g(-[*v">
-                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-                  <value name="VALUE">
-                    <block type="env_variables_1d" id="f+3%MHg7OjVi[T(m8EXp">
-                      <field name="OP">CUR_BALL</field>
-                      <value name="NUM">
-                        <block type="env_coordinates_index" id="6wcY#!JWj(tj4vncgKo%">
-                          <field name="CONSTANT">Y</field>
+                  </statement>
+                  <value name="IF2">
+                    <block type="ball_is_own_field" id="NpxI*`EC`fi2sZ1SUR(B">
+                      <value name="predicted_ball">
+                        <block type="env_variables_1d" id="CD{V?`sb/Y%TDbE]fv!.">
+                          <field name="OP">PREDICTED_BALL</field>
                         </block>
                       </value>
                     </block>
                   </value>
-                </block>
-              </next>
-            </block>
-          </statement>
-          <statement name="ELSE">
-            <block type="variables_set" id="i`Uxj6YV1WtnPlzst[L+">
-              <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
-              <value name="VALUE">
-                <block type="env_variables_1d" id="CJJ9S^Xh$]l1kA3xohf|">
-                  <field name="OP">CUR_BALL</field>
-                  <value name="NUM">
-                    <block type="env_coordinates_index" id="z([YOrsgkjIO=RS3gob#">
-                      <field name="CONSTANT">X</field>
+                  <statement name="DO2">
+                    <block type="variables_set" id="LP04jV;L}Cd+*r3yb0c]">
+                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                      <value name="VALUE">
+                        <block type="env_variables_1d" id="`)=ir3Ym9^7n#g*F-aS2">
+                          <field name="OP">CUR_BALL</field>
+                          <value name="NUM">
+                            <block type="env_coordinates_index" id="~{[m%m1yZ1ZTOzTtGQ.Q">
+                              <field name="CONSTANT">X</field>
+                            </block>
+                          </value>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="variables_set" id="qa7O:_`9~P|JJKkWnR2+">
+                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                          <value name="VALUE">
+                            <block type="env_variables_1d" id="Ppo++:`8KmV6!Cg.[)bB">
+                              <field name="OP">CUR_BALL</field>
+                              <value name="NUM">
+                                <block type="env_coordinates_index" id="xhj_$V1.UjWTn1:hGX~Y">
+                                  <field name="CONSTANT">Y</field>
+                                </block>
+                              </value>
+                            </block>
+                          </value>
+                        </block>
+                      </next>
                     </block>
-                  </value>
-                </block>
-              </value>
-              <next>
-                <block type="variables_set" id=".W!ta(kH5#R~ZM@AqHIW">
-                  <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
-                  <value name="VALUE">
-                    <block type="env_variables_1d" id="PI|05:HA~TRWQ/K=iq/;">
-                      <field name="OP">CUR_BALL</field>
-                      <value name="NUM">
-                        <block type="env_coordinates_index" id="dwnsm.N4b8K%w@/v=1Q=">
-                          <field name="CONSTANT">Y</field>
+                  </statement>
+                  <value name="IF3">
+                    <block type="ball_is_opp_goal" id="zE/gtw]K3k|^J8PW$Kr%">
+                      <value name="predicted_ball">
+                        <block type="env_variables_1d" id="tcck}-uUJpR~htnQxxZ`">
+                          <field name="OP">PREDICTED_BALL</field>
                         </block>
                       </value>
                     </block>
                   </value>
+                  <statement name="DO3">
+                    <block type="variables_set" id="FX$zR8V2$vylG0_YYYol">
+                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                      <value name="VALUE">
+                        <block type="env_variables_1d" id="owX+ztvf)p3xi`;m+c[,">
+                          <field name="OP">CUR_BALL</field>
+                          <value name="NUM">
+                            <block type="env_coordinates_index" id="VJ$}Gp-`b)5a.e=,$xj3">
+                              <field name="CONSTANT">X</field>
+                            </block>
+                          </value>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="variables_set" id=".U[Hgp7n]^e)`QM75,HP">
+                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                          <value name="VALUE">
+                            <block type="env_variables_1d" id="#8FN,s4AwAHLrTCX.u$s">
+                              <field name="OP">CUR_BALL</field>
+                              <value name="NUM">
+                                <block type="env_coordinates_index" id="Sl]y#R*Nk^x-s*$D+7i)">
+                                  <field name="CONSTANT">Y</field>
+                                </block>
+                              </value>
+                            </block>
+                          </value>
+                          <next>
+                            <block type="controls_if" id="~zGUH`JC+J#P8@kb%iu~">
+                              <value name="IF0">
+                                <block type="env_variables_2d" id=":?cpnO6x970Yrgm`|O|6">
+                                  <field name="OP">CUR_POSTURE</field>
+                                  <value name="NUM1">
+                                    <block type="env_variables" id="a@/yZOpu.KP7D2V08x!]">
+                                      <field name="CONSTANT">ROBOT_ID</field>
+                                    </block>
+                                  </value>
+                                  <value name="NUM2">
+                                    <block type="env_coordinates_index" id="Yi5-C~YaJkC/V+trE5J5">
+                                      <field name="CONSTANT">BALL_POSSESSION</field>
+                                    </block>
+                                  </value>
+                                </block>
+                              </value>
+                              <statement name="DO0">
+                                <block type="variables_set" id="qHL^r`f}O-+T`)H~9Xy[">
+                                  <field name="VAR" id=",@zbj?4f)O*Mp:t[U7Zt">quickpass</field>
+                                  <value name="VALUE">
+                                    <block type="logic_boolean" id="pxE@)gw)zT!~]#U.39A[">
+                                      <field name="BOOL">TRUE</field>
+                                    </block>
+                                  </value>
+                                </block>
+                              </statement>
+                            </block>
+                          </next>
+                        </block>
+                      </next>
+                    </block>
+                  </statement>
+                  <value name="IF4">
+                    <block type="ball_is_opp_penalty" id="oBNMkF+zabI3il46Khlm">
+                      <value name="predicted_ball">
+                        <block type="env_variables_1d" id="1!=;7FG(KRy(8Y^|Gyla">
+                          <field name="OP">PREDICTED_BALL</field>
+                        </block>
+                      </value>
+                    </block>
+                  </value>
+                  <statement name="DO4">
+                    <block type="variables_set" id="7[b|9jO2aFB8S@d(SZNm">
+                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                      <value name="VALUE">
+                        <block type="env_variables_1d" id="OwPAuC97kD6ZKY|4pZK6">
+                          <field name="OP">CUR_BALL</field>
+                          <value name="NUM">
+                            <block type="env_coordinates_index" id="1G$9Ydc*i^5z(t.0kdhr">
+                              <field name="CONSTANT">X</field>
+                            </block>
+                          </value>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="variables_set" id=":uWl*vx:=0~L@7g(-[*v">
+                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                          <value name="VALUE">
+                            <block type="env_variables_1d" id="f+3%MHg7OjVi[T(m8EXp">
+                              <field name="OP">CUR_BALL</field>
+                              <value name="NUM">
+                                <block type="env_coordinates_index" id="6wcY#!JWj(tj4vncgKo%">
+                                  <field name="CONSTANT">Y</field>
+                                </block>
+                              </value>
+                            </block>
+                          </value>
+                          <next>
+                            <block type="controls_if" id="Zkg(=O@$h~W7W{+Lpf%@">
+                              <value name="IF0">
+                                <block type="env_variables_2d" id="G5{?{-DbC0:=_4^7.*7Q">
+                                  <field name="OP">CUR_POSTURE</field>
+                                  <value name="NUM1">
+                                    <block type="env_variables" id="gQ8?i$5p]-aN(m7p,!f(">
+                                      <field name="CONSTANT">ROBOT_ID</field>
+                                    </block>
+                                  </value>
+                                  <value name="NUM2">
+                                    <block type="env_coordinates_index" id="0YA0943f$GRubet}Ou)N">
+                                      <field name="CONSTANT">BALL_POSSESSION</field>
+                                    </block>
+                                  </value>
+                                </block>
+                              </value>
+                              <statement name="DO0">
+                                <block type="variables_set" id="a^Pd]z60{NCI|hnLQcJN">
+                                  <field name="VAR" id="zzA|jCu-u*:`;4)5GC-L">cross</field>
+                                  <value name="VALUE">
+                                    <block type="logic_boolean" id="7=m:AoN.(DoSDMe^brYg">
+                                      <field name="BOOL">TRUE</field>
+                                    </block>
+                                  </value>
+                                </block>
+                              </statement>
+                            </block>
+                          </next>
+                        </block>
+                      </next>
+                    </block>
+                  </statement>
+                  <statement name="ELSE">
+                    <block type="variables_set" id="i`Uxj6YV1WtnPlzst[L+">
+                      <field name="VAR" id="6lU[D8H{gc-}@zG:};jh">x</field>
+                      <value name="VALUE">
+                        <block type="env_variables_1d" id="CJJ9S^Xh$]l1kA3xohf|">
+                          <field name="OP">CUR_BALL</field>
+                          <value name="NUM">
+                            <block type="env_coordinates_index" id="z([YOrsgkjIO=RS3gob#">
+                              <field name="CONSTANT">X</field>
+                            </block>
+                          </value>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="variables_set" id=".W!ta(kH5#R~ZM@AqHIW">
+                          <field name="VAR" id="jf{t7R@%1Ogf$(dl:Gi|">y</field>
+                          <value name="VALUE">
+                            <block type="env_variables_1d" id="PI|05:HA~TRWQ/K=iq/;">
+                              <field name="OP">CUR_BALL</field>
+                              <value name="NUM">
+                                <block type="env_coordinates_index" id="dwnsm.N4b8K%w@/v=1Q=">
+                                  <field name="CONSTANT">Y</field>
+                                </block>
+                              </value>
+                            </block>
+                          </value>
+                          <next>
+                            <block type="controls_if" id="r6pOi]kk-vqR;En4hoej">
+                              <value name="IF0">
+                                <block type="env_variables_2d" id=";Ug?GWNA8o]egn8,y1.G">
+                                  <field name="OP">CUR_POSTURE</field>
+                                  <value name="NUM1">
+                                    <block type="env_variables" id="WQ*TFEwctM(vvO/Y3,gu">
+                                      <field name="CONSTANT">ROBOT_ID</field>
+                                    </block>
+                                  </value>
+                                  <value name="NUM2">
+                                    <block type="env_coordinates_index" id="Y*Gbbil)SnBiA$y.v`ya">
+                                      <field name="CONSTANT">BALL_POSSESSION</field>
+                                    </block>
+                                  </value>
+                                </block>
+                              </value>
+                              <statement name="DO0">
+                                <block type="variables_set" id="NIg8w2fx@U]?Im_fz$ar">
+                                  <field name="VAR" id=",O1nRl.1!L?1jkesfjQC">shoot</field>
+                                  <value name="VALUE">
+                                    <block type="logic_boolean" id="tAafH)h-3N!#3JQ1/,tT">
+                                      <field name="BOOL">TRUE</field>
+                                    </block>
+                                  </value>
+                                </block>
+                              </statement>
+                            </block>
+                          </next>
+                        </block>
+                      </next>
+                    </block>
+                  </statement>
                 </block>
               </next>
             </block>
-          </statement>
+          </next>
         </block>
       </xml>
-		</div>
+    </div>
 
-		<div id="blocklyText" style="width: 33%; overflow:auto; border: 1px solid #DDDDDD; border-left-width:0px; padding: 10px;">
+    <div id="blocklyText" style="width: 33%; overflow:auto; border: 1px solid #DDDDDD; border-left-width:0px; padding: 10px;">
 			<h1>
 				<span>Generated Python Code</span>
 			</h1>
 			<pre translate="no" dir="ltr"></pre>
-		</div>
-
+    </div>
+    
 		<script type="text/javascript">
 			var workspacePlayground = Blockly.inject('blocklyDiv', {
         media: 'media/',
@@ -1334,13 +1352,14 @@
       var blocks_f1 = Blockly.Xml.domToPrettyText(document.getElementById('default_blocks_f1'));
       var blocks_f2 = Blockly.Xml.domToPrettyText(document.getElementById('default_blocks_f2'));
 
-      // Need to modify when I try to modify the variables above
-	    var code_gk = DEFAULT_GK;
+      // need to modify when I try to modify the variables above
+	    var code_gk = Blockly.Xml.domTo;
       var code_d1 = DEFAULT_D1;
       var code_d2 = DEFAULT_D2;
       var code_f1 = DEFAULT_F1;
       var code_f2 = DEFAULT_F2;
 
+      // initialize with goalkeeper blocks
       var tablinks = document.getElementsByClassName("tablinks");
       tablinks[0].className += " active";
       var currentRobot = 'GK';
@@ -1368,6 +1387,9 @@
         var helper_script = HELPER;
         var main_script = MAIN;
 
+        var xml_txt = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspacePlayground));
+        console.log(xml_txt);
+
         var link = document.createElement("a");
         var players_blob = new Blob([players_script], {type: 'text/plain'});
         var helper_blob = new Blob([helper_script], {type: 'text/plain'});
@@ -1382,9 +1404,6 @@
             // see FileSaver.js
             saveAs(content, "mystrategy.zip");
         });
-
-        var xml_txt = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspacePlayground));
-        console.log(xml_txt);
       }
 
       function showCode() {
@@ -1446,7 +1465,6 @@
           default:
             console.log("Wrong approach!");
         }
-
         // replace current robot with new robot
         workspacePlayground.clear();
         var tablinks = document.getElementsByClassName("tablinks");
@@ -1479,8 +1497,11 @@
             console.log("Wrong approach!");
         }
       }
-  </script>
+    </script>
 	</div>
   <button id="saveButton" onclick="saveCode();">Generate Code</button>
+  <div style="text-align: center; color: #555555; margin-top: 50px; margin-bottom: 10px">
+    This system is now under development. Please report bugs and request features in: <a href="https://github.com/aisoccer/aisoccer.github.io/issues">here</a> (Recommended browser: Google Chrome)
+  </div>
 </body>
 </html>

@@ -52,39 +52,30 @@ Blockly.Python['distance'] = function(block) {
   };
   
   Blockly.Python['predict_ball'] = function(block) {
-    var value_cur_ball = Blockly.Python.valueToCode(block, 'cur_ball', Blockly.Python.ORDER_ATOMIC);
-    var value_previous_ball = Blockly.Python.valueToCode(block, 'previous_ball', Blockly.Python.ORDER_ATOMIC);
-    var code = 'helper.predict_ball(' + value_cur_ball + ", " + value_previous_ball + ")";
+    var code = 'helper.predict_ball(cur_ball, previous_ball)';
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.Python.ORDER_NONE];
   };
   
   Blockly.Python['find_closest_robot'] = function(block) {
-    var value_cur_ball = Blockly.Python.valueToCode(block, 'cur_ball', Blockly.Python.ORDER_ATOMIC);
-    var value_cur_posture = Blockly.Python.valueToCode(block, 'cur_posture', Blockly.Python.ORDER_ATOMIC);
-    var value_number_of_robots = Blockly.Python.valueToCode(block, 'number_of_robots', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    var code = 'helper.find_closest_robot(' + value_cur_ball + ", " + value_cur_posture + ", " + value_number_of_robots + ")";
+    var code = 'helper.find_closest_robot(cur_ball, cur_posture, 5)';
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.Python.ORDER_NONE];
   };
   
   Blockly.Python['ball_is_own_goal'] = function(block) {
     var value_predicted_ball = Blockly.Python.valueToCode(block, 'predicted_ball', Blockly.Python.ORDER_ATOMIC);
-    var value_field = Blockly.Python.valueToCode(block, 'field', Blockly.Python.ORDER_ATOMIC);
-    var value_goal_area = Blockly.Python.valueToCode(block, 'goal_area', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    var code = "helper.ball_is_own_goal(" + value_predicted_ball + ", " + value_field + ", " + value_goal_area + ")";
+    var code = "helper.ball_is_own_goal(" + value_predicted_ball + ", self.field, self.goal_area)";
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.Python.ORDER_NONE];
   };
   
   Blockly.Python['ball_is_own_penalty'] = function(block) {
     var value_predicted_ball = Blockly.Python.valueToCode(block, 'predicted_ball', Blockly.Python.ORDER_ATOMIC);
-    var value_field = Blockly.Python.valueToCode(block, 'field', Blockly.Python.ORDER_ATOMIC);
-    var value_penalty_area = Blockly.Python.valueToCode(block, 'penalty_area', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    var code = 'helper.ball_is_own_penalty(' + value_predicted_ball + ", " + value_field + ", " + value_penalty_area + ")";
+    var code = 'helper.ball_is_own_penalty(' + value_predicted_ball + ", self.field, self.penalty_area)";
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.Python.ORDER_NONE];
   };
@@ -99,20 +90,16 @@ Blockly.Python['distance'] = function(block) {
   
   Blockly.Python['ball_is_opp_goal'] = function(block) {
     var value_predicted_ball = Blockly.Python.valueToCode(block, 'predicted_ball', Blockly.Python.ORDER_ATOMIC);
-    var value_field = Blockly.Python.valueToCode(block, 'field', Blockly.Python.ORDER_ATOMIC);
-    var value_goal_area = Blockly.Python.valueToCode(block, 'goal_area', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    var code = 'helper.ball_is_opp_goal(' + value_predicted_ball + ", " + value_field + ", " + value_goal_area + ")";
+    var code = 'helper.ball_is_opp_goal(' + value_predicted_ball + ", self.field, self.goal_area)";
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.Python.ORDER_NONE];
   };
   
   Blockly.Python['ball_is_opp_penalty'] = function(block) {
     var value_predicted_ball = Blockly.Python.valueToCode(block, 'predicted_ball', Blockly.Python.ORDER_ATOMIC);
-    var value_field = Blockly.Python.valueToCode(block, 'field', Blockly.Python.ORDER_ATOMIC);
-    var value_penalty_area = Blockly.Python.valueToCode(block, 'penalty_area', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    var code = 'helper.ball_is_opp_penalty(' + value_predicted_ball + ", " + value_field + ", " + value_penalty_area + ")";
+    var code = 'helper.ball_is_opp_penalty(' + value_predicted_ball + ", self.field, self.penalty_area)";
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.Python.ORDER_NONE];
   };
@@ -126,33 +113,28 @@ Blockly.Python['distance'] = function(block) {
   };
   
   Blockly.Python['get_defense_kick_angle'] = function(block) {
-    var value_predicted_ball = Blockly.Python.valueToCode(block, 'predicted_ball', Blockly.Python.ORDER_ATOMIC);
-    var value_field = Blockly.Python.valueToCode(block, 'field', Blockly.Python.ORDER_ATOMIC);
-    var value_cur_ball = Blockly.Python.valueToCode(block, 'cur_ball', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    var code = 'helper.get_defense_kick_angle(' + value_predicted_ball + ", " + value_field + ", " + value_cur_ball + ")";
+    var code = "helper.get_defense_kick_angle(predicted_ball, field, cur_ball)";
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.Python.ORDER_NONE];
   };
   
   Blockly.Python['get_attack_kick_angle'] = function(block) {
-    var value_predicted_ball = Blockly.Python.valueToCode(block, 'predicted_ball', Blockly.Python.ORDER_ATOMIC);
-    var value_field = Blockly.Python.valueToCode(block, 'field', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    var code = 'helper.get_attack_kick_angle(' + value_predicted_ball + ", " + value_field + ")";
+    var code = 'helper.get_attack_kick_angle(predicted_ball, field)';
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.Python.ORDER_NONE];
   };
   
-  Blockly.Python['set_wheel_velocity'] = function(block) {
-    var value_predicted_ball = Blockly.Python.valueToCode(block, 'predicted_ball', Blockly.Python.ORDER_ATOMIC);
-    var value_field = Blockly.Python.valueToCode(block, 'field', Blockly.Python.ORDER_ATOMIC);
-    var value_cur_ball = Blockly.Python.valueToCode(block, 'cur_ball', Blockly.Python.ORDER_ATOMIC);
-    // TODO: Assemble Python into code variable.
-    var code = 'helper.set_wheel_velocity(' + value_predicted_ball + ", " + value_field + ", " + value_cur_ball + ")";
-    // TODO: Change ORDER_NONE to the correct strength.
-    return [code, Blockly.Python.ORDER_NONE];
-  };
+  // Blockly.Python['set_wheel_velocity'] = function(block) {
+  //   var value_predicted_ball = Blockly.Python.valueToCode(block, 'predicted_ball', Blockly.Python.ORDER_ATOMIC);
+  //   var value_field = Blockly.Python.valueToCode(block, 'field', Blockly.Python.ORDER_ATOMIC);
+  //   var value_cur_ball = Blockly.Python.valueToCode(block, 'cur_ball', Blockly.Python.ORDER_ATOMIC);
+  //   // TODO: Assemble Python into code variable.
+  //   var code = 'helper.set_wheel_velocity(' + value_predicted_ball + ", " + value_field + ", " + value_cur_ball + ")";
+  //   // TODO: Change ORDER_NONE to the correct strength.
+  //   return [code, Blockly.Python.ORDER_NONE];
+  // };
 
   Blockly.Python['printconsole'] = function(block) {
     var value_message = Blockly.Python.valueToCode(block, 'message', Blockly.Python.ORDER_ATOMIC);

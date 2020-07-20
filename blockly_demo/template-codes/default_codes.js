@@ -78,6 +78,7 @@ var DEFAULT_F1 =
 + 'elif helper.ball_is_opp_penalty(predicted_ball, self.field, self.penalty_area):\n'
 + '    x = -0.5\n'
 + '    y = 1\n'
++ '    self.flag = 5\n'
 + 'else:\n'
 + '    x = -0.5\n'
 + '    y = 1\n';
@@ -95,9 +96,15 @@ var DEFAULT_F2 =
 + 'elif helper.ball_is_opp_goal(predicted_ball, self.field, self.goal_area):\n'
 + '    x = cur_ball[X]\n'
 + '    y = cur_ball[Y]\n'
++ '    if cur_posture[id][BALL_POSSESSION]:\n'
++ '        quickpass = True\n'
 + 'elif helper.ball_is_opp_penalty(predicted_ball, self.field, self.penalty_area):\n'
 + '    x = cur_ball[X]\n'
 + '    y = cur_ball[Y]\n'
++ '    if cur_posture[id][BALL_POSSESSION]:\n'
++ '        cross = True\n'
 + 'else:\n'
 + '    x = cur_ball[X]\n'
-+ '    y = cur_ball[Y]\n';
++ '    y = cur_ball[Y]\n'
++ '    if cur_posture[id][BALL_POSSESSION]:\n'
++ '        shoot = True\n';

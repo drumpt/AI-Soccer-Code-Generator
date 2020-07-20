@@ -58,14 +58,16 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
           ["BALL", "BALL"],
           ["X", "X"],
           ["Y", "Y"],
+          ["Z", "Z"],
           ["TH", "TH"],
           ["ACTIVE", "ACTIVE"],
-          ["TOUCH", "TOUCH"]
+          ["TOUCH", "TOUCH"],
+          ["BALL_POSSESSION", "BALL_POSSESSION"]
         ]
       }
     ],
     "output": "Number",
-    "colour": "#DEB887",
+    "style": "environment_indices_blocks",
     "tooltip": "",
     "helpUrl": ""
   },  
@@ -93,7 +95,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       }
     ],
     "output": "Number",
-    "colour": "#DEB887",
+    "style": "environment_indices_blocks",
     "tooltip": "",
     "helpUrl": ""
   },
@@ -133,7 +135,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       }
     ],
     "output": "Number",
-    "colour": "#DEB887",
+    "style": "environment_indices_blocks",
     "tooltip": "",
     "helpUrl": ""
   }
