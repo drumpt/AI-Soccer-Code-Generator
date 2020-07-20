@@ -35,7 +35,7 @@
     <div id="blocklyDiv" style="width: 67%; border: 0px solid #DDDDDD;" onchange="showCode();">
       <xml id="default_blocks_gk" style="display:none;">
         <variables>
-          <variable id="QrgtT$V;:y/KA_jF|Rww">kick</variable>
+          <variable id="QrgtT$V;:y/KA_jF|Rww">shoot</variable>
           <variable id="C48^.$)W)G9JU$m#4e(.">jump</variable>
           <variable id="}vOM7?PdUO}P9B/#DRtc">protection_radius</variable>
           <variable id="h?}mXo/wtYe8dBZBQB[9">angle</variable>
@@ -45,7 +45,7 @@
           <variable id="jf{t7R@%1Ogf$(dl:Gi|">y</variable>
         </variables>
         <block type="variables_set" id="oCqeuU00;M%nn6vG`Ulb" x="20" y="20">
-          <field name="VAR" id="QrgtT$V;:y/KA_jF|Rww">kick</field>
+          <field name="VAR" id="QrgtT$V;:y/KA_jF|Rww">shoot</field>
           <value name="VALUE">
             <block type="logic_boolean" id="IpA.FLNvs[rK+E/Gx-mY">
               <field name="BOOL">FALSE</field>
@@ -214,16 +214,6 @@
                                           <field name="OP">PREDICTED_BALL</field>
                                         </block>
                                       </value>
-                                      <value name="field">
-                                        <block type="env_constant_index" id="$r6d#K}`9h`SfnhzpfFH">
-                                          <field name="OP">FIELD</field>
-                                        </block>
-                                      </value>
-                                      <value name="goal_area">
-                                        <block type="env_constant_index" id="[jHK([00KKa2bFg;SMm/">
-                                          <field name="OP">GOAL_AREA</field>
-                                        </block>
-                                      </value>
                                     </block>
                                   </value>
                                   <statement name="DO0">
@@ -251,16 +241,6 @@
                                       <value name="predicted_ball">
                                         <block type="env_variables_1d" id="XKXF5(J-FV:}(jApNSaw">
                                           <field name="OP">PREDICTED_BALL</field>
-                                        </block>
-                                      </value>
-                                      <value name="field">
-                                        <block type="env_constant_index" id="U,RKLs-qu(JHAmF]]50W">
-                                          <field name="OP">FIELD</field>
-                                        </block>
-                                      </value>
-                                      <value name="penalty_area">
-                                        <block type="env_constant_index" id="PJetd+5p^f/f1T=H|Elo">
-                                          <field name="OP">PENALTY_AREA</field>
                                         </block>
                                       </value>
                                     </block>
@@ -321,16 +301,6 @@
                                           <field name="OP">PREDICTED_BALL</field>
                                         </block>
                                       </value>
-                                      <value name="field">
-                                        <block type="env_constant_index" id="rNE-1QO`S8#1u2x41)Hc">
-                                          <field name="OP">FIELD</field>
-                                        </block>
-                                      </value>
-                                      <value name="goal_area">
-                                        <block type="env_constant_index" id="y$U@Yc?44lHf!;[8Rjt]">
-                                          <field name="OP">GOAL_AREA</field>
-                                        </block>
-                                      </value>
                                     </block>
                                   </value>
                                   <statement name="DO3">
@@ -358,16 +328,6 @@
                                       <value name="predicted_ball">
                                         <block type="env_variables_1d" id="1!=;7FG(KRy(8Y^|Gyla">
                                           <field name="OP">PREDICTED_BALL</field>
-                                        </block>
-                                      </value>
-                                      <value name="field">
-                                        <block type="env_constant_index" id="MJhx:p;1n]_8!CGJDPia">
-                                          <field name="OP">FIELD</field>
-                                        </block>
-                                      </value>
-                                      <value name="penalty_area">
-                                        <block type="env_constant_index" id="tW45*)u6E6Yk^LzJ+*{[">
-                                          <field name="OP">PENALTY_AREA</field>
                                         </block>
                                       </value>
                                     </block>
@@ -430,16 +390,15 @@
 
 
 
-
       <xml id="default_blocks_d1" style="display:none;">
         <variables>
-          <variable id="7Fe[I$U[VlE@:R1X-US(">kick</variable>
+          <variable id="7Fe[I$U[VlE@:R1X-US(">shoot</variable>
           <variable id="eCCictY^]|z=ruRZAoJ;">jump</variable>
           <variable id="6lU[D8H{gc-}@zG:};jh">x</variable>
           <variable id="jf{t7R@%1Ogf$(dl:Gi|">y</variable>
         </variables>
         <block type="variables_set" id="8In];]logRF_^7a%Z;YZ" x="20" y="20">
-          <field name="VAR" id="7Fe[I$U[VlE@:R1X-US(">kick</field>
+          <field name="VAR" id="7Fe[I$U[VlE@:R1X-US(">shoot</field>
           <value name="VALUE">
             <block type="logic_boolean" id="_M(5$6WP]Uv],bq{czFF">
               <field name="BOOL">FALSE</field>
@@ -461,16 +420,6 @@
                       <value name="predicted_ball">
                         <block type="env_variables_1d" id="}^k.GUYsW[*$8W1ux)Bh">
                           <field name="OP">PREDICTED_BALL</field>
-                        </block>
-                      </value>
-                      <value name="field">
-                        <block type="env_constant_index" id="$r6d#K}`9h`SfnhzpfFH">
-                          <field name="OP">FIELD</field>
-                        </block>
-                      </value>
-                      <value name="goal_area">
-                        <block type="env_constant_index" id="[jHK([00KKa2bFg;SMm/">
-                          <field name="OP">GOAL_AREA</field>
                         </block>
                       </value>
                     </block>
@@ -500,16 +449,6 @@
                       <value name="predicted_ball">
                         <block type="env_variables_1d" id="XKXF5(J-FV:}(jApNSaw">
                           <field name="OP">PREDICTED_BALL</field>
-                        </block>
-                      </value>
-                      <value name="field">
-                        <block type="env_constant_index" id="U,RKLs-qu(JHAmF]]50W">
-                          <field name="OP">FIELD</field>
-                        </block>
-                      </value>
-                      <value name="penalty_area">
-                        <block type="env_constant_index" id="PJetd+5p^f/f1T=H|Elo">
-                          <field name="OP">PENALTY_AREA</field>
                         </block>
                       </value>
                     </block>
@@ -570,16 +509,6 @@
                           <field name="OP">PREDICTED_BALL</field>
                         </block>
                       </value>
-                      <value name="field">
-                        <block type="env_constant_index" id="rNE-1QO`S8#1u2x41)Hc">
-                          <field name="OP">FIELD</field>
-                        </block>
-                      </value>
-                      <value name="goal_area">
-                        <block type="env_constant_index" id="y$U@Yc?44lHf!;[8Rjt]">
-                          <field name="OP">GOAL_AREA</field>
-                        </block>
-                      </value>
                     </block>
                   </value>
                   <statement name="DO3">
@@ -607,16 +536,6 @@
                       <value name="predicted_ball">
                         <block type="env_variables_1d" id="1!=;7FG(KRy(8Y^|Gyla">
                           <field name="OP">PREDICTED_BALL</field>
-                        </block>
-                      </value>
-                      <value name="field">
-                        <block type="env_constant_index" id="MJhx:p;1n]_8!CGJDPia">
-                          <field name="OP">FIELD</field>
-                        </block>
-                      </value>
-                      <value name="penalty_area">
-                        <block type="env_constant_index" id="tW45*)u6E6Yk^LzJ+*{[">
-                          <field name="OP">PENALTY_AREA</field>
                         </block>
                       </value>
                     </block>
@@ -667,18 +586,20 @@
           </next>
         </block>
       </xml>
+
+
 
 
 
       <xml id="default_blocks_d2" style="display:none;">
         <variables>
-          <variable id="7Fe[I$U[VlE@:R1X-US(">kick</variable>
+          <variable id="7Fe[I$U[VlE@:R1X-US(">shoot</variable>
           <variable id="eCCictY^]|z=ruRZAoJ;">jump</variable>
           <variable id="6lU[D8H{gc-}@zG:};jh">x</variable>
           <variable id="jf{t7R@%1Ogf$(dl:Gi|">y</variable>
         </variables>
         <block type="variables_set" id="8In];]logRF_^7a%Z;YZ" x="20" y="20">
-          <field name="VAR" id="7Fe[I$U[VlE@:R1X-US(">kick</field>
+          <field name="VAR" id="7Fe[I$U[VlE@:R1X-US(">shoot</field>
           <value name="VALUE">
             <block type="logic_boolean" id="_M(5$6WP]Uv],bq{czFF">
               <field name="BOOL">FALSE</field>
@@ -700,16 +621,6 @@
                       <value name="predicted_ball">
                         <block type="env_variables_1d" id="}^k.GUYsW[*$8W1ux)Bh">
                           <field name="OP">PREDICTED_BALL</field>
-                        </block>
-                      </value>
-                      <value name="field">
-                        <block type="env_constant_index" id="$r6d#K}`9h`SfnhzpfFH">
-                          <field name="OP">FIELD</field>
-                        </block>
-                      </value>
-                      <value name="goal_area">
-                        <block type="env_constant_index" id="[jHK([00KKa2bFg;SMm/">
-                          <field name="OP">GOAL_AREA</field>
                         </block>
                       </value>
                     </block>
@@ -739,16 +650,6 @@
                       <value name="predicted_ball">
                         <block type="env_variables_1d" id="XKXF5(J-FV:}(jApNSaw">
                           <field name="OP">PREDICTED_BALL</field>
-                        </block>
-                      </value>
-                      <value name="field">
-                        <block type="env_constant_index" id="U,RKLs-qu(JHAmF]]50W">
-                          <field name="OP">FIELD</field>
-                        </block>
-                      </value>
-                      <value name="penalty_area">
-                        <block type="env_constant_index" id="PJetd+5p^f/f1T=H|Elo">
-                          <field name="OP">PENALTY_AREA</field>
                         </block>
                       </value>
                     </block>
@@ -809,16 +710,6 @@
                           <field name="OP">PREDICTED_BALL</field>
                         </block>
                       </value>
-                      <value name="field">
-                        <block type="env_constant_index" id="rNE-1QO`S8#1u2x41)Hc">
-                          <field name="OP">FIELD</field>
-                        </block>
-                      </value>
-                      <value name="goal_area">
-                        <block type="env_constant_index" id="y$U@Yc?44lHf!;[8Rjt]">
-                          <field name="OP">GOAL_AREA</field>
-                        </block>
-                      </value>
                     </block>
                   </value>
                   <statement name="DO3">
@@ -846,16 +737,6 @@
                       <value name="predicted_ball">
                         <block type="env_variables_1d" id="1!=;7FG(KRy(8Y^|Gyla">
                           <field name="OP">PREDICTED_BALL</field>
-                        </block>
-                      </value>
-                      <value name="field">
-                        <block type="env_constant_index" id="MJhx:p;1n]_8!CGJDPia">
-                          <field name="OP">FIELD</field>
-                        </block>
-                      </value>
-                      <value name="penalty_area">
-                        <block type="env_constant_index" id="tW45*)u6E6Yk^LzJ+*{[">
-                          <field name="OP">PENALTY_AREA</field>
                         </block>
                       </value>
                     </block>
@@ -910,16 +791,16 @@
 
 
 
-      
+
       <xml id="default_blocks_f1" style="display:none;">
         <variables>
-          <variable id="8O0T)1t}?t}NZF.)YN-;">kick</variable>
+          <variable id="8O0T)1t}?t}NZF.)YN-;">shoot</variable>
           <variable id="ayn/+9@6DH.G*sqh_%sr">jump</variable>
           <variable id="6lU[D8H{gc-}@zG:};jh">x</variable>
           <variable id="jf{t7R@%1Ogf$(dl:Gi|">y</variable>
         </variables>
         <block type="variables_set" id="Y+mojAsO{|c7T%$lxi#[" x="20" y="20">
-          <field name="VAR" id="8O0T)1t}?t}NZF.)YN-;">kick</field>
+          <field name="VAR" id="8O0T)1t}?t}NZF.)YN-;">shoot</field>
           <value name="VALUE">
             <block type="logic_boolean" id="wF2pt=9+ztT/@7la;rP@">
               <field name="BOOL">FALSE</field>
@@ -943,16 +824,6 @@
                           <field name="OP">PREDICTED_BALL</field>
                         </block>
                       </value>
-                      <value name="field">
-                        <block type="env_constant_index" id="$r6d#K}`9h`SfnhzpfFH">
-                          <field name="OP">FIELD</field>
-                        </block>
-                      </value>
-                      <value name="goal_area">
-                        <block type="env_constant_index" id="[jHK([00KKa2bFg;SMm/">
-                          <field name="OP">GOAL_AREA</field>
-                        </block>
-                      </value>
                     </block>
                   </value>
                   <statement name="DO0">
@@ -980,16 +851,6 @@
                       <value name="predicted_ball">
                         <block type="env_variables_1d" id="XKXF5(J-FV:}(jApNSaw">
                           <field name="OP">PREDICTED_BALL</field>
-                        </block>
-                      </value>
-                      <value name="field">
-                        <block type="env_constant_index" id="U,RKLs-qu(JHAmF]]50W">
-                          <field name="OP">FIELD</field>
-                        </block>
-                      </value>
-                      <value name="penalty_area">
-                        <block type="env_constant_index" id="PJetd+5p^f/f1T=H|Elo">
-                          <field name="OP">PENALTY_AREA</field>
                         </block>
                       </value>
                     </block>
@@ -1050,16 +911,6 @@
                           <field name="OP">PREDICTED_BALL</field>
                         </block>
                       </value>
-                      <value name="field">
-                        <block type="env_constant_index" id="rNE-1QO`S8#1u2x41)Hc">
-                          <field name="OP">FIELD</field>
-                        </block>
-                      </value>
-                      <value name="goal_area">
-                        <block type="env_constant_index" id="y$U@Yc?44lHf!;[8Rjt]">
-                          <field name="OP">GOAL_AREA</field>
-                        </block>
-                      </value>
                     </block>
                   </value>
                   <statement name="DO3">
@@ -1087,16 +938,6 @@
                       <value name="predicted_ball">
                         <block type="env_variables_1d" id="1!=;7FG(KRy(8Y^|Gyla">
                           <field name="OP">PREDICTED_BALL</field>
-                        </block>
-                      </value>
-                      <value name="field">
-                        <block type="env_constant_index" id="MJhx:p;1n]_8!CGJDPia">
-                          <field name="OP">FIELD</field>
-                        </block>
-                      </value>
-                      <value name="penalty_area">
-                        <block type="env_constant_index" id="tW45*)u6E6Yk^LzJ+*{[">
-                          <field name="OP">PENALTY_AREA</field>
                         </block>
                       </value>
                     </block>
@@ -1154,13 +995,15 @@
 
       <xml id="default_blocks_f2" style="display:none;">
         <variables>
-          <variable id=",O1nRl.1!L?1jkesfjQC">kick</variable>
+          <variable id=",O1nRl.1!L?1jkesfjQC">shoot</variable>
           <variable id="V#SWV]izE~jo}{}tY5?o">jump</variable>
           <variable id="6lU[D8H{gc-}@zG:};jh">x</variable>
           <variable id="jf{t7R@%1Ogf$(dl:Gi|">y</variable>
+          <variable id=",@zbj?4f)O*Mp:t[U7Zt">quickpass</variable>
+          <variable id="zzA|jCu-u*:`;4)5GC-L">cross</variable>
         </variables>
         <block type="variables_set" id="9PmQ0|MjR#wnPU-l#gOr" x="20" y="20">
-          <field name="VAR" id=",O1nRl.1!L?1jkesfjQC">kick</field>
+          <field name="VAR" id=",O1nRl.1!L?1jkesfjQC">shoot</field>
           <value name="VALUE">
             <block type="logic_boolean" id="LD8FEk!TP$Ww{e77?I}V">
               <field name="BOOL">TRUE</field>
@@ -1182,16 +1025,6 @@
                       <value name="predicted_ball">
                         <block type="env_variables_1d" id="}^k.GUYsW[*$8W1ux)Bh">
                           <field name="OP">PREDICTED_BALL</field>
-                        </block>
-                      </value>
-                      <value name="field">
-                        <block type="env_constant_index" id="$r6d#K}`9h`SfnhzpfFH">
-                          <field name="OP">FIELD</field>
-                        </block>
-                      </value>
-                      <value name="goal_area">
-                        <block type="env_constant_index" id="[jHK([00KKa2bFg;SMm/">
-                          <field name="OP">GOAL_AREA</field>
                         </block>
                       </value>
                     </block>
@@ -1221,16 +1054,6 @@
                       <value name="predicted_ball">
                         <block type="env_variables_1d" id="XKXF5(J-FV:}(jApNSaw">
                           <field name="OP">PREDICTED_BALL</field>
-                        </block>
-                      </value>
-                      <value name="field">
-                        <block type="env_constant_index" id="U,RKLs-qu(JHAmF]]50W">
-                          <field name="OP">FIELD</field>
-                        </block>
-                      </value>
-                      <value name="penalty_area">
-                        <block type="env_constant_index" id="PJetd+5p^f/f1T=H|Elo">
-                          <field name="OP">PENALTY_AREA</field>
                         </block>
                       </value>
                     </block>
@@ -1301,16 +1124,6 @@
                           <field name="OP">PREDICTED_BALL</field>
                         </block>
                       </value>
-                      <value name="field">
-                        <block type="env_constant_index" id="rNE-1QO`S8#1u2x41)Hc">
-                          <field name="OP">FIELD</field>
-                        </block>
-                      </value>
-                      <value name="goal_area">
-                        <block type="env_constant_index" id="y$U@Yc?44lHf!;[8Rjt]">
-                          <field name="OP">GOAL_AREA</field>
-                        </block>
-                      </value>
                     </block>
                   </value>
                   <statement name="DO3">
@@ -1357,8 +1170,8 @@
                                 </block>
                               </value>
                               <statement name="DO0">
-                                <block type="variables_set" id="@|rk5LoFOoLH3V-1x-,N">
-                                  <field name="VAR" id=",O1nRl.1!L?1jkesfjQC">kick</field>
+                                <block type="variables_set" id="qHL^r`f}O-+T`)H~9Xy[">
+                                  <field name="VAR" id=",@zbj?4f)O*Mp:t[U7Zt">quickpass</field>
                                   <value name="VALUE">
                                     <block type="logic_boolean" id="pxE@)gw)zT!~]#U.39A[">
                                       <field name="BOOL">TRUE</field>
@@ -1377,16 +1190,6 @@
                       <value name="predicted_ball">
                         <block type="env_variables_1d" id="1!=;7FG(KRy(8Y^|Gyla">
                           <field name="OP">PREDICTED_BALL</field>
-                        </block>
-                      </value>
-                      <value name="field">
-                        <block type="env_constant_index" id="MJhx:p;1n]_8!CGJDPia">
-                          <field name="OP">FIELD</field>
-                        </block>
-                      </value>
-                      <value name="penalty_area">
-                        <block type="env_constant_index" id="tW45*)u6E6Yk^LzJ+*{[">
-                          <field name="OP">PENALTY_AREA</field>
                         </block>
                       </value>
                     </block>
@@ -1436,7 +1239,7 @@
                               </value>
                               <statement name="DO0">
                                 <block type="variables_set" id="a^Pd]z60{NCI|hnLQcJN">
-                                  <field name="VAR" id=",O1nRl.1!L?1jkesfjQC">kick</field>
+                                  <field name="VAR" id="zzA|jCu-u*:`;4)5GC-L">cross</field>
                                   <value name="VALUE">
                                     <block type="logic_boolean" id="7=m:AoN.(DoSDMe^brYg">
                                       <field name="BOOL">TRUE</field>
@@ -1495,7 +1298,7 @@
                               </value>
                               <statement name="DO0">
                                 <block type="variables_set" id="NIg8w2fx@U]?Im_fz$ar">
-                                  <field name="VAR" id=",O1nRl.1!L?1jkesfjQC">kick</field>
+                                  <field name="VAR" id=",O1nRl.1!L?1jkesfjQC">shoot</field>
                                   <value name="VALUE">
                                     <block type="logic_boolean" id="tAafH)h-3N!#3JQ1/,tT">
                                       <field name="BOOL">TRUE</field>
@@ -1515,9 +1318,9 @@
           </next>
         </block>
       </xml>
-		</div>
+    </div>
 
-		<div id="blocklyText" style="width: 33%; overflow:auto; border: 1px solid #DDDDDD; border-left-width:0px; padding: 10px;">
+    <div id="blocklyText" style="width: 33%; overflow:auto; border: 1px solid #DDDDDD; border-left-width:0px; padding: 10px;">
 			<h1>
 				<span>Generated Python Code</span>
 			</h1>
@@ -1550,7 +1353,7 @@
       var blocks_f2 = Blockly.Xml.domToPrettyText(document.getElementById('default_blocks_f2'));
 
       // need to modify when I try to modify the variables above
-	    var code_gk = DEFAULT_GK;
+	    var code_gk = Blockly.Xml.domTo;
       var code_d1 = DEFAULT_D1;
       var code_d2 = DEFAULT_D2;
       var code_f1 = DEFAULT_F1;
@@ -1584,6 +1387,9 @@
         var helper_script = HELPER;
         var main_script = MAIN;
 
+        var xml_txt = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspacePlayground));
+        console.log(xml_txt);
+
         var link = document.createElement("a");
         var players_blob = new Blob([players_script], {type: 'text/plain'});
         var helper_blob = new Blob([helper_script], {type: 'text/plain'});
@@ -1598,9 +1404,6 @@
             // see FileSaver.js
             saveAs(content, "mystrategy.zip");
         });
-
-        var xml_txt = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspacePlayground));
-        console.log(xml_txt);
       }
 
       function showCode() {
