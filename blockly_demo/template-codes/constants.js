@@ -323,8 +323,6 @@ var MAIN =
 + '            self.previous_frame = received_frame\n'
 + '            self.previous_ball = self.cur_ball\n'
 + '\n'
-+ '            helper.print_debug_flag(self)\n'
-+ '\n'
 + 'if __name__ == \'__main__\':\n'
 + '    player = Player()\n'
 + '    player.run()\n';

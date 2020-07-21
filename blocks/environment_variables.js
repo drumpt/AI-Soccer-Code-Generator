@@ -45,7 +45,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "type": "field_dropdown",
         "name": "CONSTANT",
         "options": [
-          ["robot_id", "ROBOT_ID"],
+          ["id", "ID"],
           ["idx", "IDX"],
           ["idx_opp", "IDX_OPP"],
           ["attack_angle", "ATTACK_ANGLE"],

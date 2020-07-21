@@ -28,9 +28,9 @@ goog.require('Blockly.Python');
 Blockly.Python.addReservedWords('math,random,Number');
 
 Blockly.Python['env_variables'] = function(block) {
-  // Variables: robot_id, idx, idx_opp, attack_angle, defense_angle.
+  // Variables: id, idx, idx_opp, attack_angle, defense_angle.
   var CONSTANTS = {
-    'ROBOT_ID': ['robot_id', Blockly.Python.ORDER_MEMBER],
+    'ID': ['id', Blockly.Python.ORDER_MEMBER],
     'IDX': ['idx', Blockly.Python.ORDER_MEMBER],
     'IDX_OPP': ['idx_opp', Blockly.Python.ORDER_MEMBER],
     'ATTACK_ANGLE': ['attack_angle', Blockly.Python.ORDER_MEMBER],
