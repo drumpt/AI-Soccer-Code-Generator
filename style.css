@@ -1,0 +1,44 @@
+html, body {
+    border: 0;
+    /* height: 100%; */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+p {
+    margin: 15px 0px;
+    height: 60px;
+    line-height: 60px; /* This should match with height for aligning w.r.t. vertical line */
+    font-size: x-large;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background-color: black;
+}
+
+#container {
+    margin-top: 5%;
+    text-align: center;
+    align-items: center;
+}
+#container p1 {
+    font-size: x-large;
+    font-weight: bold;
+    color: #000000;
+}
+.button {
+    width: 350px;
+    height: 350px;
+    margin: 30px 20px 0px 20px;
+    padding: 20px;
+}
+.img {
+    width: 250px;
+    height: 250px;
+}
+.text {
+    margin-top: 30px;
+    font-size: large;
+    font-weight: bold;
+}
