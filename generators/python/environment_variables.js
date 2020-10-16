@@ -30,7 +30,7 @@ Blockly.Python.addReservedWords('math,random,Number');
 Blockly.Python['env_variables'] = function(block) {
   // Variables: id, idx, idx_opp, attack_angle, defense_angle.
   var CONSTANTS = {
-    'ID': ['id', Blockly.Python.ORDER_MEMBER],
+    'ID': ['self.id', Blockly.Python.ORDER_MEMBER],    // name : generated code
     'IDX': ['idx', Blockly.Python.ORDER_MEMBER],
     'IDX_OPP': ['idx_opp', Blockly.Python.ORDER_MEMBER],
     'ATTACK_ANGLE': ['attack_angle', Blockly.Python.ORDER_MEMBER],
@@ -47,6 +47,9 @@ Blockly.Python['env_variables_1d'] = function(block) {
   var arg;
   arg = Blockly.Python.valueToCode(block, 'NUM', Blockly.Python.ORDER_NONE);
   switch (operator) {
+    case 'PREV_BALL':
+      code = 'prev_ball[' + arg + ']';
+      break;
     case 'CUR_BALL':
       code = 'cur_ball[' + arg + ']';
       break;
@@ -77,11 +80,24 @@ Blockly.Python['env_variables_2d'] = function(block) {
     case 'CUR_POSTURE_OPP':
       code = 'cur_posture_opp[' + arg1 + ']' + '[' + arg2 + ']';
       break;
+    case 'PREV_POSTURE':
+      code = 'prev_posture[' + arg1 + ']' + '[' + arg2 + ']';
+      break;
+    case 'PREV_POSTURE_OPP':
+      code = 'prev_posture_opp[' + arg1 + ']' + '[' + arg2 + ']';
+      break;
   }
-  if (arg1.length === 0 || arg2.length === 0) {
-    // code = code.replace("[", "").replace("]", "");
-    if (code.startsWith("cur_posture_opp")) code = "cur_posture_opp"
-    else code = "cur_posture"
+  if (arg1.length === 0) {
+    if (code.startsWith("cur_posture")) code = "cur_posture"
+    else if (code.startsWith("cur_posture_opp")) code = "cur_posture_opp"
+    else if (code.startsWith("prev_posture")) code = "prev_posture"
+    else if (code.startsWith("prev_posture_opp")) code = "prev_posture_opp"
+  }
+  else if (arg2.length === 0) {
+    if (code.startsWith("cur_posture")) code = 'cur_posture[' + arg1 + ']'
+    else if (code.startsWith("cur_posture_opp")) code = 'cur_posture_opp[' + arg1 + ']'
+    else if (code.startsWith("prev_posture")) code = 'prev_posture[' + arg1 + ']'
+    else if (code.startsWith("prev_posture_opp")) code = 'prev_posture_opp[' + arg1 + ']'
   }
   if (code) {
     return [code, Blockly.Python.ORDER_FUNCTION_CALL];

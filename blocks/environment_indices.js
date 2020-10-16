@@ -53,7 +53,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "type": "field_dropdown",
         "name": "CONSTANT",
         "options": [
-          ["MY_TEAM", "MY_TEAM"],
+          ["MY_TEAM", "MY_TEAM"], // for block, name
           ["OP_TEAM", "OP_TEAM"],
           ["BALL", "BALL"],
           ["X", "X"],
@@ -74,7 +74,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
   // Block for game_state constants in robot soccer:
   // STATE_DEFAULT = 0
-  // STATE_BACKPASS = 1
+  // STATE_KICKOFF = 1
   // STATE_GOALKICK = 2
   // STATE_CORNERKICK = 3
   // STATE_PENALTYKICK = 4
@@ -87,7 +87,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "name": "CONSTANT",
         "options": [
           ["STATE_DEFAULT", "STATE_DEFAULT"],
-          ["STATE_BACKPASS", "STATE_BACKPASS"],
+          ["STATE_KICKOFF", "STATE_KICKOFF"],
           ["STATE_GOALKICK", "STATE_GOALKICK"],
           ["STATE_CORNERKICK", "STATE_CORNERKICK"],
           ["STATE_PENALTYKICK", "STATE_PENALTYKICK"]
@@ -131,6 +131,30 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
           ["PENALTYKICK", "PENALTYKICK"],
           ["HALFTIME", "HALFTIME"],
           ["EPISODE_END", "EPISODE_END"]
+        ]
+      }
+    ],
+    "output": "Number",
+    "style": "environment_indices_blocks",
+    "tooltip": "",
+    "helpUrl": ""
+  },
+
+  // Block for robot index:
+  // GK, D1, D2, F1, F2
+  {
+    "type": "env_robot_index",
+    "message0": "%1",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "CONSTANT",
+        "options": [
+          ["GK", "GK"],
+          ["D1", "D1"],
+          ["D2", "D2"],
+          ["F1", "F1"],
+          ["F2", "F2"]
         ]
       }
     ],

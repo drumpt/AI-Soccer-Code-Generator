@@ -69,6 +69,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "type": "field_dropdown",
         "name": "OP",
         "options": [
+          ["prev_ball", "PREV_BALL"],
           ["cur_ball", "CUR_BALL"],
           ["predicted_ball", "PREDICTED_BALL"]
         ]
@@ -95,7 +96,9 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "name": "OP",
         "options": [
           ["cur_posture", "CUR_POSTURE"],
-          ["cur_posture_opp", "CUR_POSTURE_OPP"]
+          ["cur_posture_opp", "CUR_POSTURE_OPP"],
+          ["prev_posture", "PREV_POSTURE"],
+          ["prev_posture_opp", "PREV_POSTURE_OPP"]
         ]
       },
       {
