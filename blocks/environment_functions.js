@@ -37,7 +37,7 @@ Blockly.Constants.Environment_functions.HUE = 20;
 Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     {
       "type": "distance",
-      "message0": "distance between %1 (x1 : %2 y1 : %4) and (x2 : %3 y2 : %5 )",
+      "message0": "%1 distance between (x1 : %2 y1 : %4) and (x2 : %3 y2 : %5 )",
       "args0": [
         {
           "type": "input_dummy"
@@ -72,7 +72,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
   
     {
       "type": "degree2radian",
-      "message0": "degree2radian %1 (deg : %2 )",
+      "message0": "%1 degree2radian (deg : %2 )",
       "args0": [
         {
           "type": "input_dummy"
@@ -92,7 +92,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
   
     {
       "type": "radian2degree",
-      "message0": "radian2degree %1 (rad : %2 )",
+      "message0": "%1 radian2degree (rad : %2 )",
       "args0": [
         {
           "type": "input_dummy"
@@ -446,7 +446,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
     {
       "type": "printconsole",
-      "message0": "printConsole %1 (message : %2 )",
+      "message0": "%1 printConsole (message : %2 )",
       "args0": [
         {
           "type": "input_dummy"

@@ -48,7 +48,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
     {
       "type": "manual_control",
-      "message0": "manual_control %1 (left_wheel : %2 right_wheel : %3 kick_speed : %4 kick_angle : %5 jump_speed : %6 dribble : %7 )",
+      "message0": "%1 manual_control (left_wheel : %2 right_wheel : %3 kick_speed : %4 kick_angle : %5 jump_speed : %6 dribble : %7 )",
       "args0": [
         {
           "type": "input_dummy"
@@ -105,7 +105,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
     {
       "type": "go_to",
-      "message0": "go to %1 (x : %2 y : %3)",
+      "message0": "%1 go to (x : %2 y : %3)",
       "args0": [
         {
           "type": "input_dummy"
@@ -131,7 +131,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
     {
       "type": "turn_to",
-      "message0": "turn to %1 (x : %2 y : %3)",
+      "message0": "%1 turn to (x : %2 y : %3)",
       "args0": [
         {
           "type": "input_dummy"
@@ -157,7 +157,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
     {
       "type": "shoot_to",
-      "message0": "shoot to %1 (x : %2 y : %3)",
+      "message0": "%1 shoot to (x : %2 y : %3)",
       "args0": [
         {
           "type": "input_dummy"
@@ -183,7 +183,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
     {
       "type": "defend_ball",
-      "message0": "gk defend ball",
+      "message0": "gk save ball",
       "inputsInline": true,
       "previousStatement": null,
       "nextStatement": null,
@@ -193,8 +193,18 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     },
 
     {
+      "type": "is_gk_save_possible",
+      "message0": "is gk save possible",
+      "inputsInline": true,
+      "output": "Boolean",
+      "style": "environment_actions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
       "type": "pass_to",
-      "message0": "pass to %1 (x : %2 y : %3)",
+      "message0": "%1 pass to (x : %2 y : %3)",
       "args0": [
         {
           "type": "input_dummy"
@@ -220,7 +230,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
     {
       "type": "pass_to_robot",
-      "message0": "pass to %1 robot : %2",
+      "message0": "%1 pass to robot : %2",
       "args0": [
         {
           "type": "input_dummy"
@@ -241,7 +251,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
     {
       "type": "cross_to",
-      "message0": "cross to %1 (x : %2 y : %3 z : %4)",
+      "message0": "%1 cross to (x : %2 y : %3 z : %4)",
       "args0": [
         {
           "type": "input_dummy"
@@ -271,8 +281,38 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     },
 
     {
+      "type": "is_cross_to_possible",
+      "message0": "%1 is cross to (x : %2 y : %3 z : %4) posible",
+      "args0": [
+        {
+          "type": "input_dummy"
+        },
+        {
+          "type": "input_value",
+          "name": "x",
+          "check": "Number"
+        },
+        {
+          "type": "input_value",
+          "name": "y",
+          "check": "Number"
+        },
+        {
+          "type": "input_value",
+          "name": "z",
+          "check": "Number"
+        }
+      ],
+      "inputsInline": true,
+      "output": "Boolean",
+      "style": "environment_actions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
       "type": "cross_to_robot",
-      "message0": "cross to %1 robot : %2",
+      "message0": "%1 cross to robot : %2",
       "args0": [
         {
           "type": "input_dummy"
@@ -286,6 +326,26 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       "inputsInline": true,
       "previousStatement": null,
       "nextStatement": null,
+      "style": "environment_actions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
+      "type": "is_cross_to_robot_possible",
+      "message0": "%1 is cross to robot : %2 possible",
+      "args0": [
+        {
+          "type": "input_dummy"
+        },
+        {
+          "type": "input_value",
+          "name": "robot_id",
+          "check": "Number"
+        }
+      ],
+      "inputsInline": true,
+      "output": "Boolean",
       "style": "environment_actions_blocks",
       "tooltip": "",
       "helpUrl": ""
