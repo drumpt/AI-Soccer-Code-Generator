@@ -18,7 +18,7 @@
 <body>
   <p>AI Soccer Code Generator - Rule Based System</p>
   
-  <img src="./img/field_information_3d.png" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; display:block; max-width: 50%; height:auto;">
+  <img src="./img/field_information_3d-senior.png" style="margin-left: auto; margin-right:auto; margin-bottom: 15px; display:block; max-width: 50%; height:auto;">
 
   <button type="button" id="readmeButton" onclick="location.href='./template-readmes/README.html'" target="_blank">Get Help</button>
 
@@ -2539,7 +2539,6 @@
                           strategy_f1, PLAYERS_P5,
                           strategy_f2, PLAYERS_P6);
         var helper_script = HELPER;
-        var action_script = ACTION;
         var main_script = MAIN;
 
         var xml_txt = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspacePlayground));
@@ -2548,13 +2547,11 @@
         var link = document.createElement("a");
         var players_blob = new Blob([players_script], {type: 'text/plain'});
         var helper_blob = new Blob([helper_script], {type: 'text/plain'});
-        var action_blob = new Blob([action_script], {type: 'text/plain'});
         var main_blob = new Blob([main_script], {type: 'text/plain'});
 
         var zip = new JSZip();
         zip.file("players"+".py", players_blob, {type: 'text/plain'});
         zip.file("helper"+".py", helper_blob, {type: 'text/plain'});
-        zip.file("action"+".py", action_blob, {type: 'text/plain'});
         zip.file("main"+".py", main_blob, {type: 'text/plain'});
             
         zip.generateAsync({type:"blob"}).then(function(content) {
