@@ -207,9 +207,9 @@ Blockly.Python['distance'] = function(block) {
     return [code, Blockly.Python.ORDER_NONE];
   };
 
-  Blockly.Python['is_gk_goalcenter'] = function(block) {
+  Blockly.Python['is_gk_in_goalcenter'] = function(block) {
     // TODO: Assemble Python into code variable.
-    var code = "helper.is_gk_goalcenter(cur_posture[self.id], self.field)";
+    var code = "helper.is_gk_in_goalcenter(cur_posture[self.id], self.field)";
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.Python.ORDER_NONE];
   };

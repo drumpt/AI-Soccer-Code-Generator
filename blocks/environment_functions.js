@@ -415,8 +415,8 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     },
   
     {
-      "type": "is_gk_goalcenter",
-      "message0": "GK is goalcenter",
+      "type": "is_gk_in_goalcenter",
+      "message0": "GK is in goalcenter",
       "inputsInline": true,
       "output": "Boolean",
       "style": "environment_functions_blocks",
