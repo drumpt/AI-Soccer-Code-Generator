@@ -43,47 +43,47 @@ Blockly.Python['env_coordinates_index'] = function(block) {
   return CONSTANTS[constant];
 };
   
-Blockly.Python['env_gamestate_index'] = function(block) {
-  // Constants: STATE_DEFAULT, STATE_BACKPASS, STATE_GOALKICK, STATE_CORNERKICK, STATE_PENALTYKICK.
-  var CONSTANTS = {
-      'STATE_DEFAULT': ['STATE_DEFAULT', Blockly.Python.ORDER_MEMBER],
-      'STATE_KICKOFF': ['STATE_KICKOFF', Blockly.Python.ORDER_MEMBER],
-      'STATE_GOALKICK': ['STATE_GOALKICK', Blockly.Python.ORDER_MEMBER],
-      'STATE_CORNERKICK': ['STATE_CORNERKICK', Blockly.Python.ORDER_MEMBER],
-      'STATE_PENALTYKICK': ['STATE_PENALTYKICK', Blockly.Python.ORDER_MEMBER]
-  };
-  var constant = block.getFieldValue('CONSTANT');
-  return CONSTANTS[constant];
-};
+// Blockly.Python['env_gamestate_index'] = function(block) {
+//   // Constants: STATE_DEFAULT, STATE_BACKPASS, STATE_GOALKICK, STATE_CORNERKICK, STATE_PENALTYKICK.
+//   var CONSTANTS = {
+//       'STATE_DEFAULT': ['STATE_DEFAULT', Blockly.Python.ORDER_MEMBER],
+//       'STATE_KICKOFF': ['STATE_KICKOFF', Blockly.Python.ORDER_MEMBER],
+//       'STATE_GOALKICK': ['STATE_GOALKICK', Blockly.Python.ORDER_MEMBER],
+//       'STATE_CORNERKICK': ['STATE_CORNERKICK', Blockly.Python.ORDER_MEMBER],
+//       'STATE_PENALTYKICK': ['STATE_PENALTYKICK', Blockly.Python.ORDER_MEMBER]
+//   };
+//   var constant = block.getFieldValue('CONSTANT');
+//   return CONSTANTS[constant];
+// };
 
-Blockly.Python['env_resetreason_index'] = function(block) {
-  // Constants: NONE, GAME_START, SCORE_MYTEAM, SCORE_OPPONENT, GAME_END, DEADLOCK, GOALKICK, CORNERKICK, PENALTYKICK, HALFTIME, EPISODE_END.
-  var CONSTANTS = {
-      'NONE': ['NONE', Blockly.Python.ORDER_MEMBER],
-      'GAME_START': ['GAME_START', Blockly.Python.ORDER_MEMBER],
-      'SCORE_MYTEAM': ['SCORE_MYTEAM', Blockly.Python.ORDER_MEMBER],
-      'SCORE_OPPONENT': ['SCORE_OPPONENT', Blockly.Python.ORDER_MEMBER],
-      'GAME_END': ['GAME_END', Blockly.Python.ORDER_MEMBER],
-      'DEADLOCK': ['DEADLOCK', Blockly.Python.ORDER_MEMBER],
-      'GOALKICK': ['GOALKICK', Blockly.Python.ORDER_MEMBER],
-      'CORNERKICK': ['CORNERKICK', Blockly.Python.ORDER_MEMBER],
-      'PENALTYKICK': ['PENALTYKICK', Blockly.Python.ORDER_MEMBER],
-      'HALFTIME': ['HALFTIME', Blockly.Python.ORDER_MEMBER],
-      'EPISODE_END': ['EPISODE_END', Blockly.Python.ORDER_MEMBER]
-  };
-  var constant = block.getFieldValue('CONSTANT');
-  return CONSTANTS[constant];
-};
+// Blockly.Python['env_resetreason_index'] = function(block) {
+//   // Constants: NONE, GAME_START, SCORE_MYTEAM, SCORE_OPPONENT, GAME_END, DEADLOCK, GOALKICK, CORNERKICK, PENALTYKICK, HALFTIME, EPISODE_END.
+//   var CONSTANTS = {
+//       'NONE': ['NONE', Blockly.Python.ORDER_MEMBER],
+//       'GAME_START': ['GAME_START', Blockly.Python.ORDER_MEMBER],
+//       'SCORE_MYTEAM': ['SCORE_MYTEAM', Blockly.Python.ORDER_MEMBER],
+//       'SCORE_OPPONENT': ['SCORE_OPPONENT', Blockly.Python.ORDER_MEMBER],
+//       'GAME_END': ['GAME_END', Blockly.Python.ORDER_MEMBER],
+//       'DEADLOCK': ['DEADLOCK', Blockly.Python.ORDER_MEMBER],
+//       'GOALKICK': ['GOALKICK', Blockly.Python.ORDER_MEMBER],
+//       'CORNERKICK': ['CORNERKICK', Blockly.Python.ORDER_MEMBER],
+//       'PENALTYKICK': ['PENALTYKICK', Blockly.Python.ORDER_MEMBER],
+//       'HALFTIME': ['HALFTIME', Blockly.Python.ORDER_MEMBER],
+//       'EPISODE_END': ['EPISODE_END', Blockly.Python.ORDER_MEMBER]
+//   };
+//   var constant = block.getFieldValue('CONSTANT');
+//   return CONSTANTS[constant];
+// };
 
-Blockly.Python['env_robot_index'] = function(block) {
-  // Constants: GK, D1, D2, F1, F2.
-  var CONSTANTS = {
-      'GK': ['self.gk_index', Blockly.Python.ORDER_MEMBER],
-      'D1': ['self.d1_index', Blockly.Python.ORDER_MEMBER],
-      'D2': ['self.d2_index', Blockly.Python.ORDER_MEMBER],
-      'F1': ['self.f1_index', Blockly.Python.ORDER_MEMBER],
-      'F2': ['self.f2_index', Blockly.Python.ORDER_MEMBER]
-  };
-  var constant = block.getFieldValue('CONSTANT');
-  return CONSTANTS[constant];
-};
+// Blockly.Python['env_robot_index'] = function(block) {
+//   // Constants: GK, D1, D2, F1, F2.
+//   var CONSTANTS = {
+//       'GK': ['self.gk_index', Blockly.Python.ORDER_MEMBER],
+//       'D1': ['self.d1_index', Blockly.Python.ORDER_MEMBER],
+//       'D2': ['self.d2_index', Blockly.Python.ORDER_MEMBER],
+//       'F1': ['self.f1_index', Blockly.Python.ORDER_MEMBER],
+//       'F2': ['self.f2_index', Blockly.Python.ORDER_MEMBER]
+//   };
+//   var constant = block.getFieldValue('CONSTANT');
+//   return CONSTANTS[constant];
+// };

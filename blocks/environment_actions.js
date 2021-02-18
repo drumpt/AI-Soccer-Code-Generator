@@ -47,6 +47,61 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     },
 
     {
+      "type": "go_forward",
+      "message0": "go_forward",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "style": "environment_actions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
+      "type": "go_backward",
+      "message0": "go_backward",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "style": "environment_actions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
+      "type": "turn_right",
+      "message0": "turn_right",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "style": "environment_actions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
+      "type": "turn_left",
+      "message0": "turn_left",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "style": "environment_actions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
+      "type": "kick",
+      "message0": "kick",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "style": "environment_actions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
       "type": "manual_control",
       "message0": "%1 manual_control (left_wheel : %2 right_wheel : %3 kick_speed : %4 kick_angle : %5 jump_speed : %6 dribble : %7 )",
       "args0": [

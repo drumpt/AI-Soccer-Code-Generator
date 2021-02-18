@@ -56,6 +56,18 @@ Blockly.Python['env_variables_1d'] = function(block) {
     case 'PREDICTED_BALL':
       code = 'predicted_ball[' + arg + ']';
       break;
+    case 'TARGET':
+      code = 'target[' + arg + ']';
+      break;
+    case 'ROBOT_TO_GOAL':
+      code = 'robot_to_goal[' + arg + ']';
+      break;
+    case 'ROBOT_TO_TARGET':
+      code = 'robot_to_target[' + arg + ']';
+      break;
+    case 'ROBOT_TO_BALL':
+      code = 'robot_to_ball[' + arg + ']';
+      break;
   }
   if (arg.length === 0) {
     code = code.replace("[", "").replace("]", "");

@@ -69,7 +69,42 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       "tooltip": "",
       "helpUrl": ""
     },
-  
+
+    {
+      "type": "relative_distance",
+      "message0": "%1 relative distance between (x1 : %2 y1 : %4) and (x2 : %3 y2 : %5 )",
+      "args0": [
+        {
+          "type": "input_dummy"
+        },
+        {
+          "type": "input_value",
+          "name": "x1",
+          "check": "Number"
+        },
+        {
+          "type": "input_value",
+          "name": "x2",
+          "check": "Number"
+        },
+        {
+          "type": "input_value",
+          "name": "y1",
+          "check": "Number"
+        },
+        {
+          "type": "input_value",
+          "name": "y2",
+          "check": "Number"
+        }
+      ],
+      "inputsInline": true,
+      "output": "Number",
+      "style": "environment_functions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
     {
       "type": "degree2radian",
       "message0": "%1 degree2radian (deg : %2 )",

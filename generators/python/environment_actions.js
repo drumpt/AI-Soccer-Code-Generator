@@ -26,7 +26,35 @@ goog.provide('Blockly.Python.Environment_actions');
 goog.require('Blockly.Python');
   
 Blockly.Python['stop'] = function(block) {
-    var code = 'action = self.action.stop()\n';
+    var code = 'speeds = self.action.STOP()\n';
+    return code;
+  };
+
+  Blockly.Python['go_forward'] = function(block) {
+    var code = 'speeds = self.action.GO_FORWARD()\n';
+    return code;
+  };
+
+
+  Blockly.Python['go_backward'] = function(block) {
+    var code = 'speeds = self.action.GO_BACKWARD()\n';
+    return code;
+  };
+
+
+  Blockly.Python['turn_right'] = function(block) {
+    var code = 'speeds = self.action.TURN_RIGHT()\n';
+    return code;
+  };
+
+
+  Blockly.Python['turn_left'] = function(block) {
+    var code = 'speeds = self.action.TURN_LEFT()\n';
+    return code;
+  };
+
+  Blockly.Python['kick'] = function(block) {
+    var code = 'speeds = self.action.KICK()\n';
     return code;
   };
 
@@ -37,38 +65,38 @@ Blockly.Python['stop'] = function(block) {
     var value_4 = Blockly.Python.valueToCode(block, 'kick_angle', Blockly.Python.ORDER_ATOMIC);
     var value_5 = Blockly.Python.valueToCode(block, 'jump_speed', Blockly.Python.ORDER_ATOMIC);
     var value_6 = Blockly.Python.valueToCode(block, 'dribble_mode', Blockly.Python.ORDER_ATOMIC);
-    var code = "action = self.action.manual_control(" + value_1 + ", " + value_2 + ", " + value_3 + ", " + value_4 + ", " + value_5 + ", " + value_6 + ")\n";
+    var code = "speeds = self.action.manual_control(" + value_1 + ", " + value_2 + ", " + value_3 + ", " + value_4 + ", " + value_5 + ", " + value_6 + ")\n";
     return code;
   };
 
   Blockly.Python['jump'] = function(block) {
-    var code = 'action = self.action.jump()\n';
+    var code = 'speeds = self.action.jump()\n';
     return code;
   };
 
   Blockly.Python['go_to'] = function(block) {
     var value_1 = Blockly.Python.valueToCode(block, 'x', Blockly.Python.ORDER_ATOMIC);
     var value_2 = Blockly.Python.valueToCode(block, 'y', Blockly.Python.ORDER_ATOMIC);
-    var code = "action = self.action.go_to(" + value_1 + "," + value_2 + ")\n";
+    var code = "speeds = self.action.go_to(" + value_1 + "," + value_2 + ")\n";
     return code;
   };
   
   Blockly.Python['turn_to'] = function(block) {
     var value_1 = Blockly.Python.valueToCode(block, 'x', Blockly.Python.ORDER_ATOMIC);
     var value_2 = Blockly.Python.valueToCode(block, 'y', Blockly.Python.ORDER_ATOMIC);
-    var code = "action = self.action.turn_to(" + value_1 + "," + value_2 + ")\n";
+    var code = "speeds = self.action.turn_to(" + value_1 + "," + value_2 + ")\n";
     return code;
   };
   
   Blockly.Python['shoot_to'] = function(block) {
     var value_1 = Blockly.Python.valueToCode(block, 'x', Blockly.Python.ORDER_ATOMIC);
     var value_2 = Blockly.Python.valueToCode(block, 'y', Blockly.Python.ORDER_ATOMIC);
-    var code = "action = self.action.shoot_to(" + value_1 + "," + value_2 + ")\n";
+    var code = "speeds = self.action.shoot_to(" + value_1 + "," + value_2 + ")\n";
     return code;
   };
 
   Blockly.Python['defend_ball'] = function(block) {
-    var code = 'action = self.action.defend_ball()\n';
+    var code = 'speeds = self.action.defend_ball()\n';
     return code;
   };
 
@@ -80,13 +108,13 @@ Blockly.Python['stop'] = function(block) {
   Blockly.Python['pass_to'] = function(block) {
     var value_1 = Blockly.Python.valueToCode(block, 'x', Blockly.Python.ORDER_ATOMIC);
     var value_2 = Blockly.Python.valueToCode(block, 'y', Blockly.Python.ORDER_ATOMIC);
-    var code = "action = self.action.pass_to(" + value_1 + "," + value_2 + ")\n";
+    var code = "speeds = self.action.pass_to(" + value_1 + "," + value_2 + ")\n";
     return code;
   };
 
   Blockly.Python['pass_to_robot'] = function(block) {
     var value_1 = Blockly.Python.valueToCode(block, 'robot_id', Blockly.Python.ORDER_ATOMIC);
-    var code = "action = self.action.pass_to_robot(" + value_1 + ")\n";
+    var code = "speeds = self.action.pass_to_robot(" + value_1 + ")\n";
     return code;
   };
 
@@ -94,7 +122,7 @@ Blockly.Python['stop'] = function(block) {
     var value_1 = Blockly.Python.valueToCode(block, 'x', Blockly.Python.ORDER_ATOMIC);
     var value_2 = Blockly.Python.valueToCode(block, 'y', Blockly.Python.ORDER_ATOMIC);
     var value_3 = Blockly.Python.valueToCode(block, 'z', Blockly.Python.ORDER_ATOMIC);
-    var code = "action = self.action.cross_to(" + value_1 + "," + value_2 + "," + value_3 + ")\n";
+    var code = "speeds = self.action.cross_to(" + value_1 + "," + value_2 + "," + value_3 + ")\n";
     return code;
   };
 
@@ -108,7 +136,7 @@ Blockly.Python['stop'] = function(block) {
 
   Blockly.Python['cross_to_robot'] = function(block) {
     var value_1 = Blockly.Python.valueToCode(block, 'robot_id', Blockly.Python.ORDER_ATOMIC);
-    var code = "action = self.action.cross_to_robot(" + value_1 + ")\n";
+    var code = "speeds = self.action.cross_to_robot(" + value_1 + ")\n";
     return code;
   };
 

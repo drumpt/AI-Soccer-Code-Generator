@@ -72,95 +72,95 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     "helpUrl": ""
   },  
 
-  // Block for game_state constants in robot soccer:
-  // STATE_DEFAULT = 0
-  // STATE_KICKOFF = 1
-  // STATE_GOALKICK = 2
-  // STATE_CORNERKICK = 3
-  // STATE_PENALTYKICK = 4
-  {
-    "type": "env_gamestate_index",
-    "message0": "%1",
-    "args0": [
-      {
-        "type": "field_dropdown",
-        "name": "CONSTANT",
-        "options": [
-          ["STATE_DEFAULT", "STATE_DEFAULT"],
-          ["STATE_KICKOFF", "STATE_KICKOFF"],
-          ["STATE_GOALKICK", "STATE_GOALKICK"],
-          ["STATE_CORNERKICK", "STATE_CORNERKICK"],
-          ["STATE_PENALTYKICK", "STATE_PENALTYKICK"]
-        ]
-      }
-    ],
-    "output": "Number",
-    "style": "environment_indices_blocks",
-    "tooltip": "",
-    "helpUrl": ""
-  },
+//   // Block for game_state constants in robot soccer:
+//   // STATE_DEFAULT = 0
+//   // STATE_KICKOFF = 1
+//   // STATE_GOALKICK = 2
+//   // STATE_CORNERKICK = 3
+//   // STATE_PENALTYKICK = 4
+//   {
+//     "type": "env_gamestate_index",
+//     "message0": "%1",
+//     "args0": [
+//       {
+//         "type": "field_dropdown",
+//         "name": "CONSTANT",
+//         "options": [
+//           ["STATE_DEFAULT", "STATE_DEFAULT"],
+//           ["STATE_KICKOFF", "STATE_KICKOFF"],
+//           ["STATE_GOALKICK", "STATE_GOALKICK"],
+//           ["STATE_CORNERKICK", "STATE_CORNERKICK"],
+//           ["STATE_PENALTYKICK", "STATE_PENALTYKICK"]
+//         ]
+//       }
+//     ],
+//     "output": "Number",
+//     "style": "environment_indices_blocks",
+//     "tooltip": "",
+//     "helpUrl": ""
+//   },
 
-  // Block for reset_reason constants in robot soccer:
-  // NONE = 0
-  // GAME_START = 1
-  // SCORE_MYTEAM = 2
-  // SCORE_OPPONENT = 3
-  // GAME_END = 4
-  // DEADLOCK = 5
-  // GOALKICK = 6
-  // CORNERKICK = 7
-  // PENALTYKICK = 8
-  // HALFTIME = 9
-  // EPISODE_END = 10
-  {
-    "type": "env_resetreason_index",
-    "message0": "%1",
-    "args0": [
-      {
-        "type": "field_dropdown",
-        "name": "CONSTANT",
-        "options": [
-          ["NONE", "NONE"],
-          ["GAME_START", "GAME_START"],
-          ["SCORE_MYTEAM", "SCORE_MYTEAM"],
-          ["SCORE_OPPONENT", "SCORE_OPPONENT"],
-          ["GAME_END", "GAME_END"],
-          ["DEADLOCK", "DEADLOCK"],
-          ["GOALKICK", "GOALKICK"],
-          ["CORNERKICK", "CORNERKICK"],
-          ["PENALTYKICK", "PENALTYKICK"],
-          ["HALFTIME", "HALFTIME"],
-          ["EPISODE_END", "EPISODE_END"]
-        ]
-      }
-    ],
-    "output": "Number",
-    "style": "environment_indices_blocks",
-    "tooltip": "",
-    "helpUrl": ""
-  },
+//   // Block for reset_reason constants in robot soccer:
+//   // NONE = 0
+//   // GAME_START = 1
+//   // SCORE_MYTEAM = 2
+//   // SCORE_OPPONENT = 3
+//   // GAME_END = 4
+//   // DEADLOCK = 5
+//   // GOALKICK = 6
+//   // CORNERKICK = 7
+//   // PENALTYKICK = 8
+//   // HALFTIME = 9
+//   // EPISODE_END = 10
+//   {
+//     "type": "env_resetreason_index",
+//     "message0": "%1",
+//     "args0": [
+//       {
+//         "type": "field_dropdown",
+//         "name": "CONSTANT",
+//         "options": [
+//           ["NONE", "NONE"],
+//           ["GAME_START", "GAME_START"],
+//           ["SCORE_MYTEAM", "SCORE_MYTEAM"],
+//           ["SCORE_OPPONENT", "SCORE_OPPONENT"],
+//           ["GAME_END", "GAME_END"],
+//           ["DEADLOCK", "DEADLOCK"],
+//           ["GOALKICK", "GOALKICK"],
+//           ["CORNERKICK", "CORNERKICK"],
+//           ["PENALTYKICK", "PENALTYKICK"],
+//           ["HALFTIME", "HALFTIME"],
+//           ["EPISODE_END", "EPISODE_END"]
+//         ]
+//       }
+//     ],
+//     "output": "Number",
+//     "style": "environment_indices_blocks",
+//     "tooltip": "",
+//     "helpUrl": ""
+//   },
 
-  // Block for robot index:
-  // GK, D1, D2, F1, F2
-  {
-    "type": "env_robot_index",
-    "message0": "%1",
-    "args0": [
-      {
-        "type": "field_dropdown",
-        "name": "CONSTANT",
-        "options": [
-          ["GK", "GK"],
-          ["D1", "D1"],
-          ["D2", "D2"],
-          ["F1", "F1"],
-          ["F2", "F2"]
-        ]
-      }
-    ],
-    "output": "Number",
-    "style": "environment_indices_blocks",
-    "tooltip": "",
-    "helpUrl": ""
-  }
+//   // Block for robot index:
+//   // GK, D1, D2, F1, F2
+//   {
+//     "type": "env_robot_index",
+//     "message0": "%1",
+//     "args0": [
+//       {
+//         "type": "field_dropdown",
+//         "name": "CONSTANT",
+//         "options": [
+//           ["GK", "GK"],
+//           ["D1", "D1"],
+//           ["D2", "D2"],
+//           ["F1", "F1"],
+//           ["F2", "F2"]
+//         ]
+//       }
+//     ],
+//     "output": "Number",
+//     "style": "environment_indices_blocks",
+//     "tooltip": "",
+//     "helpUrl": ""
+//   }
 ]);

@@ -71,7 +71,11 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "options": [
           ["prev_ball", "PREV_BALL"],
           ["cur_ball", "CUR_BALL"],
-          ["predicted_ball", "PREDICTED_BALL"]
+          ["predicted_ball", "PREDICTED_BALL"],
+          ["target", "TARGET"],
+          ["robot_to_goal", "ROBOT_TO_GOAL"],
+          ["robot_to_target", "ROBOT_TO_TARGET"],
+          ["robot_to_ball", "ROBOT_TO_BALL"]     
         ]
       },
       {

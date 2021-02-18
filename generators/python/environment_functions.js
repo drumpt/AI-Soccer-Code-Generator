@@ -34,7 +34,17 @@ Blockly.Python['distance'] = function(block) {
     var code = "helper.distance(" + value_x1 + ", " + value_x2 + ", " + value_y1 + ", " + value_y2 + ")";
     return [code, Blockly.Python.ORDER_NONE];
   };
-  
+
+  Blockly.Python['relative_distance'] = function(block) {
+    var value_x1 = Blockly.Python.valueToCode(block, 'x1', Blockly.Python.ORDER_ATOMIC);
+    var value_x2 = Blockly.Python.valueToCode(block, 'x2', Blockly.Python.ORDER_ATOMIC);
+    var value_y1 = Blockly.Python.valueToCode(block, 'y1', Blockly.Python.ORDER_ATOMIC);
+    var value_y2 = Blockly.Python.valueToCode(block, 'y2', Blockly.Python.ORDER_ATOMIC);
+    // var code = Math.sqrt(Math.pow(value_x1 - value_x2, 2) + Math.pow(value_y1 - value_y2, 2));
+    var code = "helper.relative_distance(" + value_x1 + ", " + value_x2 + ", " + value_y1 + ", " + value_y2 + ")";
+    return [code, Blockly.Python.ORDER_NONE];
+  };
+
   Blockly.Python['degree2radian'] = function(block) {
     var value_deg = Blockly.Python.valueToCode(block, 'deg', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
