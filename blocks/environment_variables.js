@@ -36,6 +36,29 @@ Blockly.Constants.Environment_variables.HUE = 20;
 
 Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
+    // Block for robot coordinates
+    {
+      "type": "robot_variables",
+      "message0": "%1",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "CONSTANT",
+          "options": [
+            ["robot_x_coordinate", "ROBOT_X_COORDINATE"],
+            ["robot_y_coordinate", "ROBOT_Y_COORDINATE"],
+            ["robot_orientation", "ROBOT_ORIENTATION"],
+            // ["max_linear_velocity", "MAX_LINEAR_VELOCITY"]
+          ]
+        }
+      ],
+      "output": "Number",
+      "style": "environment_variables_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+  
+
     // Block for environment constants that are just a number
   {
     "type": "env_variables",
@@ -45,7 +68,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "type": "field_dropdown",
         "name": "CONSTANT",
         "options": [
-          ["id", "ID"],
+          ["robot_id", "ID"],
           ["idx", "IDX"],
           ["idx_opp", "IDX_OPP"],
           ["attack_angle", "ATTACK_ANGLE"],

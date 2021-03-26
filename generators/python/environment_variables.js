@@ -27,10 +27,21 @@ goog.require('Blockly.Python');
 
 Blockly.Python.addReservedWords('math,random,Number');
 
+Blockly.Python['robot_variables'] = function(block) {
+  // Variables: id, idx, idx_opp, attack_angle, defense_angle.
+  var CONSTANTS = {
+    'ROBOT_X_COORDINATE': ['cur_posture[robot_id][X]', Blockly.Python.ORDER_MEMBER],    // name : generated code
+    'ROBOT_Y_COORDINATE': ['cur_posture[robot_id][Y]', Blockly.Python.ORDER_MEMBER],
+    'ROBOT_ORIENTATION': ['cur_posture[robot_id][TH]', Blockly.Python.ORDER_MEMBER]
+  };
+  var constant = block.getFieldValue('CONSTANT');
+  return CONSTANTS[constant];
+};
+
 Blockly.Python['env_variables'] = function(block) {
   // Variables: id, idx, idx_opp, attack_angle, defense_angle.
   var CONSTANTS = {
-    'ID': ['self.id', Blockly.Python.ORDER_MEMBER],    // name : generated code
+    'ID': ['robot_id', Blockly.Python.ORDER_MEMBER],    // name : generated code
     'IDX': ['idx', Blockly.Python.ORDER_MEMBER],
     'IDX_OPP': ['idx_opp', Blockly.Python.ORDER_MEMBER],
     'ATTACK_ANGLE': ['attack_angle', Blockly.Python.ORDER_MEMBER],

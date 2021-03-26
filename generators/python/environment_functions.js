@@ -208,11 +208,31 @@ Blockly.Python['distance'] = function(block) {
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.Python.ORDER_NONE];
   };
-  
+
   Blockly.Python['has_ball_possession'] = function(block) {
-    var value_1 = Blockly.Python.valueToCode(block, 'robot_id', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    var code = 'helper.has_ball_possession(cur_posture[' + value_1 + "])";
+    var code = "helper.has_ball_possession(cur_posture[robot_id])";
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.Python.ORDER_NONE];
+  };
+
+  Blockly.Python['looking_to_target'] = function(block) {
+    // TODO: Assemble Python into code variable.
+    var code = "helper.looking_to_target(cur_posture[robot_id], robot_to_target)";
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.Python.ORDER_NONE];
+  };
+
+  Blockly.Python['looking_to_ball'] = function(block) {
+    // TODO: Assemble Python into code variable.
+    var code = "helper.looking_to_ball(cur_posture[robot_id], robot_to_ball)";
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.Python.ORDER_NONE];
+  };
+
+  Blockly.Python['looking_to_goal'] = function(block) {
+    // TODO: Assemble Python into code variable.
+    var code = "helper.looking_to_goal(cur_posture[robot_id], robot_to_goal)";
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.Python.ORDER_NONE];
   };

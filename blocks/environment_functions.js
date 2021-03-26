@@ -431,24 +431,44 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
     {
       "type": "has_ball_possession",
-      "message0": "%1 %2 has ball possession",
-      "args0": [
-        {
-          "type": "input_dummy"
-        },
-        {
-          "type": "input_value",
-          "name": "robot_id",
-          "check": "Number"
-        }
-      ],
+      "message0": "has ball possession",
       "inputsInline": true,
       "output": "Boolean",
       "style": "environment_functions_blocks",
       "tooltip": "",
       "helpUrl": ""
     },
-  
+
+    {
+      "type": "looking_to_target",
+      "message0": "is robot looking to target",
+      "inputsInline": true,
+      "output": "Boolean",
+      "style": "environment_functions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
+      "type": "looking_to_ball",
+      "message0": "is robot looking to ball",
+      "inputsInline": true,
+      "output": "Boolean",
+      "style": "environment_functions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
+      "type": "looking_to_goal",
+      "message0": "is robot looking to goal",
+      "inputsInline": true,
+      "output": "Boolean",
+      "style": "environment_functions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
     {
       "type": "is_gk_in_goalcenter",
       "message0": "GK is in goalcenter",
