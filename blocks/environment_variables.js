@@ -36,6 +36,98 @@ Blockly.Constants.Environment_variables.HUE = 20;
 
 Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
+  // DEEP LEARNING
+  {
+    "type": "reward_types",
+    "message0": "%1",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "CONSTANT",
+        "options": [
+          ["reward_binary", "REWARD_BINARY"],
+          ["reward_continuous", "REWARD_CONTINUOUS"],
+          ["reward_sparse", "REWARD_SPARSE"],
+          // ["max_linear_velocity", "MAX_LINEAR_VELOCITY"]
+        ]
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "style": "environment_variables_blocks",
+    "tooltip": "",
+    "helpUrl": ""
+  },
+
+  {
+    "type": "state_types",
+    "message0": "%1",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "CONSTANT",
+        "options": [
+          ["state_polar", "POLAR"],
+          ["state_relative", "RELATIVE"]
+          // ["max_linear_velocity", "MAX_LINEAR_VELOCITY"]
+        ]
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "style": "environment_variables_blocks",
+    "tooltip": "",
+    "helpUrl": ""
+  },
+
+  {
+    "type": "action_types",
+    "message0": "%1",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "CONSTANT",
+        "options": [
+          ["action_position", "POSITION"],
+          ["action_velocity", "VELOCITY"]
+          // ["max_linear_velocity", "MAX_LINEAR_VELOCITY"]
+        ]
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "style": "environment_variables_blocks",
+    "tooltip": "",
+    "helpUrl": ""
+  },
+
+  {
+    "type": "action_sets",
+    "message0": "%1",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "CONSTANT",
+        "options": [
+          ["6_actions", "SMALL"],
+          ["20_actions", "LARGE"]
+          // ["max_linear_velocity", "MAX_LINEAR_VELOCITY"]
+        ]
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "style": "environment_variables_blocks",
+    "tooltip": "",
+    "helpUrl": ""
+  },
+
+  // RULE-BASED
+
     // Block for robot coordinates
     {
       "type": "robot_variables",

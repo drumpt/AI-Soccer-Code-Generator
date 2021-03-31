@@ -25,6 +25,20 @@ goog.provide('Blockly.Python.Environment_actions');
 
 goog.require('Blockly.Python');
   
+// DEEP LEARNING
+
+Blockly.Python['train'] = function(block) {
+  var code = 'self.play = False\n';
+  return code;
+};
+
+Blockly.Python['play'] = function(block) {
+  var code = 'self.play = True\n';
+  return code;
+};
+
+// RULE-BASED
+
 Blockly.Python['stop'] = function(block) {
     var code = 'speeds = self.action.STOP()\n';
     return code;

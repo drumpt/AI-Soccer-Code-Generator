@@ -35,6 +35,33 @@ goog.require('Blockly.Blocks');
 Blockly.Constants.Environment_actions.HUE = 20;
 
 Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
+    
+    // DEEP LEARNING
+  
+    {
+      "type": "train",
+      "message0": "train",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "style": "environment_actions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
+      "type": "play",
+      "message0": "play",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "style": "environment_actions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+  
+    // RULE-BASED
+
     {
       "type": "stop",
       "message0": "stop",

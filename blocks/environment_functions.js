@@ -35,7 +35,180 @@ goog.require('Blockly.Blocks');
 Blockly.Constants.Environment_functions.HUE = 20;
 
 Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
+
+// DEEP LEARNING
+
+{
+  "type": "num_layers",
+  "message0": "%1 number of layers: %2 ",
+  "args0": [
     {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_value",
+      "name": "num",
+      "check": "Number"
+    }
+  ],
+  "inputsInline": true,
+  "previousStatement": null,
+  "nextStatement": null,
+  "style": "environment_functions_blocks",
+  "tooltip": "",
+  "helpUrl": ""
+},
+
+{
+  "type": "hidden_dim",
+  "message0": "%1 number of neurons: %2 ",
+  "args0": [
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_value",
+      "name": "num",
+      "check": "Number"
+    }
+  ],
+  "inputsInline": true,
+  "previousStatement": null,
+  "nextStatement": null,
+  "style": "environment_functions_blocks",
+  "tooltip": "",
+  "helpUrl": ""
+},
+
+{
+  "type": "ddpg_batch_size",
+  "message0": "%1 batch size: %2 ",
+  "args0": [
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_value",
+      "name": "num",
+      "check": "Number"
+    }
+  ],
+  "inputsInline": true,
+  "previousStatement": null,
+  "nextStatement": null,
+  "style": "environment_functions_blocks",
+  "tooltip": "",
+  "helpUrl": ""
+},
+
+{
+  "type": "ddpg_buffer_size",
+  "message0": "%1 buffer size: %2 ",
+  "args0": [
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_value",
+      "name": "num",
+      "check": "Number"
+    }
+  ],
+  "inputsInline": true,
+  "previousStatement": null,
+  "nextStatement": null,
+  "style": "environment_functions_blocks",
+  "tooltip": "",
+  "helpUrl": ""
+},
+
+{
+  "type": "dqn_buffer_size",
+  "message0": "%1 buffer size: %2 ",
+  "args0": [
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_value",
+      "name": "num",
+      "check": "Number"
+    }
+  ],
+  "inputsInline": true,
+  "previousStatement": null,
+  "nextStatement": null,
+  "style": "environment_functions_blocks",
+  "tooltip": "",
+  "helpUrl": ""
+},
+
+{
+  "type": "ddpg_gamma",
+  "message0": "%1 discount factor: %2 ",
+  "args0": [
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_value",
+      "name": "num",
+      "check": "Number"
+    }
+  ],
+  "inputsInline": true,
+  "previousStatement": null,
+  "nextStatement": null,
+  "style": "environment_functions_blocks",
+  "tooltip": "",
+  "helpUrl": ""
+},
+
+{
+  "type": "ddpg_dec_exploration",
+  "message0": "%1 decrease exploration every: %2 iterations",
+  "args0": [
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_value",
+      "name": "num",
+      "check": "Number"
+    }
+  ],
+  "inputsInline": true,
+  "previousStatement": null,
+  "nextStatement": null,
+  "style": "environment_functions_blocks",
+  "tooltip": "",
+  "helpUrl": ""
+},
+
+{
+  "type": "dqn_dec_exploration",
+  "message0": "%1 decrease exploration every: %2 iterations",
+  "args0": [
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_value",
+      "name": "num",
+      "check": "Number"
+    }
+  ],
+  "inputsInline": true,
+  "previousStatement": null,
+  "nextStatement": null,
+  "style": "environment_functions_blocks",
+  "tooltip": "",
+  "helpUrl": ""
+},
+
+// RULE-BASED
+
+  {
       "type": "distance",
       "message0": "%1 distance between (x1 : %2 y1 : %4) and (x2 : %3 y2 : %5 )",
       "args0": [

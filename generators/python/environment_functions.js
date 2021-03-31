@@ -25,6 +25,74 @@ goog.provide('Blockly.Python.Environment_functions');
 
 goog.require('Blockly.Python');
 
+// DEEP LEARNING
+
+Blockly.Python['num_layers'] = function(block) {
+  var num_layers = Blockly.Python.valueToCode(block, 'num', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = 'self.num_layers = ' + num_layers + '\n';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return code;
+};
+
+Blockly.Python['hidden_dim'] = function(block) {
+  var hidden_dim = Blockly.Python.valueToCode(block, 'num', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = 'self.hidden_dim = ' + hidden_dim + '\n';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return code;
+};
+
+Blockly.Python['ddpg_batch_size'] = function(block) {
+  var batch_size = Blockly.Python.valueToCode(block, 'num', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = 'self.ddpg_batch_size = ' + batch_size + '\n';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return code;
+};
+
+Blockly.Python['ddpg_buffer_size'] = function(block) {
+  var batch_size = Blockly.Python.valueToCode(block, 'num', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = 'self.ddpg_buffer_size = ' + batch_size + '\n';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return code;
+};
+
+Blockly.Python['dqn_buffer_size'] = function(block) {
+  var batch_size = Blockly.Python.valueToCode(block, 'num', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = 'self.dqn_buffer_size = ' + batch_size + '\n';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return code;
+};
+
+Blockly.Python['ddpg_gamma'] = function(block) {
+  var gamma = Blockly.Python.valueToCode(block, 'num', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = 'self.ddpg_gamma = ' + gamma + '\n';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return code;
+};
+
+Blockly.Python['ddpg_dec_exploration'] = function(block) {
+  var dec_epsilon = Blockly.Python.valueToCode(block, 'num', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = 'self.ddpg_dec_exploration = ' + dec_epsilon + '\n';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return code;
+};
+
+Blockly.Python['dqn_dec_exploration'] = function(block) {
+  var dec_epsilon = Blockly.Python.valueToCode(block, 'num', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = 'self.dqn_dec_exploration = ' + dec_epsilon + '\n';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return code;
+};
+
+// RULE-BASED
+
 Blockly.Python['distance'] = function(block) {
     var value_x1 = Blockly.Python.valueToCode(block, 'x1', Blockly.Python.ORDER_ATOMIC);
     var value_x2 = Blockly.Python.valueToCode(block, 'x2', Blockly.Python.ORDER_ATOMIC);

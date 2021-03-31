@@ -27,6 +27,51 @@ goog.require('Blockly.Python');
 
 Blockly.Python.addReservedWords('math,random,Number');
 
+// DEEP LEARNING
+
+Blockly.Python['reward_types'] = function(block) {
+
+  var CONSTANTS = {
+    'REWARD_BINARY': 'self.reward_type = \'reward_binary\'\n',    // name : generated code
+    'REWARD_CONTINUOUS': 'self.reward_type = \'reward_continuous\'\n',
+    'REWARD_SPARSE': 'self.reward_type = \'reward_sparse\'\n'
+  };
+  var constant = block.getFieldValue('CONSTANT');
+  return CONSTANTS[constant];
+};
+
+Blockly.Python['state_types'] = function(block) {
+
+  var CONSTANTS = {
+    'POLAR': 'self.state_type = \'state_polar\'\n',    // name : generated code
+    'RELATIVE': 'self.state_type = \'state_relative\'\n'
+  };
+  var constant = block.getFieldValue('CONSTANT');
+  return CONSTANTS[constant];
+};
+
+Blockly.Python['action_types'] = function(block) {
+
+  var CONSTANTS = {
+    'POSITION': 'self.action_type = \'action_position\'\n',    // name : generated code
+    'VELOCITY': 'self.action_type = \'action_velocity\'\n'
+  };
+  var constant = block.getFieldValue('CONSTANT');
+  return CONSTANTS[constant];
+};
+
+Blockly.Python['action_sets'] = function(block) {
+
+  var CONSTANTS = {
+    'SMALL': 'self.action_set = \'small\'\n',    // name : generated code
+    'LARGE': 'self.action_set = \'large\'\n'
+  };
+  var constant = block.getFieldValue('CONSTANT');
+  return CONSTANTS[constant];
+};
+
+// RULE-BASED
+
 Blockly.Python['robot_variables'] = function(block) {
   // Variables: id, idx, idx_opp, attack_angle, defense_angle.
   var CONSTANTS = {
