@@ -128,28 +128,71 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
   // RULE-BASED
 
-    // Block for robot coordinates
-    {
-      "type": "robot_variables",
-      "message0": "%1",
-      "args0": [
-        {
-          "type": "field_dropdown",
-          "name": "CONSTANT",
-          "options": [
-            ["robot_x_coordinate", "ROBOT_X_COORDINATE"],
-            ["robot_y_coordinate", "ROBOT_Y_COORDINATE"],
-            ["robot_orientation", "ROBOT_ORIENTATION"],
-            // ["max_linear_velocity", "MAX_LINEAR_VELOCITY"]
-          ]
-        }
-      ],
-      "output": "Number",
-      "style": "environment_variables_blocks",
-      "tooltip": "",
-      "helpUrl": ""
-    },
-  
+  // Block for robot coordinates
+  {
+    "type": "robot_variables",
+    "message0": "%1",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "CONSTANT",
+        "options": [
+          ["robot_x_coordinate", "ROBOT_X_COORDINATE"],
+          ["robot_y_coordinate", "ROBOT_Y_COORDINATE"],
+          ["robot_orientation", "ROBOT_ORIENTATION"]
+          // ["max_linear_velocity", "MAX_LINEAR_VELOCITY"]
+        ]
+      }
+    ],
+    "output": "Number",
+    "style": "environment_variables_blocks",
+    "tooltip": "",
+    "helpUrl": ""
+  },
+
+  // Block for robot coordinates
+  {
+    "type": "ball_variables",
+    "message0": "%1",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "CONSTANT",
+        "options": [
+          ["ball_x_coordinate", "BALL_X_COORDINATE"],
+          ["ball_y_coordinate", "BALL_Y_COORDINATE"],
+          ["ball_z_coordinate", "BALL_Z_COORDINATE"]
+          // ["max_linear_velocity", "MAX_LINEAR_VELOCITY"]
+        ]
+      }
+    ],
+    "output": "Number",
+    "style": "environment_variables_blocks",
+    "tooltip": "",
+    "helpUrl": ""
+  },
+
+  // Block for robot coordinates
+  {
+    "type": "opponent_variables",
+    "message0": "%1",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "CONSTANT",
+        "options": [
+          ["opponent_x_coordinate", "OPPONENT_X_COORDINATE"],
+          ["opponent_y_coordinate", "OPPONENT_Y_COORDINATE"],
+          ["opponent_orientation", "OPPONENT_ORIENTATION"]
+          // ["max_linear_velocity", "MAX_LINEAR_VELOCITY"]
+        ]
+      }
+    ],
+    "output": "Number",
+    "style": "environment_variables_blocks",
+    "tooltip": "",
+    "helpUrl": ""
+  },
 
     // Block for environment constants that are just a number
   {
@@ -164,7 +207,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
           ["idx", "IDX"],
           ["idx_opp", "IDX_OPP"],
           ["attack_angle", "ATTACK_ANGLE"],
-          ["defense_angle", "DEFENSE_ANGLE"],
+          ["defense_angle", "DEFENSE_ANGLE"]
           // ["max_linear_velocity", "MAX_LINEAR_VELOCITY"]
         ]
       }
@@ -186,11 +229,56 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "options": [
           ["prev_ball", "PREV_BALL"],
           ["cur_ball", "CUR_BALL"],
-          ["predicted_ball", "PREDICTED_BALL"],
-          ["target", "TARGET"],
+          ["predicted_ball", "PREDICTED_BALL"]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "NUM",
+        "check": "Number"
+      }
+    ],
+    "output": "Number",
+    "style": "environment_variables_blocks",
+    "tooltip": "",
+    "helpUrl": ""
+  },
+
+  {
+    "type": "robot_to_variables",
+    "message0": "%1 %2",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "OP",
+        "options": [
           ["robot_to_goal", "ROBOT_TO_GOAL"],
           ["robot_to_target", "ROBOT_TO_TARGET"],
-          ["robot_to_ball", "ROBOT_TO_BALL"]     
+          ["robot_to_ball", "ROBOT_TO_BALL"],
+          ["robot_to_robot", "ROBOT_TO_ROBOT"]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "NUM",
+        "check": "Number"
+      }
+    ],
+    "output": "Number",
+    "style": "environment_variables_blocks",
+    "tooltip": "",
+    "helpUrl": ""
+  },
+
+  {
+    "type": "target_variables",
+    "message0": "%1 %2",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "OP",
+        "options": [
+          ["target", "TARGET"]
         ]
       },
       {

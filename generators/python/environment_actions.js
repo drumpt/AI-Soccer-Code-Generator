@@ -72,6 +72,43 @@ Blockly.Python['stop'] = function(block) {
     return code;
   };
 
+  Blockly.Python['kick_control'] = function(block) {
+    var value_1 = Blockly.Python.valueToCode(block, 'x', Blockly.Python.ORDER_ATOMIC);
+    var value_2 = Blockly.Python.valueToCode(block, 'y', Blockly.Python.ORDER_ATOMIC);
+    var code = "speeds = self.action.KICK_CONTROL(" + value_1 + "," + value_2 + ")\n";
+    return code;
+  };
+
+  Blockly.Python['jump_right_high'] = function(block) {
+    var code = 'speeds = self.action.JUMP_RIGHT_HIGH()\n';
+    return code;
+  };
+
+  Blockly.Python['jump_right_low'] = function(block) {
+    var code = 'speeds = self.action.JUMP_RIGHT_LOW()\n';
+    return code;
+  };
+
+  Blockly.Python['jump_center_high'] = function(block) {
+    var code = 'speeds = self.action.JUMP_CENTER_HIGH()\n';
+    return code;
+  };
+
+  Blockly.Python['jump_center_low'] = function(block) {
+    var code = 'speeds = self.action.JUMP_CENTER_LOW()\n';
+    return code;
+  };
+
+  Blockly.Python['jump_left_high'] = function(block) {
+    var code = 'speeds = self.action.JUMP_LEFT_HIGH()\n';
+    return code;
+  };
+
+  Blockly.Python['jump_left_low'] = function(block) {
+    var code = 'speeds = self.action.JUMP_LEFT_LOW()\n';
+    return code;
+  };
+
   Blockly.Python['manual_control'] = function(block) {
     var value_1 = Blockly.Python.valueToCode(block, 'left_wheel', Blockly.Python.ORDER_ATOMIC);
     var value_2 = Blockly.Python.valueToCode(block, 'right_wheel', Blockly.Python.ORDER_ATOMIC);

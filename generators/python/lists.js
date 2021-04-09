@@ -137,7 +137,8 @@ Blockly.Python['lists_getIndex'] = function(block) {
       }
       break;
     case 'FROM_START':
-      var at = Blockly.Python.getAdjustedInt(block, 'AT');
+      // var at = Blockly.Python.getAdjustedInt(block, 'AT');
+      var at = Blockly.Python.valueToCode(block, 'AT', Blockly.Python.ORDER_ATOMIC);
       if (mode == 'GET') {
         var code = list + '[' + at + ']';
         return [code, Blockly.Python.ORDER_MEMBER];

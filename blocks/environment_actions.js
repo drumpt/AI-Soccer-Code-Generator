@@ -129,6 +129,98 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     },
 
     {
+      "type": "kick_control",
+      "message0": "%1 kick (speed: %2  height: %3)",
+      "args0": [
+        {
+          "type": "input_dummy"
+        },
+        {
+          "type": "input_value",
+          "name": "x",
+          "check": "Number"
+        },
+        {
+          "type": "input_value",
+          "name": "y",
+          "check": "Number"
+        }
+      ],
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "style": "environment_actions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
+      "type": "jump_right_high",
+      "message0": "jump_right_high",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "style": "environment_actions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
+      "type": "jump_right_low",
+      "message0": "jump_right_low",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "style": "environment_actions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
+      "type": "jump_center_high",
+      "message0": "jump_center_high",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "style": "environment_actions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
+      "type": "jump_center_low",
+      "message0": "jump_center_low",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "style": "environment_actions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
+      "type": "jump_left_high",
+      "message0": "jump_left_high",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "style": "environment_actions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
+      "type": "jump_left_low",
+      "message0": "jump_left_low",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "style": "environment_actions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
       "type": "manual_control",
       "message0": "%1 manual_control (left_wheel : %2 right_wheel : %3 kick_speed : %4 kick_angle : %5 jump_speed : %6 dribble : %7 )",
       "args0": [

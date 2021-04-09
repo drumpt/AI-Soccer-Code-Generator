@@ -131,7 +131,7 @@ Blockly.Python['distance'] = function(block) {
   
   Blockly.Python['predict_ball'] = function(block) {
     var value_1 = Blockly.Python.valueToCode(block, 'prediction_step', Blockly.Python.ORDER_ATOMIC);
-    var code = 'helper.predict_ball(cur_ball, previous_ball, reset_reason'+ value_1 +')';
+    var code = 'helper.predict_ball(cur_ball, prev_ball, '+ value_1 +')';
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.Python.ORDER_NONE];
   };
