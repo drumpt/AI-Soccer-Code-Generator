@@ -643,6 +643,16 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     },
 
     {
+      "type": "looking_to_robot",
+      "message0": "is robot looking to robot",
+      "inputsInline": true,
+      "output": "Boolean",
+      "style": "environment_functions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
       "type": "is_gk_in_goalcenter",
       "message0": "GK is in goalcenter",
       "inputsInline": true,

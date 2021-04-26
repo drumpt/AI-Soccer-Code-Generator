@@ -140,27 +140,27 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 //     "helpUrl": ""
 //   },
 
-//   // Block for robot index:
-//   // GK, D1, D2, F1, F2
-//   {
-//     "type": "env_robot_index",
-//     "message0": "%1",
-//     "args0": [
-//       {
-//         "type": "field_dropdown",
-//         "name": "CONSTANT",
-//         "options": [
-//           ["GK", "GK"],
-//           ["D1", "D1"],
-//           ["D2", "D2"],
-//           ["F1", "F1"],
-//           ["F2", "F2"]
-//         ]
-//       }
-//     ],
-//     "output": "Number",
-//     "style": "environment_indices_blocks",
-//     "tooltip": "",
-//     "helpUrl": ""
-//   }
+  // Block for robot index:
+  // GK, D1, D2, F1, F2
+  {
+    "type": "env_robot_index",
+    "message0": "%1",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "CONSTANT",
+        "options": [
+          ["GK", "GK"],
+          // ["D1", "D1"],
+          // ["D2", "D2"],
+          ["F1", "F1"],
+          ["F2", "F2"]
+        ]
+      }
+    ],
+    "output": "Number",
+    "style": "environment_indices_blocks",
+    "tooltip": "",
+    "helpUrl": ""
+  }
 ]);
