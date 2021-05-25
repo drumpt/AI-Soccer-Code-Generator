@@ -37,7 +37,7 @@ Blockly.Constants.Environment_functions.HUE = 20;
 Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     {
       "type": "distance",
-      "message0": "distance %1 (x1 : %2 x2 : %3 y1 : %4 y2 : %5 )",
+      "message0": "%1 distance between (x1 : %2 y1 : %4) and (x2 : %3 y2 : %5 )",
       "args0": [
         {
           "type": "input_dummy"
@@ -72,7 +72,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
   
     {
       "type": "degree2radian",
-      "message0": "degree2radian %1 (deg : %2 )",
+      "message0": "%1 degree2radian (deg : %2 )",
       "args0": [
         {
           "type": "input_dummy"
@@ -92,7 +92,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
   
     {
       "type": "radian2degree",
-      "message0": "radian2degree %1 (rad : %2 )",
+      "message0": "%1 radian2degree (rad : %2 )",
       "args0": [
         {
           "type": "input_dummy"
@@ -112,7 +112,17 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
   
     {
       "type": "predict_ball",
-      "message0": "predict_ball",
+      "message0": "%1 predicted ball posture after %2 step(s)",
+      "args0": [
+        {
+          "type": "input_dummy"
+        },
+        {
+          "type": "input_value",
+          "name": "prediction_step",
+          "check": "Number"
+        }
+      ],
       "inputsInline": true,
       "output": null,
       "style": "environment_functions_blocks",
@@ -122,7 +132,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
   
     {
       "type": "find_closest_robot",
-      "message0": "find_closest_robot",
+      "message0": "number of closest robot to the ball",
       "inputsInline": true,
       "output": "Number",
       "style": "environment_functions_blocks",
@@ -132,7 +142,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
   
     {
       "type": "ball_is_own_goal",
-      "message0": "ball_is_own_goal (predicted ball : %1 %2 )",
+      "message0": "%1 %2 is own goal area",
       "args0": [
         {
           "type": "input_dummy"
@@ -151,7 +161,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
   
     {
       "type": "ball_is_own_penalty",
-      "message0": "ball_is_own_penalty (predicted ball : %1 %2 )",
+      "message0": "%1 %2 is own penalty area",
       "args0": [
         {
           "type": "input_dummy"
@@ -170,7 +180,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
   
     {
       "type": "ball_is_own_field",
-      "message0": "ball_is_own_field %1 (predicted_ball : %2 )",
+      "message0": "%1 %2 is own field",
       "args0": [
         {
           "type": "input_dummy"
@@ -189,7 +199,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
   
     {
       "type": "ball_is_opp_goal",
-      "message0": "ball_is_opp_goal (predicted ball : %1 %2 )",
+      "message0": "%1 %2 is opponent's goal area",
       "args0": [
         {
           "type": "input_dummy"
@@ -208,7 +218,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
   
     {
       "type": "ball_is_opp_penalty",
-      "message0": "ball_is_opp_penalty (predicted ball : %1 %2 )",
+      "message0": "%1 %2 is opponent's penalty area",
       "args0": [
         {
           "type": "input_dummy"
@@ -227,7 +237,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
   
     {
       "type": "ball_is_opp_field",
-      "message0": "ball_is_opp_field %1 (predicted_ball : %2 )",
+      "message0": "%1 %2 is opponent's field",
       "args0": [
         {
           "type": "input_dummy"
@@ -245,55 +255,198 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     },
   
     {
-      "type": "get_defense_kick_angle",
-      "message0": "get_defense_kick_angle",
+      "type": "ball_is_gk_zone",
+      "message0": "ball is gk zone",
       "inputsInline": true,
-      "output": "Number",
+      "output": "Boolean",
       "style": "environment_functions_blocks",
       "tooltip": "",
       "helpUrl": ""
     },
   
     {
-      "type": "get_attack_kick_angle",
-      "message0": "get_attack_kick_angle",
+      "type": "ball_is_d1_zone",
+      "message0": "ball is d1 zone",
       "inputsInline": true,
-      "output": "Number",
+      "output": "Boolean",
       "style": "environment_functions_blocks",
       "tooltip": "",
       "helpUrl": ""
     },
   
-    // {
-    //   "type": "set_wheel_velocity",
-    //   "message0": "set_wheel_velocity %1 (max_linear_velocity : %2 left_wheel : %3 right_wheel : %4 )",
-    //   "args0": [
-    //     {
-    //       "type": "input_dummy"
-    //     },
-    //     {
-    //       "type": "input_value",
-    //       "name": "predicted_ball"
-    //     },
-    //     {
-    //       "type": "input_value",
-    //       "name": "field"
-    //     },
-    //     {
-    //       "type": "input_value",
-    //       "name": "cur_ball"
-    //     }
-    //   ],
-    //   "inputsInline": true,
-    //   "output": null,
-    //   "colour": 20,
-    //   "tooltip": "",
-    //   "helpUrl": ""
-    // },
+    {
+      "type": "ball_is_d2_zone",
+      "message0": "ball is d2 zone",
+      "inputsInline": true,
+      "output": "Boolean",
+      "style": "environment_functions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+  
+    {
+      "type": "ball_is_f1_zone",
+      "message0": "ball is f1 zone",
+      "inputsInline": true,
+      "output": "Boolean",
+      "style": "environment_functions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+  
+    {
+      "type": "ball_is_f2_zone",
+      "message0": "ball is f2 zone",
+      "inputsInline": true,
+      "output": "Boolean",
+      "style": "environment_functions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+  
+    {
+      "type": "is_state_default",
+      "message0": "game state is default",
+      "inputsInline": true,
+      "output": "Boolean",
+      "style": "environment_functions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+  
+    {
+      "type": "is_state_goalkick",
+      "message0": "game state is goalkick",
+      "inputsInline": true,
+      "output": "Boolean",
+      "style": "environment_functions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+  
+    {
+      "type": "is_state_cornerkick",
+      "message0": "game state is cornerkick",
+      "inputsInline": true,
+      "output": "Boolean",
+      "style": "environment_functions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+  
+    {
+      "type": "is_state_kickoff",
+      "message0": "game state is kickoff",
+      "inputsInline": true,
+      "output": "Boolean",
+      "style": "environment_functions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+  
+    {
+      "type": "is_state_penaltykick",
+      "message0": "game state is penaltykick",
+      "inputsInline": true,
+      "output": "Boolean",
+      "style": "environment_functions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
+      "type": "is_closest_to_ball",
+      "message0": "%1 %2 is closest to the ball",
+      "args0": [
+        {
+          "type": "input_dummy"
+        },
+        {
+          "type": "input_value",
+          "name": "robot_id",
+          "check": "Number"
+        }
+      ],
+      "inputsInline": true,
+      "output": "Boolean",
+      "style": "environment_functions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
+      "type": "is_close_to_ball",
+      "message0": "%1 %2 is close to the ball",
+      "args0": [
+        {
+          "type": "input_dummy"
+        },
+        {
+          "type": "input_value",
+          "name": "robot_id",
+          "check": "Number"
+        }
+      ],
+      "inputsInline": true,
+      "output": "Boolean",
+      "style": "environment_functions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
+      "type": "has_ball_possession",
+      "message0": "%1 %2 has ball possession",
+      "args0": [
+        {
+          "type": "input_dummy"
+        },
+        {
+          "type": "input_value",
+          "name": "robot_id",
+          "check": "Number"
+        }
+      ],
+      "inputsInline": true,
+      "output": "Boolean",
+      "style": "environment_functions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+  
+    {
+      "type": "is_gk_in_goalcenter",
+      "message0": "GK is in goalcenter",
+      "inputsInline": true,
+      "output": "Boolean",
+      "style": "environment_functions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
+      "type": "robot_in_front_of_ball",
+      "message0": "%1 %2 is in front of the ball",
+      "args0": [
+        {
+          "type": "input_dummy"
+        },
+        {
+          "type": "input_value",
+          "name": "robot_id",
+          "check": "Number"
+        }
+      ],
+      "inputsInline": true,
+      "output": "Boolean",
+      "style": "environment_functions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
 
     {
       "type": "printconsole",
-      "message0": "printConsole %1 (message : %2 )",
+      "message0": "%1 printConsole (message : %2 )",
       "args0": [
         {
           "type": "input_dummy"
