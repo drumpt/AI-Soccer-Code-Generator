@@ -604,7 +604,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
     {
       "type": "has_ball_possession",
-      "message0": "has ball possession",
+      "message0": "ball possession",
       "inputsInline": true,
       "output": "Boolean",
       "style": "environment_functions_blocks",
@@ -614,7 +614,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
     {
       "type": "looking_to_target",
-      "message0": "is robot looking to target",
+      "message0": "robot looking to target",
       "inputsInline": true,
       "output": "Boolean",
       "style": "environment_functions_blocks",
@@ -624,7 +624,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
     {
       "type": "looking_to_ball",
-      "message0": "is robot looking to ball",
+      "message0": "robot looking to ball",
       "inputsInline": true,
       "output": "Boolean",
       "style": "environment_functions_blocks",
@@ -634,7 +634,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
     {
       "type": "looking_to_goal",
-      "message0": "is robot looking to goal",
+      "message0": "robot looking to goal",
       "inputsInline": true,
       "output": "Boolean",
       "style": "environment_functions_blocks",
