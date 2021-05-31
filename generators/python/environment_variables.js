@@ -27,10 +27,88 @@ goog.require('Blockly.Python');
 
 Blockly.Python.addReservedWords('math,random,Number');
 
+// DEEP LEARNING
+
+Blockly.Python['reward_types'] = function(block) {
+
+  var CONSTANTS = {
+    'REWARD_BINARY': 'self.reward_type = \'reward_binary\'\n',    // name : generated code
+    'REWARD_CONTINUOUS': 'self.reward_type = \'reward_continuous\'\n',
+    'REWARD_SPARSE': 'self.reward_type = \'reward_sparse\'\n'
+  };
+  var constant = block.getFieldValue('CONSTANT');
+  return CONSTANTS[constant];
+};
+
+Blockly.Python['state_types'] = function(block) {
+
+  var CONSTANTS = {
+    'POLAR': 'self.state_type = \'state_polar\'\n',    // name : generated code
+    'RELATIVE': 'self.state_type = \'state_relative\'\n'
+  };
+  var constant = block.getFieldValue('CONSTANT');
+  return CONSTANTS[constant];
+};
+
+Blockly.Python['action_types'] = function(block) {
+
+  var CONSTANTS = {
+    'POSITION': 'self.action_type = \'action_position\'\n',    // name : generated code
+    'VELOCITY': 'self.action_type = \'action_velocity\'\n'
+  };
+  var constant = block.getFieldValue('CONSTANT');
+  return CONSTANTS[constant];
+};
+
+Blockly.Python['action_sets'] = function(block) {
+
+  var CONSTANTS = {
+    'SMALL': 'self.action_set = \'small\'\n',    // name : generated code
+    'LARGE': 'self.action_set = \'large\'\n'
+  };
+  var constant = block.getFieldValue('CONSTANT');
+  return CONSTANTS[constant];
+};
+
+// RULE-BASED
+
+Blockly.Python['robot_variables'] = function(block) {
+  // Variables: id, idx, idx_opp, attack_angle, defense_angle.
+  var CONSTANTS = {
+    'ROBOT_X_COORDINATE': ['cur_posture[robot_id][X]', Blockly.Python.ORDER_MEMBER],    // name : generated code
+    'ROBOT_Y_COORDINATE': ['cur_posture[robot_id][Y]', Blockly.Python.ORDER_MEMBER],
+    'ROBOT_ORIENTATION': ['cur_posture[robot_id][TH]', Blockly.Python.ORDER_MEMBER]
+  };
+  var constant = block.getFieldValue('CONSTANT');
+  return CONSTANTS[constant];
+};
+
+Blockly.Python['ball_variables'] = function(block) {
+  // Variables: id, idx, idx_opp, attack_angle, defense_angle.
+  var CONSTANTS = {
+    'BALL_X_COORDINATE': ['cur_ball[X]', Blockly.Python.ORDER_MEMBER],    // name : generated code
+    'BALL_Y_COORDINATE': ['cur_ball[Y]', Blockly.Python.ORDER_MEMBER],
+    'BALL_Z_COORDINATE': ['cur_ball[Z]', Blockly.Python.ORDER_MEMBER]
+  };
+  var constant = block.getFieldValue('CONSTANT');
+  return CONSTANTS[constant];
+};
+
+Blockly.Python['opponent_variables'] = function(block) {
+  // Variables: id, idx, idx_opp, attack_angle, defense_angle.
+  var CONSTANTS = {
+    'OPPONENT_X_COORDINATE': ['cur_posture_opp[robot_id][X]', Blockly.Python.ORDER_MEMBER],    // name : generated code
+    'OPPONENT_Y_COORDINATE': ['cur_posture_opp[robot_id][Y]', Blockly.Python.ORDER_MEMBER],
+    'OPPONENT_ORIENTATION': ['cur_posture_opp[robot_id][TH]', Blockly.Python.ORDER_MEMBER]
+  };
+  var constant = block.getFieldValue('CONSTANT');
+  return CONSTANTS[constant];
+};
+
 Blockly.Python['env_variables'] = function(block) {
   // Variables: id, idx, idx_opp, attack_angle, defense_angle.
   var CONSTANTS = {
-    'ID': ['self.id', Blockly.Python.ORDER_MEMBER],    // name : generated code
+    'ID': ['robot_id', Blockly.Python.ORDER_MEMBER],    // name : generated code
     'IDX': ['idx', Blockly.Python.ORDER_MEMBER],
     'IDX_OPP': ['idx_opp', Blockly.Python.ORDER_MEMBER],
     'ATTACK_ANGLE': ['attack_angle', Blockly.Python.ORDER_MEMBER],
@@ -55,6 +133,53 @@ Blockly.Python['env_variables_1d'] = function(block) {
       break;
     case 'PREDICTED_BALL':
       code = 'predicted_ball[' + arg + ']';
+      break;
+  }
+  if (arg.length === 0) {
+    code = code.replace("[", "").replace("]", "");
+  }
+  if (code) {
+    return [code, Blockly.Python.ORDER_FUNCTION_CALL];
+  }
+};
+
+Blockly.Python['robot_to_variables'] = function(block) {
+  // Math operators with single operand.
+  var operator = block.getFieldValue('OP');
+  var code;
+  var arg;
+  arg = Blockly.Python.valueToCode(block, 'NUM', Blockly.Python.ORDER_NONE);
+  switch (operator) {
+    case 'ROBOT_TO_GOAL':
+      code = 'robot_to_goal[' + arg + ']';
+      break;
+    case 'ROBOT_TO_TARGET':
+      code = 'robot_to_target[' + arg + ']';
+      break;
+    case 'ROBOT_TO_BALL':
+      code = 'robot_to_ball[' + arg + ']';
+      break;
+    case 'ROBOT_TO_ROBOT':
+      code = 'robot_to_robot[' + arg + ']';
+      break;
+  }
+  if (arg.length === 0) {
+    code = code.replace("[", "").replace("]", "");
+  }
+  if (code) {
+    return [code, Blockly.Python.ORDER_FUNCTION_CALL];
+  }
+};
+
+Blockly.Python['target_variables'] = function(block) {
+  // Math operators with single operand.
+  var operator = block.getFieldValue('OP');
+  var code;
+  var arg;
+  arg = Blockly.Python.valueToCode(block, 'NUM', Blockly.Python.ORDER_NONE);
+  switch (operator) {
+    case 'TARGET':
+      code = 'target[' + arg + ']';
       break;
   }
   if (arg.length === 0) {

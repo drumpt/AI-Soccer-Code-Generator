@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>AI SOCCER CODE GENERATOR - Rule Based System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="style_rule_based.css">
+  <script src="template-blocks/blockly_compressed.js"></script>
+  <script src="template-blocks/python_compressed.js"></script>
+  <script src="template-blocks/blocks_compressed.js"></script>
+  <script src="template-blocks/toolbox_standard.js"></script>
+  <script src="msg/js/en.js"></script>
+  <script src="template-codes/ebs_constants.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.2.0/jszip.min.js"></script>
+</head>
+<body>
+  <p>EBS Code Generator - Rule Based</p>
+
+	<!-- define codeContainer for splitting screen into block part and code part -->
+	<div id='codeContainer' style="height: 750px">
+
+    <div id="blocklyDiv" style="width: 60%; height: auto; float:right;">
+      <!-- <xml id="default_blocks_gk" style="display:none;">
+        <block type="math_number">
+          <field name="NUM">-1</field>
+        </block>
+      </xml> -->
+    </div>
+
+		<script type="text/javascript">
+			var workspacePlayground = Blockly.inject('blocklyDiv', {
+        media: 'media/',
+        toolbox: BLOCKLY_TOOLBOX_XML['standard'],
+        move:{
+          scrollbars: true,
+          drag: true,
+          wheel: true
+        },
+        zoom:{
+          controls: true,
+          wheel: true,
+          startScale: 1.0,
+          maxScale: 3,
+          minScale: 0.3,
+          scaleSpeed: 1.2
+        }
+      });
+
+      // variable to save the current workspace code
+	    var code = Blockly.Xml.domTo;
+      workspacePlayground.addChangeListener(updateCode);
+
+      function preprocessCode(rawcode) {
+        var first_indent = "        ";
+        var code_with_indent = rawcode.replace(/\n/g, "\n        ");
+        var code_ = first_indent.concat(code_with_indent);
+        return code_;
+      }
+
+      function saveCode() {
+        var strategy_code = preprocessCode(code);
+        var players_script = PLAYERS_P1.concat(strategy_code, PLAYERS_P2);
+
+        // var xml_txt = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspacePlayground));
+        // console.log(xml_txt);
+        console.log(PLAYERS_P2);
+
+        var link = document.createElement("a");
+        var players_blob = new Blob([players_script], {type: 'text/plain'});
+
+        var zip = new JSZip();
+        zip.file("players"+".py", players_blob, {type: 'text/plain'});
+            
+        zip.generateAsync({type:"blob"}).then(function(content) {
+            // see FileSaver.js
+            saveAs(content, "mystrategy.zip");
+        });
+      }
+
+      function updateCode() {
+            code = Blockly.Python.workspaceToCode(workspacePlayground);
+        }
+    </script>
+	</div>
+  <button id="saveButton" onclick="saveCode();">Generate Code</button>
+</body>
+</html>

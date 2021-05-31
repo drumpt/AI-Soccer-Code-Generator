@@ -35,9 +35,183 @@ goog.require('Blockly.Blocks');
 Blockly.Constants.Environment_actions.HUE = 20;
 
 Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
+    
+    // DEEP LEARNING
+  
+    {
+      "type": "train",
+      "message0": "훈련",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "style": "environment_actions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
+      "type": "play",
+      "message0": "테스트",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "style": "environment_actions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+  
+    // RULE-BASED
+
     {
       "type": "stop",
-      "message0": "stop",
+      "message0": "멈춤",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "style": "environment_actions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
+      "type": "go_forward",
+      "message0": "전진",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "style": "environment_actions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
+      "type": "go_backward",
+      "message0": "후진",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "style": "environment_actions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
+      "type": "turn_right",
+      "message0": "오른쪽 회전",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "style": "environment_actions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
+      "type": "turn_left",
+      "message0": "왼쪽 회전",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "style": "environment_actions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
+      "type": "kick",
+      "message0": "킥",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "style": "environment_actions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
+      "type": "kick_control",
+      "message0": "%1 킥 (속도: %2  높이: %3)",
+      "args0": [
+        {
+          "type": "input_dummy"
+        },
+        {
+          "type": "input_value",
+          "name": "x",
+          "check": "Number"
+        },
+        {
+          "type": "input_value",
+          "name": "y",
+          "check": "Number"
+        }
+      ],
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "style": "environment_actions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
+      "type": "jump_right_high",
+      "message0": "높게 오른쪽 점프",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "style": "environment_actions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
+      "type": "jump_right_low",
+      "message0": "낮게 오른쪽 점프",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "style": "environment_actions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
+      "type": "jump_center_high",
+      "message0": "높게 중앙 점프",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "style": "environment_actions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
+      "type": "jump_center_low",
+      "message0": "낮게 중앙 점프",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "style": "environment_actions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
+      "type": "jump_left_high",
+      "message0": "높게 왼쪽 점프",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "style": "environment_actions_blocks",
+      "tooltip": "",
+      "helpUrl": ""
+    },
+
+    {
+      "type": "jump_left_low",
+      "message0": "낮게 왼쪽 점프",
       "inputsInline": true,
       "previousStatement": null,
       "nextStatement": null,
@@ -94,7 +268,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
     {
       "type": "jump",
-      "message0": "jump",
+      "message0": "점프",
       "inputsInline": true,
       "previousStatement": null,
       "nextStatement": null,
@@ -105,7 +279,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
     {
       "type": "go_to",
-      "message0": "%1 go to (x : %2 y : %3)",
+      "message0": "%1 이동 (x : %2 y : %3)",
       "args0": [
         {
           "type": "input_dummy"
@@ -131,7 +305,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
     {
       "type": "turn_to",
-      "message0": "%1 turn to (x : %2 y : %3)",
+      "message0": "%1 회전 (x : %2 y : %3)",
       "args0": [
         {
           "type": "input_dummy"
@@ -157,7 +331,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
     {
       "type": "shoot_to",
-      "message0": "%1 shoot to (x : %2 y : %3)",
+      "message0": "%1 슛 (x : %2 y : %3)",
       "args0": [
         {
           "type": "input_dummy"
@@ -183,7 +357,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
     {
       "type": "defend_ball",
-      "message0": "gk save ball",
+      "message0": "gk 공 방어",
       "inputsInline": true,
       "previousStatement": null,
       "nextStatement": null,
@@ -194,7 +368,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
     {
       "type": "is_gk_save_possible",
-      "message0": "is gk save possible",
+      "message0": "골키퍼 세이브 가능",
       "inputsInline": true,
       "output": "Boolean",
       "style": "environment_actions_blocks",
@@ -204,7 +378,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
     {
       "type": "pass_to",
-      "message0": "%1 pass to (x : %2 y : %3)",
+      "message0": "%1 패스 (x : %2 y : %3)",
       "args0": [
         {
           "type": "input_dummy"
@@ -230,7 +404,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
     {
       "type": "pass_to_robot",
-      "message0": "%1 pass to robot : %2",
+      "message0": "%1 로봇에게 패스 : %2",
       "args0": [
         {
           "type": "input_dummy"
@@ -251,7 +425,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
     {
       "type": "cross_to",
-      "message0": "%1 cross to (x : %2 y : %3 z : %4)",
+      "message0": "%1 크로스 (x : %2 y : %3 z : %4)",
       "args0": [
         {
           "type": "input_dummy"
@@ -282,7 +456,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
     {
       "type": "is_cross_to_possible",
-      "message0": "%1 is cross to (x : %2 y : %3 z : %4) posible",
+      "message0": "%1 크로스 가능 (x : %2 y : %3 z : %4)",
       "args0": [
         {
           "type": "input_dummy"
@@ -312,7 +486,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
     {
       "type": "cross_to_robot",
-      "message0": "%1 cross to robot : %2",
+      "message0": "%1 로봇에게 크로스 : %2",
       "args0": [
         {
           "type": "input_dummy"
@@ -333,7 +507,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
     {
       "type": "is_cross_to_robot_possible",
-      "message0": "%1 is cross to robot : %2 possible",
+      "message0": "%1 로봇에게 크로스 가능 : %2",
       "args0": [
         {
           "type": "input_dummy"

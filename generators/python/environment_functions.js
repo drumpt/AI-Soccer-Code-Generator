@@ -25,6 +25,74 @@ goog.provide('Blockly.Python.Environment_functions');
 
 goog.require('Blockly.Python');
 
+// DEEP LEARNING
+
+Blockly.Python['num_layers'] = function(block) {
+  var num_layers = Blockly.Python.valueToCode(block, 'num', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = 'self.num_layers = ' + num_layers + '\n';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return code;
+};
+
+Blockly.Python['hidden_dim'] = function(block) {
+  var hidden_dim = Blockly.Python.valueToCode(block, 'num', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = 'self.hidden_dim = ' + hidden_dim + '\n';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return code;
+};
+
+Blockly.Python['ddpg_batch_size'] = function(block) {
+  var batch_size = Blockly.Python.valueToCode(block, 'num', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = 'self.ddpg_batch_size = ' + batch_size + '\n';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return code;
+};
+
+Blockly.Python['ddpg_buffer_size'] = function(block) {
+  var batch_size = Blockly.Python.valueToCode(block, 'num', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = 'self.ddpg_buffer_size = ' + batch_size + '\n';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return code;
+};
+
+Blockly.Python['dqn_buffer_size'] = function(block) {
+  var batch_size = Blockly.Python.valueToCode(block, 'num', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = 'self.dqn_buffer_size = ' + batch_size + '\n';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return code;
+};
+
+Blockly.Python['ddpg_gamma'] = function(block) {
+  var gamma = Blockly.Python.valueToCode(block, 'num', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = 'self.ddpg_gamma = ' + gamma + '\n';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return code;
+};
+
+Blockly.Python['ddpg_dec_exploration'] = function(block) {
+  var dec_epsilon = Blockly.Python.valueToCode(block, 'num', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = 'self.ddpg_dec_exploration = ' + dec_epsilon + '\n';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return code;
+};
+
+Blockly.Python['dqn_dec_exploration'] = function(block) {
+  var dec_epsilon = Blockly.Python.valueToCode(block, 'num', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = 'self.dqn_dec_exploration = ' + dec_epsilon + '\n';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return code;
+};
+
+// RULE-BASED
+
 Blockly.Python['distance'] = function(block) {
     var value_x1 = Blockly.Python.valueToCode(block, 'x1', Blockly.Python.ORDER_ATOMIC);
     var value_x2 = Blockly.Python.valueToCode(block, 'x2', Blockly.Python.ORDER_ATOMIC);
@@ -34,7 +102,17 @@ Blockly.Python['distance'] = function(block) {
     var code = "helper.distance(" + value_x1 + ", " + value_x2 + ", " + value_y1 + ", " + value_y2 + ")";
     return [code, Blockly.Python.ORDER_NONE];
   };
-  
+
+  Blockly.Python['relative_distance'] = function(block) {
+    var value_x1 = Blockly.Python.valueToCode(block, 'x1', Blockly.Python.ORDER_ATOMIC);
+    var value_x2 = Blockly.Python.valueToCode(block, 'x2', Blockly.Python.ORDER_ATOMIC);
+    var value_y1 = Blockly.Python.valueToCode(block, 'y1', Blockly.Python.ORDER_ATOMIC);
+    var value_y2 = Blockly.Python.valueToCode(block, 'y2', Blockly.Python.ORDER_ATOMIC);
+    // var code = Math.sqrt(Math.pow(value_x1 - value_x2, 2) + Math.pow(value_y1 - value_y2, 2));
+    var code = "helper.relative_distance(" + value_x1 + ", " + value_x2 + ", " + value_y1 + ", " + value_y2 + ")";
+    return [code, Blockly.Python.ORDER_NONE];
+  };
+
   Blockly.Python['degree2radian'] = function(block) {
     var value_deg = Blockly.Python.valueToCode(block, 'deg', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
@@ -53,7 +131,7 @@ Blockly.Python['distance'] = function(block) {
   
   Blockly.Python['predict_ball'] = function(block) {
     var value_1 = Blockly.Python.valueToCode(block, 'prediction_step', Blockly.Python.ORDER_ATOMIC);
-    var code = 'helper.predict_ball(cur_ball, previous_ball, reset_reason'+ value_1 +')';
+    var code = 'helper.predict_ball(cur_ball, prev_ball, '+ value_1 +')';
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.Python.ORDER_NONE];
   };
@@ -198,11 +276,38 @@ Blockly.Python['distance'] = function(block) {
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.Python.ORDER_NONE];
   };
-  
+
   Blockly.Python['has_ball_possession'] = function(block) {
-    var value_1 = Blockly.Python.valueToCode(block, 'robot_id', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    var code = 'helper.has_ball_possession(cur_posture[' + value_1 + "])";
+    var code = "helper.has_ball_possession(cur_posture[robot_id])";
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.Python.ORDER_NONE];
+  };
+
+  Blockly.Python['looking_to_target'] = function(block) {
+    // TODO: Assemble Python into code variable.
+    var code = "helper.looking_to_target(cur_posture[robot_id], robot_to_target)";
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.Python.ORDER_NONE];
+  };
+
+  Blockly.Python['looking_to_ball'] = function(block) {
+    // TODO: Assemble Python into code variable.
+    var code = "helper.looking_to_ball(cur_posture[robot_id], robot_to_ball)";
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.Python.ORDER_NONE];
+  };
+
+  Blockly.Python['looking_to_goal'] = function(block) {
+    // TODO: Assemble Python into code variable.
+    var code = "helper.looking_to_goal(cur_posture[robot_id], robot_to_goal)";
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.Python.ORDER_NONE];
+  };
+
+  Blockly.Python['looking_to_robot'] = function(block) {
+    // TODO: Assemble Python into code variable.
+    var code = "helper.looking_to_robot(cur_posture[robot_id], robot_to_robot)";
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.Python.ORDER_NONE];
   };
