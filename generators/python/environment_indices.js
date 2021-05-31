@@ -75,15 +75,15 @@ Blockly.Python['env_coordinates_index'] = function(block) {
 //   return CONSTANTS[constant];
 // };
 
-// Blockly.Python['env_robot_index'] = function(block) {
-//   // Constants: GK, D1, D2, F1, F2.
-//   var CONSTANTS = {
-//       'GK': ['self.gk_index', Blockly.Python.ORDER_MEMBER],
-//       'D1': ['self.d1_index', Blockly.Python.ORDER_MEMBER],
-//       'D2': ['self.d2_index', Blockly.Python.ORDER_MEMBER],
-//       'F1': ['self.f1_index', Blockly.Python.ORDER_MEMBER],
-//       'F2': ['self.f2_index', Blockly.Python.ORDER_MEMBER]
-//   };
-//   var constant = block.getFieldValue('CONSTANT');
-//   return CONSTANTS[constant];
-// };
+Blockly.Python['env_robot_index'] = function(block) {
+  // Constants: GK, D1, D2, F1, F2.
+  var CONSTANTS = {
+      'GK': ['self.gk_index', Blockly.Python.ORDER_MEMBER],
+      // 'D1': ['self.d1_index', Blockly.Python.ORDER_MEMBER],
+      // 'D2': ['self.d2_index', Blockly.Python.ORDER_MEMBER],
+      'F1': ['self.f1_index', Blockly.Python.ORDER_MEMBER],
+      'F2': ['self.f2_index', Blockly.Python.ORDER_MEMBER]
+  };
+  var constant = block.getFieldValue('CONSTANT');
+  return CONSTANTS[constant];
+};
